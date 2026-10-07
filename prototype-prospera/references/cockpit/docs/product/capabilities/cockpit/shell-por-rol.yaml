@@ -1,0 +1,17 @@
+id: shell-por-rol
+legacy_id: CAP-05
+module: cockpit
+node: N13
+nombre: "Shell por rol + selector de empresa"
+que_hace: >-
+  Sidebar con selector de Empresa y nav por rol — Directorio vivo; Área/Consultor placeholders
+  "próximamente".
+status: live
+rutas: [ui/components/shell/]
+componentes: [cockpit-shell]
+fichas: [CK-06]
+verificada: 2026-07-06
+business_rules: []
+scenarios: []
+provenance:
+  increment_id: CAP-05

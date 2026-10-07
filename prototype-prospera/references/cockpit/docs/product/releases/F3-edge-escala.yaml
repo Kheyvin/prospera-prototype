@@ -1,0 +1,27 @@
+id: F3
+nombre: "Edge completo + escala del twin"
+estado: pendiente
+descripcion: >-
+  El ecosistema completo sobre el twin ya vendible (CK-22): las apps de escritorio con shell
+  propio (Consultio clon de DevStudio — el v0 de arneses ya operó en F1 —, Colab Studio para el
+  trabajador operativo), la fábrica automatizada (pipeline arnés-por-rol en Arnesia), y las
+  capacidades agénticas/de frescura del twin (MCP server, crowdsourcing de frescura + chat
+  grounded). Incluye las capabilities gateadas por demanda (knowledge database files-first —
+  D5; preparación de auditoría — CK-10) y housekeeping. Horizontes que siguen gateados DESPUÉS
+  de F3: simulación (what-if por branch → BPSim/DEMO → agentes LLM con arneses, CK-21/D9) y
+  multitenant real.
+stories:
+  - construir-consultio-clon-devstudio
+  - colab-studio-app-trabajador
+  - arnesia-pipeline-arnes-por-rol
+  - mcp-server-twin
+  - crowdsourcing-frescura
+  - knowledge-database-files-first
+  - capability-preparacion-auditoria
+  - borrar-carpetas-campaign-originales
+exit_criteria: >-
+  Un trabajador operativo del cliente opera su día a día desde Colab Studio con los arneses de
+  su puesto jalados del Repositorio de Arneses; el consultor/analista trabaja desde el shell de
+  Consultio; un agente externo consulta el twin vía MCP; los dueños de datos reciben encuestas
+  de frescura y el twin no envejece.
+fichas: [CK-18, CK-21, CK-22]

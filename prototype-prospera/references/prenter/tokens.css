@@ -1,0 +1,203 @@
+/* Portable PRENTER reference extracted from references/cockpit/ui/app/globals.css.
+   No remote imports; canonical values preserved; system fallbacks work offline. */
+/* Fuentes de marca sustitutas (Coco Gothic→Jost · Sansation→Mulish · mono=JetBrains).
+ * DEBE ir primero: los @import CSS preceden toda regla. Al recibir los .woff2
+ * oficiales → reemplazar por @font-face y quitar sustitutos. El binario embebido
+ * offline cae a system-ui si el CDN no resuelve. */
+
+/* ─────────────────────────────────────────────────────────────────────────
+ * PRENTER Design System — fundación de tokens (CK-27).
+ * SSoT visual = proyecto Claude Design "PRENTER Design System"
+ * (id a98c2e0d-db82-43f2-8fd7-e7e05c40fd51, is_default). Dark-first, teal
+ * único acento, tipografía display apretada + mono técnica.
+ * Ported fiel de tokens/{colors,typography,spacing,fonts}.css de PRENTER.
+ * Regla: .claude/rules/ui-design-system.md — NO redefinir estos valores
+ * fuera de acá; consumir por token (var(--brand), utilidades Tailwind, o
+ * los átomos de ui/components/ds/).
+ * ───────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Fuentes → utilidades font-display / font-body / font-mono ── */
+  --font-display: 'Coco Gothic', 'Jost', system-ui, sans-serif;
+  --font-body: 'Sansation', 'Mulish', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ── Brand teal ramp → bg-teal-500, text-teal-400, … ── */
+  --color-teal-50: #e6f8f6;
+  --color-teal-100: #c2efea;
+  --color-teal-200: #8fe3da;
+  --color-teal-300: #54d4c8;
+  --color-teal-400: #1fc6b8;
+  --color-teal-500: #00b7aa; /* brand primary */
+  --color-teal-600: #009d92;
+  --color-teal-700: #007f76;
+  --color-teal-800: #0a605a;
+  --color-teal-900: #0d4944;
+
+  /* ── Neutrals (ligeramente fríos) ── */
+  --color-neutral-50: #f6f8f8;
+  --color-neutral-100: #eef1f1;
+  --color-neutral-200: #e1e6e6;
+  --color-neutral-300: #c9d1d1;
+  --color-neutral-400: #98a3a3;
+  --color-neutral-500: #6b7676;
+  --color-neutral-600: #4d5757;
+  --color-neutral-700: #353d3d;
+  --color-neutral-800: #1a201f;
+  --color-neutral-900: #0e1312;
+
+  /* ── Core ── */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-ink: #0a0d0c;
+
+  /* ── Dark surfaces (identidad principal) ── */
+  --color-dark-bg: #000000;
+  --color-dark-surface: #0c1110;
+  --color-dark-raised: #141a19;
+  --color-dark-border: #1f2826;
+
+  /* ── Semantic: brand states ── */
+  --color-brand: var(--color-teal-500);
+  --color-brand-hover: var(--color-teal-400);
+  --color-brand-active: var(--color-teal-600);
+  --color-brand-subtle: var(--color-teal-50);
+  --color-brand-contrast: #000000;
+  --color-focus-ring: var(--color-teal-400);
+
+  /* ── Semantic: surfaces / borders ── */
+  --color-surface-page: var(--color-white);
+  --color-surface-card: var(--color-white);
+  --color-surface-sunken: var(--color-neutral-50);
+  --color-surface-muted: var(--color-neutral-100);
+  --color-surface-inverse: var(--color-black);
+  --color-border-subtle: var(--color-neutral-200);
+  --color-border-default: var(--color-neutral-300);
+  --color-border-strong: var(--color-neutral-400);
+  --color-border-brand: var(--color-teal-500);
+
+  /* ── Status (apagados, corporativos) ── */
+  --color-success: #1f9d6b;
+  --color-warning: #c98a16;
+  --color-danger: #d0483c;
+
+  /* ── Radii → rounded-sm / rounded-lg / rounded-pill ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 22px;
+  --radius-pill: 999px;
+
+  /* ── Compat: nombres legacy del cockpit remapeados a PRENTER (mata el púrpura
+   *    #7c3aed de devhub). Las vistas existentes usan bg-[var(--color-panel2)]
+   *    etc. — siguen funcionando, ahora en dark+teal. Migrar a tokens PRENTER
+   *    nativos es follow-up de la story design-system-atomic-storybook. ── */
+  --color-bg: var(--color-dark-bg);
+  --color-panel: var(--color-dark-surface);
+  --color-panel2: var(--color-dark-raised);
+  --color-border: var(--color-dark-border);
+  --color-text: rgba(255, 255, 255, 0.92);
+  --color-muted: rgba(255, 255, 255, 0.55);
+  --color-accent: var(--color-teal-500);
+  --color-accent-hover: var(--color-teal-400);
+}
+
+/* Tokens no-utilitarios (se consumen vía var(): escalas, sombras, tipografía).
+ * Fuera de @theme para no interferir con el sistema de utilidades de Tailwind. */
+:root {
+  /* Texto sobre dark */
+  --text-on-dark: rgba(255, 255, 255, 0.92);
+  --text-on-dark-muted: rgba(255, 255, 255, 0.58);
+  --text-on-dark-faint: rgba(255, 255, 255, 0.34);
+  --text-on-dark-brand: var(--color-teal-400);
+  --dark-border-teal: rgba(0, 183, 170, 0.35);
+
+  /* Estado semántico en variante on-dark (los mismos que el Badge de PRENTER usa
+   * sobre superficies oscuras — legibles sobre negro, no el estado light directo).
+   * El semáforo/health de los lentes se rutea por acá, NO por hex hardcodeado. */
+  --color-success-dark: #5cc99a;
+  --color-warning-dark: #e0ad4e;
+  --color-danger-dark: #e2766b;
+
+  /* Escala de espaciado (grid 4px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Sombras (suaves + glow de marca) */
+  --shadow-xs: 0 1px 2px rgba(11, 15, 14, 0.05);
+  --shadow-sm: 0 1px 3px rgba(11, 15, 14, 0.07), 0 1px 2px rgba(11, 15, 14, 0.04);
+  --shadow-md: 0 4px 14px rgba(11, 15, 14, 0.08), 0 2px 4px rgba(11, 15, 14, 0.04);
+  --shadow-lg: 0 14px 40px rgba(11, 15, 14, 0.1), 0 4px 10px rgba(11, 15, 14, 0.05);
+  --shadow-brand: 0 8px 24px rgba(0, 183, 170, 0.22);
+
+  /* Escala tipográfica (px) */
+  --text-display: 64px;
+  --text-h1: 48px;
+  --text-h2: 36px;
+  --text-h3: 28px;
+  --text-h4: 22px;
+  --text-lg: 18px;
+  --text-base: 16px;
+  --text-sm: 14px;
+  --text-xs: 12px;
+  --text-overline: 12px;
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-overline: 0.14em;
+
+  --container-max: 1200px;
+  --container-narrow: 760px;
+}
+
+html,
+body {
+  background: var(--color-dark-bg);
+  color: var(--text-on-dark);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Helpers heredados (remapeados a PRENTER) */
+.panel {
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+}
+
+.panel2 {
+  background: var(--color-panel2);
+  border: 1px solid var(--color-border);
+}
+
+.text-muted {
+  color: var(--color-muted);
+}
+
+/* Firma PRENTER: eyebrow mono (etiqueta técnica uppercase + tracking ancho) */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-overline);
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--text-on-dark-brand);
+}

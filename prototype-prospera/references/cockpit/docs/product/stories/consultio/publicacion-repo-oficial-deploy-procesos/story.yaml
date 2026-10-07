@@ -1,0 +1,29 @@
+id: publicacion-repo-oficial-deploy-procesos
+type: service-story
+state: idea
+module: consultio
+node: N14
+cap_target: "consultio/publicacion-repo-oficial-deploy-procesos"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: [CK-11, CK-18]
+dependencies:
+  stories: [metodo-como-arnes-v0, forgejo-self-hosted-bd-vs-archivos]
+context:
+  job: "Como consultor quiero publicar el resultado ratificado al Repositorio Oficial (N6, git self-hosted) vía commit+tag y transferir la operación al Analista de Calidad (N9→N19) para hacer el 'deploy de procesos' del lado del cliente."
+  why: "Cierra el ciclo del levantamiento: el mapa construido pasa a ser lo oficial versionado y gobernado (Gestión de Cambios, BL-24). Sin publicación el trabajo del consultor no aterriza en la organización."
+provenance:
+  backlog_id: BL-17
+  titulo: "Publicación al Repositorio Oficial — 'deploy de procesos'"
+  detalle: >-
+    REDEFINIDO CK-18. Consultio publica el resultado ratificado a N6 (git self-hosted) vía commit+tag;
+    se une a la Gestión de Cambios (BL-24) para el gobierno del cambio del lado del cliente. Incluye
+    la transferencia consultor→Analista de Calidad (N9→N19): qué arneses/permisos cambian al entregar
+    la operación al cliente.
+  origen: "operador, sesión CK-11 · redefinido CK-18"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

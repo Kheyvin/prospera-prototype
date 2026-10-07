@@ -1,0 +1,31 @@
+id: hosteado-single-tenant
+type: service-story
+state: idea
+module: cockpit
+node: N13
+cap_target: "cockpit/hosteado-single-tenant"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: [CK-21]
+dependencies:
+  stories: [forgejo-self-hosted-bd-vs-archivos]
+context:
+  job: "Como fabricante quiero una modalidad de despliegue 'hosteado por nosotros' single-tenant por cliente (Forgejo + Cockpit + lake por instancia) como default comercial para vender sin exigirle al cliente infraestructura propia."
+  why: "El default self-hosted (CK-18 D3) frena la venta a PyMEs sin infra; CK-21 D3 lo invierte — hosteado single-tenant como default comercial, self-hosted como tier enterprise/regulados, multitenant real recién en fase 2 (>10-20 clientes)."
+provenance:
+  backlog_id: null
+  titulo: "Modalidad hosteada single-tenant como default comercial (invierte D3 de CK-18)"
+  detalle: >-
+    NUEVO CK-21 (D3). Modalidad de despliegue "hosteado por nosotros" single-tenant por cliente
+    (Forgejo + Cockpit + lake por instancia) como DEFAULT comercial — invierte D3 de CK-18;
+    self-hosted queda como tier enterprise/regulados; multitenant real = fase 2 (>10-20 clientes).
+    Incluye la reescritura del chequeo 2 de NODOS ("transitan, no persisten" muere en el default
+    hosteado) y asumir el rol de procesador de datos personales (DPA sobre nosotros). Research:
+    organization-as-code/08.
+  origen: "ficha CK-21 (2026-07-16) — visión organization-as-code + organization twin"
+  estado_legacy: n/a
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

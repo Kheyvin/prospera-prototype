@@ -1,0 +1,25 @@
+id: borrar-carpetas-campaign-originales
+type: bugfix
+state: idea
+module: sistema
+node: transversal
+cap_target: "sistema/borrar-carpetas-campaign-originales"
+cap_change_type: fix
+capability_status: planned
+release: F3
+prioridad: baja
+fichas: [CK-10]
+dependencies:
+  stories: []
+context:
+  job: "Como custodio del entorno quiero borrar las carpetas ~/Proyectos/campaign-* originales para eliminar el residuo ya rescatado fuera del repo."
+  why: "El contenido ya está rescatado en docs/research/; borrar las carpetas originales elimina duplicación, pero es decisión del operador."
+provenance:
+  backlog_id: BL-09
+  titulo: "Borrar carpetas ~/Proyectos/campaign-* originales"
+  detalle: "Contenido ya rescatado en docs/research/. Borrado pendiente — decisión del operador."
+  origen: "deuda CK-10"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

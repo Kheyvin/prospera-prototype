@@ -1,0 +1,29 @@
+id: persona-puesto-primera-clase
+type: service-story
+state: done
+module: sistema
+node: transversal
+cap_target: "cockpit/lente-personas"
+cap_change_type: new
+capability_status: live
+release: F0
+prioridad: alta
+fichas: [CK-10, CK-12]
+dependencies:
+  stories: []
+context:
+  job: "Como arquitecto del sistema quiero modelar persona/puesto como entidad de primera clase para que el pilar Personas exista de verdad junto a objetivo/área/proceso/brecha."
+  why: "Sin persona/rol como entidades reales el sistema no puede razonar sobre puestos ni servir la Lente Personas; el pilar quedaba como narrativa, no como dato."
+provenance:
+  backlog_id: BL-01
+  titulo: "Persona/puesto como entidad de primera clase"
+  detalle: "CERRADO (CK-12, CAP-07): el pilar Personas quedó modelado de verdad (entidades persona/rol en objeto.schema + Lente Personas), más allá de objetivo/área/proceso/brecha."
+  origen: "VISION §TBD · CK-10 'Siguiente'"
+  estado_legacy: hecho
+capability:
+  - cockpit/lente-personas
+  - cockpit/api-objeto
+done_via: [CK-12]
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

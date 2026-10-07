@@ -1,0 +1,33 @@
+id: destilar-research-sistema-vs-campana
+type: bugfix
+state: done
+module: sistema
+node: transversal
+cap_target: "sistema/destilar-research-sistema-vs-campana"
+cap_change_type: fix
+capability_status: planned
+release: F0
+prioridad: media
+fichas: [CK-11]
+dependencies:
+  stories: []
+context:
+  job: "Como custodio del repo quiero destilar la research heredada separando salidas de sistema de la narrativa de campaña para dejar el repo limpio y sin sesgo por herencia."
+  why: "La investigación heredada mezclaba salidas de sistema con campañas; promover lo válido a sistema/ y borrar lo demás evita que el repo arrastre sesgo del origen."
+provenance:
+  backlog_id: BL-07
+  titulo: "Destilar research: separar salidas de sistema vs narrativa de campaña"
+  detalle: >-
+    CERRADO (cierre de etapa). Salidas de sistema promovidas y campañas heredadas BORRADAS (no
+    congeladas): a sistema/schema/ → objeto.schema.yaml (CK-11) + ejemplo-vertice.yaml (fixture) +
+    metodologia/ (5 docs) + DECISIONES.md (ADR D-01..D-16); a sistema/metodo/ → SERVICE-DESIGN.md
+    (de-staleado: columnas Nodo marcadas pre-CK-18, links muertos del monorepo corregidos). Borradas
+    cockpit-negocio/, modelo-objeto/ (resto), service-design/, mockups/. research/ queda solo con
+    rediseno-total/ (SOTA vigente). Repo limpio, sin sesgo por herencia. Deuda aparte: BL-09 (borrar
+    carpetas campaign-* ORIGINALES fuera del repo).
+  origen: "operador: 'vamos destilando en el camino'"
+  estado_legacy: hecho
+done_via: [CK-11]
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

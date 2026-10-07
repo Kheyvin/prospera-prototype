@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cockpit · Grupo Cumbre — Vista Directorio (maqueta) — Prenter</title>
+<!--
+  MAQUETA COMERCIAL — Cockpit · Vista Directorio, una sola pantalla (screenshot-ready 16:9).
+  Empresa FICTICIA "Grupo Cumbre S.A.C." (comercializadora/distribuidora — rubro-agnóstico:
+  áreas funcionales y los 4 drivers universales que mira cualquier directorio).
+  Datos ILUSTRATIVOS. Marca Prenter · dark-first · teal #00b7aa único acento.
+  Autocontenido (sin deps, sin build). Modelo de datos al inicio del <script>.
+  Historia visual (As-Is → To-Be → brecha → proyectos, VISION.md):
+  fila 1 ¿dónde estamos? · fila 2 ¿qué se hace y dónde se rompe? · fila 3 ¿qué hacemos primero?
+-->
+<style>
+  :root{
+    --bg:#0a0c0d; --bg2:#101415; --panel:#14191b; --panel2:#1a2123;
+    --border:#232b2e; --border2:#2e383c;
+    --tx:#e7edee; --tx-mut:#8a989c; --tx-dim:#5e6b6f;
+    --teal:#00b7aa; --teal-dim:#0c6f68; --teal-glow:rgba(0,183,170,.22);
+    --manual:#e5564b; --externo:#f5a524; --integrado:#2ecf96;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(0,183,170,.06), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(0,183,170,.05), transparent 55%),
+      var(--bg);
+    color:var(--tx); font-family:var(--sans); font-size:14px; line-height:1.4;
+    -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; flex-direction:column;
+  }
+  .wrap{width:100%; max-width:1780px; margin:0 auto; padding:0 26px}
+  .eyebrow{font-family:var(--mono); font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:var(--tx-dim)}
+
+  /* ── header ── */
+  header{border-bottom:1px solid var(--border); background:linear-gradient(180deg,var(--bg2),transparent)}
+  .topbar{display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:18px}
+  .brand{display:flex; align-items:baseline; gap:13px}
+  .brand .logo{font-weight:700; font-size:18px; letter-spacing:.02em}
+  .brand .logo b{color:var(--teal)}
+  .brand .sep{color:var(--border2)}
+  .brand .client{font-family:var(--mono); font-size:12px; color:var(--tx-mut); letter-spacing:.08em}
+  .hstats{display:flex; gap:22px; align-items:center}
+  .hstat{text-align:right}
+  .hstat .v{font-size:15px; font-weight:650}
+  .hstat .k{font-family:var(--mono); font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--tx-dim)}
+  .demo-badge{font-family:var(--mono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--tx-mut); border:1px dashed var(--border2); border-radius:6px; padding:4px 9px}
+  .who{font-size:12px; color:var(--tx-mut); text-align:right}
+  .who b{color:var(--tx)}
+
+  /* ── layout ── */
+  main{flex:1; padding:8px 0 6px}
+  .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:10px}
+  .card{background:linear-gradient(180deg,var(--panel),var(--bg2)); border:1px solid var(--border);
+    border-radius:14px; padding:12px 14px; min-width:0}
+  .card h3{margin:2px 0 2px; font-size:14.5px; font-weight:650}
+  .card .sub{font-size:11.5px; color:var(--tx-mut); margin:0 0 9px}
+  .rowlabel{grid-column:1/-1; display:flex; align-items:center; gap:10px; margin:0 0 -7px}
+  .rowlabel .t{font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--teal)}
+  .rowlabel .ln{flex:1; height:1px; background:var(--border)}
+
+  /* ── gauge madurez ── */
+  .gauge-card{grid-column:span 3; display:flex; flex-direction:column}
+  .gauge-wrap{display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1}
+  .gauge-num{font-size:40px; font-weight:700; line-height:1; margin-top:-52px}
+  .gauge-num small{font-size:15px; color:var(--tx-dim); font-weight:600}
+  .gauge-cap{font-size:11.5px; color:var(--tx-mut); margin-top:3px; text-align:center}
+  .gauge-cap b{color:var(--teal); font-weight:600}
+
+  /* ── objetivos ── */
+  .obj-card{grid-column:span 9}
+  .obj-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+  .obj{background:var(--bg2); border:1px solid var(--border); border-radius:11px; padding:11px 12px; position:relative}
+  .obj .st{position:absolute; top:11px; right:11px; width:8px; height:8px; border-radius:50%}
+  .obj .ke{font-family:var(--mono); font-size:9px; letter-spacing:.1em; color:var(--tx-dim); text-transform:uppercase; display:block; min-height:22px}
+  .obj .nm{font-size:13.5px; font-weight:650; margin:2px 0 7px; line-height:1.2}
+  .bullet{position:relative; height:8px; border-radius:4px; background:var(--panel2); overflow:visible; margin-bottom:7px}
+  .bullet .fill{position:absolute; left:0; top:0; bottom:0; border-radius:4px 3px 3px 4px}
+  .bullet .goal{position:absolute; right:0; top:-3px; bottom:-3px; width:2px; background:var(--tx-mut); border-radius:1px}
+  .obj .vals{display:flex; justify-content:space-between; font-family:var(--mono); font-size:10.5px; color:var(--tx-mut)}
+  .obj .vals b{color:var(--tx); font-weight:600}
+  .obj .foot{font-size:10.5px; color:var(--tx-dim); margin-top:6px; padding-top:6px; border-top:1px solid var(--border)}
+  .obj .foot em{font-style:normal; color:var(--manual)}
+
+  /* ── mapa de salud por área ── */
+  .areas-card{grid-column:span 5}
+  .areas{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+  .areabox{background:var(--bg2); border:1px solid var(--border); border-radius:10px; padding:8px 10px}
+  .areabox .top{display:flex; justify-content:space-between; align-items:baseline; gap:8px}
+  .areabox .nm{font-size:12px; font-weight:600; line-height:1.2}
+  .areabox .sc{font-family:var(--mono); font-size:11px; font-weight:600}
+  .mbar{height:6px; border-radius:3px; background:var(--panel2); margin:6px 0 6px; position:relative}
+  .mbar .fill{position:absolute; left:0; top:0; bottom:0; border-radius:3px 2px 2px 3px}
+  .dots{display:flex; gap:3px; align-items:center; flex-wrap:wrap}
+  .dots i{width:7px; height:7px; border-radius:50%; display:inline-block}
+  .dots i.manual{background:var(--manual)} .dots i.externo{background:var(--externo)} .dots i.integrado{background:var(--integrado)}
+  .dots .dl{font-size:9.5px; color:var(--tx-dim); margin-left:4px; font-family:var(--mono)}
+  .legend{display:flex; gap:13px; margin-top:9px; padding-top:8px; border-top:1px solid var(--border); font-size:10.5px; color:var(--tx-mut); flex-wrap:wrap}
+  .legend span{display:inline-flex; align-items:center; gap:5px}
+  .sw{width:8px; height:8px; border-radius:50%; flex:0 0 auto}
+  .sw.manual{background:var(--manual)} .sw.externo{background:var(--externo)} .sw.integrado{background:var(--integrado)}
+
+  /* ── donut ── */
+  .donut-card{grid-column:span 3; display:flex; flex-direction:column}
+  .donut-wrap{display:flex; align-items:center; justify-content:center; flex:1; position:relative}
+  .donut-c{position:absolute; text-align:center}
+  .donut-c .n{font-size:24px; font-weight:700; line-height:1}
+  .donut-c .k{font-size:10px; color:var(--tx-dim); font-family:var(--mono); text-transform:uppercase; letter-spacing:.08em; margin-top:2px}
+  .dleg{display:flex; flex-direction:column; gap:5px; margin-top:4px}
+  .dleg .r{display:flex; align-items:center; gap:8px; font-size:11.5px; color:var(--tx-mut)}
+  .dleg .r b{color:var(--tx); font-weight:650; margin-left:auto; font-family:var(--mono); font-size:11.5px}
+  .dleg .r .pc{font-family:var(--mono); font-size:10px; color:var(--tx-dim); width:34px; text-align:right}
+
+  /* ── hilo de oro ── */
+  .hilo-card{grid-column:span 4}
+  .t-obj{border:1px solid var(--teal); border-radius:11px; padding:9px 12px; background:rgba(0,183,170,.06); margin-bottom:5px}
+  .t-obj .ke{font-family:var(--mono); font-size:9px; letter-spacing:.13em; color:var(--teal); text-transform:uppercase}
+  .t-obj .nm{font-size:14.5px; font-weight:650; margin:3px 0 2px}
+  .t-obj .kr{font-family:var(--mono); font-size:11px; color:var(--tx-mut)}
+  .t-obj .kr b{color:var(--tx)}
+  .cascade{margin-left:14px; border-left:2px solid var(--border2); padding-left:16px; padding-top:6px}
+  .t-row{display:flex; align-items:center; gap:10px; padding:7px 10px; border:1px solid var(--border); border-radius:9px;
+    margin-bottom:5px; background:var(--bg2); position:relative}
+  .t-row::before{content:""; position:absolute; left:-18px; top:50%; width:16px; height:2px; background:var(--border2)}
+  .t-row .ndot{width:8px; height:8px; border-radius:50%; flex:0 0 auto}
+  .t-row.d-manual .ndot{background:var(--manual)} .t-row.d-externo .ndot{background:var(--externo)} .t-row.d-integrado .ndot{background:var(--integrado)}
+  .t-row.broken{border-color:#5e2b28; background:rgba(229,86,75,.05)}
+  .t-row .meta{flex:1; min-width:0}
+  .t-row .meta .nm{font-size:12px; font-weight:600; line-height:1.2}
+  .t-row .meta .sub{font-size:10.5px; color:var(--tx-mut); margin-top:1px}
+  .tag{font-family:var(--mono); font-size:9px; letter-spacing:.05em; text-transform:uppercase; padding:3px 7px; border-radius:5px; white-space:nowrap}
+  .tag.break{color:var(--manual); border:1px solid #5e2b28; background:rgba(229,86,75,.08)}
+  .tag.ok{color:var(--integrado); border:1px solid #1f5a45; background:rgba(46,207,150,.08)}
+  .tag.weak{color:var(--externo); border:1px solid #5e4a22; background:rgba(245,165,36,.08)}
+  .hilo-insight{margin-top:7px; font-size:11.5px; color:var(--tx-mut); border-top:1px solid var(--border); padding-top:7px}
+  .hilo-insight b{color:var(--manual); font-weight:650}
+
+  /* ── brechas ── */
+  .gaps-card{grid-column:span 7}
+  .gap{display:grid; grid-template-columns:1fr 180px 140px; gap:14px; align-items:center;
+    padding:6px 0; border-bottom:1px solid var(--border)}
+  .gap:last-of-type{border-bottom:none; padding-bottom:2px}
+  .gap .nm{font-size:13px; font-weight:600; line-height:1.25}
+  .gap .sub{font-size:11px; color:var(--tx-mut); margin-top:2px}
+  .gap .sub .ob{color:var(--teal)}
+  .ibar{height:10px; border-radius:5px; background:var(--panel2); position:relative}
+  .ibar .fill{position:absolute; left:0; top:0; bottom:0; border-radius:5px 4px 4px 5px}
+  .ibar .il{position:absolute; left:8px; top:50%; transform:translateY(-50%); font-family:var(--mono);
+    font-size:8.5px; letter-spacing:.1em; text-transform:uppercase; color:#0a0c0d; font-weight:700}
+  .gap .cost{font-size:10.5px; color:var(--tx-mut); line-height:1.3; text-align:right}
+  .gap .cost b{display:block; font-family:var(--mono); font-size:13px; color:var(--tx); font-weight:650}
+
+  /* ── roadmap ── */
+  .road-card{grid-column:span 5}
+  .rgrid{margin-top:2px}
+  .rq{display:grid; grid-template-columns:repeat(4,1fr); font-family:var(--mono); font-size:9px;
+    letter-spacing:.1em; color:var(--tx-dim); text-transform:uppercase; margin:0 0 5px 186px}
+  .rq span{border-left:1px solid var(--border); padding-left:7px}
+  .rlane{display:flex; align-items:center; gap:12px; margin-bottom:6px}
+  .rlane .rnm{flex:0 0 174px; min-width:0}
+  .rlane .rnm .n{font-size:11.5px; font-weight:600; line-height:1.2}
+  .rlane .rnm .chip{display:inline-block; font-family:var(--mono); font-size:8px; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--teal); border:1px solid var(--teal-dim); border-radius:4px; padding:0 5px; margin-top:2px; white-space:nowrap}
+  .rtrack{flex:1; position:relative; height:18px;
+    background:linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size:25% 100%}
+  .rbar{position:absolute; top:0; height:18px; background:linear-gradient(180deg,rgba(0,183,170,.45),rgba(0,183,170,.25));
+    border:1px solid var(--teal-dim); border-radius:5px}
+  .road-foot{margin-top:7px; padding-top:8px; border-top:1px solid var(--border); font-size:11.5px; color:var(--tx-mut)}
+  .road-foot b{color:var(--tx)}
+
+  /* ── footer ── */
+  footer{border-top:1px solid var(--border); padding:7px 0; color:var(--tx-dim); font-size:11px}
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; align-items:center}
+  footer b{color:var(--teal)}
+  .prov-badge{display:inline-flex; align-items:center; gap:7px}
+  .prov-badge .pd{width:7px; height:7px; border-radius:50%; background:var(--integrado)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <span class="logo"><b>Prenter</b> Cockpit</span>
+        <span class="sep">·</span>
+        <span class="client">GRUPO CUMBRE S.A.C.</span>
+        <span class="demo-badge">Demo · datos ilustrativos</span>
+      </div>
+      <div class="hstats" id="hstats"></div>
+      <div class="who">Vista <b>Directorio</b> · Diagnóstico Digital<br>Actualizado esta semana · levantado en 3 semanas</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+
+      <div class="rowlabel"><span class="t">¿Dónde estamos hoy?</span><span class="ln"></span></div>
+
+      <!-- gauge madurez -->
+      <div class="card gauge-card">
+        <div class="eyebrow">Madurez de gestión</div>
+        <h3>Un solo número para toda la empresa</h3>
+        <div class="gauge-wrap">
+          <svg id="gauge" width="200" height="116" viewBox="0 0 220 128"></svg>
+          <div class="gauge-num">2.1<small> / 5</small></div>
+          <div class="gauge-cap">La operación depende de personas y Excel.<br>Meta a 12 meses: <b>3.5 — gestionado y medido</b></div>
+        </div>
+      </div>
+
+      <!-- objetivos -->
+      <div class="card obj-card">
+        <div class="eyebrow">Los 4 objetivos del directorio</div>
+        <h3>Lo que el directorio persigue — y cuánto falta</h3>
+        <p class="sub">Cada objetivo, conectado a los procesos y puestos que lo sostienen. La barra muestra el avance hacia la meta.</p>
+        <div class="obj-grid" id="objGrid"></div>
+      </div>
+
+      <div class="rowlabel"><span class="t">¿Qué se hace, con qué — y dónde se rompe?</span><span class="ln"></span></div>
+
+      <!-- mapa de salud por área -->
+      <div class="card areas-card">
+        <div class="eyebrow">Mapa vivo de la empresa</div>
+        <h3>Salud por área</h3>
+        <p class="sub">Cada área con su madurez y sus procesos: cada punto es un proceso real, con su sistema.</p>
+        <div class="areas" id="areas"></div>
+        <div class="legend">
+          <span><i class="sw manual"></i>Manual / Excel</span>
+          <span><i class="sw externo"></i>Tercero / externo</span>
+          <span><i class="sw integrado"></i>Integrado</span>
+        </div>
+      </div>
+
+      <!-- donut digitalización -->
+      <div class="card donut-card">
+        <div class="eyebrow">El espejo</div>
+        <h3>¿En qué corre su empresa?</h3>
+        <p class="sub">De los 24 procesos que la sostienen:</p>
+        <div class="donut-wrap">
+          <svg id="donut" width="138" height="138" viewBox="0 0 150 150"></svg>
+          <div class="donut-c"><div class="n">24</div><div class="k">procesos</div></div>
+        </div>
+        <div class="dleg" id="dleg"></div>
+      </div>
+
+      <!-- hilo de oro -->
+      <div class="card hilo-card">
+        <div class="eyebrow">Hilo de oro · del objetivo al puesto</div>
+        <h3>¿Lo que se hace sostiene la meta?</h3>
+        <p class="sub">Ejemplo: la cadena completa detrás de un objetivo.</p>
+        <div id="hilo"></div>
+      </div>
+
+      <div class="rowlabel"><span class="t">¿Qué hacemos primero?</span><span class="ln"></span></div>
+
+      <!-- brechas -->
+      <div class="card gaps-card">
+        <div class="eyebrow">Brechas priorizadas</div>
+        <h3>Las 3 brechas que más mueven los resultados</h3>
+        <p class="sub">Cada brecha atada al objetivo que bloquea, con su costo de no actuar. Se ataca primero lo que más impacta.</p>
+        <div id="gaps"></div>
+      </div>
+
+      <!-- roadmap -->
+      <div class="card road-card">
+        <div class="eyebrow">Del diagnóstico al plan</div>
+        <h3>La ruta de los próximos 12 meses</h3>
+        <p class="sub">Proyectos que nacen de la brecha — cada uno sirve a un objetivo del directorio.</p>
+        <div class="rgrid">
+          <div class="rq"><span>Trim. 1</span><span>Trim. 2</span><span>Trim. 3</span><span>Trim. 4</span></div>
+          <div id="rlanes"></div>
+        </div>
+        <div class="road-foot">Al cierre del año: madurez <b>2.1 → 3.5</b> · la operación deja de depender de la memoria de las personas.</div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Prenter · <b>Tecnología Global, Inteligencia Local.</b></span>
+    <span class="prov-badge"><i class="pd"></i>Cada dato con su fuente y nivel de confianza — sin falsa certeza: lo no validado se marca.</span>
+    <span>contact@prentergroup.com · prentergroup.com</span>
+  </div>
+</footer>
+
+<script>
+/* ════════════ MODELO DE DATOS (editar para iterar) — Grupo Cumbre S.A.C., ficticio ════════════ */
+
+const MADUREZ = {hoy:2.1, meta:3.5, max:5};
+
+/* Los 4 drivers universales de cualquier directorio. dir:"up"|"down" (down = menos es mejor) */
+const OBJETIVOS = [
+  {kpi:"Ventas vs plan anual",  nombre:"Crecer ventas",           hoy:"82%",  meta:"100%",   avance:.55, estado:"externo", foot:"6 procesos lo sostienen · <em>4 en Excel</em>"},
+  {kpi:"Margen bruto",          nombre:"Proteger el margen",      hoy:"21%",  meta:"26%",    avance:.30, estado:"manual",  foot:"5 procesos lo sostienen · <em>el costeo es manual</em>"},
+  {kpi:"Pedidos completos y a tiempo", nombre:"Entregar a tiempo",hoy:"78%",  meta:"95%",    avance:.25, estado:"manual",  foot:"4 procesos lo sostienen · <em>sin control de inventario</em>"},
+  {kpi:"Días de cobro",         nombre:"Convertir venta en caja", hoy:"52 d", meta:"35 d",   avance:.45, estado:"externo", foot:"3 procesos lo sostienen · <em>cobranza manual</em>"},
+];
+
+/* Áreas funcionales universales. madurez 0-5 · procesos = puntos por estado de digitalización */
+const AREAS = [
+  {nombre:"Comercial & Ventas",       madurez:1.8, procesos:["manual","manual","manual","externo","integrado"]},
+  {nombre:"Operaciones & Logística",  madurez:1.5, procesos:["manual","manual","manual","manual"]},
+  {nombre:"Compras & Proveedores",    madurez:2.3, procesos:["manual","externo","integrado"]},
+  {nombre:"Finanzas & Cobranzas",     madurez:2.6, procesos:["manual","manual","integrado","externo"]},
+  {nombre:"Marketing & Clientes",     madurez:2.0, procesos:["externo","externo","manual"]},
+  {nombre:"Personas & Administración",madurez:2.2, procesos:["manual","manual","externo","integrado","manual"]},
+];
+
+/* Donut: en qué corre la empresa (suma = 24 procesos) */
+const DIGITAL = [
+  {k:"manual",    label:"Manual / Excel / WhatsApp", n:14},
+  {k:"externo",   label:"Terceros / externo",        n:6},
+  {k:"integrado", label:"Integrado en sistema",      n:4},
+];
+
+/* Hilo de oro — ejemplo: Convertir venta en caja */
+const HILO = {
+  objetivo:"Convertir venta en caja", kr:"Días de cobro", from:"52 días", to:"35 días",
+  cadena:[
+    {nombre:"Facturación electrónica", sub:"Finanzas · Asistente de facturación", d:"integrado", tag:"sostiene"},
+    {nombre:"Cobranza y seguimiento",  sub:"Finanzas · Analista de cobranzas · Excel + WhatsApp", d:"manual", tag:"se rompe"},
+    {nombre:"Conciliación de pagos",   sub:"Finanzas · Asistente contable · Excel", d:"manual", tag:"se rompe"},
+  ],
+  insight:"<b>2 de 3 eslabones se rompen.</b> La meta no baja de 52 días arreglando la venta: se arregla la cadena."
+};
+
+/* Top 3 brechas. impacto 0-1 · sev: manual(alta) | externo(media) */
+const BRECHAS = [
+  {nombre:"Ventas sin sistema: pipeline en Excel y WhatsApp",
+   sub:"El cliente que no se contesta a tiempo, compra en otro lado. Nadie ve el embudo completo.",
+   obj:"Crecer ventas", impacto:.92, sev:"manual", costo:"~S/ 38 mil", costoLbl:"al mes en ventas enfriadas"},
+  {nombre:"Inventario a ciegas: kardex manual",
+   sub:"Se compra de más lo que no rota y falta lo que se vende. El sobre-stock congela caja.",
+   obj:"Margen · Entrega", impacto:.74, sev:"manual", costo:"~S/ 120 mil", costoLbl:"dormidos en sobre-stock"},
+  {nombre:"Cobranza reactiva, sin seguimiento",
+   sub:"Se factura bien, pero nadie persigue el cobro hasta que urge. La venta tarda 52 días en ser caja.",
+   obj:"Convertir venta en caja", impacto:.58, sev:"externo", costo:"17 días", costoLbl:"financiando al cliente"},
+];
+
+/* Roadmap 12 meses. start/len en meses (0-12) */
+const ROADMAP = [
+  {nombre:"CRM y embudo comercial",        chip:"ventas · caja",   start:0,  len:3},
+  {nombre:"Inventario y despacho en sistema", chip:"margen · entrega", start:2, len:4},
+  {nombre:"Cobranza automatizada",         chip:"caja",            start:5,  len:2},
+  {nombre:"Tablero vivo del directorio",   chip:"los 4",           start:7,  len:5},
+];
+
+const HSTATS = [
+  {v:"6",  k:"áreas"},
+  {v:"24", k:"procesos"},
+  {v:"18", k:"puestos"},
+  {v:"4",  k:"objetivos"},
+];
+
+/* ════════════ RENDER ════════════ */
+const $=s=>document.querySelector(s);
+const C={manual:"var(--manual)", externo:"var(--externo)", integrado:"var(--integrado)", teal:"var(--teal)"};
+const sevColor=b=> b<2 ? "var(--manual)" : b<3 ? "var(--externo)" : "var(--integrado)";
+
+/* header stats */
+$("#hstats").innerHTML = HSTATS.map(s=>`<div class="hstat"><div class="v">${s.v}</div><div class="k">${s.k}</div></div>`).join("");
+
+/* gauge — arco semicircular, aguja de meta */
+(function(){
+  const cx=110, cy=118, r=88, w=15, a0=Math.PI, span=Math.PI;
+  const pt=f=>{const a=a0+f*span; return [cx+r*Math.cos(a), cy+r*Math.sin(a)];};
+  const arc=(f1,f2)=>{const [x1,y1]=pt(f1),[x2,y2]=pt(f2);
+    return `M ${x1} ${y1} A ${r} ${r} 0 ${ (f2-f1)>.5?1:0 } 1 ${x2} ${y2}`;};
+  const f=MADUREZ.hoy/MADUREZ.max, fm=MADUREZ.meta/MADUREZ.max;
+  const [mx1,my1]=pt(fm), a=a0+fm*span;
+  const [mx2,my2]=[cx+(r-w-6)*Math.cos(a), cy+(r-w-6)*Math.sin(a)];
+  let ticks="";
+  for(let i=0;i<=5;i++){const g=i/5, ang=a0+g*span;
+    const [tx1,ty1]=[cx+(r+w/2+2)*Math.cos(ang), cy+(r+w/2+2)*Math.sin(ang)];
+    const [tx2,ty2]=[cx+(r+w/2+6)*Math.cos(ang), cy+(r+w/2+6)*Math.sin(ang)];
+    ticks+=`<line x1="${tx1}" y1="${ty1}" x2="${tx2}" y2="${ty2}" stroke="var(--border2)" stroke-width="1.5"/>`;}
+  $("#gauge").innerHTML=`
+    ${ticks}
+    <path d="${arc(0,1)}" fill="none" stroke="var(--panel2)" stroke-width="${w}" stroke-linecap="round"/>
+    <path d="${arc(0,f)}" fill="none" stroke="var(--teal)" stroke-width="${w}" stroke-linecap="round"/>
+    <line x1="${mx1}" y1="${my1}" x2="${mx2}" y2="${my2}" stroke="var(--tx-mut)" stroke-width="2" stroke-dasharray="3 3"/>
+    <text x="${mx2+4}" y="${my2+3}" fill="var(--tx-dim)" font-size="9" font-family="var(--mono)">meta ${MADUREZ.meta}</text>`;
+})();
+
+/* objetivos */
+$("#objGrid").innerHTML = OBJETIVOS.map(o=>`
+  <div class="obj">
+    <span class="st" style="background:${C[o.estado]}"></span>
+    <span class="ke">${o.kpi}</span>
+    <div class="nm">${o.nombre}</div>
+    <div class="bullet">
+      <div class="fill" style="width:${o.avance*100}%; background:${C[o.estado]}"></div>
+      <div class="goal"></div>
+    </div>
+    <div class="vals"><span>hoy <b>${o.hoy}</b></span><span>meta <b>${o.meta}</b></span></div>
+    <div class="foot">${o.foot}</div>
+  </div>`).join("");
+
+/* áreas */
+$("#areas").innerHTML = AREAS.map(a=>`
+  <div class="areabox">
+    <div class="top">
+      <span class="nm">${a.nombre}</span>
+      <span class="sc" style="color:${sevColor(a.madurez)}">${a.madurez.toFixed(1)}</span>
+    </div>
+    <div class="mbar"><div class="fill" style="width:${a.madurez/5*100}%; background:${sevColor(a.madurez)}"></div></div>
+    <div class="dots">${a.procesos.map(p=>`<i class="${p}"></i>`).join("")}<span class="dl">${a.procesos.length} procesos</span></div>
+  </div>`).join("");
+
+/* donut — segmentos con gap de superficie */
+(function(){
+  const total=DIGITAL.reduce((s,d)=>s+d.n,0), cx=75, cy=75, r=58, w=17, gap=.035;
+  let acc=0, paths="";
+  DIGITAL.forEach(d=>{
+    const f1=acc/total+gap/2, f2=(acc+d.n)/total-gap/2; acc+=d.n;
+    const a1=-Math.PI/2+f1*2*Math.PI, a2=-Math.PI/2+f2*2*Math.PI;
+    const [x1,y1]=[cx+r*Math.cos(a1), cy+r*Math.sin(a1)];
+    const [x2,y2]=[cx+r*Math.cos(a2), cy+r*Math.sin(a2)];
+    paths+=`<path d="M ${x1} ${y1} A ${r} ${r} 0 ${ (f2-f1)>.5?1:0 } 1 ${x2} ${y2}" fill="none"
+      stroke="${C[d.k]}" stroke-width="${w}" stroke-linecap="round"/>`;
+  });
+  $("#donut").innerHTML=paths;
+  $("#dleg").innerHTML=DIGITAL.map(d=>`
+    <div class="r"><i class="sw ${d.k}"></i>${d.label}<span class="pc">${Math.round(d.n/total*100)}%</span><b>${d.n}</b></div>`).join("");
+})();
+
+/* hilo de oro */
+(function(){
+  const tagCls={"sostiene":"ok","se rompe":"break","depende de tercero":"weak"};
+  $("#hilo").innerHTML=`
+    <div class="t-obj">
+      <div class="ke">Objetivo del directorio</div>
+      <div class="nm">${HILO.objetivo}</div>
+      <div class="kr">${HILO.kr}: <b>${HILO.from}</b> → <b>${HILO.to}</b></div>
+    </div>
+    <div class="cascade">
+      ${HILO.cadena.map(c=>`
+        <div class="t-row d-${c.d} ${c.tag==="se rompe"?"broken":""}">
+          <span class="ndot"></span>
+          <div class="meta"><div class="nm">${c.nombre}</div><div class="sub">${c.sub}</div></div>
+          <span class="tag ${tagCls[c.tag]}">${c.tag}</span>
+        </div>`).join("")}
+    </div>
+    <div class="hilo-insight">${HILO.insight}</div>`;
+})();
+
+/* brechas */
+$("#gaps").innerHTML = BRECHAS.map(g=>`
+  <div class="gap">
+    <div>
+      <div class="nm">${g.nombre}</div>
+      <div class="sub">${g.sub} — bloquea <span class="ob">${g.obj}</span></div>
+    </div>
+    <div class="ibar"><div class="fill" style="width:${g.impacto*100}%; background:${C[g.sev]}">
+      <span class="il">impacto ${g.sev==="manual"?"alto":"medio"}</span></div></div>
+    <div class="cost"><b>${g.costo}</b>${g.costoLbl}</div>
+  </div>`).join("");
+
+/* roadmap */
+$("#rlanes").innerHTML = ROADMAP.map(p=>`
+  <div class="rlane">
+    <div class="rnm"><div class="n">${p.nombre}</div><span class="chip">${p.chip}</span></div>
+    <div class="rtrack"><div class="rbar" style="left:${p.start/12*100}%; width:${p.len/12*100}%"></div></div>
+  </div>`).join("");
+</script>
+</body>
+</html>

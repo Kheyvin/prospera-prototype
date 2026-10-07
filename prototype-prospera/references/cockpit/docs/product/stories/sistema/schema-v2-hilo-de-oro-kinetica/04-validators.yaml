@@ -1,0 +1,37 @@
+# 04-validators.yaml — schema-v2-hilo-de-oro-kinetica (armado a mano — hueco KIT 0.5.3)
+story_id: schema-v2-hilo-de-oro-kinetica
+gates:                                  # todos deben salir 0 (pre-commit los encadena)
+  - python3 sistema/arquitectura/gen_arquitectura.py --check
+  - python3 sistema/metodo/gen_metodo.py --check
+  - python3 docs/product/gen_roadmap.py --check
+  - python3 sistema/schema/gen_schema.py --check        # NUEVO (T-2, D-A2)
+toolchain:                              # seam project.config.yaml
+  - "cd go && go vet ./... && gofmt -l . && go test ./... && go build ./..."
+
+seam_coverage:                          # HB-94: cubierto = colaborador REAL, no mock
+  codigo_instancias: "go test de integración lee ARCHIVOS YAML reales (mini-fixture v2 en testdata/ + snapshot prenter migrado) — jamás structs armados en memoria"
+  schema_validador: "SC-12 paridad: enums/transiciones del schema == tablas Go (gen_schema.py compara — D-A7)"
+  codigo_gate: "SC-5/SC-6 ejecutan el hook pre-commit DE VERDAD (test negativo, patrón CK-17)"
+  live: "GET /api/objeto real contra prenter migrado + mini-fixture (runtime-logs + payload observado)"
+
+validators:
+  - {sc: SC-1,  must_pass: true, grader: "go test integración fixture v2 (12 entidades, hilo bidireccional, cero warnings) + live-verify GET real"}
+  - {sc: SC-2,  must_pass: true, grader: "go test: prenter migrado limpio + copia v1 → errors[] nombra forma v2 (proceso.kpis/tiempo/reporta_a)"}
+  - {sc: SC-3,  must_pass: true, grader: "go test unitario: kpi.dueño_ref→persona = error citando CK-24"}
+  - {sc: SC-4,  must_pass: true, grader: "go test tabla-driven: 8 refs colgantes → 1 warning nombrado c/u"}
+  - {sc: SC-5,  must_pass: true, grader: "go test (sinónimo→sugerencia · desconocido→sin-clasificar) + hook real FALLA con verbo sin clase ALM×MGI"}
+  - {sc: SC-6,  must_pass: true, grader: "hook real FALLA: acción entidad-inexistente · nivel inválido · id set-campo"}
+  - {sc: SC-7,  must_pass: true, grader: "go test: payload marca divergente + diff instancia intacta"}
+  - {sc: SC-8,  must_pass: true, grader: "go test: objetivo sin KRs → warning sin-ancla-de-valor (no error)"}
+  - {sc: SC-9,  must_pass: true, grader: "go test: verbo corregido sin fuente/conf/evidencia_ref → warning"}
+  - {sc: SC-10, must_pass: true, grader: "go test tabla-driven máquina de estados: propuesto→cerrado ERROR · en-verificacion→en-ejecucion OK · cierre hard-saving sin firmas.finanzas.fecha_post ERROR"}
+  - {sc: SC-11, must_pass: true, grader: "go test ambos modos: acople_compensacion true + okr-trimestral ERROR · + gpd-anual OK"}
+  - {sc: SC-12, must_pass: true, grader: "paridad schema↔Go: TestParidadSchema (Go lee objeto.schema.yaml + verbos.yaml — una fuente, dos consumidores; R: reemplaza el plan gen_schema-compara-Go, frágil) + gen_schema.py --check (coherencia interna)"}
+
+nfr:
+  - {req: "GET /api/objeto shell ~500 archivos < 1s p95 frío", grader: "go benchmark fixture sintético"}
+  - {req: "cero campos deprecados en schema publicado", grader: "grep deprecad en objeto.schema.yaml == 0"}
+  - {req: "es-419 sin voseo en vocabulario/enums", grader: "revisión en G"}
+
+not_applicable:
+  - {subs: [race-condition, concurrent-users, network-failure, empty-state, accessibility, i18n-FE, large-dataset-FE], reason: "single-tenant · binario read-only sin auth/DB · sin superficie FE nueva (cockpit-stack)"}

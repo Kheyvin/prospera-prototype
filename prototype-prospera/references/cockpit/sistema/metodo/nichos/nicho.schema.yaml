@@ -1,0 +1,88 @@
+# nicho.schema.yaml — contrato del registro de conocimiento por NICHO  ·  L0 · DOMINIO
+#
+# Los registros registry/nichos/<vertical>.yaml conforman a este contrato.
+# SSoT del CONOCIMIENTO DE NICHO (eje VERTICAL del cerebro): qué mide/sabe un rubro
+# concreto a altura de directorio (KPIs, drivers, prácticas, normas sectoriales) y CÓMO
+# aterrizan en él los marcos transversales. Gemelo de methodology.schema.yaml (eje
+# transversal = las M-cards de methodologies.yaml; conteo SSoT en su _meta.total), + la
+# metadata que el conocimiento condicional EXIGE:
+#   confianza · condiciones · derivado_de  (anti-alucinación + anti-contaminación entre clientes).
+# Cero-dep: chequeable por tooling/scripts/validate_schema.py.
+#
+# La MATRIZ: nicho (vertical) × M-card (transversal) × cliente (instancia). Una unidad de
+# tipo `mapeo-transversal` usa `combina_con` para clavar cómo una M-card cae en este rubro.
+# Stage 0 (corpus < ~200K tokens, research 2026-06-26): markdown/yaml curado leído on-demand
+# por el skill (progressive disclosure) — SIN vector DB. El umbral de graduación a índice
+# vive en el ledger (I-NN / H-NN).
+
+meta:
+  nombre: nicho
+  version: 1
+  capa: "L0 · dominio"
+  aplica_a: ".claude/harness/registry/nichos/"     # un archivo por vertical
+  ssot: true
+  render: "sin render generado (Stage 0: el skill lo lee on-demand, no se compila a .md)"
+
+enums:
+
+  # ---- qué rubro (se extiende al sumar verticales: 1 clave + 1 archivo = 1 vertical) ----
+  nicho:
+    inmobiliario: "Desarrollo / venta inmobiliaria"
+    retail: "Retail multi-sucursal"                # golden fixture 2026-07-18 (historia organizacion-ficticia-golden-fixture)
+    manufactura: "Manufactura"                     # golden fixture 2026-07-18 (historia organizacion-ficticia-golden-fixture)
+    # comercializadora: "..."     # ← próximo vertical = nueva clave aquí + nuevo archivo nichos/comercializadora.yaml
+
+  # ---- qué clase de unidad de conocimiento ----
+  tipo:
+    kpi:               "Indicador medible (qué se mide y cómo)"
+    driver:            "Palanca / norte económico que AGREGA varios KPIs"
+    benchmark:         "Referencia de mercado (rango/umbral del rubro, con fuente)"
+    practica:          "Mejor práctica operativa del rubro"
+    norma-sectorial:   "Norma/regulación propia del sector"
+    mapeo-transversal: "Cómo una M-card (ISO/TOGAF/PMI…) aterriza en este rubro"
+
+  # ---- INVARIANTE (de dónde sale = anti-alucinación + anti-contaminación) ----
+  derivado_de:
+    norma:                "De una norma/estándar publicado"
+    libro:                "De literatura/autoridad del rubro"
+    experto:              "De un experto de dominio"
+    benchmark-sectorial:  "De un estudio/benchmark del sector (con fuente)"
+    observado-en-cliente: "Observado en UN cliente (exige derivado_ref) — NO generalizar a ciegas"
+    hipotesis:            "Hipótesis sin validar — confianza baja por defecto"
+
+  # ---- INVARIANTE (cuánto creerle) ----
+  confianza: [alta, media, baja]
+
+  # ---- backbone compartido con las fichas (cross-walk al Hilo de Oro / capa de contexto) ----
+  objeto:
+    O1: "Oportunidad / Apuesta"
+    O2: "Objetivo & Valor"
+    O3: "Proceso"
+    O4: "Personas & Autoridad"
+    O5: "Sistema & Capabilities"
+    O6: "Gap & Madurez"
+    O7: "Contrato & Código"
+    T1: "Dato / Grounding (transversal)"
+    T2: "Experiencia / Servicio (transversal)"
+    T3: "Gobierno / Loop (transversal)"
+
+# ---- forma de cada unidad (el valor bajo cada clave N-<VERT>-<NN>) ----
+clave: "N-<VERT>-<NN>  (id; VERT = código del vertical, p.ej. IMM = inmobiliario)"
+campos:
+  nicho:        { tipo: enum, enum: nicho,       requerido: true }
+  tipo:         { tipo: enum, enum: tipo,        requerido: true }
+  nombre:       { tipo: str,  requerido: true }
+  que:          { tipo: str,  requerido: true }                 # qué es / qué mide
+  por_que:      { tipo: str,  requerido: true }                 # por qué le importa al directorio
+  # --- INVARIANTE: provenance + condicionalidad (lo que las M-cards NO tienen) ---
+  confianza:    { tipo: enum, enum: confianza,   requerido: true }
+  derivado_de:  { tipo: enum, enum: derivado_de, requerido: true }
+  condiciones:  { tipo: str,  requerido: true }                 # bajo qué supuestos aplica (capital/escala/segmento) — "retador pero humilde"
+  derivado_ref: { tipo: str,  requerido: false }                # cliente/fuente concreta (OBLIGATORIO si derivado_de=observado-en-cliente; lo enforcea el validador)
+  fuente:       { tipo: obj,  requerido: false }                # { autor, obra, url } cuando derivado_de ∈ {norma, libro, benchmark-sectorial}
+  vigencia:     { tipo: str,  requerido: false }                # fecha/año de validez
+  mide:         { tipo: str,  requerido: false }                # fórmula/unidad (si tipo=kpi)
+  rango_ref:    { tipo: str,  requerido: false }                # umbral/benchmark conocido (con fuente)
+  objeto:       { tipo: enum, enum: objeto, requerido: false }  # cross-walk al backbone de las fichas
+  combina_con:  { tipo: list, requerido: false }                # [ { m: M16, como: "…" } ] — `m` resuelve contra methodologies.yaml (matriz vertical×transversal)
+  agrega:       { tipo: list, requerido: false }                # ids N-… que un `driver` compone (resuelve dentro del mismo vertical)

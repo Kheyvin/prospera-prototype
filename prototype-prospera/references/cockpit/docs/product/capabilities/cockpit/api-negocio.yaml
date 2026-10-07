@@ -1,0 +1,18 @@
+id: api-negocio
+legacy_id: CAP-03
+module: cockpit
+node: N13
+nombre: "API negocio — GET /api/negocio?empresa="
+que_hace: >-
+  Lee empresa/negocio.yaml, valida (warnings no fatales sobre enums/refs — espejo de
+  negocio.schema), sirve el diagnóstico: objetivos + áreas/procesos + brechas. Sin archivo →
+  empty-state (negocio: null).
+status: live
+rutas: [go/negocio.go]
+componentes: [negocio-api, cockpit-go-module]
+fichas: [CK-05]
+verificada: 2026-07-06
+business_rules: []
+scenarios: []
+provenance:
+  increment_id: CAP-03

@@ -1,0 +1,20 @@
+id: lente-personas
+legacy_id: CAP-07
+module: cockpit
+node: N13
+nombre: "Lente Personas — pilar Personas de primera clase en la Vista de Negocio"
+que_hace: >-
+  Cuarta lente "Personas" en la Vista de Negocio, consumiendo la rebanada personas/roles de
+  /api/objeto (CAP-08): roles con quién los cumple (inverso por scan), vacantes delatadas
+  ("sin persona asignada"), procesos que corre cada rol (match puesto↔rol.nombre — puente
+  D-13); visible aun sin negocio.yaml (el pilar vive upstream). Modelo puro TS, 7 tests
+  vitest.
+status: live
+rutas: [ui/lib/personas.ts, ui/components/negocio/PersonasTab.tsx]
+componentes: [objeto-api, negocio-view]
+fichas: [CK-12, CK-13]
+verificada: 2026-07-07
+business_rules: []
+scenarios: []
+provenance:
+  increment_id: CAP-07

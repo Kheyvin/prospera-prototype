@@ -1,0 +1,78 @@
+# retail.yaml — conocimiento de nicho: RETAIL MULTI-SUCURSAL  ·  L1 · INSTANCIA
+#
+# Eje VERTICAL del cerebro (conforma a nichos/nicho.schema.yaml). Qué mide/sabe el rubro
+# retail multi-sucursal a altura de DIRECTORIO, con su procedencia y condiciones. Gemelo
+# vertical de methodologies.yaml; mismo patrón que inmobiliario.yaml.
+#
+# INVARIANTE: cada unidad lleva confianza + derivado_de + condiciones. Sin fuente verificada
+# NO se citan benchmarks ni rangos (anti-alucinación): las unidades definen la CATEGORÍA a
+# medir y el rango se LEVANTA por cliente.
+#
+# Seed v0 (2026-07-18): golden fixture (historia organizacion-ficticia-golden-fixture,
+# shells alameda/vulcano). Categorías estándar del rubro — NO hallazgos de un cliente real.
+
+_meta:
+  vertical: retail
+  cod: RET
+  total: 5
+  seed: "2026-07-18 · golden fixture (historia organizacion-ficticia-golden-fixture, shells alameda/vulcano)"
+
+N-RET-01:
+  nicho: retail
+  tipo: kpi
+  nombre: "Venta por m²"
+  que: "Ventas netas del periodo divididas por los metros cuadrados de sala de venta, por sucursal y consolidado."
+  por_que: "Es la vara que hace comparables sucursales de distinto tamaño: muestra qué piso de venta rinde y cuál no cubre su costo de ocupación, antes de que el agregado lo esconda."
+  mide: "Ventas netas del periodo / m² de sala de venta (S/ por m²·mes), por sucursal, formato y categoría."
+  confianza: media
+  derivado_de: experto
+  condiciones: "Aplica a retail con tienda física y ≥2 sucursales comparables. Requiere m² de sala de venta actualizados por sucursal; el nivel 'bueno' depende de formato/ubicación y se levanta por cliente."
+  objeto: O2
+
+N-RET-02:
+  nicho: retail
+  tipo: kpi
+  nombre: "Merma (shrinkage)"
+  que: "Pérdida de inventario entre el stock teórico y el stock físico real (robo interno/externo, daño, vencimiento, error administrativo), valorizada contra la venta."
+  por_que: "La merma es margen que ya se pagó y se esfumó sin pasar por caja; multi-sucursal, además señala qué tienda tiene un problema de control o de proceso."
+  mide: "Merma = (stock teórico − stock físico) valorizado / ventas netas del periodo (%), por sucursal y categoría."
+  confianza: media
+  derivado_de: experto
+  condiciones: "Requiere inventarios físicos periódicos y stock teórico confiable (sistema de inventario al día); sin eso el KPI no es medible. El nivel 'normal' varía por categoría y formato — se levanta por cliente, no se asume."
+  objeto: O6
+
+N-RET-03:
+  nicho: retail
+  tipo: kpi
+  nombre: "Rotación de inventario"
+  que: "Cuántas veces se vende y repone el inventario en el periodo (costo de ventas / inventario promedio); su inverso son los días de inventario (DSI)."
+  por_que: "El inventario es la caja del retailer parada en góndola y trastienda: rotación baja inmoviliza capital y anticipa liquidación con descuento; el directorio debe ver qué categoría/sucursal la arrastra."
+  mide: "Rotación = costo de ventas / inventario promedio (veces por año); DSI = 365 / rotación (días)."
+  confianza: media
+  derivado_de: experto
+  condiciones: "Comparable solo dentro de la misma categoría/formato (abarrotes rota distinto que electro). Requiere costo de ventas e inventario valorizados con criterio consistente; los rangos objetivo se levantan por cliente."
+  objeto: O2
+
+N-RET-04:
+  nicho: retail
+  tipo: kpi
+  nombre: "Ticket promedio / unidades por ticket"
+  que: "Valor promedio de cada transacción (ticket promedio) y cantidad de unidades por transacción (UPT); juntos descomponen la venta en tráfico × conversión × ticket."
+  por_que: "Distingue si la venta sube porque entra más gente o porque cada cliente lleva más — palanca directa de ejecución comercial en tienda (exhibición, venta cruzada, quiebres)."
+  mide: "Ticket promedio = ventas netas / nº de transacciones (S/); UPT = unidades vendidas / nº de transacciones."
+  confianza: media
+  derivado_de: experto
+  condiciones: "Requiere datos de transacciones del POS por sucursal. Los niveles dependen del formato y del mix de categorías; la referencia se levanta por cliente."
+  objeto: O2
+
+N-RET-05:
+  nicho: retail
+  tipo: kpi
+  nombre: "Quiebre de stock (disponibilidad en góndola)"
+  que: "Porcentaje de SKUs activos del surtido sin disponibilidad para el shopper en góndola (out-of-stock); su complemento es la disponibilidad en góndola (OSA, on-shelf availability)."
+  por_que: "Cada quiebre es venta perdida invisible en el P&L (no hay factura que falte) y regala el cliente a la competencia; multi-sucursal, revela qué tienda falla en reposición o en abastecimiento central."
+  mide: "Quiebre = SKUs sin stock disponible en góndola / SKUs activos del surtido (%), por sucursal y categoría."
+  confianza: baja
+  derivado_de: hipotesis
+  condiciones: "⚠ Existen estudios sectoriales de quiebre/OSA pero NO hay fuente verificada en este repo — no se afirma rango. La medición depende del método de detección (stock sistémico vs conteo físico en góndola); esta unidad define la CATEGORÍA a medir y el umbral se LEVANTA por cliente."
+  objeto: O3

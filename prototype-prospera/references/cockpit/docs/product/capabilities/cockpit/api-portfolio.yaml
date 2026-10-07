@@ -1,0 +1,18 @@
+id: api-portfolio
+legacy_id: CAP-02
+module: cockpit
+node: N13
+nombre: "API portfolio — GET /api/portfolio"
+que_hace: >-
+  Árbol Dueño→Empresa→Sistema; distingue sistemas navegables (instrumentados) vs gaps de
+  digitalización (Odoo compartido/externo/terciarizado/propio sin instrumentar). Registry
+  fresh de disco por request.
+status: live
+rutas: [go/portfolio.go]
+componentes: [portfolio-api, cockpit-go-module]
+fichas: [CK-02, CK-05]
+verificada: 2026-07-06
+business_rules: []
+scenarios: []
+provenance:
+  increment_id: CAP-02

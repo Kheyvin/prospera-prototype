@@ -1,0 +1,27 @@
+id: terminar-arquitectura-despliegue
+type: service-story
+state: done
+module: sistema
+node: transversal
+cap_target: "sistema/terminar-arquitectura-despliegue"
+cap_change_type: new
+capability_status: planned
+release: F0
+prioridad: alta
+fichas: [CK-11, CK-14, CK-18]
+dependencies:
+  stories: []
+context:
+  job: "Como arquitecto del sistema quiero terminar la arquitectura y el diagrama de despliegue para que el sistema tenga un mapa as-code de sus nodos y planos."
+  why: "Sin un mapa de despliegue cerrado no hay base común para decidir dónde vive cada capability; el mapa se rediseñó de fondo en CK-18."
+provenance:
+  backlog_id: BL-03
+  titulo: "Terminar arquitectura / diagrama de despliegue"
+  detalle: >-
+    CERRADO (CK-14). Nota: el mapa se rediseñó de fondo en CK-18 (Fábrica + Organización instalada).
+  origen: "operador, sesión CK-11"
+  estado_legacy: hecho
+done_via: [CK-14]
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

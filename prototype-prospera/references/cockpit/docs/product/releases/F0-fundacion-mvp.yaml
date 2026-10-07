@@ -1,0 +1,28 @@
+id: F0
+nombre: "Fundación — MVP standalone"
+estado: done
+descripcion: >-
+  La fundación construida y verificada standalone: el runtime propio (binario Go
+  `directorio`, HTTP :4100 con UI embebida go:embed, read-only, sin auth/DB) y las
+  APIs del objeto de negocio — /api/portfolio (Dueño→Empresa→Sistema), /api/negocio
+  (objetivos + áreas/procesos + brechas) y /api/objeto (las 9 entidades del objeto
+  normalizado validadas juntas, CK-13). Incluye el shell por rol de la UI, la Vista de
+  Negocio con el Hilo de Oro y la Lente Personas (pilar Personas de primera clase). Es
+  la graduación del monorepo prenter-harness a producto standalone (CK-09/CK-10), con
+  el método del auditor y la arquitectura/despliegue as-code cerrados.
+stories:
+  - persona-puesto-primera-clase
+  - reconciliar-objeto-schema-9-entidades
+  - terminar-arquitectura-despliegue
+  - destilar-research-sistema-vs-campana
+  - render-arquitectura-yaml
+capabilities:
+  - runtime-propio-directorio
+  - api-portfolio
+  - api-negocio
+  - vista-negocio
+  - shell-por-rol
+  - modelo-portfolio
+  - lente-personas
+  - api-objeto
+fichas: [CK-09, CK-10, CK-11, CK-12, CK-13, CK-14, CK-15, CK-17]

@@ -1,0 +1,27 @@
+id: comprador-pricing-exito-12-meses
+type: service-story
+state: idea
+module: sistema
+node: transversal
+cap_target: "sistema/comprador-pricing-exito-12-meses"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: [CK-18]
+dependencies:
+  stories: []
+context:
+  job: "Como responsable de negocio quiero definir el comprador con nombre y cara, el pricing y el éxito a 12 meses para poder priorizar con un modelo de negocio explícito."
+  why: "TBD heredado de CK-01 que gana peso con CK-18: el modelo incluye ahora licencia de Arnesia + arneses + contrato de mantenimiento (N3)."
+provenance:
+  backlog_id: BL-10
+  titulo: "Comprador con nombre y cara · pricing · éxito a 12 meses"
+  detalle: >-
+    TBD heredado de CK-01. Con CK-18 gana peso: el modelo de negocio incluye ahora licencia de
+    Arnesia + arneses + contrato de mantenimiento (N3). Contexto para priorizar.
+  origen: "VISION §TBD"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

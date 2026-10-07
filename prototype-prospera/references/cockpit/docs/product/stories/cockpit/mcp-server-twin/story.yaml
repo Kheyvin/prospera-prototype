@@ -1,0 +1,29 @@
+id: mcp-server-twin
+type: service-story
+state: idea
+module: cockpit
+node: N13
+cap_target: "cockpit/mcp-server-twin"
+cap_change_type: new
+capability_status: planned
+release: F3
+prioridad: baja
+fichas: [CK-21]
+dependencies:
+  stories: []
+context:
+  job: "Como agente de cualquier plataforma quiero consultar la organización (el twin) vía un MCP server para razonar sobre procesos/roles/objetivos/indicadores sin acoplarme a la UI de Cockpit."
+  why: "Celonis/Ardoq/Bizzdesign shippearon MCP servers de su twin en 2025-26 — es table stakes agéntico; sin él el twin queda encerrado en la UI y fuera del ecosistema de agentes."
+provenance:
+  backlog_id: null
+  titulo: "MCP server del twin (V2)"
+  detalle: >-
+    NUEVO CK-21 · prioridad baja / V2 (post-primeros-clientes). MCP server del twin: agentes de
+    cualquier plataforma consultan la organización (Celonis/Ardoq/Bizzdesign lo shippearon 2025-26 =
+    table stakes agéntico). Expone lo que hoy sirve /api/objeto (CAP-08) y el resto del twin.
+    Research: organization-as-code/07 (#30).
+  origen: "ficha CK-21 (2026-07-16) — visión organization-as-code + organization twin"
+  estado_legacy: n/a
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

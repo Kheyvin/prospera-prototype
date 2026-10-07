@@ -1,0 +1,411 @@
+# ⚠️ ARCHIVADO (CK-19, 2026-07-09) — YA NO ES SSoT. Congelado como registro histórico.
+#    El pendiente vive ahora en historias del arnés: docs/product/stories/<module>/<story-id>/.
+#    Correspondencia BL-NN → historia: docs/product/MAPEO.md. NO editar este archivo.
+#
+# backlog.yaml — System Backlog de Cockpit como dato (CK-11)
+#
+# QUÉ ES: SSoT del trabajo pendiente del sistema, organizado por subsistema ("columna").
+# Mismo patrón que sistema/arquitectura/arquitectura.yaml (as-code, curado a mano): se edita
+# en el MISMO evento que la decisión que lo cambia. La vista humana es BACKLOG.md — se
+# actualiza en el mismo evento, jamás divergen.
+#
+# DISCIPLINA ("nacemos ordenados", CK-11):
+# - Este archivo es la ÚNICA fuente de la verdad del pendiente. Los "Siguiente:" de fichas del
+#   LEDGER y el §TBD de VISION son narrativa/contexto — apuntan a ítems BL-NN, no los duplican.
+# - Idea/necesidad nueva → entra aquí PRIMERO (estado: pendiente). Se construye después.
+# - Tomar trabajo → estado: en-curso. Terminado Y verificado → estado: hecho; si es capability
+#   funcional, entrada CAP-NN en docs/increment.yaml (+ vista INCREMENT.md) en el mismo evento.
+# - Decisión de alcance/arquitectura/visión → ficha CK-NN en LEDGER.md; el ítem la referencia.
+# - La PRIORIDAD la firma el operador.
+#
+# REDISEÑO CK-18 (2026-07-08): columnas re-organizadas al modelo Fábrica + Organización instalada.
+# El método se entrega en arneses; Consultio (ex App del Auditor) construye el mapa; Repositorio
+# Oficial (ya no GitHub) + Data Lakehouse alimentan Cockpit; nace el Plano del Fabricante. SOTA de
+# cada pieza en docs/research/rediseno-total/.
+
+meta:
+  id: cockpit-backlog
+  nombre: "System Backlog — Cockpit"
+  version: 0.3.0
+  creado: CK-11
+  proposito: >-
+    Un solo lugar para saber qué falta del SISTEMA (transversal) y qué falta de cada
+    subsistema/aplicación. Columnas re-organizadas en CK-18 al modelo de rediseño.
+
+# ---- SUBSISTEMAS = las columnas ----
+subsistemas:
+  - id: sistema
+    nombre: "Sistema (transversal)"
+    sub: "lo que define el sistema, no una app: arquitectura, schemas, método, design system, disciplina"
+  - id: cockpit
+    nombre: "Cockpit (N13)"
+    sub: "binario `directorio`: Visualización (estructura × operación) + Gestión de Cambios (ISO) + niveles de acceso"
+  - id: consultio
+    nombre: "Consultio — App del Consultor (N14)"
+    sub: "clon de DevStudio con nombre propio (CK-18, D4); construye el mapa completo y lo publica al Repositorio Oficial — sin construir"
+  - id: repositorio-oficial
+    nombre: "Repositorio Oficial (N6)"
+    sub: "git self-hosted confidencial en la infra del cliente (Forgejo): arneses + estructura + documentos + knowledge — sin construir"
+  - id: lakehouse
+    nombre: "Data Lakehouse (N16)"
+    sub: "dlt + DuckLake: reúne la operación de todos los sistemas y nutre a Cockpit — sin construir"
+  - id: colab-studio
+    nombre: "Colab Studio (N17)"
+    sub: "app del trabajador operativo: hace su día a día con los arneses de su puesto — sin construir"
+  - id: fabricante
+    nombre: "Plano del Fabricante (N2/N3/N15)"
+    sub: "Repositorio Maestro + Arnesia (fábrica de arneses) + Distribución/telemetría/licencias — lo que mantenemos y distribuimos"
+
+# ---- ITEMS ----
+items:
+
+  # — sistema (transversal) —
+  - id: BL-01
+    subsistema: sistema
+    titulo: "Persona/puesto como entidad de primera clase"
+    detalle: "CERRADO (CK-12, CAP-07): el pilar Personas quedó modelado de verdad (entidades persona/rol en objeto.schema + Lente Personas), más allá de objetivo/área/proceso/brecha."
+    origen: "VISION §TBD · CK-10 'Siguiente'"
+    prioridad: alta
+    estado: hecho
+    fichas: [CK-10, CK-12]
+
+  - id: BL-02
+    subsistema: sistema
+    titulo: "Reconciliar objeto.schema (9 entidades) ↔ negocio.schema implementado (4)"
+    detalle: >-
+      CERRADO: contrato vigente = objeto.schema (CK-12); /api/objeto lee y valida las 9 entidades
+      JUNTAS (CK-13, CAP-08). El tramo restante (negocio.yaml → proyección generada) = BL-19.
+    origen: "auditoría CK-11"
+    prioridad: alta
+    estado: hecho
+    fichas: [CK-12, CK-13]
+
+  - id: BL-03
+    subsistema: sistema
+    titulo: "Terminar arquitectura / diagrama de despliegue"
+    detalle: >-
+      CERRADO (CK-14). Nota: el mapa se rediseñó de fondo en CK-18 (Fábrica + Organización instalada).
+    origen: "operador, sesión CK-11"
+    prioridad: alta
+    estado: hecho
+    fichas: [CK-11, CK-14, CK-18]
+
+  - id: BL-04
+    subsistema: sistema
+    titulo: "Design system + atomic design + Storybook as-code"
+    detalle: >-
+      No existe aún. Toda capability nueva de UI debe construirse contra él (doctrina CK-11).
+      Más urgente con CK-18 (Cockpit gana Gestión de Cambios + niveles; Consultio/Colab Studio son UIs nuevas).
+    origen: "operador, sesión CK-11"
+    prioridad: media
+    estado: pendiente
+    fichas: [CK-11]
+
+  - id: BL-05
+    subsistema: sistema
+    titulo: "Poblar el método: M1 beats 2-3 · M3 etapas 1-5"
+    detalle: >-
+      sistema/metodo/proceso/ tiene poblados M1 Beat 1 y M3 Etapa 0; el resto son esqueletos.
+      Insumo directo de los arneses del método (Arnesia/Consultio, CK-18).
+    origen: "sistema/metodo/proceso/README.md"
+    prioridad: media
+    estado: pendiente
+    fichas: []
+
+  - id: BL-06
+    subsistema: sistema
+    titulo: "negocio.schema vive en el plugin del harness, no en el repo"
+    detalle: "Decidir SSoT: ¿traer el schema al repo (sistema/schema/) o dejarlo en el kit?"
+    origen: "auditoría CK-11"
+    prioridad: media
+    estado: pendiente
+    fichas: []
+
+  - id: BL-07
+    subsistema: sistema
+    titulo: "Destilar research: separar salidas de sistema vs narrativa de campaña"
+    detalle: >-
+      CERRADO (cierre de etapa). Salidas de sistema promovidas y campañas heredadas BORRADAS (no
+      congeladas): a sistema/schema/ → objeto.schema.yaml (CK-11) + ejemplo-vertice.yaml (fixture) +
+      metodologia/ (5 docs) + DECISIONES.md (ADR D-01..D-16); a sistema/metodo/ → SERVICE-DESIGN.md
+      (de-staleado: columnas Nodo marcadas pre-CK-18, links muertos del monorepo corregidos). Borradas
+      cockpit-negocio/, modelo-objeto/ (resto), service-design/, mockups/. research/ queda solo con
+      rediseno-total/ (SOTA vigente). Repo limpio, sin sesgo por herencia. Deuda aparte: BL-09 (borrar
+      carpetas campaign-* ORIGINALES fuera del repo).
+    origen: "operador: 'vamos destilando en el camino'"
+    prioridad: media
+    estado: hecho
+    fichas: [CK-11]
+
+  - id: BL-08
+    subsistema: sistema
+    titulo: "Decidir render de arquitectura.yaml (generador no portado)"
+    detalle: "CERRADO (CK-15): gen_arquitectura.py propio; --check = gate anti-drift."
+    origen: "deuda CK-10"
+    prioridad: baja
+    estado: hecho
+    fichas: [CK-10, CK-15]
+
+  - id: BL-09
+    subsistema: sistema
+    titulo: "Borrar carpetas ~/Proyectos/campaign-* originales"
+    detalle: "Contenido ya rescatado en docs/research/. Borrado pendiente — decisión del operador."
+    origen: "deuda CK-10"
+    prioridad: baja
+    estado: pendiente
+    fichas: [CK-10]
+
+  - id: BL-10
+    subsistema: sistema
+    titulo: "Comprador con nombre y cara · pricing · éxito a 12 meses"
+    detalle: >-
+      TBD heredado de CK-01. Con CK-18 gana peso: el modelo de negocio incluye ahora licencia de
+      Arnesia + arneses + contrato de mantenimiento (N3). Contexto para priorizar.
+    origen: "VISION §TBD"
+    prioridad: baja
+    estado: pendiente
+    fichas: [CK-18]
+
+  - id: BL-19
+    subsistema: sistema
+    titulo: "Voltear negocio.yaml a proyección GENERADA del objeto"
+    detalle: >-
+      Último tramo de la convergencia D-13: negocio.yaml deja de curarse a mano y se deriva del
+      objeto. Gatillo: objeto poblado con objetivos y brechas.
+    origen: "CK-13 (deuda declarada) · D-13"
+    prioridad: media
+    estado: pendiente
+    fichas: [CK-13]
+
+  # — cockpit (N13) —
+  - id: BL-11
+    subsistema: cockpit
+    titulo: "Rol Área real (hoy placeholder 'próximamente')"
+    detalle: "Su rebanada de procesos/sistemas. Se integra con los niveles de acceso (BL-12)."
+    origen: "arquitectura.yaml (rol-area)"
+    prioridad: media
+    estado: pendiente
+    fichas: [CK-01, CK-06]
+
+  - id: BL-12
+    subsistema: cockpit
+    titulo: "Auth + niveles de acceso reales (4 niveles)"
+    detalle: >-
+      REDEFINIDO CK-18: no solo auth — los 4 niveles (Gobernanza>Estratégico>Táctico>Operativo)
+      con visibilidad por rol derivada del Repositorio Oficial (policy-as-data). SOTA
+      (research/rediseno-total/05): auth embebida argon2id + scs/SQLite + middleware propio; el rol
+      organizacional ES la política; campo `provider` para OIDC futuro. Gate para despliegue multi-usuario.
+    origen: "auditoría CK-11 · redefinido CK-18"
+    prioridad: alta
+    estado: pendiente
+    fichas: [CK-18]
+
+  - id: BL-20
+    subsistema: cockpit
+    titulo: "Resolver deuda Go/Next de N13 — migrar UI a Vite SPA"
+    detalle: >-
+      Next.js static-export → SPA Vite + React Router embebida con go:embed, Go como único backend.
+      Decidir antes de construir las vistas nuevas (Gestión de Cambios, niveles); conecta con BL-04.
+    origen: "NODOS.md N13 (deuda heredada) · CK-14"
+    prioridad: media
+    estado: pendiente
+    fichas: [CK-14]
+
+  - id: BL-24
+    subsistema: cockpit
+    titulo: "Módulo Gestión de Cambios (ISO)"
+    detalle: >-
+      NUEVO CK-18. El Analista de Calidad (N19) mantiene lo oficial: solicitud→aprobación→publicación
+      de versiones sobre el Repositorio Oficial (ISO §7.5/§6.3). Entidades: SolicitudDeCambio ·
+      VersiónDeDocumento (borrador/vigente/obsoleto) · Aprobación · Acuse · RevisiónPeriódica. Git de
+      backend + UI que oculta git; firma persistida en DB además de git. SOTA: research/rediseno-total/06.
+    origen: "operador CK-18 (D-9 del diagrama)"
+    prioridad: media
+    estado: pendiente
+    fichas: [CK-18]
+
+  - id: BL-28
+    subsistema: cockpit
+    titulo: "Cruce estructura × operación (esquema de indicadores)"
+    detalle: >-
+      NUEVO CK-18. Cómo Cockpit mapea la operación del lakehouse (N16) contra la estructura (objeto
+      normalizado de N6) para mostrar 'cómo vamos día a día' por objetivo/proceso/rol/nivel. DuckDB
+      embebido para leer el lake (research/rediseno-total/03). Se diseña con el primer consumidor real.
+    origen: "operador CK-18"
+    prioridad: media
+    estado: pendiente
+    fichas: [CK-18]
+
+  - id: BL-14
+    subsistema: cockpit
+    titulo: "Capability 'preparación para auditoría' (gap-check vs cláusulas ISO)"
+    detalle: >-
+      Declarada CK-10; se activa solo con demanda real. Nunca emite certificados (I-05). Encaja con
+      la Gestión de Cambios (BL-24) como evidencia documental.
+    origen: "VISION §ISO (CK-10)"
+    prioridad: tbd
+    estado: pendiente
+    fichas: [CK-10]
+
+  # — consultio (N14) —
+  - id: BL-15
+    subsistema: consultio
+    titulo: "Definir/construir Consultio = clon de DevStudio + adaptación propia"
+    detalle: >-
+      REDEFINIDO CK-18 (era 'App del Auditor'). Nombre firmado = Consultio (D4). Se clona de DevStudio
+      cuando esté terminado y se adapta con nombre/identidad propios; carga los arneses del método que
+      produce Arnesia; se cuelga de Claude Code (BYO licencia). Alcance/stack heredan del clon.
+    origen: "operador, sesión CK-11 · redefinido CK-18"
+    prioridad: alta
+    estado: pendiente
+    fichas: [CK-11, CK-18]
+
+  - id: BL-16
+    subsistema: consultio
+    titulo: "Operar el método como flujo + construir el mapa completo"
+    detalle: >-
+      REDEFINIDO CK-18. Consultio opera m1·m2·m3 con carriles/provenance y construye el objeto
+      normalizado + documentos oficiales + arneses de la org, con preview local de Cockpit (patrón
+      dev-server). Incluye el cálculo de la brecha (TO-BE − AS-IS) + severidad y los proyectos que
+      nacen de ella (R6, el flujo As-Is→To-Be→proyectos de VISION). El método viaja como arneses
+      (no embebido en build rígido).
+    origen: "operador, sesión CK-11 · redefinido CK-18"
+    prioridad: alta
+    estado: pendiente
+    depende: [BL-15]
+    fichas: [CK-11, CK-18]
+
+  - id: BL-17
+    subsistema: consultio
+    titulo: "Publicación al Repositorio Oficial — 'deploy de procesos'"
+    detalle: >-
+      REDEFINIDO CK-18. Consultio publica el resultado ratificado a N6 (git self-hosted) vía commit+tag;
+      se une a la Gestión de Cambios (BL-24) para el gobierno del cambio del lado del cliente. Incluye
+      la transferencia consultor→Analista de Calidad (N9→N19): qué arneses/permisos cambian al entregar
+      la operación al cliente.
+    origen: "operador, sesión CK-11 · redefinido CK-18"
+    prioridad: alta
+    estado: pendiente
+    depende: [BL-15]
+    fichas: [CK-11, CK-18]
+
+  # — repositorio-oficial (N6) —
+  - id: BL-21
+    subsistema: repositorio-oficial
+    titulo: "Repositorio Oficial confidencial (Forgejo self-hosted) + BD vs archivos"
+    detalle: >-
+      NUEVO CK-18. Git self-hosted en la máquina del cliente (Forgejo en Docker), con backups
+      (`forgejo dump` + restic). Contiene: Arneses · Metadata Organizada (objeto normalizado) ·
+      Documentos Oficiales versionados (fuente + PDF derivado) · Knowledge DB (BL-27). Decisión
+      firmada: git/archivos = SSoT, cualquier BD = índice derivado reconstruible (nunca SSoT).
+      SOTA: research/rediseno-total/01. Se diseña con el primer despliegue real.
+    origen: "operador CK-18 (D3 base)"
+    prioridad: media
+    estado: pendiente
+    fichas: [CK-18]
+
+  - id: BL-27
+    subsistema: repositorio-oficial
+    titulo: "Knowledge Database (know-how organizacional, files-first)"
+    detalle: >-
+      NUEVO CK-18 (D5: declarada pendiente, 'será importante pronto'). Know-how tácito por rol servido
+      al arnés. SOTA (research/rediseno-total/02): knowledge-as-code (markdown+frontmatter) en el repo,
+      files-first/agentic retrieval; captura vía skill de cristalización con PR; RAG híbrido solo al
+      crecer (+200-500 notas). NO vector DB antes de demanda. Investigación aplicada al activarse.
+    origen: "operador CK-18 (D5, #8)"
+    prioridad: tbd
+    estado: pendiente
+    fichas: [CK-18]
+
+  - id: BL-29
+    subsistema: repositorio-oficial
+    titulo: "Depósito de fuentes (landing zone N12) + retención/destrucción DPA"
+    detalle: >-
+      NUEVO. Hueco detectado al cerrar BL-07 (auditoría CK-18): N12 (responsabilidades R2/R3) no tenía
+      casa en el backlog, a diferencia de los demás nodos no-construidos de Organización. Zona donde
+      aterriza el crudo del levantamiento (N9 deposita, Consultio procesa): cifrado at-rest, audit de
+      quién depositó qué, y DESTRUCCIÓN post-mapa que materializa la cláusula de no-retención del DPA.
+      NO git (binarios/voluminoso). Separado de N6 (verdad curada) a propósito. Se diseña con el primer
+      despliegue real.
+    origen: "auditoría cierre BL-07 · NODOS.md N12/R3"
+    prioridad: media
+    estado: pendiente
+    fichas: [CK-18]
+
+  # — lakehouse (N16) —
+  - id: BL-22
+    subsistema: lakehouse
+    titulo: "Construir el Data Lakehouse (dlt + DuckLake)"
+    detalle: >-
+      NUEVO CK-18. Reúne la operación de todos los sistemas de la org (N18) para nutrir Cockpit. SOTA
+      (research/rediseno-total/03): dlt (ingesta) + DuckLake/DuckDB (catálogo SQLite→Postgres), Excel de
+      primera clase, DuckDB embebido en el Go, orquestación cron/systemd. Default en infra del cliente;
+      hosteado por nosotros = opción comercial (D3). Iceberg/Spark/K8s = sobreingeniería.
+    origen: "operador CK-18"
+    prioridad: media
+    estado: pendiente
+    fichas: [CK-18]
+
+  - id: BL-18
+    subsistema: lakehouse
+    titulo: "Conectores de ingesta por sistema (SaaS/ERP/a medida/Excel)"
+    detalle: >-
+      REDEFINIDO CK-18 (era 'conexión DevStudio/GitHub→Cockpit', CK-08 derogado). Ahora: los conectores
+      concretos que alimentan el lakehouse desde los sistemas operacionales (N18) — se diseñan con el
+      cliente real, por sistema. Gatillo: primer despliegue con datos de operación reales.
+    origen: "CK-08 (derogado) · CK-16 · redefinido CK-18"
+    prioridad: tbd
+    estado: pendiente
+    fichas: [CK-16, CK-18]
+
+  # — colab-studio (N17) —
+  - id: BL-23
+    subsistema: colab-studio
+    titulo: "Colab Studio — app del trabajador operativo"
+    detalle: >-
+      NUEVO CK-18. Como DevStudio/Consultio pero para el trabajador normal (contador, analista): carga
+      los arneses de su puesto (N roles) y enfoca su trabajo diario; produce salidas (Excels) que nutren
+      el lakehouse. ¿Clon de DevStudio o variante propia? — se decide con Consultio (misma familia).
+    origen: "operador CK-18 (#6)"
+    prioridad: media
+    estado: pendiente
+    fichas: [CK-18]
+
+  # — fabricante (N2/N3/N15) —
+  - id: BL-25
+    subsistema: fabricante
+    titulo: "Plano del Fabricante: distribución + telemetría + licencias (N3)"
+    detalle: >-
+      NUEVO CK-18. Sin esto no hay contrato de mantenimiento (operador #4). SOTA
+      (research/rediseno-total/04): GitHub privado como plano único; go-tuf v2 + TUF-on-CI (binario
+      Cockpit), Tauri v2 updater (apps), marketplace privado revocable por cliente (arneses), license
+      files Ed25519 offline, OTLP/mTLS opt-in por tenant. Dos canales: consultores (siempre) / clientes
+      (opt-in). Empezar por el binario Cockpit.
+    origen: "operador CK-18 (D4, #4)"
+    prioridad: media
+    estado: pendiente
+    fichas: [CK-18]
+
+  - id: BL-26
+    subsistema: fabricante
+    titulo: "Arnesia: pipeline arnés-por-rol desde el objeto normalizado (anti-drift)"
+    detalle: >-
+      NUEVO CK-18. La fábrica (N15) compila skill/plugin por rol-en-proceso desde la MISMA fuente que el
+      documento humano (objeto normalizado) — anti-drift estilo Inkeep, gate que rechaza edición del
+      generado. skill=procedimiento, plugin=rol, marketplace=mapa de procesos. SOTA: research/rediseno-total/07.
+    origen: "operador CK-18 (#3, #7)"
+    prioridad: media
+    estado: pendiente
+    fichas: [CK-18]
+
+  - id: BL-13
+    subsistema: fabricante
+    titulo: "Motor de Discovery (N1) como servicio server-side"
+    detalle: >-
+      DEROGADO CK-18. El motor de discovery ya NO se construye como servicio multi-tenant server-side:
+      su razonamiento vive como arneses (N2/Consultio) sobre Claude Code local. Se conserva el ítem como
+      lápida para no re-proponerlo; el trabajo real es BL-26 (arneses) + BL-15/16 (Consultio).
+    origen: "VISION §TBD · CK-10 · DEROGADO CK-18"
+    prioridad: tbd
+    estado: derogado
+    fichas: [CK-10, CK-18]

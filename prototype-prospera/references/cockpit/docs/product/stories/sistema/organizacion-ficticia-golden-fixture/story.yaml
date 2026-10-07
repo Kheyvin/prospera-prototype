@@ -1,0 +1,35 @@
+id: organizacion-ficticia-golden-fixture
+type: service-story
+state: done              # 2026-07-18: R reconciliada · B APPROVED (3 auditores, fix-loop cerrado) · capability live · flota 0E/0W en vivo
+module: sistema
+node: transversal
+cap_target: "sistema/organizacion-ficticia-golden-fixture"
+cap_change_type: new
+capability_status: live
+release: F1
+prioridad: alta
+fichas: [CK-23]
+dependencies:
+  stories: [schema-v2-hilo-de-oro-kinetica]
+context:
+  job: "Como constructor del MVP quiero una organización ficticia COMPLETA (golden fixture) que ejerza el 100% del objeto.schema v2 — organigrama, procesos con RACI+actividades, sistemas, cascada objetivo→OKR→KPI con valores actuales, capabilities con assessment, brechas con costo/ROI y proyectos con ciclo de vida — servida por /api/objeto sin warnings, para desarrollar y demostrar el twin pintado en Cockpit sin esperar al proceso de captura (Consultio) ni al lakehouse."
+  why: "Twin-first (CK-23): fijar primero el artefacto final (el twin lleno) des-riesga schema y vistas, desbloquea F1.1-twin-pintado sin lakehouse (KPIs hardcodeados en el fixture) y produce el contrato de salida de Consultio (el arnés debe poder producir ESTO). Ninguna instancia existente ejerce el schema completo: prenter (dogfood) es real pero parcial."
+provenance:
+  backlog_id: null
+  titulo: "Organización ficticia golden fixture — el twin lleno antes que el proceso de llenado"
+  detalle: >-
+    NUEVA CK-23. Shell hermano nuevo (nombre a definir en refinamiento, p.ej. demo-acme/) con
+    empresa/<tipo>/ llena al 100% contra el schema v2: todas las entidades, todos los campos, todas
+    las aristas del hilo de oro recorribles (objetivo→OKR/KR→KPI→proceso/rol/persona), brechas con
+    costo/ROI y proyectos con ciclo de vida. Provenance realista (fuente+conf) como si la hubiera
+    producido la corrida M1 de Consultio. Registrada en el registry del cockpit
+    (/api/objeto?empresa=... cero warnings). Triple uso: (a) datos de desarrollo del twin pintado,
+    (b) documentación-por-ejemplo de las plantillas del schema, (c) demo comercial. Además:
+    contrato de aceptación de operar-metodo (Consultio debe poder producir un objeto de esta
+    completitud).
+  origen: "ficha CK-23 (2026-07-17) — twin-first: el twin lleno antes que el proceso de llenado"
+  estado_legacy: n/a
+links:
+  story_md: 00-story.md
+  spec: 01-spec.md
+  ledger: ../../../../../LEDGER.md

@@ -1,0 +1,27 @@
+id: deuda-go-next-n13-vite-spa
+type: service-story
+state: idea
+module: cockpit
+node: N13
+cap_target: "cockpit/deuda-go-next-n13-vite-spa"
+cap_change_type: fix
+capability_status: planned
+release: F2
+prioridad: media
+fichas: [CK-14]
+dependencies:
+  stories: []
+context:
+  job: "Como equipo de producto quiero migrar la UI de N13 de Next.js static-export a una SPA Vite + React Router embebida con go:embed, con Go como único backend, para resolver la deuda técnica antes de construir las vistas nuevas."
+  why: "Decidir/migrar antes de construir Gestión de Cambios y niveles evita reconstruir sobre una base que ya arrastra deuda; conecta con el design system (BL-04)."
+provenance:
+  backlog_id: BL-20
+  titulo: "Resolver deuda Go/Next de N13 — migrar UI a Vite SPA"
+  detalle: >-
+    Next.js static-export → SPA Vite + React Router embebida con go:embed, Go como único backend.
+    Decidir antes de construir las vistas nuevas (Gestión de Cambios, niveles); conecta con BL-04.
+  origen: "NODOS.md N13 (deuda heredada) · CK-14"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

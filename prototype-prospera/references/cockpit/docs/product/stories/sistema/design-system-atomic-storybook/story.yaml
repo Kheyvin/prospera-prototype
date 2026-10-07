@@ -1,0 +1,27 @@
+id: design-system-atomic-storybook
+type: ui-story
+state: developing
+module: sistema
+node: N13
+cap_target: "sistema/design-system-atomic-storybook"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: [CK-11, CK-27]
+dependencies:
+  stories: []
+context:
+  job: "Como diseñador/ingeniero de UI quiero un design system con atomic design y Storybook as-code para que toda capability nueva de UI se construya contra una base consistente."
+  why: "No existe aún y la doctrina CK-11 exige construir UI contra él; con CK-18 urge porque Cockpit gana Gestión de Cambios + niveles y nacen Consultio/Colab Studio como UIs nuevas."
+provenance:
+  backlog_id: BL-04
+  titulo: "Design system + atomic design + Storybook as-code"
+  detalle: >-
+    No existe aún. Toda capability nueva de UI debe construirse contra él (doctrina CK-11).
+    Más urgente con CK-18 (Cockpit gana Gestión de Cambios + niveles; Consultio/Colab Studio son UIs nuevas).
+  origen: "operador, sesión CK-11"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

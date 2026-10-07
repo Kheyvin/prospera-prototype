@@ -1,0 +1,41 @@
+id: api-objeto
+legacy_id: CAP-08
+module: cockpit
+node: N13
+nombre: "API objeto — GET /api/objeto?empresa= (las 12 entidades + kinética)"
+que_hace: >-
+  El objeto normalizado COMPLETO del shell de la empresa — v2 (schema-v2-hilo-de-oro-kinetica,
+  CK-21/D6): 12 entidades (9 v1 + kpi + proyecto_mejora + idea) leídas un-archivo-por-entidad
+  (objeto.schema v2 · layout plano D-15) y validadas ENTERAS al leer. La respuesta distingue
+  errors[] (bloqueantes: formas v1 muertas — corte limpio, kpi.dueño_ref persona CK-24/RN-8,
+  acople KR↔compensación fuera de modo GPD RN-14, cierre hard-saving sin firma finanzas RN-15,
+  estados inválidos, idea promovida sin destino) de warnings[] (refs colgantes, enums, verbos
+  fuera del vocabulario ALM×MGI con sugerencia por sinónimo, provenance ausente anti-gaming).
+  `divergente` (declarado vs observado por medición) se DERIVA en el payload, jamás se persiste.
+  Máquina de estados del proyecto de mejora espejada del schema (paridad gateada por test).
+  Verificado en vivo contra prenter migrado (29 kpis, 0E/0W) y fixture v2 completo.
+status: live
+rutas: [go/objeto.go]
+componentes: [objeto-api, cockpit-go-module]
+fichas: [CK-12, CK-13, CK-21, CK-26]
+verificada: 2026-07-17
+business_rules:
+  - "RN-1 — ids únicos en todas las entidades (12)"
+  - "RN-2 — toda ref FK/local resuelve (incluye kr_ref, kpi_ref, contribuye_a, alimenta_kpi_refs, mueve_refs, origen_*_refs, unidad_ref D-07, promovida_a_ref)"
+  - "RN-3 — enums válidos (v2: +estrategia, kpi, mejora, triage, kinética)"
+  - "RN-4′ — objetivo.key_results OPCIONAL: ausencia = warning sin-ancla-de-valor (ya no error)"
+  - "RN-5 — RACI A exactamente 1"
+  - "RN-6 — sin ciclos (reporta_a jerárquico · area.parent_ref)"
+  - "RN-7 — empresa.id == slug"
+  - "RN-8 — kpi.dueño_ref = rol|área, JAMÁS persona (CK-24) — ERROR"
+  - "RN-9 — toda medición lleva fuente+conf; divergente se deriva, no se persiste"
+  - "RN-10 — acciones kinéticas = operaciones de negocio (gate anti Action-Sprawl)"
+  - "RN-11 — actividad.verbo ∈ vocabulario verbos.yaml (44, ALM×MGI, case-insensitive); verbo nuevo por PR (gate)"
+  - "RN-12 — proyecto_mejora.estado transita solo por la máquina de estados (loop-back MASP válido) — ERROR"
+  - "RN-13 — scores/rollup/divergente DERIVADOS; triage ratificable con provenance"
+  - "RN-14 — divorcio KR↔compensación: acople solo en modo gpd-anual|mixto — ERROR"
+  - "RN-15 — cierre con hard-saving exige firmas.finanzas.fecha_post (auditoría de beneficios) — ERROR"
+  - "RN-16 — idea y proyecto_mejora separadas y enlazadas; autoría ≠ medición (CK-24)"
+scenarios: []
+provenance:
+  increment_id: CAP-08

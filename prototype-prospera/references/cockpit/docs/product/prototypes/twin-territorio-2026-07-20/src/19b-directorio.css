@@ -1,0 +1,107 @@
+  /* ============================================================
+     v18 · SALA DEL DIRECTORIO — la agenda de la sesión como orden de la página
+     4 movimientos: ¿cómo nos fue? · ¿a dónde vamos? · ¿qué puede impedirlo? · ¿qué decidimos?
+     ============================================================ */
+  /* separador de movimiento — le da ritmo de agenda a la página (y hace escaneable el scroll) */
+  .secband{ display:flex; align-items:baseline; gap:10px; border-top:1px solid var(--border);
+    padding-top:11px; margin-top:4px; flex-wrap:wrap; }
+  .secband .n{ font-family:var(--font-mono); font-size:9px; letter-spacing:.14em; color:var(--brand-hi);
+    border:1px solid var(--teal-800); border-radius:999px; padding:2px 8px; text-transform:uppercase; flex:none; }
+  .secband h3{ font-family:var(--font-display); font-weight:700; font-size:16px; margin:0; letter-spacing:-.01em; }
+  .secband .q{ font-size:12px; color:var(--tx-mut); }
+  .secband .resp{ margin-left:auto; float:none; }
+  /* línea de equivalencias — el paralelismo con cualquier industria, visible pero quieto */
+  .paral{ font-size:10.5px; color:var(--tx-faint); line-height:1.45; margin-top:7px;
+    border-left:2px solid var(--border); padding-left:8px; }
+  .paral b{ color:var(--tx-mut); font-weight:600; }
+
+  /* ── movimiento 1 · el resultado del periodo ── */
+  .fintiles{ display:flex; gap:10px; flex-wrap:wrap; }
+  .ftile{ flex:1; min-width:172px; border:1px solid var(--border); border-radius:10px; padding:9px 11px;
+    background:var(--raised); display:flex; flex-direction:column; gap:3px; cursor:pointer;
+    text-align:left; color:var(--tx); border-top:2px solid var(--border); }
+  .ftile:hover{ border-color:#33443f; }
+  .ftile.est-verde{ border-top-color:var(--ok); } .ftile.est-ambar{ border-top-color:var(--warn); }
+  .ftile.est-rojo{ border-top-color:var(--crit); }
+  .ftile .flab{ font-family:var(--font-mono); font-size:8.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--tx-faint); }
+  .ftile .fv{ font-family:var(--font-mono); font-size:20px; font-weight:600; line-height:1.1; }
+  .ftile .fv small{ font-size:10px; color:var(--tx-faint); font-weight:400; margin-left:3px; }
+  .ftile .fd{ font-family:var(--font-mono); font-size:10px; display:flex; gap:8px; flex-wrap:wrap; }
+  .ftile .fd .sep{ color:var(--tx-faint); }
+  .ftile .fy{ font-family:var(--font-mono); font-size:9px; color:var(--tx-faint); }
+  /* estado de cierre del dato — un número sin estado de cierre no es gobernable */
+  .cierrechip{ font-family:var(--font-mono); font-size:9px; letter-spacing:.06em; border-radius:999px;
+    padding:2px 8px; border:1px dashed var(--warn); color:var(--warn); white-space:nowrap; }
+  .cierrechip.cerrado{ border-color:var(--ok); color:var(--ok); }
+  .cierrechip.auditado{ border-style:solid; border-color:var(--ok); color:var(--ok); }
+
+  /* la caja — serie de 13 semanas contra el piso que el directorio fija */
+  .cajawrap{ display:flex; gap:14px; align-items:flex-start; flex-wrap:wrap; }
+  .cajanum{ display:flex; flex-direction:column; gap:2px; flex:none; }
+  .cajanum .big{ font-family:var(--font-mono); font-size:22px; font-weight:600; line-height:1.1; }
+  .cajanum .sm{ font-family:var(--font-mono); font-size:9.5px; color:var(--tx-faint); }
+  .cajasvg{ flex:1; min-width:230px; }
+  .resg{ display:flex; align-items:baseline; gap:8px; font-size:11.5px; padding:2px 0; }
+  .resg .rn{ flex:1; color:var(--tx-mut); }
+  .resg .rv{ font-family:var(--font-mono); font-size:11px; }
+  .resg .rl{ font-family:var(--font-mono); font-size:9px; color:var(--tx-faint); }
+
+  /* ── movimiento 2 · presupuesto (la mezcla hecha plata) ── */
+  .budg{ display:flex; flex-direction:column; gap:6px; margin-top:6px; }
+  .budgrow{ display:flex; align-items:center; gap:9px; font-size:11.5px; }
+  .budgrow .bn{ flex:0 0 108px; color:var(--tx-mut); }
+  .budgrow .bt{ flex:1; height:9px; background:var(--border); border-radius:3px; position:relative; overflow:hidden; }
+  .budgrow .bt i{ position:absolute; left:0; top:0; bottom:0; background:rgba(0,183,170,.55); }
+  .budgrow .bv{ font-family:var(--font-mono); font-size:9.5px; color:var(--tx-faint); flex:none; white-space:nowrap; }
+  .facrow{ display:flex; justify-content:space-between; gap:10px; font-size:11.5px; padding:1px 0; }
+  .facrow .fq{ color:var(--tx-mut); } .facrow .fv2{ font-family:var(--font-mono); font-size:11px; }
+
+  /* la apuesta que promete: prometido vs cobrado */
+  .cobr{ display:flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:9.5px; }
+  .cobr .bar{ flex:1; height:5px; background:var(--border); border-radius:3px; overflow:hidden; min-width:44px; }
+  .cobr .bar i{ display:block; height:100%; background:var(--ok); }
+  .cobr.nada .bar i{ background:var(--tx-faint); }
+
+  /* ── movimiento 3 · riesgos e inversiones ── */
+  .rgrow{ display:flex; align-items:flex-start; gap:8px; width:100%; padding:6px 7px; border-radius:8px;
+    background:none; border:none; text-align:left; color:var(--tx-mut); cursor:pointer; }
+  .rgrow:hover{ background:var(--raised2); color:var(--tx); }
+  .rgrow .lv{ font-family:var(--font-mono); font-size:8.5px; border:1px solid; border-radius:4px;
+    padding:1px 5px; flex:none; text-transform:uppercase; letter-spacing:.06em; }
+  .rgrow .rb{ flex:1; min-width:0; display:block; }
+  .rgrow .rt{ display:block; font-size:11.5px; line-height:1.3; color:var(--tx); }
+  .rgrow .rm{ display:block; font-family:var(--font-mono); font-size:9px; color:var(--tx-faint); margin-top:2px; }
+  .rgrow .tn{ font-family:var(--font-mono); font-size:9px; flex:none; white-space:nowrap; }
+
+  .invrow{ display:flex; align-items:center; gap:10px; width:100%; padding:7px 8px; border-radius:8px;
+    background:none; border:none; border-bottom:1px solid var(--border); text-align:left; color:var(--tx-mut); cursor:pointer; }
+  .invrow:hover{ background:var(--raised2); }
+  .invrow:last-child{ border-bottom:none; }
+  .invrow .in{ flex:0 0 176px; font-size:11.5px; color:var(--tx); line-height:1.25; }
+  .invrow .im{ flex:1; min-width:96px; display:flex; flex-direction:column; gap:2px; }
+  .invrow .im .lab{ font-family:var(--font-mono); font-size:8.5px; letter-spacing:.06em; color:var(--tx-faint); text-transform:uppercase; }
+  .invrow .im .tr{ height:7px; background:var(--border); border-radius:3px; position:relative; overflow:hidden; }
+  .invrow .im .tr i{ position:absolute; left:0; top:0; bottom:0; background:rgba(0,183,170,.55); }
+  .invrow .im .tr i.warn{ background:var(--warn); } .invrow .im .tr i.crit{ background:var(--crit); }
+  .invrow .im .tr u{ position:absolute; top:-2px; bottom:-2px; width:0; border-left:1px dashed var(--tx-mut); }
+  .invrow .im .vl{ font-family:var(--font-mono); font-size:9px; color:var(--tx-faint); }
+  .invrow .ie{ flex:0 0 104px; font-family:var(--font-mono); font-size:9.5px; text-align:right; }
+
+  /* ── movimiento 4 · acuerdos y acta ── */
+  .acurow{ display:flex; align-items:flex-start; gap:8px; width:100%; padding:6px 7px; border-radius:8px;
+    background:none; border:none; text-align:left; color:var(--tx-mut); cursor:pointer; }
+  .acurow:hover{ background:var(--raised2); }
+  .acurow .ae{ font-family:var(--font-mono); font-size:8.5px; border:1px solid; border-radius:4px;
+    padding:1px 5px; flex:none; white-space:nowrap; }
+  .acurow .ab{ flex:1; min-width:0; display:block; }
+  .acurow .at{ display:block; font-size:11.5px; line-height:1.3; color:var(--tx); }
+  .acurow .aq{ display:block; font-family:var(--font-mono); font-size:9px; color:var(--tx-faint); margin-top:2px; }
+  .actabar{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; border:1px solid var(--teal-800);
+    border-radius:10px; padding:10px 12px; background:rgba(0,183,170,.04); }
+  .actabar .at2{ flex:1; min-width:260px; font-size:12px; color:var(--tx-mut); line-height:1.45; }
+  .actabar .btn{ flex:none; }
+
+  .cambio-row.warnrow{ border-left:2px solid var(--warn); }
+  /* la página del directorio es un documento: se recorre con la rueda, no se sobrevuela */
+  .pageview .scrollhint{ font-family:var(--font-mono); font-size:9px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--tx-faint); text-align:center; padding-top:2px; }

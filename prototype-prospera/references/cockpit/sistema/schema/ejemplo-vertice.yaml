@@ -1,0 +1,136 @@
+# ejemplo-vertice.yaml — validación END-TO-END de objeto.schema.yaml v1
+# Persona FICTICIA (Inmobiliaria Vértice / Mateo Salas) — NO el cliente real Prospera.
+# ILUSTRATIVO: aquí va todo junto; en producción = un-archivo-por-entidad (data/<tipo>/<id>.yaml).
+# Muestra el Hilo de Oro: objetivo→KR→proceso→rol/persona→sistema→capability→brecha.
+
+empresa:
+  id: vertice
+  razon_social: "Inmobiliaria Vértice S.A.C."
+  sede: "Lima, Perú"
+  contexto:
+    externos: ["tasa de interés alta", "regulación de preventa"]
+    internos: ["sin CRM", "cobranza manual"]
+    partes_interesadas: [{ parte: "directorio", necesidades: "IRR del portafolio", relevante: true }]
+  fuente: Declarado
+  conf: alta
+
+personas:
+  - id: per-mateo-salas
+    nombre: "Mateo Salas"
+    contacto: { email: "mateo@vertice.pe" }
+    roles: [{ rol: rol-gerente, desde: "2020", dedicacion: "100%" }]
+    fuente: Entrevista
+    conf: alta
+
+roles:
+  - id: rol-gerente
+    nombre: "Gerente General"
+    autoridad: "aprueba inversión y prórrogas > 15 días"
+    fuente: Entrevista
+    conf: alta
+  - id: rol-analista-cobranza
+    nombre: "Analista de Cobranza"
+    responsabilidades: ["gestionar morosos", "conciliar pagos"]
+    autoridad: "aprueba prórrogas ≤ 15 días"
+    capabilities_ref: [cap-gestion-cobranza]
+    fuente: Entrevista
+    conf: media
+
+areas:                              # D-12 — Org Unit (Business Actor org.); N:M con proceso
+  - id: area-finanzas
+    nombre: "Finanzas"
+    lider_ref: rol-gerente
+    fuente: Entrevista
+    conf: alta
+  - id: area-comercial
+    nombre: "Comercial"
+    lider_ref: rol-gerente
+    fuente: Entrevista
+    conf: media
+
+objetivos:
+  - id: obj-flujo-caja
+    nombre: "Mejorar el flujo de caja"
+    dueño_ref: rol-gerente
+    key_results:
+      - id: obj-flujo-caja#kr1
+        descripcion: "Reducir días de cobro"
+        metrica: "días de cobro"
+        from: "45"
+        to: "30"
+        unit: "días"
+        driver_refs: [pr-cobranza, cap-gestion-cobranza]
+    fuente: Declarado
+    conf: alta
+
+sistemas:
+  - id: sis-odoo
+    nombre: "Odoo"
+    recurso_tipo: "ICT / ERP"
+    procedencia: propio
+    sirve_a: interno
+    capabilities_ref: [cap-gestion-cobranza]
+    fuente: "Sistema leído"
+    conf: alta
+
+capabilities:
+  - id: cap-gestion-cobranza
+    nombre: "Gestión de Cobranzas"
+    descripcion: "capacidad de cobrar la cartera a tiempo"
+    categoria: "Manage Customer Service (APQC 6)"
+    assessment: { nivel_actual: 2, nivel_deseado: 4, escala: "COBIT 0-5", fecha: "2026-05" }
+    fuente: Inferido
+    conf: media
+
+procesos:
+  - id: pr-cobranza
+    nombre: "Cobranza"
+    clasificacion: "6.3 (APQC)"
+    proposito: "cobrar las facturas emitidas a tiempo"
+    disparador: "factura vencida"
+    dueño_ref: rol-analista-cobranza
+    areas_ref: [area-finanzas, area-comercial]   # transversal — cobranza cruza Finanzas y Comercial (N:M, D-12)
+    entradas: [{ item: "factura emitida", proveedor_ref: pr-facturacion }]
+    salidas: [{ item: "pago aplicado", cliente_ref: "tesorería" }]
+    kpis: [{ nombre: "días de cobro", target: "30", unidad: "días" }]
+    sistemas_ref: [sis-odoo]
+    digital: integrado
+    realiza_capabilities: [cap-gestion-cobranza]
+    documentos: ["Instructivo de cobranza v2.pdf"]
+    fuente: Entrevista
+    conf: media
+    actividades:
+      - id: pr-cobranza#a1
+        orden: 1
+        verbo: "Emitir"            # Bloom (aplicar)
+        titulo: "Emitir recordatorio de pago"
+        carril_ref: rol-analista-cobranza
+        tipo: sistema
+        tiempo: "5 min"
+        sistemas_ref: [sis-odoo]
+        raci: { R: [rol-analista-cobranza], A: rol-gerente, C: [], I: [] }
+      - id: pr-cobranza#a2
+        orden: 2
+        verbo: "Contactar"         # Bloom (aplicar)
+        titulo: "Llamar al deudor"
+        carril_ref: rol-analista-cobranza
+        tipo: humana
+        tiempo: "15 min"
+        desc: "tono firme-cordial; ofrecer prórroga ≤ 15d"
+        raci: { R: [rol-analista-cobranza], A: rol-gerente, C: [], I: [] }
+  # nota: pr-facturacion se referencia (entrada) pero no se modela aquí → el chequeo lo marca como ref externa pendiente
+
+brechas:
+  - id: gap-cobranza-manual
+    nombre: "Recordatorio de cobranza no automatizado"
+    sub: "se pierden ~8 días promedio por recordatorios manuales"
+    tipo: target_variance
+    against_ref: cap-gestion-cobranza
+    nivel_as_is: "2"
+    nivel_to_be: "4"
+    kr_ref: [obj-flujo-caja#kr1]
+    prio: alta
+    costo: "S/ 40k/año en mora evitable"
+    estado: accionable
+    fuente: Inferido
+    conf: media

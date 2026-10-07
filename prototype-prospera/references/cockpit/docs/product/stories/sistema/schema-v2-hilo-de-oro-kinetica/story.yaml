@@ -1,0 +1,35 @@
+id: schema-v2-hilo-de-oro-kinetica
+type: service-story
+state: done
+module: sistema
+node: transversal
+cap_target: "cockpit/api-objeto"
+cap_change_type: extend
+capability_status: live
+release: F1
+prioridad: alta
+fichas: [CK-21, CK-22]
+dependencies:
+  stories: [arquitectura-refichado-ck21]
+context:
+  job: "Como arquitecto del sistema quiero un objeto.schema v2 con OKR/KPI/Proyecto como entidades de primera clase ancladas al hilo de oro (objetivo→OKR→KPI→proceso/rol/persona) y una capa kinética (acciones válidas por entidad) para que el twin de la organización sea medible y accionable, no solo descriptivo."
+  why: "Sin OKR/KPI/Proyecto como dato el hilo de oro no se puede medir ni recorrer; sin capa kinética el schema describe pero no gobierna quién modifica qué con qué aprobación (la Gestión de Cambios es el motor)."
+provenance:
+  backlog_id: null
+  titulo: "objeto.schema v2 — hilo de oro medible + capa kinética + doctrina Palantir"
+  detalle: >-
+    NUEVO CK-21. Entidades OKR/KPI/Proyecto de primera clase ancladas al hilo de oro
+    (objetivo→OKR→KPI→proceso/rol/persona). Capa kinética: acciones válidas por entidad declaradas
+    en el schema — quién modifica qué, con qué aprobación; la Gestión de Cambios (BL-24) es el motor.
+    Doctrina Palantir adoptada: naming navegable por agentes, anti-patterns God Object/Action
+    Sprawl/Misnomer, provenance structs `fuente`+`conf`. Único cambio de schema del TO-BE.
+    Research: organization-as-code/04 (doctrina Palantir) + 07 (#1-3, #10).
+  origen: "ficha CK-21 (2026-07-16) — visión organization-as-code + organization twin"
+  estado_legacy: n/a
+links:
+  story_md: 00-story.md
+  spec: 01-spec.md
+  arch: 03-arch.md
+  validators: 04-validators.yaml
+  tickets: 06-tickets.yaml
+  ledger: ../../../../../LEDGER.md

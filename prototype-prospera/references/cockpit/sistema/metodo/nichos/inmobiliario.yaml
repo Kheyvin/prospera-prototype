@@ -1,0 +1,133 @@
+# inmobiliario.yaml — conocimiento de nicho: DESARROLLO INMOBILIARIO  ·  L1 · INSTANCIA
+#
+# Eje VERTICAL del cerebro (conforma a schema/nicho.schema.yaml). Qué mide/sabe el rubro
+# inmobiliario a altura de DIRECTORIO, con su procedencia y condiciones. Gemelo vertical de
+# methodologies.yaml. La MATRIZ: combina_con clava cómo las M-cards transversales
+# (ISO 9001 = M16, COBIT = M15…) aterrizan aquí.
+#
+# INVARIANTE: cada unidad lleva confianza + derivado_de + condiciones. `observado-en-cliente`
+# exige derivado_ref (no se generaliza la realidad de un cliente a ciegas). Editar AQUÍ.
+# Validar:  python3 tooling/scripts/validate_schema.py
+#
+# Seed v0 (2026-06-26): derivado del deck Prospera (su repo de proyecto; provenance por slug derivado_ref: prospera — I-39) +
+# su research verificado. ⚠ Pre-levantamiento: son CATEGORÍAS del rubro, NO hallazgos de
+# Prospera (a la fecha solo hubo conversación, sin M1). Se enriquece desde M1 al firmar (flywheel).
+
+_meta:
+  vertical: inmobiliario
+  cod: IMM
+  total: 8
+  seed: "2026-06-26 · deck Prospera (copy.md, FUNDAMENTO verificado) + razonamiento de finanzas RE"
+
+N-IMM-01:
+  nicho: inmobiliario
+  tipo: kpi
+  nombre: "Caja por proyecto"
+  que: "Flujo de caja neto que cada proyecto deja en el periodo (ingresos por ventas − costos de obra − gastos)."
+  por_que: "El directorio debe ver, por proyecto, cuánta caja se genera HOY — no el agregado tarde y filtrado. Primer KPI ciego del board (slide 03 del deck)."
+  mide: "Caja neta del proyecto en el periodo (S/), descomponible por etapa de obra."
+  confianza: media
+  derivado_de: experto
+  condiciones: "Aplica a desarrolladoras con ≥1 proyecto en obra/venta activa. Categoría general de finanzas de proyecto, NO un hallazgo de Prospera."
+  objeto: O2
+
+N-IMM-02:
+  nicho: inmobiliario
+  tipo: kpi
+  nombre: "Velocidad de venta / absorción"
+  que: "Ritmo al que se venden las unidades de un proyecto (unidades/mes, o % del inventario/mes = tasa de absorción)."
+  por_que: "Una venta que se enfría inmoviliza capital y dispara el costo financiero; el directorio debe ver qué proyecto se vende más lento antes de que duela."
+  mide: "Absorción = unidades vendidas / inventario disponible por mes (%/mes)."
+  confianza: media
+  derivado_de: benchmark-sectorial
+  fuente: { autor: "ASEI", obra: "Mercado inmobiliario Lima 2024", url: "" }
+  rango_ref: "Lima 2024 (ASEI): absorción ~18%, velocidad ~1.7%/mes — referencia de mercado, ajustar por segmento/distrito."
+  condiciones: "Rango Lima 2024; varía fuerte por segmento (social vs premium), distrito y ciclo. NO usar el rango como meta sin ajustar al proyecto del cliente."
+  vigencia: "2024 (Lima)"
+  objeto: O2
+
+N-IMM-03:
+  nicho: inmobiliario
+  tipo: kpi
+  nombre: "Cobranza / DSO"
+  que: "Velocidad y salud de la cobranza de las ventas (días promedio de cobro + mora de cartera)."
+  por_que: "Lo vendido no es caja hasta que se cobra; una cobranza floja drena liquidez sin avisar. Tercer KPI ciego del board."
+  mide: "DSO = cuentas por cobrar / ventas a crédito × días; + % de mora de cartera."
+  confianza: baja
+  derivado_de: hipotesis
+  condiciones: "⚠ NO existe benchmark de DSO inmobiliario peruano validado (el research del deck lo marca como 'no afirmar sin fuente seria'). Esta unidad define la CATEGORÍA a medir; el rango se LEVANTA por cliente, no se asume."
+  objeto: O2
+
+N-IMM-04:
+  nicho: inmobiliario
+  tipo: kpi
+  nombre: "Desviación de presupuesto de obra"
+  que: "Diferencia entre el costo real de construcción y el presupuestado (sobrecosto de obra)."
+  por_que: "La obra que se pasa de presupuesto se come el margen sin aparecer en factura; el directorio debe verla mientras aún se puede corregir (slide 04 del deck)."
+  mide: "(Costo real − costo presupuestado) / costo presupuestado (%), por partida y proyecto."
+  confianza: media
+  derivado_de: experto
+  condiciones: "Aplica a proyectos en construcción. Requiere una línea base de presupuesto trazable; sin ella el KPI no es medible (gap a levantar en M1)."
+  objeto: O6
+
+N-IMM-05:
+  nicho: inmobiliario
+  tipo: driver
+  nombre: "Rentabilidad del proyecto (drivers del IRR)"
+  que: "Norte económico del directorio: la rentabilidad del capital por proyecto (TIR/IRR), gobernada por caja, velocidad de venta, cobranza y control de costos de obra."
+  por_que: "El directorio piensa como inversionista: no evalúa features, asegura que el capital YA puesto rinda (mentalidad del board, copy.md slides 03/04/13). Este driver agrega los KPIs operativos en el norte que de verdad le importa."
+  confianza: media
+  derivado_de: observado-en-cliente
+  derivado_ref: "prospera (board con lente inversionista; deck Fase 1, copy.md slides 03/04/13)"
+  condiciones: "El PESO de cada driver cambia con el capital y el modelo: una boutique con caja ajustada prioriza velocidad+cobranza (liquidez); una con espalda financiera puede optimizar precio/margen. 'La mejor' configuración DEPENDE del capital — no hay receta única."
+  objeto: O2
+  agrega: [N-IMM-01, N-IMM-02, N-IMM-03, N-IMM-04]
+
+N-IMM-06:
+  nicho: inmobiliario
+  tipo: mapeo-transversal
+  nombre: "ISO 9001 en desarrollo inmobiliario"
+  que: "Cómo aterriza ISO 9001 (M16) en una desarrolladora: procesos de obra, comercial y postventa documentados y trazables, base para certificación."
+  por_que: "Al directorio proceso-literato (caso Francisco Clausen, ing. industrial) la trazabilidad ISO le resuena: deja la empresa 'a un paso de certificar' y vuelve cada hallazgo defendible ante auditoría (deck slides 07/12)."
+  confianza: alta
+  derivado_de: norma
+  fuente: { autor: "ISO", obra: "ISO 9001:2015", url: "https://www.iso.org/standard/62085.html" }
+  condiciones: "Marco de gobierno de calidad; su PESO depende de si el cliente busca certificación. NO imponer ISO si el cliente no lo valora — es palanca, no requisito."
+  objeto: T3
+  combina_con:
+    - { m: M16, como: "M16 es la ficha transversal ISO 9001 (contexto/PDCA); esta unidad la especializa al rubro inmobiliario" }
+
+# ---- v19 (2026-07-29) · las dos cifras de directorio que el tablero afirmaba SIN unidad detrás.
+# Origen: auditoría K22/K23 — el mockup pintaba "pares 15–22%" de margen y "pares 50+" de NPS con
+# fuentes en prosa, y un rango de DSO que N-IMM-03 prohíbe afirmar. Se registran como CATEGORÍAS del
+# rubro (qué se mide y por qué), sin rango: el rango se LEVANTA por cliente. Una categoría honesta
+# vale más que un benchmark inventado — y es lo único que deja al tablero decir "sin vara" en vez de
+# mentir. Patrón idéntico a N-IMM-03.
+
+N-IMM-07:
+  nicho: inmobiliario
+  tipo: kpi
+  nombre: "Margen bruto por proyecto"
+  que: "Cuánto queda de cada sol vendido en un proyecto, antes de gastos de estructura, medido por proyecto y no sólo consolidado."
+  por_que: "Es la cifra con que el directorio juzga si el modelo de negocio funciona; el consolidado esconde el proyecto que se está comiendo el margen de los demás. Se lee junto al avance real de obra: el sobrecosto llega al margen con meses de retraso."
+  mide: "(Ingreso reconocido del proyecto − costo de obra y terreno atribuible) / ingreso reconocido (%), por proyecto y acumulado del año."
+  confianza: baja
+  derivado_de: hipotesis
+  condiciones: "⚠ NO afirmar un rango de pares sin fuente sectorial seria: el margen depende del segmento (social · media · premium), del modelo de suelo (compra vs aporte) y del ciclo. Esta unidad define la CATEGORÍA a medir; el rango se levanta por cliente contra su propio histórico. Requiere costo atribuible por proyecto — sin contabilidad por proyecto el KPI no es medible (gap a levantar en M1)."
+  objeto: O2
+  combina_con:
+    - { m: M55, como: "el margen se LEE del cierre contable con su estado; el twin lo baja al proyecto y al proceso de obra que lo produce, jamás lo reexpresa" }
+
+N-IMM-08:
+  nicho: inmobiliario
+  tipo: kpi
+  nombre: "Satisfacción del propietario (postventa)"
+  que: "Qué tan bien queda el comprador después de la entrega: satisfacción declarada y tiempo de cierre de los reclamos de garantía."
+  por_que: "En vivienda media el referido y la reputación de entrega sostienen la venta del proyecto siguiente; la postventa se deteriora en silencio porque suele no tener meta que la mida. Es entrada obligatoria de la revisión por la dirección (ISO 9001 cl.9.3) y casi nunca sube al directorio."
+  mide: "Satisfacción de propietarios entregados (encuesta post-entrega) + días promedio hasta cerrar un reclamo de garantía."
+  confianza: baja
+  derivado_de: hipotesis
+  condiciones: "⚠ Sin benchmark sectorial validado para desarrollo inmobiliario LATAM: el rango se levanta por cliente contra su propia serie. La escala de la encuesta la fija el cliente — comparar dos escalas distintas es peor que no comparar. Exige población de entregados; en preventa pura la unidad no aplica todavía."
+  objeto: T2
+  combina_con:
+    - { m: M16, como: "satisfacción del cliente es entrada obligatoria de la revisión por la dirección (cl.9.3) — el nivel 1 la muestra o declara que no la mide" }

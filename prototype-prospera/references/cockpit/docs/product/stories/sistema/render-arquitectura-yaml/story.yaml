@@ -1,0 +1,26 @@
+id: render-arquitectura-yaml
+type: service-story
+state: done
+module: sistema
+node: transversal
+cap_target: "sistema/render-arquitectura-yaml"
+cap_change_type: new
+capability_status: planned
+release: F0
+prioridad: baja
+fichas: [CK-10, CK-15]
+dependencies:
+  stories: []
+context:
+  job: "Como custodio de la arquitectura quiero un render propio de arquitectura.yaml con gate anti-drift para que la vista humana nunca diverja del dato as-code."
+  why: "El generador no se había portado; gen_arquitectura.py propio con --check cierra el gate anti-drift entre arquitectura.yaml y su vista."
+provenance:
+  backlog_id: BL-08
+  titulo: "Decidir render de arquitectura.yaml (generador no portado)"
+  detalle: "CERRADO (CK-15): gen_arquitectura.py propio; --check = gate anti-drift."
+  origen: "deuda CK-10"
+  estado_legacy: hecho
+done_via: [CK-15]
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

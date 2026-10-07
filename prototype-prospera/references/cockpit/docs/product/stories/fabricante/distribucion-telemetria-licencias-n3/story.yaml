@@ -1,0 +1,25 @@
+id: distribucion-telemetria-licencias-n3
+type: service-story
+state: idea
+module: fabricante
+node: N3
+cap_target: "fabricante/distribucion-telemetria-licencias-n3"
+cap_change_type: new
+capability_status: planned
+release: F2
+prioridad: media
+fichas: [CK-18]
+dependencies:
+  stories: []
+context:
+  job: "Como fabricante quiero distribuir el binario Cockpit + apps + arneses con actualizaciones firmadas, licencias y telemetría opt-in para poder sostener un contrato de mantenimiento con cada cliente"
+  why: "Sin distribución + telemetría + licencias no hay contrato de mantenimiento (operador #4): es la pieza que convierte la fábrica de software en un negocio con updates seguros (TUF/Tauri), revocación de arneses por cliente y observabilidad consentida por tenant."
+provenance:
+  backlog_id: BL-25
+  titulo: "Plano del Fabricante: distribución + telemetría + licencias (N3)"
+  detalle: "NUEVO CK-18. Sin esto no hay contrato de mantenimiento (operador #4). SOTA (research/rediseno-total/04): GitHub privado como plano único; go-tuf v2 + TUF-on-CI (binario Cockpit), Tauri v2 updater (apps), marketplace privado revocable por cliente (arneses), license files Ed25519 offline, OTLP/mTLS opt-in por tenant. Dos canales: consultores (siempre) / clientes (opt-in). Empezar por el binario Cockpit."
+  origen: "operador CK-18 (D4, #4)"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

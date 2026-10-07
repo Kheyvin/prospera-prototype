@@ -1,0 +1,2966 @@
+{
+  "formatVersion": 1,
+  "files": [
+    {
+      "path": "arch.md",
+      "source": "arch.md",
+      "sourceSha256": "07f613b19f05103e84aae73a9c2958427ec111d0a7647cc8d611c9d21505e750",
+      "packagedSha256": "f5580cf9820ae6de37403663e6e4368ffeab425cac072115292fbe3c7de36d75",
+      "adapted": true
+    },
+    {
+      "path": "design.md",
+      "source": "design.md",
+      "sourceSha256": "543a713a647303657ec8cdc5ec890724abe37c57af905901bb816d00b0aa9f14",
+      "packagedSha256": "935abd83659c9bde5505b1128d3622cb63700ba371f0df2e19d74e7bef273078",
+      "adapted": true
+    },
+    {
+      "path": "ux.md",
+      "source": "ux.md",
+      "sourceSha256": "46146e857533b4903b45ffc6e550b336d1ca6db344d366756ac7d08764be7099",
+      "packagedSha256": "dfd98e6c142f7368cf0b9a3866d2096a1f5242f2b4c9ce9fcbcfb92fe91cb35d",
+      "adapted": true
+    },
+    {
+      "path": "docs/prototype-foundation/README.md",
+      "source": "docs/prototype-foundation/README.md",
+      "sourceSha256": "1a2e73c597a04c24f0fe6aeb727e595304d2ba922694698acc128273d3ed7583",
+      "packagedSha256": "855432e6633930b50cced1da68899db92699045b9dda56bc69ef82e35edbf0fa",
+      "adapted": true
+    },
+    {
+      "path": "docs/prototype-foundation/source-review.md",
+      "source": "docs/prototype-foundation/source-review.md",
+      "sourceSha256": "160222fe6bcc335ef72b67c3b274883563bbeff238388b7aab54fc2c5a7bf01c",
+      "packagedSha256": "3faa7d374e43340063b953880fcb939b82f870ae858110a0189ed0a39dddb67b",
+      "adapted": true
+    },
+    {
+      "path": "docs/prototype-foundation/templates/client-pack.json",
+      "source": "docs/prototype-foundation/templates/client-pack.json",
+      "sourceSha256": "2fd7f262134635ad689c4328327d23e32b23d1538a28fbc47e3be9b6c918f604",
+      "packagedSha256": "2fd7f262134635ad689c4328327d23e32b23d1538a28fbc47e3be9b6c918f604",
+      "adapted": false
+    },
+    {
+      "path": "docs/prototype-foundation/templates/handoff-checklist.md",
+      "source": "docs/prototype-foundation/templates/handoff-checklist.md",
+      "sourceSha256": "fcb08aa6823e5231cd4ecea4528ffca4688c66b6bf15a4cc0bb002fc010f5560",
+      "packagedSha256": "fcb08aa6823e5231cd4ecea4528ffca4688c66b6bf15a4cc0bb002fc010f5560",
+      "adapted": false
+    },
+    {
+      "path": "docs/prototype-foundation/templates/scenario.md",
+      "source": "docs/prototype-foundation/templates/scenario.md",
+      "sourceSha256": "bebe057bc3674ae2686c49b4685eeca9cc7ff07639662c6c0d54d77be335d44e",
+      "packagedSha256": "bebe057bc3674ae2686c49b4685eeca9cc7ff07639662c6c0d54d77be335d44e",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/.gitignore",
+      "source": "ui/.gitignore",
+      "sourceSha256": "3695b48328705d56e77e91981c0cca686b45fcb7274ed65fa125882cb71e95eb",
+      "packagedSha256": "3695b48328705d56e77e91981c0cca686b45fcb7274ed65fa125882cb71e95eb",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/app/design-system/page.tsx",
+      "source": "ui/app/design-system/page.tsx",
+      "sourceSha256": "4f67badc62de316a3807d1af5a6d88a0535002cdf3a6a14e2dcfdbd565484a43",
+      "packagedSha256": "4f67badc62de316a3807d1af5a6d88a0535002cdf3a6a14e2dcfdbd565484a43",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/app/globals.css",
+      "source": "ui/app/globals.css",
+      "sourceSha256": "bd1080e0cb6b2d8e1a7418a857d7f6584fe3fb5893d59b5ccb0cd4d7f4f73092",
+      "packagedSha256": "bd1080e0cb6b2d8e1a7418a857d7f6584fe3fb5893d59b5ccb0cd4d7f4f73092",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/app/layout.tsx",
+      "source": "ui/app/layout.tsx",
+      "sourceSha256": "e956c42a847bc297bdcec9ad86f682d1b92101e70f4643d8a482e50bc74fab58",
+      "packagedSha256": "e956c42a847bc297bdcec9ad86f682d1b92101e70f4643d8a482e50bc74fab58",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/app/negocio/page.tsx",
+      "source": "ui/app/negocio/page.tsx",
+      "sourceSha256": "db2bf71e824f1436407a0a32f0c21c80741cb72f2651fd02e2d2378ef5b8ba43",
+      "packagedSha256": "db2bf71e824f1436407a0a32f0c21c80741cb72f2651fd02e2d2378ef5b8ba43",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/app/page.tsx",
+      "source": "ui/app/page.tsx",
+      "sourceSha256": "8b7f68d3561c57afa4592565503cf2547f02b7e03a533d4db7218911260f9d49",
+      "packagedSha256": "8b7f68d3561c57afa4592565503cf2547f02b7e03a533d4db7218911260f9d49",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/SystemOverview.tsx",
+      "source": "ui/components/SystemOverview.tsx",
+      "sourceSha256": "6b63c8b3c4bd2be81bc9ac4dbbc9924f993265b2b2ad1c6e6cdaa8af38d8dd92",
+      "packagedSha256": "6b63c8b3c4bd2be81bc9ac4dbbc9924f993265b2b2ad1c6e6cdaa8af38d8dd92",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/ds/README.md",
+      "source": "ui/components/ds/README.md",
+      "sourceSha256": "57bee532c2d4f198a75190a90a54f3669e2296af7740b4669fdcf8d6af32d91f",
+      "packagedSha256": "57bee532c2d4f198a75190a90a54f3669e2296af7740b4669fdcf8d6af32d91f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/ds/atoms/Badge.tsx",
+      "source": "ui/components/ds/atoms/Badge.tsx",
+      "sourceSha256": "06405a17ff53469dcef6ba435cf90261cb5dd58f694c6eb167d2c439f6a4cb0c",
+      "packagedSha256": "06405a17ff53469dcef6ba435cf90261cb5dd58f694c6eb167d2c439f6a4cb0c",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/ds/atoms/Button.tsx",
+      "source": "ui/components/ds/atoms/Button.tsx",
+      "sourceSha256": "142ae04a597aa41cfc4c234870e324ed78a6d1c080183dc585d6d9edbdb55b1d",
+      "packagedSha256": "142ae04a597aa41cfc4c234870e324ed78a6d1c080183dc585d6d9edbdb55b1d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/ds/atoms/Card.tsx",
+      "source": "ui/components/ds/atoms/Card.tsx",
+      "sourceSha256": "083e4fd787aa18c4a3fd031ac7d1f771dc9da8c3f1b7cadd05af71f47cbb3429",
+      "packagedSha256": "083e4fd787aa18c4a3fd031ac7d1f771dc9da8c3f1b7cadd05af71f47cbb3429",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/ds/atoms/Input.tsx",
+      "source": "ui/components/ds/atoms/Input.tsx",
+      "sourceSha256": "6e9e9ded3856f1b2ededd8729b6e4faae5d6c83c1ed893502aa82ae24e498b49",
+      "packagedSha256": "6e9e9ded3856f1b2ededd8729b6e4faae5d6c83c1ed893502aa82ae24e498b49",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/ds/atoms/index.ts",
+      "source": "ui/components/ds/atoms/index.ts",
+      "sourceSha256": "188237cd174804b963dab498168e74e850fffca03a0859b54bcdc57fd6c9f896",
+      "packagedSha256": "188237cd174804b963dab498168e74e850fffca03a0859b54bcdc57fd6c9f896",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/negocio/NegocioView.tsx",
+      "source": "ui/components/negocio/NegocioView.tsx",
+      "sourceSha256": "cd5fe86e565ff23da2dd9e617eabb1a21c397232a16b0183e5b2c5ce761777af",
+      "packagedSha256": "cd5fe86e565ff23da2dd9e617eabb1a21c397232a16b0183e5b2c5ce761777af",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/negocio/PersonasTab.tsx",
+      "source": "ui/components/negocio/PersonasTab.tsx",
+      "sourceSha256": "e40955a3b9b2ae69632bc4d03fb44c30e436648f6990f945c0e79e1dbbbc7934",
+      "packagedSha256": "e40955a3b9b2ae69632bc4d03fb44c30e436648f6990f945c0e79e1dbbbc7934",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/providers/EmpresaProvider.tsx",
+      "source": "ui/components/providers/EmpresaProvider.tsx",
+      "sourceSha256": "a5a9d634783743ebac2d966c6ef5138dc7454a98581cb73b6ca9bbb49345e0fc",
+      "packagedSha256": "a5a9d634783743ebac2d966c6ef5138dc7454a98581cb73b6ca9bbb49345e0fc",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/shell/CockpitShell.tsx",
+      "source": "ui/components/shell/CockpitShell.tsx",
+      "sourceSha256": "a70c8a517bc03de07ebf373f4ce88ab071d68546b155970b4f41f01ea76158a1",
+      "packagedSha256": "a70c8a517bc03de07ebf373f4ce88ab071d68546b155970b4f41f01ea76158a1",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/shell/CockpitShellConnected.tsx",
+      "source": "ui/components/shell/CockpitShellConnected.tsx",
+      "sourceSha256": "7a80704d0c3a6161d128e8caf6b9239373c83594bfa16353e8c68d904d0a1d5c",
+      "packagedSha256": "7a80704d0c3a6161d128e8caf6b9239373c83594bfa16353e8c68d904d0a1d5c",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/ui/Card.tsx",
+      "source": "ui/components/ui/Card.tsx",
+      "sourceSha256": "7ec530b3325c7b586f5a3a6acaf3b4c449e6b5ece5b55498f111b55582976b7d",
+      "packagedSha256": "7ec530b3325c7b586f5a3a6acaf3b4c449e6b5ece5b55498f111b55582976b7d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/ui/Drawer.tsx",
+      "source": "ui/components/ui/Drawer.tsx",
+      "sourceSha256": "1004f86a82ede8519050de345c74cd93bbdaa75f5070523f17f00dd647657b40",
+      "packagedSha256": "1004f86a82ede8519050de345c74cd93bbdaa75f5070523f17f00dd647657b40",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/ui/Spinner.tsx",
+      "source": "ui/components/ui/Spinner.tsx",
+      "sourceSha256": "ca377275ed9fb84ab54595cc53a7825c8f79061c650ab5ba8219de4a102c3115",
+      "packagedSha256": "ca377275ed9fb84ab54595cc53a7825c8f79061c650ab5ba8219de4a102c3115",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/components/ui/Tabs.tsx",
+      "source": "ui/components/ui/Tabs.tsx",
+      "sourceSha256": "cf95d05645a28d7d3acbf42d6664069e3271c47b0abc0c20785c8ecb1baee7e2",
+      "packagedSha256": "cf95d05645a28d7d3acbf42d6664069e3271c47b0abc0c20785c8ecb1baee7e2",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/lib/cn.ts",
+      "source": "ui/lib/cn.ts",
+      "sourceSha256": "d6cf1d2c25e92eba18c73f11c9676f0a7099020f1010396b94fa4c0356e7fc9a",
+      "packagedSha256": "d6cf1d2c25e92eba18c73f11c9676f0a7099020f1010396b94fa4c0356e7fc9a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/lib/nav.ts",
+      "source": "ui/lib/nav.ts",
+      "sourceSha256": "3e4301a33b726f8117b4a69dcedad89f7a761fbb49d773dbd356bdba96b0ecd3",
+      "packagedSha256": "3e4301a33b726f8117b4a69dcedad89f7a761fbb49d773dbd356bdba96b0ecd3",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/lib/negocio.ts",
+      "source": "ui/lib/negocio.ts",
+      "sourceSha256": "0096cfe7145b2895bfaa51cb5e2b597813ae568a60fd00ac02cf406c39f4a9b8",
+      "packagedSha256": "0096cfe7145b2895bfaa51cb5e2b597813ae568a60fd00ac02cf406c39f4a9b8",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/lib/personas.test.ts",
+      "source": "ui/lib/personas.test.ts",
+      "sourceSha256": "bec90219682be532f2623eec389273cf94df7c63a9a436d5f19130ee3ff851b5",
+      "packagedSha256": "bec90219682be532f2623eec389273cf94df7c63a9a436d5f19130ee3ff851b5",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/lib/personas.ts",
+      "source": "ui/lib/personas.ts",
+      "sourceSha256": "e3a96b360dbb2846e7bc6e7fdceaa2aed50fe895f01e2e495a22a965b153400a",
+      "packagedSha256": "e3a96b360dbb2846e7bc6e7fdceaa2aed50fe895f01e2e495a22a965b153400a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/lib/portfolio.test.ts",
+      "source": "ui/lib/portfolio.test.ts",
+      "sourceSha256": "82d745471401d2e8f52f01125a6b1f1fcc77b09abed7801d1faa3f41284ace81",
+      "packagedSha256": "82d745471401d2e8f52f01125a6b1f1fcc77b09abed7801d1faa3f41284ace81",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/lib/portfolio.ts",
+      "source": "ui/lib/portfolio.ts",
+      "sourceSha256": "7137d0bbabcba74cbd5219bf0bd8f090a303652b60307c4ce1d1ca85e06d3cdc",
+      "packagedSha256": "7137d0bbabcba74cbd5219bf0bd8f090a303652b60307c4ce1d1ca85e06d3cdc",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/next-env.d.ts",
+      "source": "ui/next-env.d.ts",
+      "sourceSha256": "7b550dda9686c16f36a17bf9051d5dbf31e98555b30d114ac49fc49a1e712651",
+      "packagedSha256": "7b550dda9686c16f36a17bf9051d5dbf31e98555b30d114ac49fc49a1e712651",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/next.config.js",
+      "source": "ui/next.config.js",
+      "sourceSha256": "b3f31eaeff4f94aa3d01e479f1674e5962d9cf4cd3f48c2b76fe7a517736b8b7",
+      "packagedSha256": "b3f31eaeff4f94aa3d01e479f1674e5962d9cf4cd3f48c2b76fe7a517736b8b7",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/package.json",
+      "source": "ui/package.json",
+      "sourceSha256": "48458d2dc9658b0ed9a0c8ffa4152644ca866881d4c3cb68ccf3a424df0466d1",
+      "packagedSha256": "48458d2dc9658b0ed9a0c8ffa4152644ca866881d4c3cb68ccf3a424df0466d1",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/pnpm-lock.yaml",
+      "source": "ui/pnpm-lock.yaml",
+      "sourceSha256": "45a93f24ed5e9cd0ac23415b60bc84ea0ded9709c4216d6ae39578fe7d76614a",
+      "packagedSha256": "45a93f24ed5e9cd0ac23415b60bc84ea0ded9709c4216d6ae39578fe7d76614a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/postcss.config.js",
+      "source": "ui/postcss.config.js",
+      "sourceSha256": "323d21314f4ee8f2a44c196b2a0cfc87b98144ac5eae429c1749dd5a4da9da1f",
+      "packagedSha256": "323d21314f4ee8f2a44c196b2a0cfc87b98144ac5eae429c1749dd5a4da9da1f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/ui/tsconfig.json",
+      "source": "ui/tsconfig.json",
+      "sourceSha256": "13b4fd5233aac41774e6f71691e0c1f1fc7a3a8dab38b2026dd8d0da2ee1e564",
+      "packagedSha256": "13b4fd5233aac41774e6f71691e0c1f1fc7a3a8dab38b2026dd8d0da2ee1e564",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/.claude/rules/ui-design-system.md",
+      "source": ".claude/rules/ui-design-system.md",
+      "sourceSha256": "3fa57585556f62f3bb81571d9d4954fec4a0046e78e63973e08760bd0cfc9913",
+      "packagedSha256": "3fa57585556f62f3bb81571d9d4954fec4a0046e78e63973e08760bd0cfc9913",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/project.config.yaml",
+      "source": "project.config.yaml",
+      "sourceSha256": "45e745dc40c555c22d53eabb616ce70f8cac8bf106baa52f677cb74c81d09d2b",
+      "packagedSha256": "45e745dc40c555c22d53eabb616ce70f8cac8bf106baa52f677cb74c81d09d2b",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/HANDOFF.md",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/HANDOFF.md",
+      "sourceSha256": "d1827348d8a143afeefa39775ed2f49e9ccb2e391bbcaf7d2e6c6d45018e8cbd",
+      "packagedSha256": "3922aab63cbcca4b91bcc55b96b1b50e2ec49bd7a6037614f2ae58d6bfbcb959",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/README.md",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/README.md",
+      "sourceSha256": "bbdf152239f934ea6fe49e5a85fadcc6fd546fec00e9af3fe899271c44161304",
+      "packagedSha256": "1cbec2618d5b8bf15ea5ab606ec4376d82208d9173b4d9547dae0243d9771f91",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/build.py",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/build.py",
+      "sourceSha256": "4613848209a9ca7621ec9149d40116cf20303619e4d8c31181685359ab0eaab6",
+      "packagedSha256": "4613848209a9ca7621ec9149d40116cf20303619e4d8c31181685359ab0eaab6",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/index.html",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/index.html",
+      "sourceSha256": "6f98a7c23eebd6f70f7f4bc6387fac17fb4d6f47dbc2bf906488272c82b183dc",
+      "packagedSha256": "6f98a7c23eebd6f70f7f4bc6387fac17fb4d6f47dbc2bf906488272c82b183dc",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/sandbox-4capas.html",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/sandbox-4capas.html",
+      "sourceSha256": "bd7ccb97b6984c46791057f3e2d70f2b94cd2e056d8d87be6acc8cb65a75da44",
+      "packagedSha256": "bd7ccb97b6984c46791057f3e2d70f2b94cd2e056d8d87be6acc8cb65a75da44",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/00-head.html",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/00-head.html",
+      "sourceSha256": "d4fe16aac0a753973575c4e4c338edaee5e47f80dbec68fc33520b479c5eef0d",
+      "packagedSha256": "d4fe16aac0a753973575c4e4c338edaee5e47f80dbec68fc33520b479c5eef0d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/10-tokens.css",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/10-tokens.css",
+      "sourceSha256": "7c6c61dac184a0a4bc3525e024a613ab9028acf7f6208639b4c174ab4c36a8bb",
+      "packagedSha256": "7c6c61dac184a0a4bc3525e024a613ab9028acf7f6208639b4c174ab4c36a8bb",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/11-rail.css",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/11-rail.css",
+      "sourceSha256": "fb602d8d44ca0974144366b0210a3c70ef8fc35defa18269aa7ce553d8b675c3",
+      "packagedSha256": "fb602d8d44ca0974144366b0210a3c70ef8fc35defa18269aa7ce553d8b675c3",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/12-stage.css",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/12-stage.css",
+      "sourceSha256": "503142c4443da5697edb85b69942ea4d6f8ea85c22a2b1614bcf06325731ebbe",
+      "packagedSha256": "503142c4443da5697edb85b69942ea4d6f8ea85c22a2b1614bcf06325731ebbe",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/13-nodos.css",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/13-nodos.css",
+      "sourceSha256": "b573485e71a25e98f6072420da9940c1e7f31807e13df6b2324ce2920637af83",
+      "packagedSha256": "b573485e71a25e98f6072420da9940c1e7f31807e13df6b2324ce2920637af83",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/14-lienzo.css",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/14-lienzo.css",
+      "sourceSha256": "d1ede2f899f1ab007d8810588c4610a8d13b942030b350bd54dcde0f65d16a81",
+      "packagedSha256": "d1ede2f899f1ab007d8810588c4610a8d13b942030b350bd54dcde0f65d16a81",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/15-viewport.css",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/15-viewport.css",
+      "sourceSha256": "c32601f6f88da1eb1b47292beb484d12b20e207c05a09ac9cb3802b6049b383d",
+      "packagedSha256": "c32601f6f88da1eb1b47292beb484d12b20e207c05a09ac9cb3802b6049b383d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/16-inspector.css",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/16-inspector.css",
+      "sourceSha256": "ca571b87c6a03e4ee4cf95289d009eb1e5961b6488d3d8db1574a8330243b949",
+      "packagedSha256": "ca571b87c6a03e4ee4cf95289d009eb1e5961b6488d3d8db1574a8330243b949",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/17-modulos.css",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/17-modulos.css",
+      "sourceSha256": "4807b3023a840cf5270edce3ad61e471ea53105e11e2590dce79b7f383eede16",
+      "packagedSha256": "4807b3023a840cf5270edce3ad61e471ea53105e11e2590dce79b7f383eede16",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/18-materiales.css",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/18-materiales.css",
+      "sourceSha256": "a415b5b84a88023a47d0533f0c565d648e0b9564a40b7647baaf2c815e272b52",
+      "packagedSha256": "a415b5b84a88023a47d0533f0c565d648e0b9564a40b7647baaf2c815e272b52",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/19-apendice-v14.css",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/19-apendice-v14.css",
+      "sourceSha256": "24486785707db851def9713df00dc7a3fe06723f0f26e64e2b61e7c821e954f8",
+      "packagedSha256": "24486785707db851def9713df00dc7a3fe06723f0f26e64e2b61e7c821e954f8",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/19b-directorio.css",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/19b-directorio.css",
+      "sourceSha256": "41f4d96d5f67fd17e1b80e357654e92ce19802501da68e07be2873ed96dc2768",
+      "packagedSha256": "41f4d96d5f67fd17e1b80e357654e92ce19802501da68e07be2873ed96dc2768",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/19c-sala-area.css",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/19c-sala-area.css",
+      "sourceSha256": "b2b5f17a0fe0ae7139a67b5589ba9cdc30609e67e4c3652e80a4339e14ef7b45",
+      "packagedSha256": "b2b5f17a0fe0ae7139a67b5589ba9cdc30609e67e4c3652e80a4339e14ef7b45",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/20-shell.html",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/20-shell.html",
+      "sourceSha256": "c5f2e5e7b2eab6f2d0505092c4ed5820815a35cfd54cf5542e14d2538b8da585",
+      "packagedSha256": "c5f2e5e7b2eab6f2d0505092c4ed5820815a35cfd54cf5542e14d2538b8da585",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/30-iconos.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/30-iconos.js",
+      "sourceSha256": "fb30ac53cd9cfbd2d0c3000e8eeb2b21dd946ceee6bebc2216143b301d74f1c4",
+      "packagedSha256": "fb30ac53cd9cfbd2d0c3000e8eeb2b21dd946ceee6bebc2216143b301d74f1c4",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/31-data-twin.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/31-data-twin.js",
+      "sourceSha256": "d679622ac0fe3a7551a3d2a5d7e40249c973d6a21bbd439ce57992d20c0883a3",
+      "packagedSha256": "d679622ac0fe3a7551a3d2a5d7e40249c973d6a21bbd439ce57992d20c0883a3",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/32-data-cerebro.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/32-data-cerebro.js",
+      "sourceSha256": "3685afb27b52b735a020ac6b36ae56802984f8a3a412ba4cf6d4c99d40ca2b15",
+      "packagedSha256": "3685afb27b52b735a020ac6b36ae56802984f8a3a412ba4cf6d4c99d40ca2b15",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/33-data-valor.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/33-data-valor.js",
+      "sourceSha256": "665ff001150ccda1fdfed8b154f2b90c3d2115411d6af0b488dcd015af9345cf",
+      "packagedSha256": "665ff001150ccda1fdfed8b154f2b90c3d2115411d6af0b488dcd015af9345cf",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/34-data-instruccion.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/34-data-instruccion.js",
+      "sourceSha256": "08802b8d3bb82d19c59b5afcbe584c2328b0ab8306ea64d2fd8772f45691e6a3",
+      "packagedSha256": "08802b8d3bb82d19c59b5afcbe584c2328b0ab8306ea64d2fd8772f45691e6a3",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/35-data-directorio.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/35-data-directorio.js",
+      "sourceSha256": "3298eba3afba1b6361284d3f9e1aeac4f6371ec1a98b8feba7c3c78adb1af097",
+      "packagedSha256": "3298eba3afba1b6361284d3f9e1aeac4f6371ec1a98b8feba7c3c78adb1af097",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/36-data-gobierno.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/36-data-gobierno.js",
+      "sourceSha256": "90436a1dd19d629f78a742b619884d7fc96e0bdc09eefb46a171fd9ce5fd854f",
+      "packagedSha256": "90436a1dd19d629f78a742b619884d7fc96e0bdc09eefb46a171fd9ce5fd854f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/37-data-archivo.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/37-data-archivo.js",
+      "sourceSha256": "8934f45ef159c4bf3418affd35dec1aea62881943348d379f023ac3d24c74287",
+      "packagedSha256": "8934f45ef159c4bf3418affd35dec1aea62881943348d379f023ac3d24c74287",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/40-motores.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/40-motores.js",
+      "sourceSha256": "e69a303021e66befcd0490b33f79c25ea1539c71dd4effc82eb1c989e99fd142",
+      "packagedSha256": "e69a303021e66befcd0490b33f79c25ea1539c71dd4effc82eb1c989e99fd142",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/41-acciones.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/41-acciones.js",
+      "sourceSha256": "90cf8610a09fdfd4fa21bf5a434854c4c8b6293ecdd2ebc8ea528fce9644f9be",
+      "packagedSha256": "90cf8610a09fdfd4fa21bf5a434854c4c8b6293ecdd2ebc8ea528fce9644f9be",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/42-respaldo.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/42-respaldo.js",
+      "sourceSha256": "79532f987a17f0e381cad356de18f2fadcaa681d87e35c5807a5e77633078741",
+      "packagedSha256": "79532f987a17f0e381cad356de18f2fadcaa681d87e35c5807a5e77633078741",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/43-navegacion.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/43-navegacion.js",
+      "sourceSha256": "790c77cceeca6dbbd2fd508b37edd7688ed3cbf37f9009d98df246b08745eb79",
+      "packagedSha256": "790c77cceeca6dbbd2fd508b37edd7688ed3cbf37f9009d98df246b08745eb79",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/50-state-view.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/50-state-view.js",
+      "sourceSha256": "21774c6a5c22a4a15df0aad8dc1fc172367dee5b7d91186df1999b222ac8a485",
+      "packagedSha256": "21774c6a5c22a4a15df0aad8dc1fc172367dee5b7d91186df1999b222ac8a485",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/60-render.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/60-render.js",
+      "sourceSha256": "b244e1bcc960fbe9b397a6235b157482bc3500f44ffec14b9d1fee779c286822",
+      "packagedSha256": "b244e1bcc960fbe9b397a6235b157482bc3500f44ffec14b9d1fee779c286822",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/61-organigrama.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/61-organigrama.js",
+      "sourceSha256": "80d1c18ba2c7796f517885efcc6f738ea4916e554483bf07bd70f43250ba2f91",
+      "packagedSha256": "80d1c18ba2c7796f517885efcc6f738ea4916e554483bf07bd70f43250ba2f91",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/62-valor.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/62-valor.js",
+      "sourceSha256": "f84e90e1797985033799bf4aea816040418a10c85b0e4d2aa33c070216a304da",
+      "packagedSha256": "f84e90e1797985033799bf4aea816040418a10c85b0e4d2aa33c070216a304da",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/63-lienzo.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/63-lienzo.js",
+      "sourceSha256": "c09b0ab534ad9238608b20f2ba732b9cbe93988fcbc2a30828cbf1537f65706f",
+      "packagedSha256": "c09b0ab534ad9238608b20f2ba732b9cbe93988fcbc2a30828cbf1537f65706f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/64-instruccion.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/64-instruccion.js",
+      "sourceSha256": "b4cf7dd05a17bc57aa0e400cafe59cc2724d46237979c2a65ad48d81e292b4d2",
+      "packagedSha256": "b4cf7dd05a17bc57aa0e400cafe59cc2724d46237979c2a65ad48d81e292b4d2",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/65-directorio.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/65-directorio.js",
+      "sourceSha256": "4053af524b1e4d0e41718a2364a7bbc9187c3f0a12a61884bdf12d5e83fd4d88",
+      "packagedSha256": "4053af524b1e4d0e41718a2364a7bbc9187c3f0a12a61884bdf12d5e83fd4d88",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/66-tactico.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/66-tactico.js",
+      "sourceSha256": "5675b71b8983bc32920ff5350fffb9d14417736dc93d8ce66f950b75ddb59de6",
+      "packagedSha256": "5675b71b8983bc32920ff5350fffb9d14417736dc93d8ce66f950b75ddb59de6",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/67-modulos.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/67-modulos.js",
+      "sourceSha256": "de0faaed84583cc0e847bc1148a7e474e53434f16ebe9bbed48b7840404309cd",
+      "packagedSha256": "de0faaed84583cc0e847bc1148a7e474e53434f16ebe9bbed48b7840404309cd",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/68-topbar-minimapa.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/68-topbar-minimapa.js",
+      "sourceSha256": "f6a791f3ce40f16dcfde9ee2b2401fed7435f1432b7ef62aa378747368b4ae4b",
+      "packagedSha256": "f6a791f3ce40f16dcfde9ee2b2401fed7435f1432b7ef62aa378747368b4ae4b",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/70-inspector.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/70-inspector.js",
+      "sourceSha256": "038a12564b97d5cc1c2739666252121117efbcecf385404e3c126d536ef7ce7f",
+      "packagedSha256": "038a12564b97d5cc1c2739666252121117efbcecf385404e3c126d536ef7ce7f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/71-fichas-proceso.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/71-fichas-proceso.js",
+      "sourceSha256": "8d717b0c5a85db9e78b7efbd5f3a420475e052f4ab9050b3f5dfb9939d00c8bb",
+      "packagedSha256": "8d717b0c5a85db9e78b7efbd5f3a420475e052f4ab9050b3f5dfb9939d00c8bb",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/72-fichas-kpi.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/72-fichas-kpi.js",
+      "sourceSha256": "6af925d3068815deef38ab15378180bc6b22be28aa7c642a128e734ad28c33b8",
+      "packagedSha256": "6af925d3068815deef38ab15378180bc6b22be28aa7c642a128e734ad28c33b8",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/73-fichas-entidad.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/73-fichas-entidad.js",
+      "sourceSha256": "2f0e92c903e52152a907dac2faf53c5d0332e240ff714b995b0325a6e321b9c4",
+      "packagedSha256": "2f0e92c903e52152a907dac2faf53c5d0332e240ff714b995b0325a6e321b9c4",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/74-fichas-gobierno.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/74-fichas-gobierno.js",
+      "sourceSha256": "dad4875622b7c5f94a0c5b726323133f5bce4b1a0db88b8ac827396b35fd884f",
+      "packagedSha256": "dad4875622b7c5f94a0c5b726323133f5bce4b1a0db88b8ac827396b35fd884f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/80-eventos.js",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/80-eventos.js",
+      "sourceSha256": "159f104dce0bdaf82bd403f0aded30bc86f026ebf7191ec880df4e9de4e26b08",
+      "packagedSha256": "159f104dce0bdaf82bd403f0aded30bc86f026ebf7191ec880df4e9de4e26b08",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/src/README.md",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/src/README.md",
+      "sourceSha256": "37490eab13e26017698016b886d2b99d73691264638a52ee391d0564159daf8d",
+      "packagedSha256": "37490eab13e26017698016b886d2b99d73691264638a52ee391d0564159daf8d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/twin-territorio-2026-07-20/verify.sh",
+      "source": "docs/product/prototypes/twin-territorio-2026-07-20/verify.sh",
+      "sourceSha256": "d9c45079e5eeabfa204bf83541ffd55cf9e773119d07b14eb8d35be23a9da4d8",
+      "packagedSha256": "d9c45079e5eeabfa204bf83541ffd55cf9e773119d07b14eb8d35be23a9da4d8",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/revision-ds-twin-2026-07-20/README.md",
+      "source": "docs/product/prototypes/revision-ds-twin-2026-07-20/README.md",
+      "sourceSha256": "36abd31581ce330cd2dfe256720e73be451310a58c532faed40b5127ab43aa69",
+      "packagedSha256": "36abd31581ce330cd2dfe256720e73be451310a58c532faed40b5127ab43aa69",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/revision-ds-twin-2026-07-20/ds-catalog.jpeg",
+      "source": "docs/product/prototypes/revision-ds-twin-2026-07-20/ds-catalog.jpeg",
+      "sourceSha256": "4cae25773c275d52f24ff4e4a2846d42a85df9e910046113ff00837d44e687db",
+      "packagedSha256": "4cae25773c275d52f24ff4e4a2846d42a85df9e910046113ff00837d44e687db",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/revision-ds-twin-2026-07-20/ds-catalog.png",
+      "source": "docs/product/prototypes/revision-ds-twin-2026-07-20/ds-catalog.png",
+      "sourceSha256": "9a26886a0db8391c157a003d2687f30384b9251a875e235f1f18abc783516e1d",
+      "packagedSha256": "9a26886a0db8391c157a003d2687f30384b9251a875e235f1f18abc783516e1d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/revision-ds-twin-2026-07-20/embed-final.jpeg",
+      "source": "docs/product/prototypes/revision-ds-twin-2026-07-20/embed-final.jpeg",
+      "sourceSha256": "a947d81c0c0bd5990cc664790611c927dcceaba121a3ee88821271281e0ef52e",
+      "packagedSha256": "a947d81c0c0bd5990cc664790611c927dcceaba121a3ee88821271281e0ef52e",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/revision-ds-twin-2026-07-20/lente-brechas-terranova.jpeg",
+      "source": "docs/product/prototypes/revision-ds-twin-2026-07-20/lente-brechas-terranova.jpeg",
+      "sourceSha256": "83516fc50ee4076e95630704d16ae2c7aefed1a5441af268060dc4e86c4645a4",
+      "packagedSha256": "83516fc50ee4076e95630704d16ae2c7aefed1a5441af268060dc4e86c4645a4",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/revision-ds-twin-2026-07-20/lente-hilo-terranova.jpeg",
+      "source": "docs/product/prototypes/revision-ds-twin-2026-07-20/lente-hilo-terranova.jpeg",
+      "sourceSha256": "e3a738c297e99d45d134d2ebfc6bd925fac546313d006f3a444748407bc4c540",
+      "packagedSha256": "e3a738c297e99d45d134d2ebfc6bd925fac546313d006f3a444748407bc4c540",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/revision-ds-twin-2026-07-20/lente-mapa-onbrand.jpeg",
+      "source": "docs/product/prototypes/revision-ds-twin-2026-07-20/lente-mapa-onbrand.jpeg",
+      "sourceSha256": "f8ac479bb1976722b2bf5f9ad3435575b03b91133b791def886f2052cfbd596b",
+      "packagedSha256": "f8ac479bb1976722b2bf5f9ad3435575b03b91133b791def886f2052cfbd596b",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/revision-ds-twin-2026-07-20/negocio-personas-terranova.jpeg",
+      "source": "docs/product/prototypes/revision-ds-twin-2026-07-20/negocio-personas-terranova.jpeg",
+      "sourceSha256": "e7ff072e993527141a98ad59f4164c58a91aa4639f4f592a32491df732e9cfc1",
+      "packagedSha256": "e7ff072e993527141a98ad59f4164c58a91aa4639f4f592a32491df732e9cfc1",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/revision-ds-twin-2026-07-20/revision-build.html",
+      "source": "docs/product/prototypes/revision-ds-twin-2026-07-20/revision-build.html",
+      "sourceSha256": "88feb4d5b3bf764e19b7fc37d50bb119b6c90ce33e049650a6b4d6face2246ae",
+      "packagedSha256": "88feb4d5b3bf764e19b7fc37d50bb119b6c90ce33e049650a6b4d6face2246ae",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/twin-territorio-mapa-zoomable/00-story.md",
+      "source": "docs/product/stories/cockpit/twin-territorio-mapa-zoomable/00-story.md",
+      "sourceSha256": "54a847057ad7140e31d81bcd6a7ab50456775c2b418008e9892811cbee5b6e01",
+      "packagedSha256": "7c34369f7c2b2410f21d60994943acac444b4cd99e2533a64c1b2fc39aab7683",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/01-vision-y-doctrina.md",
+      "source": "docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/01-vision-y-doctrina.md",
+      "sourceSha256": "3d2a076cd069d6c630b008a239e656abd961213708e482f7c5a192fbea52d9de",
+      "packagedSha256": "1cae949dd56863697dc3e5a3dabdf2a602536f59a20014b5b5bee166aec2893a",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/02-mockup-guia-completa.md",
+      "source": "docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/02-mockup-guia-completa.md",
+      "sourceSha256": "48d3c1a342a59ed89cbdfdac872f86d39fa70ac6c5d44d32f8e2da5e3874bbb7",
+      "packagedSha256": "48d3c1a342a59ed89cbdfdac872f86d39fa70ac6c5d44d32f8e2da5e3874bbb7",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/03-decisiones-y-porques.md",
+      "source": "docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/03-decisiones-y-porques.md",
+      "sourceSha256": "af9e56a44b65b49539f219eca07c7706d1e690c644e2c73e45828c33cf0ef21f",
+      "packagedSha256": "af9e56a44b65b49539f219eca07c7706d1e690c644e2c73e45828c33cf0ef21f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/04-datos-canned.md",
+      "source": "docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/04-datos-canned.md",
+      "sourceSha256": "da1bf485fa6135e2ceae9a6d4e4351bf781f3cababb78be18109f849cb62470c",
+      "packagedSha256": "da1bf485fa6135e2ceae9a6d4e4351bf781f3cababb78be18109f849cb62470c",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/05-construccion-real.md",
+      "source": "docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/05-construccion-real.md",
+      "sourceSha256": "19a921e5d7992656b7ed5bc1db88119f58a7e7ea80b0aa0f41eb29c1ba9376d6",
+      "packagedSha256": "a0e9f9fb0a927652b5f21d9b5d078a4160d9408e3d141d0ba6c6d00f406cd370",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/06-pendientes-e-ideas.md",
+      "source": "docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/06-pendientes-e-ideas.md",
+      "sourceSha256": "6b0f85731189cfe723d9c732d0f7684fb40c279d636453f940143a0c406068ba",
+      "packagedSha256": "136a03c5348da92821b90a016bfcad2dd924550274526fd6c8cd2137acbe90bc",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/07-auditoria-hallazgos.md",
+      "source": "docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/07-auditoria-hallazgos.md",
+      "sourceSha256": "1d32c2e0a33f8fea2c559cc4a04dc98a99ecb360065f81c78c3e8020992d0673",
+      "packagedSha256": "1d32c2e0a33f8fea2c559cc4a04dc98a99ecb360065f81c78c3e8020992d0673",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/08-nivel-1-contrato-de-construccion.md",
+      "source": "docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/08-nivel-1-contrato-de-construccion.md",
+      "sourceSha256": "42921b359ec22397ab16d5dd40a582bc1c0e4e2111421c678bdb604a50200b2a",
+      "packagedSha256": "42921b359ec22397ab16d5dd40a582bc1c0e4e2111421c678bdb604a50200b2a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/README.md",
+      "source": "docs/product/stories/cockpit/twin-territorio-mapa-zoomable/dossier/README.md",
+      "sourceSha256": "9508607bb4982ed7716d918e6932f44b9959de1ce6ee93fb7e293dc5c490c937",
+      "packagedSha256": "2fc228f66a00aedd11559b2e54013510cf25fca5cad2eef8bd7ed15011f7b18d",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/twin-territorio-mapa-zoomable/research-shell-ui.md",
+      "source": "docs/product/stories/cockpit/twin-territorio-mapa-zoomable/research-shell-ui.md",
+      "sourceSha256": "09488f461a653339d797377d3541303f255f3bd2e0fbddd8335436cf24bf1625",
+      "packagedSha256": "09488f461a653339d797377d3541303f255f3bd2e0fbddd8335436cf24bf1625",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/twin-territorio-mapa-zoomable/story.yaml",
+      "source": "docs/product/stories/cockpit/twin-territorio-mapa-zoomable/story.yaml",
+      "sourceSha256": "28d301cb107d742446ae19405c77dc0ec7b281be63ecd01e2bd784d0fc5ea6b7",
+      "packagedSha256": "28d301cb107d742446ae19405c77dc0ec7b281be63ecd01e2bd784d0fc5ea6b7",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/design-system-atomic-storybook/00-story.md",
+      "source": "docs/product/stories/sistema/design-system-atomic-storybook/00-story.md",
+      "sourceSha256": "028db9d97faf9d669eeae6c0290b92ca4b30bb9f849b74d1d58a701641d4b298",
+      "packagedSha256": "028db9d97faf9d669eeae6c0290b92ca4b30bb9f849b74d1d58a701641d4b298",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/design-system-atomic-storybook/story.yaml",
+      "source": "docs/product/stories/sistema/design-system-atomic-storybook/story.yaml",
+      "sourceSha256": "fe07eb8984b86892d3406a81b1719ac3cc9096f2d6a37f911bb478b30570969d",
+      "packagedSha256": "fe07eb8984b86892d3406a81b1719ac3cc9096f2d6a37f911bb478b30570969d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/arquitectura/NODOS.md",
+      "source": "sistema/arquitectura/NODOS.md",
+      "sourceSha256": "1a922a1ceccf399192e50e30e49b8f844e08c67ea86d68325dbde36079fa5d05",
+      "packagedSha256": "ab46918a738d595074111d2deb8e06dc83ff697b16854405aac6bc78eb15e8a1",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/LEDGER.md",
+      "source": "LEDGER.md",
+      "sourceSha256": "9d5b3df9d836a88293b1b702257878fb6c7aa749b33094365514a8f1a4a868a6",
+      "packagedSha256": "76a020166cd879badb2cad4be9fe3fc49e347379eb4d6c63335d88d655d3adb3",
+      "adapted": true
+    },
+    {
+      "path": "references/desktop/mock-conversacion.html",
+      "source": "dev-studio/epicas/conversacion-terminal-autentica/mock-conversacion.html",
+      "sourceSha256": "7ff90d1cfc5663904d7c4c69ce82e585135c8ea2950db6121d8a3481ff7446d0",
+      "packagedSha256": "7ff90d1cfc5663904d7c4c69ce82e585135c8ea2950db6121d8a3481ff7446d0",
+      "adapted": false
+    },
+    {
+      "path": "client-inputs/prospera/scope/email-scope-response.md",
+      "source": "Training/prtProspera/tmp/scope/email-scope-response.md",
+      "sourceSha256": "6fb4a7d5a927045460d89fe34266e76b0b6c8885a1de93c33852af87dc3281aa",
+      "packagedSha256": "6fb4a7d5a927045460d89fe34266e76b0b6c8885a1de93c33852af87dc3281aa",
+      "adapted": false
+    },
+    {
+      "path": "client-inputs/prospera/scope/propuesta-prospera.md",
+      "source": "Training/prtProspera/tmp/scope/propuesta-prospera.md",
+      "sourceSha256": "fcddfebc5be38a0c5e177218ff70eac409173d14f116441e8ee9a6bf23c7fd42",
+      "packagedSha256": "fcddfebc5be38a0c5e177218ff70eac409173d14f116441e8ee9a6bf23c7fd42",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/arquitectura/despliegue.html",
+      "source": "sistema/arquitectura/despliegue.html",
+      "sourceSha256": "7de82cc6e3a8df99b63e9ac16c3d8656b390cce93078da6ebedb51df14816629",
+      "packagedSha256": "7de82cc6e3a8df99b63e9ac16c3d8656b390cce93078da6ebedb51df14816629",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/architecture/producto/ARCHITECTURE.md",
+      "source": "docs/architecture/producto/ARCHITECTURE.md",
+      "sourceSha256": "829acfc62b7b66ab0f9f285ed3fde29872f5e4fdaf11ba070b277ac03e5363cf",
+      "packagedSha256": "eef5623975551caa17c489d25be60026eff587e06e0468c1c892524ae94255e7",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/METODOLOGIA.md",
+      "source": "sistema/metodo/METODOLOGIA.md",
+      "sourceSha256": "338d7f7a55f9f056ae934a049f698c5ed3692d4ada616e1ba18641c56d3f63f0",
+      "packagedSha256": "2d9149ee3987d2d60d203be52573060101e471fd4fdf40f9e77c2ef8f697abd2",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/research/rediseno-total/01-repositorio-oficial.md",
+      "source": "docs/research/rediseno-total/01-repositorio-oficial.md",
+      "sourceSha256": "41ac6c65d3bc2bbb1c33f3a3b3a89e82c4c3920af80320fe58714201c500a1ef",
+      "packagedSha256": "41ac6c65d3bc2bbb1c33f3a3b3a89e82c4c3920af80320fe58714201c500a1ef",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/rediseno-total/02-knowledge-database.md",
+      "source": "docs/research/rediseno-total/02-knowledge-database.md",
+      "sourceSha256": "848eb2f99b6d9e92ea49175d4b76609bf3eaa28ab082a3e7fa1d7cfd6bf9d5bc",
+      "packagedSha256": "848eb2f99b6d9e92ea49175d4b76609bf3eaa28ab082a3e7fa1d7cfd6bf9d5bc",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/rediseno-total/03-data-lakehouse.md",
+      "source": "docs/research/rediseno-total/03-data-lakehouse.md",
+      "sourceSha256": "0171a5943fe76544b77021c1387c0783884b8da47c2c417a46b979ddd4b22421",
+      "packagedSha256": "0171a5943fe76544b77021c1387c0783884b8da47c2c417a46b979ddd4b22421",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/rediseno-total/04-distribucion-licencias-telemetria.md",
+      "source": "docs/research/rediseno-total/04-distribucion-licencias-telemetria.md",
+      "sourceSha256": "f20cd5339a80e6503b8e697650e092c18f804758a6cd29380bb3ca74186c348a",
+      "packagedSha256": "f20cd5339a80e6503b8e697650e092c18f804758a6cd29380bb3ca74186c348a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/rediseno-total/05-auth-rbac.md",
+      "source": "docs/research/rediseno-total/05-auth-rbac.md",
+      "sourceSha256": "2b2be31b049bb2159b9c7015a232497ce08a3234c330e047d1bf4ba842728159",
+      "packagedSha256": "2b2be31b049bb2159b9c7015a232497ce08a3234c330e047d1bf4ba842728159",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/rediseno-total/06-gestion-cambios-iso.md",
+      "source": "docs/research/rediseno-total/06-gestion-cambios-iso.md",
+      "sourceSha256": "3d001c497d542fbe698254a59aba75446e1940d0e7b6961a1e512fd24f373420",
+      "packagedSha256": "3d001c497d542fbe698254a59aba75446e1940d0e7b6961a1e512fd24f373420",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/rediseno-total/07-proceso-como-arnes.md",
+      "source": "docs/research/rediseno-total/07-proceso-como-arnes.md",
+      "sourceSha256": "e14ac0aaceb3db34399c7ed05d09b5082a6ddb8b62c46a55935cd8c407a520ca",
+      "packagedSha256": "e14ac0aaceb3db34399c7ed05d09b5082a6ddb8b62c46a55935cd8c407a520ca",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/rediseno-total/README.md",
+      "source": "docs/research/rediseno-total/README.md",
+      "sourceSha256": "3b20691093619a74b38e3f85b333099918b86449db9ad4208c0afb1b97e8f50a",
+      "packagedSha256": "ce76ea6f1d1561bda5b6e7a0b0bf9eb8b7060cf34bdfa0a6d9a27d86eab5da38",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/SERVICE-DESIGN.md",
+      "source": "sistema/metodo/SERVICE-DESIGN.md",
+      "sourceSha256": "f91d11004d61bf4e5e907ba62b777adac18adea92ad2ef85b42e88a87158b7cb",
+      "packagedSha256": "eeef7a310fcfbf62defc4462a5202c7fdce3479183f38bf3ff382c3844d6c6e7",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/VISION.md",
+      "source": "VISION.md",
+      "sourceSha256": "c42444789d72594a4882953adac000cb9d97019f43ba121bca9f738d857072de",
+      "packagedSha256": "da0fe376b792339bd12cde865012acd3065463ddbf52be477aaba94a22e96a7b",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/NOTACIONES.html",
+      "source": "sistema/metodo/NOTACIONES.html",
+      "sourceSha256": "fe3d0937d449ac68c144f21d52d81bdad8629dd621d15ec37a1f7cf574bdeba0",
+      "packagedSha256": "fe3d0937d449ac68c144f21d52d81bdad8629dd621d15ec37a1f7cf574bdeba0",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/M1-LEVANTAMIENTO.md",
+      "source": "sistema/metodo/M1-LEVANTAMIENTO.md",
+      "sourceSha256": "9717d591111bfaa835a48db6986bd915aa802d88a63bfd5a3093982134622032",
+      "packagedSha256": "d1933be70f7fd3f57e4b70b1fda44dfb5fe20f0a02f1a7c942fc0ae386adbf42",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/M3-ESPINAZO.md",
+      "source": "sistema/metodo/M3-ESPINAZO.md",
+      "sourceSha256": "c16a002a59c6a66bf1ab726bec6c97fd0441d85bfbec59cc268569d5a71d214b",
+      "packagedSha256": "0f3a9bd266e530f2de12a40fe40406b11898a37d73dd463be589ae29cf7e1b8e",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/PROCESS-AS-DATA.md",
+      "source": "sistema/metodo/PROCESS-AS-DATA.md",
+      "sourceSha256": "c51ad325f6732dbae0c6cafbe42becf0180992c48e4a4e81a7771eccd7d595f8",
+      "packagedSha256": "974bb4d0e70c4aa4dbc5d1a2df5630b27bef00b52724da3ea3295669800f5366",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/methodologies.yaml",
+      "source": "sistema/metodo/methodologies.yaml",
+      "sourceSha256": "411e1599148ada68911ee8f8e240de8fcaa14c8e15de237c37906a25083b6b3a",
+      "packagedSha256": "411e1599148ada68911ee8f8e240de8fcaa14c8e15de237c37906a25083b6b3a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m3/e0/_etapa.md",
+      "source": "sistema/metodo/proceso/m3/e0/_etapa.md",
+      "sourceSha256": "e28beaf7b8ec9ea5efa2ca69e2fbfff7de8b71759463f87e8c53ca7f461767f8",
+      "packagedSha256": "e28beaf7b8ec9ea5efa2ca69e2fbfff7de8b71759463f87e8c53ca7f461767f8",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m3/e0/p1.md",
+      "source": "sistema/metodo/proceso/m3/e0/p1.md",
+      "sourceSha256": "6ac404f6d91262ea044024589f3d43bd46f8f5ddb5ea78e26b9160b781cc4e53",
+      "packagedSha256": "6ac404f6d91262ea044024589f3d43bd46f8f5ddb5ea78e26b9160b781cc4e53",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m3/e0/p2.md",
+      "source": "sistema/metodo/proceso/m3/e0/p2.md",
+      "sourceSha256": "4f1a3807f8e13dcf0d2ecda170819028ce8b421b78aaf7d8a4a020b72d28cc21",
+      "packagedSha256": "4f1a3807f8e13dcf0d2ecda170819028ce8b421b78aaf7d8a4a020b72d28cc21",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m3/e0/p3.md",
+      "source": "sistema/metodo/proceso/m3/e0/p3.md",
+      "sourceSha256": "b69f707bfda92292c7701dfa3fe54d79b125ab5a24fed4d54517c3185e850cf3",
+      "packagedSha256": "b69f707bfda92292c7701dfa3fe54d79b125ab5a24fed4d54517c3185e850cf3",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m3/e0/p4.md",
+      "source": "sistema/metodo/proceso/m3/e0/p4.md",
+      "sourceSha256": "a6319582c7ccb52a4c875d8859e3d25821d4786957033e2b78f922dc9c7b310c",
+      "packagedSha256": "a6319582c7ccb52a4c875d8859e3d25821d4786957033e2b78f922dc9c7b310c",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m3/e0/p5.md",
+      "source": "sistema/metodo/proceso/m3/e0/p5.md",
+      "sourceSha256": "ce17aa8c6ee48f0c865091bcf1781a34cf0394b9d0dbc555b5109c940a8d4ee7",
+      "packagedSha256": "ce17aa8c6ee48f0c865091bcf1781a34cf0394b9d0dbc555b5109c940a8d4ee7",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m3/e0/p6.md",
+      "source": "sistema/metodo/proceso/m3/e0/p6.md",
+      "sourceSha256": "5497e69f8dd281b2cca982a686474a3e7497d785a555ed7e35ce93e4993c0163",
+      "packagedSha256": "5497e69f8dd281b2cca982a686474a3e7497d785a555ed7e35ce93e4993c0163",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/README.md",
+      "source": "sistema/metodo/proceso/README.md",
+      "sourceSha256": "984dd73cfa9841f4e03ae6ac873aa221c312936761098c48ef3f608ae7cbd3b3",
+      "packagedSha256": "984dd73cfa9841f4e03ae6ac873aa221c312936761098c48ef3f608ae7cbd3b3",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/_sample/inmobiliaria-vertice.yaml",
+      "source": "sistema/metodo/proceso/_sample/inmobiliaria-vertice.yaml",
+      "sourceSha256": "c54656acb6651da3bb11789a3f5d3fce23dd1856a260bbdfe9ae8aed5fa99a43",
+      "packagedSha256": "c54656acb6651da3bb11789a3f5d3fce23dd1856a260bbdfe9ae8aed5fa99a43",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m1/_modulo.md",
+      "source": "sistema/metodo/proceso/m1/_modulo.md",
+      "sourceSha256": "2eae61748dcca57d673285be81a8795ef0ec20417d309fa6bf7f7e7708df34ce",
+      "packagedSha256": "2eae61748dcca57d673285be81a8795ef0ec20417d309fa6bf7f7e7708df34ce",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m1/b1/_etapa.md",
+      "source": "sistema/metodo/proceso/m1/b1/_etapa.md",
+      "sourceSha256": "ec8c9d2feb59ca22d741a911b65c2e2082f6e26138b1ffb4ed59c271b134479e",
+      "packagedSha256": "ec8c9d2feb59ca22d741a911b65c2e2082f6e26138b1ffb4ed59c271b134479e",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m1/b1/p1.md",
+      "source": "sistema/metodo/proceso/m1/b1/p1.md",
+      "sourceSha256": "1e6461230d2cf7abb13b51e5c6f503828fdb05c4526c0d0d1a51c5f97884fcc4",
+      "packagedSha256": "1e6461230d2cf7abb13b51e5c6f503828fdb05c4526c0d0d1a51c5f97884fcc4",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m1/b1/p2.md",
+      "source": "sistema/metodo/proceso/m1/b1/p2.md",
+      "sourceSha256": "9b9061fc0e459f93bfcc6b28b9d74c05d287e3492a46035da79093fba4e159e7",
+      "packagedSha256": "9b9061fc0e459f93bfcc6b28b9d74c05d287e3492a46035da79093fba4e159e7",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m1/b1/p3.md",
+      "source": "sistema/metodo/proceso/m1/b1/p3.md",
+      "sourceSha256": "3f3d3c8e3626147633cfd9b6eb3ca373d5ba55eacc4081b872512d50fe715e56",
+      "packagedSha256": "3f3d3c8e3626147633cfd9b6eb3ca373d5ba55eacc4081b872512d50fe715e56",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m1/b1/p4.md",
+      "source": "sistema/metodo/proceso/m1/b1/p4.md",
+      "sourceSha256": "c742a9e836a247e792bf6dced78d5f43ad07de11075d0fd2a6c1050bb3cf3b70",
+      "packagedSha256": "c742a9e836a247e792bf6dced78d5f43ad07de11075d0fd2a6c1050bb3cf3b70",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m1/b1/p5.md",
+      "source": "sistema/metodo/proceso/m1/b1/p5.md",
+      "sourceSha256": "391a0695d5f2e56e41965df369ba2fcfc29c2cdf5c5a2e7d3a772d4866ced9a4",
+      "packagedSha256": "391a0695d5f2e56e41965df369ba2fcfc29c2cdf5c5a2e7d3a772d4866ced9a4",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m1/b1/p6.md",
+      "source": "sistema/metodo/proceso/m1/b1/p6.md",
+      "sourceSha256": "1953c69988eea01f4901d06197d46b5cee05e993d1432d79d0ee90052cd0b583",
+      "packagedSha256": "1953c69988eea01f4901d06197d46b5cee05e993d1432d79d0ee90052cd0b583",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m1/b2/_etapa.md",
+      "source": "sistema/metodo/proceso/m1/b2/_etapa.md",
+      "sourceSha256": "45b8e7d02931484962c2c0ebff43474fbde803a1dd278568aa0ddb9ccdaf38f0",
+      "packagedSha256": "45b8e7d02931484962c2c0ebff43474fbde803a1dd278568aa0ddb9ccdaf38f0",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m1/b3/_etapa.md",
+      "source": "sistema/metodo/proceso/m1/b3/_etapa.md",
+      "sourceSha256": "54d5d0df8816ec6b57ed1ac0b71f8496130c497949566531e3489242042f6508",
+      "packagedSha256": "54d5d0df8816ec6b57ed1ac0b71f8496130c497949566531e3489242042f6508",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m2/_modulo.md",
+      "source": "sistema/metodo/proceso/m2/_modulo.md",
+      "sourceSha256": "a8f319b19f8e74467d74cbb61189e330fedaabf3abcf235a4add3c5e03a1441b",
+      "packagedSha256": "a8f319b19f8e74467d74cbb61189e330fedaabf3abcf235a4add3c5e03a1441b",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m2/mant/_etapa.md",
+      "source": "sistema/metodo/proceso/m2/mant/_etapa.md",
+      "sourceSha256": "4a56e1c636ff08fc1a028df0803c0f8f39a6f67eff480f603a4fe0ad368d424f",
+      "packagedSha256": "4a56e1c636ff08fc1a028df0803c0f8f39a6f67eff480f603a4fe0ad368d424f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m3/_modulo.md",
+      "source": "sistema/metodo/proceso/m3/_modulo.md",
+      "sourceSha256": "0d376a314254af5e7482c34423a76bc27cb1956989bc8fb81113e1e8d8fedb4f",
+      "packagedSha256": "0d376a314254af5e7482c34423a76bc27cb1956989bc8fb81113e1e8d8fedb4f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m3/e1/_etapa.md",
+      "source": "sistema/metodo/proceso/m3/e1/_etapa.md",
+      "sourceSha256": "f36c78c12869e0a5c7cb7e5f629cd0f3619cbd3025fb478c6b8ec21e7faadb2d",
+      "packagedSha256": "f36c78c12869e0a5c7cb7e5f629cd0f3619cbd3025fb478c6b8ec21e7faadb2d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m3/e2/_etapa.md",
+      "source": "sistema/metodo/proceso/m3/e2/_etapa.md",
+      "sourceSha256": "ae26f305c0a8f295cc289c78de77ac10b445941f7b401a61d8a26cebe93353eb",
+      "packagedSha256": "ae26f305c0a8f295cc289c78de77ac10b445941f7b401a61d8a26cebe93353eb",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m3/e3/_etapa.md",
+      "source": "sistema/metodo/proceso/m3/e3/_etapa.md",
+      "sourceSha256": "6bb2c11326fc5a835f73fbfa454f5047f6a93eb9a621bdc08d2dc470a185b944",
+      "packagedSha256": "6bb2c11326fc5a835f73fbfa454f5047f6a93eb9a621bdc08d2dc470a185b944",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m3/e4/_etapa.md",
+      "source": "sistema/metodo/proceso/m3/e4/_etapa.md",
+      "sourceSha256": "87da92ede9d9f929a0e85305f7691bf27ce54a046660ed739333303437eb4b9b",
+      "packagedSha256": "87da92ede9d9f929a0e85305f7691bf27ce54a046660ed739333303437eb4b9b",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/proceso/m3/e5/_etapa.md",
+      "source": "sistema/metodo/proceso/m3/e5/_etapa.md",
+      "sourceSha256": "d14e3a71d3bcd5f2917882a825fb7b15691c9b7f0943d79550d2a6bb7d1dea67",
+      "packagedSha256": "d14e3a71d3bcd5f2917882a825fb7b15691c9b7f0943d79550d2a6bb7d1dea67",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/organization-as-code/01-sota-process-intelligence.md",
+      "source": "docs/research/organization-as-code/01-sota-process-intelligence.md",
+      "sourceSha256": "db10f827414de721d9c84dd3806a7b1da26e8754857b968efd7cffbde4237305",
+      "packagedSha256": "db10f827414de721d9c84dd3806a7b1da26e8754857b968efd7cffbde4237305",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/organization-as-code/02-sota-ea-management.md",
+      "source": "docs/research/organization-as-code/02-sota-ea-management.md",
+      "sourceSha256": "61874f8551698b297982e1dea87374b25e42e2ca491171c96694f2f0809d6397",
+      "packagedSha256": "61874f8551698b297982e1dea87374b25e42e2ca491171c96694f2f0809d6397",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/organization-as-code/03-sota-capture-y-dto-kyp-mavim.md",
+      "source": "docs/research/organization-as-code/03-sota-capture-y-dto-kyp-mavim.md",
+      "sourceSha256": "11f49baf1dd0886f33a7be92cf1d28fb2084b659e0efd32d5c554689719326c6",
+      "packagedSha256": "11f49baf1dd0886f33a7be92cf1d28fb2084b659e0efd32d5c554689719326c6",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/organization-as-code/04-doctrina-ontologia-palantir.md",
+      "source": "docs/research/organization-as-code/04-doctrina-ontologia-palantir.md",
+      "sourceSha256": "7dcc61bff8982e4e7aa96c5b2474c5e241a25d660dc996e11b2f9ba11251fd88",
+      "packagedSha256": "7dcc61bff8982e4e7aa96c5b2474c5e241a25d660dc996e11b2f9ba11251fd88",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/organization-as-code/05-sota-organization-as-code.md",
+      "source": "docs/research/organization-as-code/05-sota-organization-as-code.md",
+      "sourceSha256": "332569892e5171e5b1e0f7a726a5859aa2611ecbf843a6b409de58d18a864a83",
+      "packagedSha256": "332569892e5171e5b1e0f7a726a5859aa2611ecbf843a6b409de58d18a864a83",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/organization-as-code/06-gartner-dto-features.md",
+      "source": "docs/research/organization-as-code/06-gartner-dto-features.md",
+      "sourceSha256": "765a7686f6be6ddefee6650f9a74c2d7057e53e1ce754e7a88976d5ca5a4ed9f",
+      "packagedSha256": "765a7686f6be6ddefee6650f9a74c2d7057e53e1ce754e7a88976d5ca5a4ed9f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/organization-as-code/07-capability-list-tobe.md",
+      "source": "docs/research/organization-as-code/07-capability-list-tobe.md",
+      "sourceSha256": "ffe99502cf51c7499ff043d4ab32588452c570bc66960b2fc7a3e7aa27a83d7e",
+      "packagedSha256": "ffe99502cf51c7499ff043d4ab32588452c570bc66960b2fc7a3e7aa27a83d7e",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/organization-as-code/08-pivote-comercial.md",
+      "source": "docs/research/organization-as-code/08-pivote-comercial.md",
+      "sourceSha256": "c09838bbfc1d34c469b789db8cbdf7098e3e895344a7a4b06af7debb682120aa",
+      "packagedSha256": "c09838bbfc1d34c469b789db8cbdf7098e3e895344a7a4b06af7debb682120aa",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/organization-as-code/09-sota-dto-2026-fuente-primaria.md",
+      "source": "docs/research/organization-as-code/09-sota-dto-2026-fuente-primaria.md",
+      "sourceSha256": "17d2a29f55c397f3683765ab34550058e376361ede68d5192646325d11e10e1e",
+      "packagedSha256": "e05007715c3ecd617c266d09170a021dc9aa78065a42b29e2f6c50015ac37e07",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/research/organization-as-code/10-sota-arnes-as-code.md",
+      "source": "docs/research/organization-as-code/10-sota-arnes-as-code.md",
+      "sourceSha256": "fee7da32b77f9f2b0f335e804b115776c9d12074202c60da76b902cc15824de9",
+      "packagedSha256": "59ebc0381b57c1e5692d496abf5ce2c53760c28527c89555a1119e26eea1a575",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/research/organization-as-code/11-sota-process-as-code-y-metricas.md",
+      "source": "docs/research/organization-as-code/11-sota-process-as-code-y-metricas.md",
+      "sourceSha256": "2f8965002abcf674430f4ce871be0f324b4b9b45d5a54e9e09e493c2aeb995b6",
+      "packagedSha256": "f51d4707b2a6d9e901802b1515236155f21d11020d25d02cebab81efb004f29d",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/research/organization-as-code/README.md",
+      "source": "docs/research/organization-as-code/README.md",
+      "sourceSha256": "edfa5714b045b106b5e9f4863be9ae7fd6873f3b82f4030ff9eea0b6be5fb310",
+      "packagedSha256": "edfa5714b045b106b5e9f4863be9ae7fd6873f3b82f4030ff9eea0b6be5fb310",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/GRAFO.md",
+      "source": "sistema/metodo/GRAFO.md",
+      "sourceSha256": "3dc2e04260afff3f00ffb342838c1388941ab160f0d8df795fe77dd34a39205f",
+      "packagedSha256": "3dc2e04260afff3f00ffb342838c1388941ab160f0d8df795fe77dd34a39205f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/README.md",
+      "source": "sistema/metodo/README.md",
+      "sourceSha256": "76cd69e2cc9d46f1011bb2439133a85f58ce65ebb92938b49442cd4a8d731269",
+      "packagedSha256": "cb8bca0f5f527ebb0204b53e9a9d3193d50ae2ac695e09371eb5baf60de8d542",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/gen_metodo.py",
+      "source": "sistema/metodo/gen_metodo.py",
+      "sourceSha256": "c16865286e8d50fca6c98896c83240a555c04ad34b6a18333b68122ad9552cd1",
+      "packagedSha256": "c16865286e8d50fca6c98896c83240a555c04ad34b6a18333b68122ad9552cd1",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/methodology.schema.yaml",
+      "source": "sistema/metodo/methodology.schema.yaml",
+      "sourceSha256": "3ed9d8931c8d694e3d651144aa01487c24ea2a342d0b6b3ce1801dd51f3ba834",
+      "packagedSha256": "3ed9d8931c8d694e3d651144aa01487c24ea2a342d0b6b3ce1801dd51f3ba834",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/nichos/inmobiliario.yaml",
+      "source": "sistema/metodo/nichos/inmobiliario.yaml",
+      "sourceSha256": "908a10c3bd8a89357476b6b6e65c1a025e69e8d1c2da583b16860ca1970bf6ae",
+      "packagedSha256": "908a10c3bd8a89357476b6b6e65c1a025e69e8d1c2da583b16860ca1970bf6ae",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/nichos/manufactura.yaml",
+      "source": "sistema/metodo/nichos/manufactura.yaml",
+      "sourceSha256": "4e73516e064f7f165936bceed610eed8b4d2e7302ec36a169abffd013139052d",
+      "packagedSha256": "4e73516e064f7f165936bceed610eed8b4d2e7302ec36a169abffd013139052d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/nichos/nicho.schema.yaml",
+      "source": "sistema/metodo/nichos/nicho.schema.yaml",
+      "sourceSha256": "3194f1cd49aa809c24213952847b9fd7eb55eed0f20ce359bb805963d43fddee",
+      "packagedSha256": "3194f1cd49aa809c24213952847b9fd7eb55eed0f20ce359bb805963d43fddee",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/metodo/nichos/retail.yaml",
+      "source": "sistema/metodo/nichos/retail.yaml",
+      "sourceSha256": "6f6dd255f409e25e4d66065811a905af030d912b68985e378c63e73d3432f92f",
+      "packagedSha256": "6f6dd255f409e25e4d66065811a905af030d912b68985e378c63e73d3432f92f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/MAPEO.md",
+      "source": "docs/product/MAPEO.md",
+      "sourceSha256": "ce6b68c58426cbe1fa162ed2e3cef8967d9123f53a9c0b042c5c5ea7218971fd",
+      "packagedSha256": "22a8be9393a4e1b28647108423bec0e2cb81e9b97ce0efbfd89244b53408e442",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/product/README.md",
+      "source": "docs/product/README.md",
+      "sourceSha256": "e3336296543559bfa9f7a801959fe4990a5da390d0aef3338a42d44224f74013",
+      "packagedSha256": "e3336296543559bfa9f7a801959fe4990a5da390d0aef3338a42d44224f74013",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/ROADMAP.md",
+      "source": "docs/product/ROADMAP.md",
+      "sourceSha256": "2f51a5979fc4c66b5d5337404e9c93e5d45b51ad3dc31759e0e2e2cdd410d05c",
+      "packagedSha256": "2f51a5979fc4c66b5d5337404e9c93e5d45b51ad3dc31759e0e2e2cdd410d05c",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/_archive/BACKLOG.md",
+      "source": "docs/product/_archive/BACKLOG.md",
+      "sourceSha256": "434de5c75e959e70b0f78f6deffb0de7a354280a70870ee7f76fb8ac362eb81f",
+      "packagedSha256": "7f59c463bccdd199a0ab70480f76c2c1f3609bc2b402deee33494e965f530cbc",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/product/_archive/INCREMENT.md",
+      "source": "docs/product/_archive/INCREMENT.md",
+      "sourceSha256": "f84f46325112c82aa5578616726d9f456327ce6f14080d5ea5b80b7b2b85c823",
+      "packagedSha256": "87190eb362f8c1fe1b52cb4312e46b95beda10d372c28533bb33ab8e69981a2f",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/product/_archive/README.md",
+      "source": "docs/product/_archive/README.md",
+      "sourceSha256": "acaa473c94b14cae86f0c92ab76e996d17ee21350688a6db22149f12dbef8631",
+      "packagedSha256": "682b6fa9d6f69bac3bc1b9b57eda2f59cc341258319b7865744fca65904633de",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/product/_archive/backlog.yaml",
+      "source": "docs/product/_archive/backlog.yaml",
+      "sourceSha256": "712a24967e48b65f5cd2f5c1e2aeb0c87685d61a764b52df3de0ca5e5c5fe3ad",
+      "packagedSha256": "712a24967e48b65f5cd2f5c1e2aeb0c87685d61a764b52df3de0ca5e5c5fe3ad",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/_archive/increment.yaml",
+      "source": "docs/product/_archive/increment.yaml",
+      "sourceSha256": "9211ddf3a096d99a36b37a93a770271dc17a67391b0183bf53e3143c99638599",
+      "packagedSha256": "9211ddf3a096d99a36b37a93a770271dc17a67391b0183bf53e3143c99638599",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/capabilities/cockpit/api-negocio.yaml",
+      "source": "docs/product/capabilities/cockpit/api-negocio.yaml",
+      "sourceSha256": "02f140b6e2df3285bad9962a43234b4d394b08450c94a68f6f3d6fdda0c8c961",
+      "packagedSha256": "02f140b6e2df3285bad9962a43234b4d394b08450c94a68f6f3d6fdda0c8c961",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/capabilities/cockpit/api-objeto.yaml",
+      "source": "docs/product/capabilities/cockpit/api-objeto.yaml",
+      "sourceSha256": "22847f4043e16913ba89ab3892b9586b98aaf7dda74f96b1479c71105f8f3589",
+      "packagedSha256": "22847f4043e16913ba89ab3892b9586b98aaf7dda74f96b1479c71105f8f3589",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/capabilities/cockpit/api-portfolio.yaml",
+      "source": "docs/product/capabilities/cockpit/api-portfolio.yaml",
+      "sourceSha256": "f54dd2b54301914106cae396ddffc49bfc1bd8ca2988b54913732689a1384c32",
+      "packagedSha256": "f54dd2b54301914106cae396ddffc49bfc1bd8ca2988b54913732689a1384c32",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/capabilities/cockpit/lente-personas.yaml",
+      "source": "docs/product/capabilities/cockpit/lente-personas.yaml",
+      "sourceSha256": "2db0ffb138b946e0dfb88812e8f886cc5f85d9554ad875ef6fa84ff9e222bc27",
+      "packagedSha256": "2db0ffb138b946e0dfb88812e8f886cc5f85d9554ad875ef6fa84ff9e222bc27",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/capabilities/cockpit/modelo-portfolio.yaml",
+      "source": "docs/product/capabilities/cockpit/modelo-portfolio.yaml",
+      "sourceSha256": "99b7ba175e988878d2f509ab58ee1e969ba36c914efd1809d591b46b525f3686",
+      "packagedSha256": "99b7ba175e988878d2f509ab58ee1e969ba36c914efd1809d591b46b525f3686",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/capabilities/cockpit/runtime-propio-directorio.yaml",
+      "source": "docs/product/capabilities/cockpit/runtime-propio-directorio.yaml",
+      "sourceSha256": "5f4fc0089a1fa940c9e81ba9454cf2280f92ca0c2276a28001fd64a64edbe1d9",
+      "packagedSha256": "5f4fc0089a1fa940c9e81ba9454cf2280f92ca0c2276a28001fd64a64edbe1d9",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/capabilities/cockpit/shell-por-rol.yaml",
+      "source": "docs/product/capabilities/cockpit/shell-por-rol.yaml",
+      "sourceSha256": "ab3b4699a27eec91238dd346714eca8783ba2716b9d3739a281f91cfb677f8e8",
+      "packagedSha256": "ab3b4699a27eec91238dd346714eca8783ba2716b9d3739a281f91cfb677f8e8",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/capabilities/cockpit/vista-negocio.yaml",
+      "source": "docs/product/capabilities/cockpit/vista-negocio.yaml",
+      "sourceSha256": "43081709d585c13a6baa49ac4a511ee92ada40361dfa67aae0d0ab576f7967ea",
+      "packagedSha256": "43081709d585c13a6baa49ac4a511ee92ada40361dfa67aae0d0ab576f7967ea",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/capabilities/sistema/organizacion-ficticia-golden-fixture.yaml",
+      "source": "docs/product/capabilities/sistema/organizacion-ficticia-golden-fixture.yaml",
+      "sourceSha256": "3ac95a087c8a6ef0c91184826401ce8df13b34ad03b6cb4f7f4aebd316653c75",
+      "packagedSha256": "3ac95a087c8a6ef0c91184826401ce8df13b34ad03b6cb4f7f4aebd316653c75",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/gen_roadmap.py",
+      "source": "docs/product/gen_roadmap.py",
+      "sourceSha256": "23ccdbc9d7674db2924398aac771d3f6f71a84dc629b00dbaf2de8f234805b40",
+      "packagedSha256": "23ccdbc9d7674db2924398aac771d3f6f71a84dc629b00dbaf2de8f234805b40",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/modules/cockpit.md",
+      "source": "docs/product/modules/cockpit.md",
+      "sourceSha256": "aece03ccfd22bfd53fc39b39c4e4abeb2d5782dd29519961e024827e863bdfa9",
+      "packagedSha256": "aece03ccfd22bfd53fc39b39c4e4abeb2d5782dd29519961e024827e863bdfa9",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/modules/colab-studio.md",
+      "source": "docs/product/modules/colab-studio.md",
+      "sourceSha256": "553dcf01566568be743f9fdcb43fae3abdfcdfbbe14575b9cf8eb54710635205",
+      "packagedSha256": "553dcf01566568be743f9fdcb43fae3abdfcdfbbe14575b9cf8eb54710635205",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/modules/consultio.md",
+      "source": "docs/product/modules/consultio.md",
+      "sourceSha256": "38bc8bb6b1c7f6354a2d10d23cc10e2cd1202590765d5a40a4b80287ebadf2f6",
+      "packagedSha256": "38bc8bb6b1c7f6354a2d10d23cc10e2cd1202590765d5a40a4b80287ebadf2f6",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/modules/fabricante.md",
+      "source": "docs/product/modules/fabricante.md",
+      "sourceSha256": "6ba4b4638bb93a17ba317d66a47aa06aa90635ba1636d7a5709e96c0d3403929",
+      "packagedSha256": "6ba4b4638bb93a17ba317d66a47aa06aa90635ba1636d7a5709e96c0d3403929",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/modules/lakehouse.md",
+      "source": "docs/product/modules/lakehouse.md",
+      "sourceSha256": "383be2b87b23471494bdc76e7ab9fcb033f3fc04c9f39f040a857b67a3a24519",
+      "packagedSha256": "383be2b87b23471494bdc76e7ab9fcb033f3fc04c9f39f040a857b67a3a24519",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/modules/repositorio-oficial.md",
+      "source": "docs/product/modules/repositorio-oficial.md",
+      "sourceSha256": "896f2d1753dc7dbbb3a85edd5fc4245284563b3c13492f4d76a27c9554cf9307",
+      "packagedSha256": "896f2d1753dc7dbbb3a85edd5fc4245284563b3c13492f4d76a27c9554cf9307",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/modules/sistema.md",
+      "source": "docs/product/modules/sistema.md",
+      "sourceSha256": "a55644e39edf57b868e64a7fc4f029f30f3fd197d1f0f60e72c8f85490a2054a",
+      "packagedSha256": "a55644e39edf57b868e64a7fc4f029f30f3fd197d1f0f60e72c8f85490a2054a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/plans/consultio-studio-core/01-disciplina.md",
+      "source": "docs/product/plans/consultio-studio-core/01-disciplina.md",
+      "sourceSha256": "7398bbf8c3a6038738e13629021b2104f5d92ff7996c37d760d6a5a831bd11f8",
+      "packagedSha256": "7398bbf8c3a6038738e13629021b2104f5d92ff7996c37d760d6a5a831bd11f8",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/plans/consultio-studio-core/02-fases.md",
+      "source": "docs/product/plans/consultio-studio-core/02-fases.md",
+      "sourceSha256": "c0175791431dfbdb493662486c1579c98a18a498b38a8063ab717a504bf0fad1",
+      "packagedSha256": "c0175791431dfbdb493662486c1579c98a18a498b38a8063ab717a504bf0fad1",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/plans/consultio-studio-core/03-reparto-codigo.md",
+      "source": "docs/product/plans/consultio-studio-core/03-reparto-codigo.md",
+      "sourceSha256": "9387fcfb98b060dd75bc2910c26e4d6befba39b1c611a9b81fbd8969ab074d3b",
+      "packagedSha256": "9387fcfb98b060dd75bc2910c26e4d6befba39b1c611a9b81fbd8969ab074d3b",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/plans/consultio-studio-core/04-ficha-ck-draft.md",
+      "source": "docs/product/plans/consultio-studio-core/04-ficha-ck-draft.md",
+      "sourceSha256": "d7a6035aab1ae455d495afe2f4cbbdc32262d6212ac5d79d7dabbea1d1010830",
+      "packagedSha256": "d7a6035aab1ae455d495afe2f4cbbdc32262d6212ac5d79d7dabbea1d1010830",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/plans/consultio-studio-core/05-arquitectura-hexagonal.md",
+      "source": "docs/product/plans/consultio-studio-core/05-arquitectura-hexagonal.md",
+      "sourceSha256": "096c643ff1995034bae5e08f26ae154195bc89fa0198758d49fc2529df65f603",
+      "packagedSha256": "096c643ff1995034bae5e08f26ae154195bc89fa0198758d49fc2529df65f603",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/plans/consultio-studio-core/06-ejecucion-2026-07-17.md",
+      "source": "docs/product/plans/consultio-studio-core/06-ejecucion-2026-07-17.md",
+      "sourceSha256": "f6ab1bd5abd750ae3bfbfa4ee1e6a8a5c6cbf128316c885918ffdaf326cb820d",
+      "packagedSha256": "f6ab1bd5abd750ae3bfbfa4ee1e6a8a5c6cbf128316c885918ffdaf326cb820d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/plans/consultio-studio-core/README.md",
+      "source": "docs/product/plans/consultio-studio-core/README.md",
+      "sourceSha256": "4e38f0b57ed46a9e071f98a9c69c1a71cbe520ce6997045f9d9d831edb03d415",
+      "packagedSha256": "4e38f0b57ed46a9e071f98a9c69c1a71cbe520ce6997045f9d9d831edb03d415",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/MOCKUP-PROSPERA-SPECS.md",
+      "source": "docs/product/prototypes/MOCKUP-PROSPERA-SPECS.md",
+      "sourceSha256": "4a33be99198e74a719419c1c9edf491fc5612f5e3feffc47b9389321ac712a92",
+      "packagedSha256": "4a33be99198e74a719419c1c9edf491fc5612f5e3feffc47b9389321ac712a92",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/SPECS.md",
+      "source": "docs/product/prototypes/SPECS.md",
+      "sourceSha256": "f73534ca2b29023896117d055c3de89b5aaae4c870bcb6bfcd8d04bb58fc2894",
+      "packagedSha256": "f73534ca2b29023896117d055c3de89b5aaae4c870bcb6bfcd8d04bb58fc2894",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/diagrama-visibilidad-arquitectura.png",
+      "source": "docs/product/prototypes/diagrama-visibilidad-arquitectura.png",
+      "sourceSha256": "47dd31fdcce0b9b76a41e63cb57a39587726a3f2d7499f683046e179edecd78e",
+      "packagedSha256": "47dd31fdcce0b9b76a41e63cb57a39587726a3f2d7499f683046e179edecd78e",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/diagrama-visibilidad-arquitectura.svg",
+      "source": "docs/product/prototypes/diagrama-visibilidad-arquitectura.svg",
+      "sourceSha256": "95f903baf85a12a936c55a330d5130dd2cee90dbdcab9752425baf8383a8c434",
+      "packagedSha256": "95f903baf85a12a936c55a330d5130dd2cee90dbdcab9752425baf8383a8c434",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/diagrama-visibilidad-orden.png",
+      "source": "docs/product/prototypes/diagrama-visibilidad-orden.png",
+      "sourceSha256": "9ffcc8d561001dc1e098316b489f2a3ce5261b42fe0ac7159321d20ed8963658",
+      "packagedSha256": "9ffcc8d561001dc1e098316b489f2a3ce5261b42fe0ac7159321d20ed8963658",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/diagrama-visibilidad-orden.svg",
+      "source": "docs/product/prototypes/diagrama-visibilidad-orden.svg",
+      "sourceSha256": "947cc44143b2d6bc8e600be97bbe5c260c6e61c09eb5244e897d69c366afe0ff",
+      "packagedSha256": "947cc44143b2d6bc8e600be97bbe5c260c6e61c09eb5244e897d69c366afe0ff",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/mockup-directorio-cumbre.html",
+      "source": "docs/product/prototypes/mockup-directorio-cumbre.html",
+      "sourceSha256": "506c4cce8244be21f1755a055ee362fb809515ba822338def318683a5d8c9792",
+      "packagedSha256": "506c4cce8244be21f1755a055ee362fb809515ba822338def318683a5d8c9792",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/mockup-prospera-dashboard.html",
+      "source": "docs/product/prototypes/mockup-prospera-dashboard.html",
+      "sourceSha256": "c1c7b9b0fb0e5777bdb8bd2e8f6a4e48072ea0da4f80e5c213b8931bf681db89",
+      "packagedSha256": "c1c7b9b0fb0e5777bdb8bd2e8f6a4e48072ea0da4f80e5c213b8931bf681db89",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/service-blueprint.html",
+      "source": "docs/product/prototypes/service-blueprint.html",
+      "sourceSha256": "93b31087095ad86b8ac70fe9d73c5299ae68241f3afc41e417a0511ef50268e9",
+      "packagedSha256": "93b31087095ad86b8ac70fe9d73c5299ae68241f3afc41e417a0511ef50268e9",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/prototypes/vista-consultor.html",
+      "source": "docs/product/prototypes/vista-consultor.html",
+      "sourceSha256": "137df9157547ea95c84365461da99da488abb06f0dbe2a2677f8330849f00cb7",
+      "packagedSha256": "137df9157547ea95c84365461da99da488abb06f0dbe2a2677f8330849f00cb7",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/releases/F0-fundacion-mvp.yaml",
+      "source": "docs/product/releases/F0-fundacion-mvp.yaml",
+      "sourceSha256": "46a0b79400bdb582100d4bc2054cd2d524425a236e94589a9047de3d41c13e39",
+      "packagedSha256": "46a0b79400bdb582100d4bc2054cd2d524425a236e94589a9047de3d41c13e39",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/releases/F1-terreno-mvp-twin.yaml",
+      "source": "docs/product/releases/F1-terreno-mvp-twin.yaml",
+      "sourceSha256": "0a115d7aae48ec00f3cd49d0254753ab71d488a614518dedd795e526a35f7ec8",
+      "packagedSha256": "0a115d7aae48ec00f3cd49d0254753ab71d488a614518dedd795e526a35f7ec8",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/releases/F2-comercial.yaml",
+      "source": "docs/product/releases/F2-comercial.yaml",
+      "sourceSha256": "16b37e835debb418304c0be0c82a8d5e070134764d5b87e41638711cb4f71dde",
+      "packagedSha256": "16b37e835debb418304c0be0c82a8d5e070134764d5b87e41638711cb4f71dde",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/releases/F3-edge-escala.yaml",
+      "source": "docs/product/releases/F3-edge-escala.yaml",
+      "sourceSha256": "1ee18aa0c7f9f9dcd2f216886006be4c3faebae62268c2a14ac2d9bee2d43588",
+      "packagedSha256": "1ee18aa0c7f9f9dcd2f216886006be4c3faebae62268c2a14ac2d9bee2d43588",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/auth-niveles-acceso-policy-as-data/00-story.md",
+      "source": "docs/product/stories/cockpit/auth-niveles-acceso-policy-as-data/00-story.md",
+      "sourceSha256": "b0072ed85913e69ce7c327fe66e7ea3c215a2cb78c7ba8924f9ebc676eac1699",
+      "packagedSha256": "b0072ed85913e69ce7c327fe66e7ea3c215a2cb78c7ba8924f9ebc676eac1699",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/auth-niveles-acceso-policy-as-data/story.yaml",
+      "source": "docs/product/stories/cockpit/auth-niveles-acceso-policy-as-data/story.yaml",
+      "sourceSha256": "073a46604b9e26a9e5cabba17635bb5a0604829c78a5c4f7c6a07524cb9e3bb0",
+      "packagedSha256": "073a46604b9e26a9e5cabba17635bb5a0604829c78a5c4f7c6a07524cb9e3bb0",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/brecha-proyecto-ciclo-vida/00-story.md",
+      "source": "docs/product/stories/cockpit/brecha-proyecto-ciclo-vida/00-story.md",
+      "sourceSha256": "0a1fc57e8d4f8d9e343918dd65000dc33e8ba16ab742427bd4d2f87ecaea0837",
+      "packagedSha256": "0a1fc57e8d4f8d9e343918dd65000dc33e8ba16ab742427bd4d2f87ecaea0837",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/brecha-proyecto-ciclo-vida/story.yaml",
+      "source": "docs/product/stories/cockpit/brecha-proyecto-ciclo-vida/story.yaml",
+      "sourceSha256": "4a3a9db3206564a235cc06478f11bf624b64e5c2cb1dc80dca50940a5abcfb2d",
+      "packagedSha256": "4a3a9db3206564a235cc06478f11bf624b64e5c2cb1dc80dca50940a5abcfb2d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/capability-preparacion-auditoria/00-story.md",
+      "source": "docs/product/stories/cockpit/capability-preparacion-auditoria/00-story.md",
+      "sourceSha256": "6327d2bb149cc3fab04f58280399dc8a6ac5c41b13765310bbce2aeebe89a6a2",
+      "packagedSha256": "6327d2bb149cc3fab04f58280399dc8a6ac5c41b13765310bbce2aeebe89a6a2",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/capability-preparacion-auditoria/story.yaml",
+      "source": "docs/product/stories/cockpit/capability-preparacion-auditoria/story.yaml",
+      "sourceSha256": "1b4a850cddb4f67ac34b50b0e442429e1e5ea169fd0dcc9d08b9d9cbba36e408",
+      "packagedSha256": "1b4a850cddb4f67ac34b50b0e442429e1e5ea169fd0dcc9d08b9d9cbba36e408",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/captura-manual-kpis/00-story.md",
+      "source": "docs/product/stories/cockpit/captura-manual-kpis/00-story.md",
+      "sourceSha256": "1ce9c6797eecc3f3e32842a47f7a25e5fa320c07fd30c9dd487bccea5b29d3cf",
+      "packagedSha256": "1ce9c6797eecc3f3e32842a47f7a25e5fa320c07fd30c9dd487bccea5b29d3cf",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/captura-manual-kpis/story.yaml",
+      "source": "docs/product/stories/cockpit/captura-manual-kpis/story.yaml",
+      "sourceSha256": "df2abbea209373999a12b335ab4c2b1aa3aac430e59d2abecbd8deeffcd5b4c5",
+      "packagedSha256": "df2abbea209373999a12b335ab4c2b1aa3aac430e59d2abecbd8deeffcd5b4c5",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/crowdsourcing-frescura/00-story.md",
+      "source": "docs/product/stories/cockpit/crowdsourcing-frescura/00-story.md",
+      "sourceSha256": "eb5a222d831f1ab7917fb85543a7c97355ce593b6342fa27a9e7c4c798500f0a",
+      "packagedSha256": "eb5a222d831f1ab7917fb85543a7c97355ce593b6342fa27a9e7c4c798500f0a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/crowdsourcing-frescura/story.yaml",
+      "source": "docs/product/stories/cockpit/crowdsourcing-frescura/story.yaml",
+      "sourceSha256": "266a42869be7a65530f60f933172b3cac62c610b396348bb6148cac7084bcc0f",
+      "packagedSha256": "266a42869be7a65530f60f933172b3cac62c610b396348bb6148cac7084bcc0f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/cruce-estructura-operacion-indicadores/00-story.md",
+      "source": "docs/product/stories/cockpit/cruce-estructura-operacion-indicadores/00-story.md",
+      "sourceSha256": "d8c216008334e312a0c19c0f205f7de4d83d0eaaeed3745939a6d166aec41a95",
+      "packagedSha256": "d8c216008334e312a0c19c0f205f7de4d83d0eaaeed3745939a6d166aec41a95",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/cruce-estructura-operacion-indicadores/01-spec.md",
+      "source": "docs/product/stories/cockpit/cruce-estructura-operacion-indicadores/01-spec.md",
+      "sourceSha256": "6e98ae2c1f49681c67f0f739642eb6f8aa60d75ba8d38b24774d8bce0bf51d06",
+      "packagedSha256": "6e98ae2c1f49681c67f0f739642eb6f8aa60d75ba8d38b24774d8bce0bf51d06",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/cruce-estructura-operacion-indicadores/story.yaml",
+      "source": "docs/product/stories/cockpit/cruce-estructura-operacion-indicadores/story.yaml",
+      "sourceSha256": "3040611e03c2354ae0908ec84d0ea164ff9e077af1228a9d9ddf82f7ed5f60bc",
+      "packagedSha256": "3040611e03c2354ae0908ec84d0ea164ff9e077af1228a9d9ddf82f7ed5f60bc",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/deuda-go-next-n13-vite-spa/00-story.md",
+      "source": "docs/product/stories/cockpit/deuda-go-next-n13-vite-spa/00-story.md",
+      "sourceSha256": "a0b718c069f77f94b1a683f71a8eff906d4c1bfe02d4f1b8f3f9eedcf5adb889",
+      "packagedSha256": "a0b718c069f77f94b1a683f71a8eff906d4c1bfe02d4f1b8f3f9eedcf5adb889",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/deuda-go-next-n13-vite-spa/story.yaml",
+      "source": "docs/product/stories/cockpit/deuda-go-next-n13-vite-spa/story.yaml",
+      "sourceSha256": "b56bd2b7a0243e330d54f883d7332e7a5f31af644163161c446132d0c05830e4",
+      "packagedSha256": "b56bd2b7a0243e330d54f883d7332e7a5f31af644163161c446132d0c05830e4",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/hosteado-single-tenant/00-story.md",
+      "source": "docs/product/stories/cockpit/hosteado-single-tenant/00-story.md",
+      "sourceSha256": "91ebc5d637bd2d96a3574640cbd4ff0fa69175d6e2d862f49a3a91a0dff1cfa0",
+      "packagedSha256": "91ebc5d637bd2d96a3574640cbd4ff0fa69175d6e2d862f49a3a91a0dff1cfa0",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/hosteado-single-tenant/story.yaml",
+      "source": "docs/product/stories/cockpit/hosteado-single-tenant/story.yaml",
+      "sourceSha256": "1bea0e9045212abde4ec598a6545893199be7210d5e4cd91884a1e6df8bc1543",
+      "packagedSha256": "1bea0e9045212abde4ec598a6545893199be7210d5e4cd91884a1e6df8bc1543",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/mcp-server-twin/00-story.md",
+      "source": "docs/product/stories/cockpit/mcp-server-twin/00-story.md",
+      "sourceSha256": "6fd55d4797f93b1103a0b68e2894e198a1b19a7bc1821509409db87913cad3e0",
+      "packagedSha256": "6fd55d4797f93b1103a0b68e2894e198a1b19a7bc1821509409db87913cad3e0",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/mcp-server-twin/story.yaml",
+      "source": "docs/product/stories/cockpit/mcp-server-twin/story.yaml",
+      "sourceSha256": "12a01020af3338ccd53ac2404dd0249f6053ca7c910b4b50fa5d6c2035e1f5eb",
+      "packagedSha256": "12a01020af3338ccd53ac2404dd0249f6053ca7c910b4b50fa5d6c2035e1f5eb",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/modulo-gestion-cambios-iso/00-story.md",
+      "source": "docs/product/stories/cockpit/modulo-gestion-cambios-iso/00-story.md",
+      "sourceSha256": "1ebe43aeea3380187b38d0ebc06151becb054b334924a8a728a46db0d7def782",
+      "packagedSha256": "1ebe43aeea3380187b38d0ebc06151becb054b334924a8a728a46db0d7def782",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/modulo-gestion-cambios-iso/story.yaml",
+      "source": "docs/product/stories/cockpit/modulo-gestion-cambios-iso/story.yaml",
+      "sourceSha256": "6e20d603afd98f67141a41254bc67b0a1e136f6c2acb9f9f2ec9b24baa669d91",
+      "packagedSha256": "6e20d603afd98f67141a41254bc67b0a1e136f6c2acb9f9f2ec9b24baa669d91",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/rol-area-real/00-story.md",
+      "source": "docs/product/stories/cockpit/rol-area-real/00-story.md",
+      "sourceSha256": "a1f7ccadfcf128bd0cc2552aaff0603cf57a8e6b5c5c19725efaf454b8f7a8f1",
+      "packagedSha256": "a1f7ccadfcf128bd0cc2552aaff0603cf57a8e6b5c5c19725efaf454b8f7a8f1",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/cockpit/rol-area-real/story.yaml",
+      "source": "docs/product/stories/cockpit/rol-area-real/story.yaml",
+      "sourceSha256": "38ee89b19b1bc2edff2154f968b9998529aadf757cae20341eb83eabff2370b7",
+      "packagedSha256": "38ee89b19b1bc2edff2154f968b9998529aadf757cae20341eb83eabff2370b7",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/colab-studio/colab-studio-app-trabajador/00-story.md",
+      "source": "docs/product/stories/colab-studio/colab-studio-app-trabajador/00-story.md",
+      "sourceSha256": "d11316784a932bba7048c565100aac96efaed4304ea793271e4653f7986c0e3e",
+      "packagedSha256": "d11316784a932bba7048c565100aac96efaed4304ea793271e4653f7986c0e3e",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/colab-studio/colab-studio-app-trabajador/story.yaml",
+      "source": "docs/product/stories/colab-studio/colab-studio-app-trabajador/story.yaml",
+      "sourceSha256": "290f213cd7b4eeafcac55218ececf0cc1359c4bd38fcc700ef95c35c0416bc01",
+      "packagedSha256": "290f213cd7b4eeafcac55218ececf0cc1359c4bd38fcc700ef95c35c0416bc01",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/consultio/construir-consultio-clon-devstudio/00-story.md",
+      "source": "docs/product/stories/consultio/construir-consultio-clon-devstudio/00-story.md",
+      "sourceSha256": "ef555330b377a3c7088d2cfcd1d06f3cce5ce5500d5eb8bacddcd1434a3b2262",
+      "packagedSha256": "ef555330b377a3c7088d2cfcd1d06f3cce5ce5500d5eb8bacddcd1434a3b2262",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/consultio/construir-consultio-clon-devstudio/story.yaml",
+      "source": "docs/product/stories/consultio/construir-consultio-clon-devstudio/story.yaml",
+      "sourceSha256": "58a8da84486f044418d756094b02718015b12595578e6c0c60f6301c708ee865",
+      "packagedSha256": "58a8da84486f044418d756094b02718015b12595578e6c0c60f6301c708ee865",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/consultio/metodo-como-arnes-v0/00-story.md",
+      "source": "docs/product/stories/consultio/metodo-como-arnes-v0/00-story.md",
+      "sourceSha256": "854d2f2b9f7763fff494682b8aae403000aee5f01781de91d2a746af628c4c87",
+      "packagedSha256": "854d2f2b9f7763fff494682b8aae403000aee5f01781de91d2a746af628c4c87",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/consultio/metodo-como-arnes-v0/story.yaml",
+      "source": "docs/product/stories/consultio/metodo-como-arnes-v0/story.yaml",
+      "sourceSha256": "47abee726c49bb7dbf57c38fb8c05294a0bb6788d7acf692888e0b591d22f609",
+      "packagedSha256": "47abee726c49bb7dbf57c38fb8c05294a0bb6788d7acf692888e0b591d22f609",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/consultio/operar-metodo-construir-mapa-completo/00-story.md",
+      "source": "docs/product/stories/consultio/operar-metodo-construir-mapa-completo/00-story.md",
+      "sourceSha256": "e2c7eb12b5f8869012491ea19a94f698e0483389dafae3f6eb152b819525f4b7",
+      "packagedSha256": "e2c7eb12b5f8869012491ea19a94f698e0483389dafae3f6eb152b819525f4b7",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/consultio/operar-metodo-construir-mapa-completo/story.yaml",
+      "source": "docs/product/stories/consultio/operar-metodo-construir-mapa-completo/story.yaml",
+      "sourceSha256": "324eff2253b072cef6890a02f4b3c8bf805f7699cb82889f885410b20db1e09a",
+      "packagedSha256": "324eff2253b072cef6890a02f4b3c8bf805f7699cb82889f885410b20db1e09a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/consultio/publicacion-repo-oficial-deploy-procesos/00-story.md",
+      "source": "docs/product/stories/consultio/publicacion-repo-oficial-deploy-procesos/00-story.md",
+      "sourceSha256": "cdedda963e2a723d89347af90f800e42ed9375a60912b5133b0c7d7271e9b05b",
+      "packagedSha256": "cdedda963e2a723d89347af90f800e42ed9375a60912b5133b0c7d7271e9b05b",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/consultio/publicacion-repo-oficial-deploy-procesos/story.yaml",
+      "source": "docs/product/stories/consultio/publicacion-repo-oficial-deploy-procesos/story.yaml",
+      "sourceSha256": "8cc43281c2de3b9084d15a9dd339ec9f4bf70af685fe67fb05002b0faa05f8eb",
+      "packagedSha256": "8cc43281c2de3b9084d15a9dd339ec9f4bf70af685fe67fb05002b0faa05f8eb",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/fabricante/arnesia-pipeline-arnes-por-rol/00-story.md",
+      "source": "docs/product/stories/fabricante/arnesia-pipeline-arnes-por-rol/00-story.md",
+      "sourceSha256": "8b6d1c2dd69fa68087a2861b4b39b7541ef4fa6ff5dad2ce3a174c12f5b3d760",
+      "packagedSha256": "8b6d1c2dd69fa68087a2861b4b39b7541ef4fa6ff5dad2ce3a174c12f5b3d760",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/fabricante/arnesia-pipeline-arnes-por-rol/story.yaml",
+      "source": "docs/product/stories/fabricante/arnesia-pipeline-arnes-por-rol/story.yaml",
+      "sourceSha256": "9c484490e4c8d4913315055e04c94c8d64dc5332908b61898ca28621f35e2dfc",
+      "packagedSha256": "9c484490e4c8d4913315055e04c94c8d64dc5332908b61898ca28621f35e2dfc",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/fabricante/distribucion-telemetria-licencias-n3/00-story.md",
+      "source": "docs/product/stories/fabricante/distribucion-telemetria-licencias-n3/00-story.md",
+      "sourceSha256": "420c35b3f864385c2ac55934402cc4026d995fd67a0881fe059fd2af19a673f1",
+      "packagedSha256": "420c35b3f864385c2ac55934402cc4026d995fd67a0881fe059fd2af19a673f1",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/fabricante/distribucion-telemetria-licencias-n3/story.yaml",
+      "source": "docs/product/stories/fabricante/distribucion-telemetria-licencias-n3/story.yaml",
+      "sourceSha256": "680d8352b0dcbdbb032f4cdfd2b10214e1cd66bd4a86c9bc0d5bd508cb702126",
+      "packagedSha256": "680d8352b0dcbdbb032f4cdfd2b10214e1cd66bd4a86c9bc0d5bd508cb702126",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/fabricante/motor-discovery-n1-serverside/00-story.md",
+      "source": "docs/product/stories/fabricante/motor-discovery-n1-serverside/00-story.md",
+      "sourceSha256": "e7ad22e466d25caa060d375f2545e74a9106343a4c4171c52d7c62a71bb4c013",
+      "packagedSha256": "e7ad22e466d25caa060d375f2545e74a9106343a4c4171c52d7c62a71bb4c013",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/fabricante/motor-discovery-n1-serverside/story.yaml",
+      "source": "docs/product/stories/fabricante/motor-discovery-n1-serverside/story.yaml",
+      "sourceSha256": "ea547fd7d3b77edf2c0892c2890f078835ff64d54726a805a76a39db52d7ef3d",
+      "packagedSha256": "ea547fd7d3b77edf2c0892c2890f078835ff64d54726a805a76a39db52d7ef3d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/fabricante/portal-cloud-licencias/00-story.md",
+      "source": "docs/product/stories/fabricante/portal-cloud-licencias/00-story.md",
+      "sourceSha256": "bc182bb9956643df2bd2b7c97380465f4172e56d96df28ce28260fad3d7d8115",
+      "packagedSha256": "bc182bb9956643df2bd2b7c97380465f4172e56d96df28ce28260fad3d7d8115",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/fabricante/portal-cloud-licencias/story.yaml",
+      "source": "docs/product/stories/fabricante/portal-cloud-licencias/story.yaml",
+      "sourceSha256": "52b6833d0d97c1692f3958b48b03f780250f1906003a76d544e2a0a03c886c9e",
+      "packagedSha256": "52b6833d0d97c1692f3958b48b03f780250f1906003a76d544e2a0a03c886c9e",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/lakehouse/conectores-ingesta-por-sistema/00-story.md",
+      "source": "docs/product/stories/lakehouse/conectores-ingesta-por-sistema/00-story.md",
+      "sourceSha256": "a21bdd935272828046d2238bdcf51eb4d83694f8318f07751f404da03e879d07",
+      "packagedSha256": "a21bdd935272828046d2238bdcf51eb4d83694f8318f07751f404da03e879d07",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/lakehouse/conectores-ingesta-por-sistema/story.yaml",
+      "source": "docs/product/stories/lakehouse/conectores-ingesta-por-sistema/story.yaml",
+      "sourceSha256": "bc342d281210c35a8c93e6898c3ac7322960a8bb3eae9478fc9b38e5284bb352",
+      "packagedSha256": "bc342d281210c35a8c93e6898c3ac7322960a8bb3eae9478fc9b38e5284bb352",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/lakehouse/construir-lakehouse-dlt-ducklake/00-story.md",
+      "source": "docs/product/stories/lakehouse/construir-lakehouse-dlt-ducklake/00-story.md",
+      "sourceSha256": "7d300630b27062d14dc4c75920391119832bc81c48c8292da905a3a8c43b9403",
+      "packagedSha256": "7d300630b27062d14dc4c75920391119832bc81c48c8292da905a3a8c43b9403",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/lakehouse/construir-lakehouse-dlt-ducklake/story.yaml",
+      "source": "docs/product/stories/lakehouse/construir-lakehouse-dlt-ducklake/story.yaml",
+      "sourceSha256": "28bd19ea73feb96297b0bc0bbc8432e01ade07f328742411c2a9aa6227c4b531",
+      "packagedSha256": "28bd19ea73feb96297b0bc0bbc8432e01ade07f328742411c2a9aa6227c4b531",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/repositorio-oficial/deposito-fuentes-retencion-dpa/00-story.md",
+      "source": "docs/product/stories/repositorio-oficial/deposito-fuentes-retencion-dpa/00-story.md",
+      "sourceSha256": "0c24c27648e3568163bd6895b30b6b2bb07ec4dbccb14cfbeecec4f48d9d4017",
+      "packagedSha256": "0c24c27648e3568163bd6895b30b6b2bb07ec4dbccb14cfbeecec4f48d9d4017",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/repositorio-oficial/deposito-fuentes-retencion-dpa/story.yaml",
+      "source": "docs/product/stories/repositorio-oficial/deposito-fuentes-retencion-dpa/story.yaml",
+      "sourceSha256": "570cd2c8b0a6a0adb9fc0e23191d2f5f6b9c22dc9479fcd61e4f3921510380c4",
+      "packagedSha256": "570cd2c8b0a6a0adb9fc0e23191d2f5f6b9c22dc9479fcd61e4f3921510380c4",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/repositorio-oficial/forgejo-self-hosted-bd-vs-archivos/00-story.md",
+      "source": "docs/product/stories/repositorio-oficial/forgejo-self-hosted-bd-vs-archivos/00-story.md",
+      "sourceSha256": "2272578e61ab52d21bc9c8f229f07e44da9e4177bf54887e0b3f222e68cec0b3",
+      "packagedSha256": "2272578e61ab52d21bc9c8f229f07e44da9e4177bf54887e0b3f222e68cec0b3",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/repositorio-oficial/forgejo-self-hosted-bd-vs-archivos/story.yaml",
+      "source": "docs/product/stories/repositorio-oficial/forgejo-self-hosted-bd-vs-archivos/story.yaml",
+      "sourceSha256": "1cf43e22d72aadc7c2eeafa529987893d99822832f62fa054c7f7c81a4944545",
+      "packagedSha256": "1cf43e22d72aadc7c2eeafa529987893d99822832f62fa054c7f7c81a4944545",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/repositorio-oficial/knowledge-database-files-first/00-story.md",
+      "source": "docs/product/stories/repositorio-oficial/knowledge-database-files-first/00-story.md",
+      "sourceSha256": "5e3bf8ab41d81b7f815b82f6d633638370c8c2eb4414f629ca78169d20bf6cfa",
+      "packagedSha256": "5e3bf8ab41d81b7f815b82f6d633638370c8c2eb4414f629ca78169d20bf6cfa",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/repositorio-oficial/knowledge-database-files-first/story.yaml",
+      "source": "docs/product/stories/repositorio-oficial/knowledge-database-files-first/story.yaml",
+      "sourceSha256": "d3cb60682332e5fb2b4ac7aeb76793cb5b807a6e2c370bcc62d3e819392284ab",
+      "packagedSha256": "d3cb60682332e5fb2b4ac7aeb76793cb5b807a6e2c370bcc62d3e819392284ab",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/arquitectura-refichado-ck21/00-story.md",
+      "source": "docs/product/stories/sistema/arquitectura-refichado-ck21/00-story.md",
+      "sourceSha256": "99c013b8ee69bdf6e2f5baebe590c97c4d34d4bc91a92b36748b3fc0565a2071",
+      "packagedSha256": "99c013b8ee69bdf6e2f5baebe590c97c4d34d4bc91a92b36748b3fc0565a2071",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/arquitectura-refichado-ck21/01-spec.md",
+      "source": "docs/product/stories/sistema/arquitectura-refichado-ck21/01-spec.md",
+      "sourceSha256": "b10b7f8c3a06932cf6da7b0cd1caf9639995993876a84180ba9fca7fb9a513e0",
+      "packagedSha256": "b10b7f8c3a06932cf6da7b0cd1caf9639995993876a84180ba9fca7fb9a513e0",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/arquitectura-refichado-ck21/06-tickets.yaml",
+      "source": "docs/product/stories/sistema/arquitectura-refichado-ck21/06-tickets.yaml",
+      "sourceSha256": "33c6b5369ded5fec191c8f8e08af2ac5e4ca173d1c8e7c2d1fb70792d537d351",
+      "packagedSha256": "33c6b5369ded5fec191c8f8e08af2ac5e4ca173d1c8e7c2d1fb70792d537d351",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/arquitectura-refichado-ck21/checkpoint.md",
+      "source": "docs/product/stories/sistema/arquitectura-refichado-ck21/checkpoint.md",
+      "sourceSha256": "eed1d33bee0c370cfc23946a214129ec1610146fe1371023663584ef399b118d",
+      "packagedSha256": "eed1d33bee0c370cfc23946a214129ec1610146fe1371023663584ef399b118d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/arquitectura-refichado-ck21/story.yaml",
+      "source": "docs/product/stories/sistema/arquitectura-refichado-ck21/story.yaml",
+      "sourceSha256": "d4af3ad13032b8775fb5df62bd258ac3be3a84bb50028824b4339fd4f981517e",
+      "packagedSha256": "d4af3ad13032b8775fb5df62bd258ac3be3a84bb50028824b4339fd4f981517e",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/borrar-carpetas-campaign-originales/00-story.md",
+      "source": "docs/product/stories/sistema/borrar-carpetas-campaign-originales/00-story.md",
+      "sourceSha256": "165c665b5f8cd9bb3fe069cf996efbad3eaa04d4c4ee30ce2e95e2a3a0fccd9a",
+      "packagedSha256": "165c665b5f8cd9bb3fe069cf996efbad3eaa04d4c4ee30ce2e95e2a3a0fccd9a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/borrar-carpetas-campaign-originales/story.yaml",
+      "source": "docs/product/stories/sistema/borrar-carpetas-campaign-originales/story.yaml",
+      "sourceSha256": "6055be51b401e541265b934ad36a7871df8e7a8f62f91f96b0fe755f7fab7bdb",
+      "packagedSha256": "6055be51b401e541265b934ad36a7871df8e7a8f62f91f96b0fe755f7fab7bdb",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/comprador-pricing-exito-12-meses/00-story.md",
+      "source": "docs/product/stories/sistema/comprador-pricing-exito-12-meses/00-story.md",
+      "sourceSha256": "ac56b50f9d72d83914a8da075fde89681c76c07be7ffc483b6f53093bba1bcdc",
+      "packagedSha256": "ac56b50f9d72d83914a8da075fde89681c76c07be7ffc483b6f53093bba1bcdc",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/comprador-pricing-exito-12-meses/story.yaml",
+      "source": "docs/product/stories/sistema/comprador-pricing-exito-12-meses/story.yaml",
+      "sourceSha256": "9f6f8362585d92bee5af1743efe774f927107fa9bfe9e395192af2e952559d32",
+      "packagedSha256": "9f6f8362585d92bee5af1743efe774f927107fa9bfe9e395192af2e952559d32",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/destilar-research-sistema-vs-campana/00-story.md",
+      "source": "docs/product/stories/sistema/destilar-research-sistema-vs-campana/00-story.md",
+      "sourceSha256": "d24943a89f41d5f0bd678df670cd027f5ffca3d3f3973ef13c70c5f2e7bc2e69",
+      "packagedSha256": "d24943a89f41d5f0bd678df670cd027f5ffca3d3f3973ef13c70c5f2e7bc2e69",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/destilar-research-sistema-vs-campana/story.yaml",
+      "source": "docs/product/stories/sistema/destilar-research-sistema-vs-campana/story.yaml",
+      "sourceSha256": "32a77ebf5d701f62db5309de4db5c083995cedb2db41963a5e32ec628664f4b4",
+      "packagedSha256": "32a77ebf5d701f62db5309de4db5c083995cedb2db41963a5e32ec628664f4b4",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/negocio-schema-ssot-plugin-vs-repo/00-story.md",
+      "source": "docs/product/stories/sistema/negocio-schema-ssot-plugin-vs-repo/00-story.md",
+      "sourceSha256": "29153af1b211740ca6d4e792de5aeba51e4ba115655728759a8293ba9c80aa63",
+      "packagedSha256": "29153af1b211740ca6d4e792de5aeba51e4ba115655728759a8293ba9c80aa63",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/negocio-schema-ssot-plugin-vs-repo/story.yaml",
+      "source": "docs/product/stories/sistema/negocio-schema-ssot-plugin-vs-repo/story.yaml",
+      "sourceSha256": "cbb50b2cfc4a2d995a6f16f4edf9b807ed81fd912197e885f9e12f1da76e5432",
+      "packagedSha256": "cbb50b2cfc4a2d995a6f16f4edf9b807ed81fd912197e885f9e12f1da76e5432",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/negocio-yaml-proyeccion-generada/00-story.md",
+      "source": "docs/product/stories/sistema/negocio-yaml-proyeccion-generada/00-story.md",
+      "sourceSha256": "cca085123cf2b044674ea7f55103c8fd0af2149aa8eaff3f431d207ff8a9f9d8",
+      "packagedSha256": "cca085123cf2b044674ea7f55103c8fd0af2149aa8eaff3f431d207ff8a9f9d8",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/negocio-yaml-proyeccion-generada/story.yaml",
+      "source": "docs/product/stories/sistema/negocio-yaml-proyeccion-generada/story.yaml",
+      "sourceSha256": "d892c0f7814f942309a866fb5c6a3ba9900cff820ac43b77257fe4259dba6adc",
+      "packagedSha256": "d892c0f7814f942309a866fb5c6a3ba9900cff820ac43b77257fe4259dba6adc",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/organizacion-ficticia-golden-fixture/00-story.md",
+      "source": "docs/product/stories/sistema/organizacion-ficticia-golden-fixture/00-story.md",
+      "sourceSha256": "1edaf7ae7a4c5c1300d6e3b5b15d794270182087a85ffb72d910b0fd8ece02e3",
+      "packagedSha256": "1edaf7ae7a4c5c1300d6e3b5b15d794270182087a85ffb72d910b0fd8ece02e3",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/organizacion-ficticia-golden-fixture/01-spec.md",
+      "source": "docs/product/stories/sistema/organizacion-ficticia-golden-fixture/01-spec.md",
+      "sourceSha256": "dc71953e9041709577d183880212a7179b6a57db58e3f4797069d0caad939a4d",
+      "packagedSha256": "dc71953e9041709577d183880212a7179b6a57db58e3f4797069d0caad939a4d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/organizacion-ficticia-golden-fixture/03-arch.md",
+      "source": "docs/product/stories/sistema/organizacion-ficticia-golden-fixture/03-arch.md",
+      "sourceSha256": "38d8d5a17888a9e859f22b43a5f7064392294057315eb74a424e06ba00f3125a",
+      "packagedSha256": "38d8d5a17888a9e859f22b43a5f7064392294057315eb74a424e06ba00f3125a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/organizacion-ficticia-golden-fixture/04-validators.yaml",
+      "source": "docs/product/stories/sistema/organizacion-ficticia-golden-fixture/04-validators.yaml",
+      "sourceSha256": "0f8cb48f6286bf20d7875d7e826e9da0a2923e9ab27ca0c1f28a872cb0409e45",
+      "packagedSha256": "0f8cb48f6286bf20d7875d7e826e9da0a2923e9ab27ca0c1f28a872cb0409e45",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/organizacion-ficticia-golden-fixture/06-tickets.yaml",
+      "source": "docs/product/stories/sistema/organizacion-ficticia-golden-fixture/06-tickets.yaml",
+      "sourceSha256": "8a32a92f97f2e01497764eedef49fc15b2196beefca2c1ce8bdbbd03224c4cde",
+      "packagedSha256": "8a32a92f97f2e01497764eedef49fc15b2196beefca2c1ce8bdbbd03224c4cde",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/organizacion-ficticia-golden-fixture/checkpoint.md",
+      "source": "docs/product/stories/sistema/organizacion-ficticia-golden-fixture/checkpoint.md",
+      "sourceSha256": "25e2606fa5678c073fb451b7953b1ae6ef34c25146238e22d6be2cfb31a253b7",
+      "packagedSha256": "25e2606fa5678c073fb451b7953b1ae6ef34c25146238e22d6be2cfb31a253b7",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/organizacion-ficticia-golden-fixture/story.yaml",
+      "source": "docs/product/stories/sistema/organizacion-ficticia-golden-fixture/story.yaml",
+      "sourceSha256": "5c9ac60815a831c848990d01bf14ee30558629024a6575e9a8e56213ecc92227",
+      "packagedSha256": "5c9ac60815a831c848990d01bf14ee30558629024a6575e9a8e56213ecc92227",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/persona-puesto-primera-clase/00-story.md",
+      "source": "docs/product/stories/sistema/persona-puesto-primera-clase/00-story.md",
+      "sourceSha256": "16471cca3a11b52728e6217bf5b4d5a6d091216626e670d1e4a4c9e2b9f1cc97",
+      "packagedSha256": "16471cca3a11b52728e6217bf5b4d5a6d091216626e670d1e4a4c9e2b9f1cc97",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/persona-puesto-primera-clase/story.yaml",
+      "source": "docs/product/stories/sistema/persona-puesto-primera-clase/story.yaml",
+      "sourceSha256": "bdb38c9fdd29f4956e99a70c6af43b52509829e1449594d1feca70a9f142e18b",
+      "packagedSha256": "bdb38c9fdd29f4956e99a70c6af43b52509829e1449594d1feca70a9f142e18b",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/poblar-metodo-m1-m3/00-story.md",
+      "source": "docs/product/stories/sistema/poblar-metodo-m1-m3/00-story.md",
+      "sourceSha256": "cdbcf8bb8e76e02a1ad7aa204b29ff1bb07fff56bc0383a537d744dc0e6e155e",
+      "packagedSha256": "cdbcf8bb8e76e02a1ad7aa204b29ff1bb07fff56bc0383a537d744dc0e6e155e",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/poblar-metodo-m1-m3/story.yaml",
+      "source": "docs/product/stories/sistema/poblar-metodo-m1-m3/story.yaml",
+      "sourceSha256": "c32bb4bbcb7257fbc6f39cc6014610ee244b7ba002550eaf4efd92c8a258820a",
+      "packagedSha256": "c32bb4bbcb7257fbc6f39cc6014610ee244b7ba002550eaf4efd92c8a258820a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/reconciliar-objeto-schema-9-entidades/00-story.md",
+      "source": "docs/product/stories/sistema/reconciliar-objeto-schema-9-entidades/00-story.md",
+      "sourceSha256": "4b39800b47dcf1fb58e4ac3340d2cf2bc0f06e009667c0af632e473d8dfb8a14",
+      "packagedSha256": "4b39800b47dcf1fb58e4ac3340d2cf2bc0f06e009667c0af632e473d8dfb8a14",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/reconciliar-objeto-schema-9-entidades/story.yaml",
+      "source": "docs/product/stories/sistema/reconciliar-objeto-schema-9-entidades/story.yaml",
+      "sourceSha256": "376ad59c21dea5f2afc6c02bf224f0cee064e78905e4779d697850f02bb39d14",
+      "packagedSha256": "376ad59c21dea5f2afc6c02bf224f0cee064e78905e4779d697850f02bb39d14",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/render-arquitectura-yaml/00-story.md",
+      "source": "docs/product/stories/sistema/render-arquitectura-yaml/00-story.md",
+      "sourceSha256": "12cee4adf3aae421424c4fb0f9340aaf2629b89304882b9977f9dc1c494296ad",
+      "packagedSha256": "12cee4adf3aae421424c4fb0f9340aaf2629b89304882b9977f9dc1c494296ad",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/render-arquitectura-yaml/story.yaml",
+      "source": "docs/product/stories/sistema/render-arquitectura-yaml/story.yaml",
+      "sourceSha256": "8261e2d746dcbec7e3a1d47a09ff5415113e51498341041ab41917e54e2d9468",
+      "packagedSha256": "8261e2d746dcbec7e3a1d47a09ff5415113e51498341041ab41917e54e2d9468",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/00-research-latam-br.md",
+      "source": "docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/00-research-latam-br.md",
+      "sourceSha256": "4e91f5e51cc88c63a95bcaf33d5d7fab6a1963fac38fc546e873616c88525c19",
+      "packagedSha256": "4e91f5e51cc88c63a95bcaf33d5d7fab6a1963fac38fc546e873616c88525c19",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/00-story.md",
+      "source": "docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/00-story.md",
+      "sourceSha256": "dd84c5f0ada7b715170cc391cbb1037484fe7c5ed462b2db583f774d1e699534",
+      "packagedSha256": "dd84c5f0ada7b715170cc391cbb1037484fe7c5ed462b2db583f774d1e699534",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/01-spec.md",
+      "source": "docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/01-spec.md",
+      "sourceSha256": "e7a3319aa2314e9842a1bc8356087cedcca3c976fb6c892a9cb0e9329f3af3c7",
+      "packagedSha256": "e7a3319aa2314e9842a1bc8356087cedcca3c976fb6c892a9cb0e9329f3af3c7",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/03-arch.md",
+      "source": "docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/03-arch.md",
+      "sourceSha256": "1920487de3bf0da0a3cce20b0210a6f61e55ae4ea9575dfc40b84b0b00024ba9",
+      "packagedSha256": "1920487de3bf0da0a3cce20b0210a6f61e55ae4ea9575dfc40b84b0b00024ba9",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/04-validators.yaml",
+      "source": "docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/04-validators.yaml",
+      "sourceSha256": "10bcb014788ba0aa2ae50025efb3b939b4e13c9bbc2001f486324405a81b2966",
+      "packagedSha256": "10bcb014788ba0aa2ae50025efb3b939b4e13c9bbc2001f486324405a81b2966",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/06-tickets.yaml",
+      "source": "docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/06-tickets.yaml",
+      "sourceSha256": "1aed2b452f4838aa58e46d57137f2dcb7f0e589e585eccdb5cda3ebb86408762",
+      "packagedSha256": "1aed2b452f4838aa58e46d57137f2dcb7f0e589e585eccdb5cda3ebb86408762",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/checkpoint.md",
+      "source": "docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/checkpoint.md",
+      "sourceSha256": "d30b4f07e60e25778a1fe5e7550f2586f27ef10aa56ef5f5ae6988b748bb72e8",
+      "packagedSha256": "d30b4f07e60e25778a1fe5e7550f2586f27ef10aa56ef5f5ae6988b748bb72e8",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/story.yaml",
+      "source": "docs/product/stories/sistema/schema-v2-hilo-de-oro-kinetica/story.yaml",
+      "sourceSha256": "3c3457ec72fbd6f401d241d9a47652b8b298188576c12a15672c4b65572ea77f",
+      "packagedSha256": "3c3457ec72fbd6f401d241d9a47652b8b298188576c12a15672c4b65572ea77f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/terminar-arquitectura-despliegue/00-story.md",
+      "source": "docs/product/stories/sistema/terminar-arquitectura-despliegue/00-story.md",
+      "sourceSha256": "fd43d92dbc96114918470907e950ebd637a30cd3a61584cbdda4046c65371ef5",
+      "packagedSha256": "fd43d92dbc96114918470907e950ebd637a30cd3a61584cbdda4046c65371ef5",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/stories/sistema/terminar-arquitectura-despliegue/story.yaml",
+      "source": "docs/product/stories/sistema/terminar-arquitectura-despliegue/story.yaml",
+      "sourceSha256": "e9a4a59496ff3774691a562b6c3dbe6510982bcbc8b1960e215d19c149f928ca",
+      "packagedSha256": "e9a4a59496ff3774691a562b6c3dbe6510982bcbc8b1960e215d19c149f928ca",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/templates/00-chris-input-template.md",
+      "source": "docs/product/templates/00-chris-input-template.md",
+      "sourceSha256": "be7dd82c8dc58e65f0fc613f4c2193303a6fcc1fc3d4bb807aa2db767009ad25",
+      "packagedSha256": "be7dd82c8dc58e65f0fc613f4c2193303a6fcc1fc3d4bb807aa2db767009ad25",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/templates/00-research-template.md",
+      "source": "docs/product/templates/00-research-template.md",
+      "sourceSha256": "787452b92185164272631ba5e97aaa750c6d45aafbf1181762fac8a236df1d26",
+      "packagedSha256": "787452b92185164272631ba5e97aaa750c6d45aafbf1181762fac8a236df1d26",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/templates/00-story-template.md",
+      "source": "docs/product/templates/00-story-template.md",
+      "sourceSha256": "678ed0c1d5aab0c56bc7feb7af21179285e1a8907c8a97f88a48c83914481f9f",
+      "packagedSha256": "678ed0c1d5aab0c56bc7feb7af21179285e1a8907c8a97f88a48c83914481f9f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/templates/01-spec-template.md",
+      "source": "docs/product/templates/01-spec-template.md",
+      "sourceSha256": "d3f1fdd003ec5a14fab117eca1cf7f667874a2c6f0a54932091f784f851df2aa",
+      "packagedSha256": "d3f1fdd003ec5a14fab117eca1cf7f667874a2c6f0a54932091f784f851df2aa",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/product/templates/story-ui.yaml",
+      "source": "docs/product/templates/story-ui.yaml",
+      "sourceSha256": "f454b9d5cd1a2576b8747dc343a7124e66135d007e1042ee66c3f3e3ae84d58f",
+      "packagedSha256": "f454b9d5cd1a2576b8747dc343a7124e66135d007e1042ee66c3f3e3ae84d58f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/metodo/ISO-9001-veredicto-I-05.md",
+      "source": "docs/metodo/ISO-9001-veredicto-I-05.md",
+      "sourceSha256": "0a6c8b330e1a78c68e128ec30d204168691b351a345837580307bfe52407d5e9",
+      "packagedSha256": "0a6c8b330e1a78c68e128ec30d204168691b351a345837580307bfe52407d5e9",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/README.md",
+      "source": "docs/research/README.md",
+      "sourceSha256": "19fae90d2b7071fa5c7db3f4b444c739acba6c6601e909be80b62552cd1068a6",
+      "packagedSha256": "53e6bb90892ce6bf1072dbbcfc18088eb11288413a22ef07fa512587de76e5f5",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/research/cerebro-conocimiento/01-sota-memoria-agentica.md",
+      "source": "docs/research/cerebro-conocimiento/01-sota-memoria-agentica.md",
+      "sourceSha256": "9b4565d787a3e76240fa4aee58160ad602b27e0977a62602b6fd38f750cb84d8",
+      "packagedSha256": "9b4565d787a3e76240fa4aee58160ad602b27e0977a62602b6fd38f750cb84d8",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/cerebro-conocimiento/02-diseno-cerebro-v2.md",
+      "source": "docs/research/cerebro-conocimiento/02-diseno-cerebro-v2.md",
+      "sourceSha256": "8f2e396f376dfbc9c0cba170bab67de96b022c2289a17509d9f08ee08108b76b",
+      "packagedSha256": "8f2e396f376dfbc9c0cba170bab67de96b022c2289a17509d9f08ee08108b76b",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/cerebro-conocimiento/03-proyeccion-twin.md",
+      "source": "docs/research/cerebro-conocimiento/03-proyeccion-twin.md",
+      "sourceSha256": "1ff2a3422a1d21a5a2d68bf6c376c7c271d7a65ecef4ec6e7cdccf6fcb313632",
+      "packagedSha256": "1ff2a3422a1d21a5a2d68bf6c376c7c271d7a65ecef4ec6e7cdccf6fcb313632",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/cerebro-conocimiento/README.md",
+      "source": "docs/research/cerebro-conocimiento/README.md",
+      "sourceSha256": "e55917b396c4efd2afd8773a97f750baad3ecd69092c70201b86a99c7fe9340d",
+      "packagedSha256": "b6bfc6525f8455fbaf7a1d9dcc32f84609c660f195bdbd2d39f708f12af64d9c",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/CAMBIOS-DESDE-JULIO.md",
+      "source": "docs/research/dto-contexto-2026-10/CAMBIOS-DESDE-JULIO.md",
+      "sourceSha256": "c00394d8567285cd2374f962ff3b0b9fb118177d28fea1d1af688613f219f0b0",
+      "packagedSha256": "044eb0ae61cf4b725b12db11b29540cabd0e327c091880d6053ffaef4812a9cd",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/README.md",
+      "source": "docs/research/dto-contexto-2026-10/README.md",
+      "sourceSha256": "ad8f438ce16872c138e1468295b3ec2941459d3dac5009319785accaafb4fc33",
+      "packagedSha256": "1a73ae89cda19909247aee00e11eb0298e889a2b323e5684996d7224ee1780b9",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/agentnoon.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/agentnoon.md",
+      "sourceSha256": "c09dca830edcebe69e30761e99f0f3dd8396e610ace1755c08cc762151d7fecb",
+      "packagedSha256": "c09dca830edcebe69e30761e99f0f3dd8396e610ace1755c08cc762151d7fecb",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/amazon.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/amazon.md",
+      "sourceSha256": "6969d1d65213ef56a4caf9c38ad6eb2309ee1cc7845360a60b912ccd7aad6418",
+      "packagedSha256": "6969d1d65213ef56a4caf9c38ad6eb2309ee1cc7845360a60b912ccd7aad6418",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/animaworks.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/animaworks.md",
+      "sourceSha256": "48c567f52c4a7607046744e40c7b3938a0d7def6a0403ebb6e15f2c2cbd30c3d",
+      "packagedSha256": "48c567f52c4a7607046744e40c7b3938a0d7def6a0403ebb6e15f2c2cbd30c3d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/anthropic.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/anthropic.md",
+      "sourceSha256": "5a3b57f21099e5d2daab87acea54e2e18b32aed285f86932fbcb3d33698d144d",
+      "packagedSha256": "5a3b57f21099e5d2daab87acea54e2e18b32aed285f86932fbcb3d33698d144d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/appian.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/appian.md",
+      "sourceSha256": "457fe70b5308472d31218d52df74baf0c0536fef04e738ec397d2fa7f62e3b3c",
+      "packagedSha256": "457fe70b5308472d31218d52df74baf0c0536fef04e738ec397d2fa7f62e3b3c",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/ardoq.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/ardoq.md",
+      "sourceSha256": "9f3fced28ae2317631faf9ddd14667332536f31b92c5927b51f2db2b3b67e8da",
+      "packagedSha256": "9f3fced28ae2317631faf9ddd14667332536f31b92c5927b51f2db2b3b67e8da",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/aris.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/aris.md",
+      "sourceSha256": "d324922c1af8026f74a340f8c99403cb99512c285bc22fa4aa96f9f57163f91c",
+      "packagedSha256": "d324922c1af8026f74a340f8c99403cb99512c285bc22fa4aa96f9f57163f91c",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/arrayworks.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/arrayworks.md",
+      "sourceSha256": "13d416f401fda769c216fde49af53311fd9aac5b8cc1a7c9cfc4b848fb611e81",
+      "packagedSha256": "13d416f401fda769c216fde49af53311fd9aac5b8cc1a7c9cfc4b848fb611e81",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/atlassian.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/atlassian.md",
+      "sourceSha256": "52779a625bde255f7afc98968eb47b5588858c0a43abfe1b493f6c120e5d1896",
+      "packagedSha256": "52779a625bde255f7afc98968eb47b5588858c0a43abfe1b493f6c120e5d1896",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/automation-anywhere.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/automation-anywhere.md",
+      "sourceSha256": "b52133abad33b76952c84d899df96606da2623747f5657e1238becf29551fbe3",
+      "packagedSha256": "b52133abad33b76952c84d899df96606da2623747f5657e1238becf29551fbe3",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/bee360.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/bee360.md",
+      "sourceSha256": "0b5928b9d7df91d29aecfb37d5788d63d62af2c877204365dd0bd0c57237b050",
+      "packagedSha256": "0b5928b9d7df91d29aecfb37d5788d63d62af2c877204365dd0bd0c57237b050",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/bizagi.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/bizagi.md",
+      "sourceSha256": "8351a5371708410daa21ae87ca03b09e6a60492f871c1ba06d8549b639bb0c67",
+      "packagedSha256": "8351a5371708410daa21ae87ca03b09e6a60492f871c1ba06d8549b639bb0c67",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/bizzdesign.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/bizzdesign.md",
+      "sourceSha256": "4369a5904ecbdeab0eba91dfa479cab786d8d0da707b420c0170d5a68583050e",
+      "packagedSha256": "4369a5904ecbdeab0eba91dfa479cab786d8d0da707b420c0170d5a68583050e",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/boc-adonis.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/boc-adonis.md",
+      "sourceSha256": "e722bc577076fde8f3d400dced237711166d9e1011d17f46e10286af3750e198",
+      "packagedSha256": "e722bc577076fde8f3d400dced237711166d9e1011d17f46e10286af3750e198",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/businessoptix.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/businessoptix.md",
+      "sourceSha256": "d6a61393dc7a3a527ed5152ebb65b56b9ca6f8957677d4fc6fcad7b711f89b7c",
+      "packagedSha256": "d6a61393dc7a3a527ed5152ebb65b56b9ca6f8957677d4fc6fcad7b711f89b7c",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/camunda.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/camunda.md",
+      "sourceSha256": "1604d1e35c2f86ddc8126a0abe5bc7f8b7ec54824ce471d86f5f09091f4cdab0",
+      "packagedSha256": "1604d1e35c2f86ddc8126a0abe5bc7f8b7ec54824ce471d86f5f09091f4cdab0",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/catio.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/catio.md",
+      "sourceSha256": "18c6072ec95d46455dc71bc9e45ed60ddcd994dea504fea74364cfc6e2ecf736",
+      "packagedSha256": "18c6072ec95d46455dc71bc9e45ed60ddcd994dea504fea74364cfc6e2ecf736",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/celonis.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/celonis.md",
+      "sourceSha256": "509ed4c87a2639421af9e338983b2518f1cce1e64bbc80bee4d23460e017720f",
+      "packagedSha256": "509ed4c87a2639421af9e338983b2518f1cce1e64bbc80bee4d23460e017720f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/charthop.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/charthop.md",
+      "sourceSha256": "526ee1a0f5b9c155ac932249d9afcf973ed205ee943f190d98243e23d3f0e76c",
+      "packagedSha256": "526ee1a0f5b9c155ac932249d9afcf973ed205ee943f190d98243e23d3f0e76c",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/cognee.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/cognee.md",
+      "sourceSha256": "79e1bec786a6ea38dc8bdda5c8e86b7a05d88b8f226eed5c614ef6b7a5c327de",
+      "packagedSha256": "79e1bec786a6ea38dc8bdda5c8e86b7a05d88b8f226eed5c614ef6b7a5c327de",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/contextual-ai.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/contextual-ai.md",
+      "sourceSha256": "500b829203d6397b2c775dd29b822ed7b3d626d54f17e886aa7f80bd6b3ced71",
+      "packagedSha256": "500b829203d6397b2c775dd29b822ed7b3d626d54f17e886aa7f80bd6b3ced71",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/corporater.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/corporater.md",
+      "sourceSha256": "660f03aed99a370e307af35655ec60bbff43529433171b2fb6a0d30f59587601",
+      "packagedSha256": "660f03aed99a370e307af35655ec60bbff43529433171b2fb6a0d30f59587601",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/dcr.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/dcr.md",
+      "sourceSha256": "115711c299cb5fcee8117cca83381c7ced24510daca01567fbd51003de1e2043",
+      "packagedSha256": "115711c299cb5fcee8117cca83381c7ced24510daca01567fbd51003de1e2043",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/dust.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/dust.md",
+      "sourceSha256": "b37cd18e5e65e290ed5a667baefe607c97280827edddbe2349a9be205ca1a203",
+      "packagedSha256": "b37cd18e5e65e290ed5a667baefe607c97280827edddbe2349a9be205ca1a203",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/edgeti.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/edgeti.md",
+      "sourceSha256": "3512c16b6dd2722b5ea472fc5067b32f6942a1b913088caa98d4c90bb33232ad",
+      "packagedSha256": "3512c16b6dd2722b5ea472fc5067b32f6942a1b913088caa98d4c90bb33232ad",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/eqv.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/eqv.md",
+      "sourceSha256": "6df30c1d83c9aabf6c5339be2d502401ee150fe6c12fa6072e30d1675103f36e",
+      "packagedSha256": "6df30c1d83c9aabf6c5339be2d502401ee150fe6c12fa6072e30d1675103f36e",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/gbtec.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/gbtec.md",
+      "sourceSha256": "96568406f256895efcef4f22072806079df7205f8cc1f1aaa6f426b9492b1ff0",
+      "packagedSha256": "96568406f256895efcef4f22072806079df7205f8cc1f1aaa6f426b9492b1ff0",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/glean.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/glean.md",
+      "sourceSha256": "7a1363e94f2dc85f3b248c7976f757270803d9beb6a9f45c5719f7b71318a65f",
+      "packagedSha256": "7a1363e94f2dc85f3b248c7976f757270803d9beb6a9f45c5719f7b71318a65f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/google.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/google.md",
+      "sourceSha256": "8fcbcb47728f1e140fe5c6034b44ebb78b3178a8ac2eadfc810604f6efb469ac",
+      "packagedSha256": "8fcbcb47728f1e140fe5c6034b44ebb78b3178a8ac2eadfc810604f6efb469ac",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/guru.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/guru.md",
+      "sourceSha256": "65e105d44c82220077d3b8b938022f5ed05ab12c7eaa65161b37963b0e0bfc6d",
+      "packagedSha256": "65e105d44c82220077d3b8b938022f5ed05ab12c7eaa65161b37963b0e0bfc6d",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/ibm.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/ibm.md",
+      "sourceSha256": "948544cb80a843f9fbdace47bd8d1c146bc1e54439581445bcd7fb3678f4bc66",
+      "packagedSha256": "948544cb80a843f9fbdace47bd8d1c146bc1e54439581445bcd7fb3678f4bc66",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/igrafx.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/igrafx.md",
+      "sourceSha256": "f63265a1c9b8f58dabea7bd68132346e7b464ca0f4e776bb1de10fbcdb0e1171",
+      "packagedSha256": "f63265a1c9b8f58dabea7bd68132346e7b464ca0f4e776bb1de10fbcdb0e1171",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/inorigo.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/inorigo.md",
+      "sourceSha256": "1c64f636319afa5b1fdec4dbb4d818c89afa70fec88865e4703a6920d39c3268",
+      "packagedSha256": "1c64f636319afa5b1fdec4dbb4d818c89afa70fec88865e4703a6920d39c3268",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/interfacing.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/interfacing.md",
+      "sourceSha256": "b8259390e1c0c8942eeeb0e84698763ed9bd6e05416be0f15b765bcd036f2265",
+      "packagedSha256": "b8259390e1c0c8942eeeb0e84698763ed9bd6e05416be0f15b765bcd036f2265",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/kore.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/kore.md",
+      "sourceSha256": "336a85732b23ba770cfe917e55e82b39b410f7219aeb3f5bc1498c514a9556ad",
+      "packagedSha256": "336a85732b23ba770cfe917e55e82b39b410f7219aeb3f5bc1498c514a9556ad",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/kyp.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/kyp.md",
+      "sourceSha256": "57c693213b507697b537a216c4faa92623ef7bbc21abe8db5bffc31084113957",
+      "packagedSha256": "57c693213b507697b537a216c4faa92623ef7bbc21abe8db5bffc31084113957",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/letta.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/letta.md",
+      "sourceSha256": "2035fe28116732a402631f6e077dbfe5d51b381dc8292849d1a788d678ab8fed",
+      "packagedSha256": "2035fe28116732a402631f6e077dbfe5d51b381dc8292849d1a788d678ab8fed",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/lindy.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/lindy.md",
+      "sourceSha256": "4b7514ebc0125e04181bd3bbfa9c67c0ecf5df0f848ffbe9dd43665bd3253e23",
+      "packagedSha256": "4b7514ebc0125e04181bd3bbfa9c67c0ecf5df0f848ffbe9dd43665bd3253e23",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/mavim.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/mavim.md",
+      "sourceSha256": "b484eb783f244a17a30376c4f1b07b9873861ee83b31db3d2f5ee561043539ea",
+      "packagedSha256": "b484eb783f244a17a30376c4f1b07b9873861ee83b31db3d2f5ee561043539ea",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/microsoft.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/microsoft.md",
+      "sourceSha256": "dd83d7ea008669f35756763be199fde403d23bba4a3af796518fd2b1417384a7",
+      "packagedSha256": "dd83d7ea008669f35756763be199fde403d23bba4a3af796518fd2b1417384a7",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/moveworks.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/moveworks.md",
+      "sourceSha256": "114341d9061de15850bbf63b8b43b089586e44f3378e1f7e35344e0ad92f99d1",
+      "packagedSha256": "114341d9061de15850bbf63b8b43b089586e44f3378e1f7e35344e0ad92f99d1",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/nintex.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/nintex.md",
+      "sourceSha256": "06770c710d24c1353172e111538ab80b9c59d203b7c770c005e447f9df978d04",
+      "packagedSha256": "06770c710d24c1353172e111538ab80b9c59d203b7c770c005e447f9df978d04",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/notion.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/notion.md",
+      "sourceSha256": "7fd5206d4966242aad3da5f9e6223eb0d8d74b17aa1c535772d28e434d581f43",
+      "packagedSha256": "7fd5206d4966242aad3da5f9e6223eb0d8d74b17aa1c535772d28e434d581f43",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/openai.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/openai.md",
+      "sourceSha256": "c0b71a10f175655fdc5f06a32294a9990b57e7291f2cee8d279bc2f878fea5b2",
+      "packagedSha256": "c0b71a10f175655fdc5f06a32294a9990b57e7291f2cee8d279bc2f878fea5b2",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/orbus.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/orbus.md",
+      "sourceSha256": "ec34202740dbf88caf63ceff9c26aa45f72494f1be2915b523e18d1a06b74230",
+      "packagedSha256": "ec34202740dbf88caf63ceff9c26aa45f72494f1be2915b523e18d1a06b74230",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/orgvue.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/orgvue.md",
+      "sourceSha256": "3affb95a0cd8162e1b78930e0c5829587a3fb78bead50596268fd454c36a02a4",
+      "packagedSha256": "3affb95a0cd8162e1b78930e0c5829587a3fb78bead50596268fd454c36a02a4",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/palantir.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/palantir.md",
+      "sourceSha256": "e6b8c8e658b2e025cf5ec0229d79f0ba7bba515ad0a07ce14d014d0315e36dc4",
+      "packagedSha256": "e6b8c8e658b2e025cf5ec0229d79f0ba7bba515ad0a07ce14d014d0315e36dc4",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/process-street.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/process-street.md",
+      "sourceSha256": "cc223963e6306ed52371b9f6afc37da4cb9c03285354ca0a040f7fa609d74859",
+      "packagedSha256": "cc223963e6306ed52371b9f6afc37da4cb9c03285354ca0a040f7fa609d74859",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/puzzle.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/puzzle.md",
+      "sourceSha256": "e647044ff43f12b7f442dcffe5c0df567348509ee6bdca6398d1b82ed992c11a",
+      "packagedSha256": "e647044ff43f12b7f442dcffe5c0df567348509ee6bdca6398d1b82ed992c11a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/qpr.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/qpr.md",
+      "sourceSha256": "4d15aa2e6ef6ade5fe2a35184bb51f6fd92b257f5d86649ec7d424afacf59091",
+      "packagedSha256": "4d15aa2e6ef6ade5fe2a35184bb51f6fd92b257f5d86649ec7d424afacf59091",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/qualiware.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/qualiware.md",
+      "sourceSha256": "3d2608460c7b9ad344509ceacb0ceb4c587f0a52f17081f4996794ebc08442a2",
+      "packagedSha256": "3d2608460c7b9ad344509ceacb0ceb4c587f0a52f17081f4996794ebc08442a2",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/relevance-ai.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/relevance-ai.md",
+      "sourceSha256": "ae195ca5a097a722a358f223fb8ed757783ff16dc71e1f650d0466792f5d2743",
+      "packagedSha256": "ae195ca5a097a722a358f223fb8ed757783ff16dc71e1f650d0466792f5d2743",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/salesforce.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/salesforce.md",
+      "sourceSha256": "a26ecb227f60ab55674e2a0d0651683a4b2ab3e760051b596d02e8b6f9d4b697",
+      "packagedSha256": "a26ecb227f60ab55674e2a0d0651683a4b2ab3e760051b596d02e8b6f9d4b697",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/sana.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/sana.md",
+      "sourceSha256": "421cbe6b517c29f4743e362277893a6f38a719033ed2583186056b89d2c3c5bd",
+      "packagedSha256": "421cbe6b517c29f4743e362277893a6f38a719033ed2583186056b89d2c3c5bd",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/sap-leanix.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/sap-leanix.md",
+      "sourceSha256": "38d46f1849d924cb13a51c1618ef41beee32116322e708b712f76fb4dfb265b8",
+      "packagedSha256": "38d46f1849d924cb13a51c1618ef41beee32116322e708b712f76fb4dfb265b8",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/sap-signavio.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/sap-signavio.md",
+      "sourceSha256": "6a7bd1c018c6153273752e8206016d4fdecb6aca9dda49f37b18334bdc4db9c6",
+      "packagedSha256": "6a7bd1c018c6153273752e8206016d4fdecb6aca9dda49f37b18334bdc4db9c6",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/scribe.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/scribe.md",
+      "sourceSha256": "a86ad2d53f379a747e63ccfe7ce334f542ea1f72c72b6b2e4a3bde2ecfd9f76a",
+      "packagedSha256": "a86ad2d53f379a747e63ccfe7ce334f542ea1f72c72b6b2e4a3bde2ecfd9f76a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/servicenow.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/servicenow.md",
+      "sourceSha256": "cea9b51b4b2cfc355e03bd0dde5d857000479dd71a4a8f868116031e03538eb9",
+      "packagedSha256": "cea9b51b4b2cfc355e03bd0dde5d857000479dd71a4a8f868116031e03538eb9",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/skan.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/skan.md",
+      "sourceSha256": "8dc22fa956141d0f17a78310395fc96a8825a838200af819049e9a9e091091c3",
+      "packagedSha256": "8dc22fa956141d0f17a78310395fc96a8825a838200af819049e9a9e091091c3",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/slite.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/slite.md",
+      "sourceSha256": "49a31db58aaa207c4fba4ce063b6d301e04238757559e33d6b98725bfe3d972e",
+      "packagedSha256": "49a31db58aaa207c4fba4ce063b6d301e04238757559e33d6b98725bfe3d972e",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/supermemory.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/supermemory.md",
+      "sourceSha256": "47272791668b915650c3612a4c78c9a1b33a0170d41f8249ecddad81b36d409b",
+      "packagedSha256": "47272791668b915650c3612a4c78c9a1b33a0170d41f8249ecddad81b36d409b",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/tango.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/tango.md",
+      "sourceSha256": "29bfbb243f270110ae6fdbe6fdcc52e05cd66cdb37f98c61c3ef0f63933b1e49",
+      "packagedSha256": "29bfbb243f270110ae6fdbe6fdcc52e05cd66cdb37f98c61c3ef0f63933b1e49",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/trainual.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/trainual.md",
+      "sourceSha256": "e92e970dae146938655d31828a629f172e9afc4175ebc838452ecb8f588e1c7e",
+      "packagedSha256": "e92e970dae146938655d31828a629f172e9afc4175ebc838452ecb8f588e1c7e",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/uipath.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/uipath.md",
+      "sourceSha256": "dfbfcd84aea25fac519dae779d1ab84188afeafad1db1aaf5a4ae4559d6371b6",
+      "packagedSha256": "dfbfcd84aea25fac519dae779d1ab84188afeafad1db1aaf5a4ae4559d6371b6",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/workato.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/workato.md",
+      "sourceSha256": "49352ac4cd21ba90fba30f340f9bcb8b3d14d80e223870e9187204b614567bd5",
+      "packagedSha256": "49352ac4cd21ba90fba30f340f9bcb8b3d14d80e223870e9187204b614567bd5",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/research/dto-contexto-2026-10/competidores/zep.md",
+      "source": "docs/research/dto-contexto-2026-10/competidores/zep.md",
+      "sourceSha256": "1d8b606c556eb7d2ada158f38c63c453afd88dfd51fffa60cae3fba0d6c8b856",
+      "packagedSha256": "1d8b606c556eb7d2ada158f38c63c453afd88dfd51fffa60cae3fba0d6c8b856",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/schema/DECISIONES.md",
+      "source": "sistema/schema/DECISIONES.md",
+      "sourceSha256": "264fba14b7a6ee781af4049b5942b22efe626b3d4e1a609e8b1443fc6f3cb667",
+      "packagedSha256": "54e32338e46a84c91d2c8e445a177065829008518d66d53202151376decc7b32",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/sistema/schema/README.md",
+      "source": "sistema/schema/README.md",
+      "sourceSha256": "070c09817b8865ffae5c2de8ae9f54eb9f80681d9b8d96001968a3f1783207e0",
+      "packagedSha256": "d6744c0622b33cbfea825e15b86ce9d0aa9e8a57a77c318f5c208378e06b878f",
+      "adapted": true
+    },
+    {
+      "path": "references/cockpit/sistema/schema/ejemplo-vertice.yaml",
+      "source": "sistema/schema/ejemplo-vertice.yaml",
+      "sourceSha256": "7ad9ab2a8af107611430ce2bf115bb730e9a89fb11a8cfa74b7bd1c851853a6c",
+      "packagedSha256": "7ad9ab2a8af107611430ce2bf115bb730e9a89fb11a8cfa74b7bd1c851853a6c",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/schema/gen_cobertura.py",
+      "source": "sistema/schema/gen_cobertura.py",
+      "sourceSha256": "15fcf21c9bf8772dcd8c7859058ff444a02e16af6b4f70b4836989df7947967f",
+      "packagedSha256": "15fcf21c9bf8772dcd8c7859058ff444a02e16af6b4f70b4836989df7947967f",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/schema/gen_cobertura.yaml",
+      "source": "sistema/schema/gen_cobertura.yaml",
+      "sourceSha256": "df089ff080d4b3829bf92bf4ecf31ddd166c802938dda68cf453726cd19dda63",
+      "packagedSha256": "df089ff080d4b3829bf92bf4ecf31ddd166c802938dda68cf453726cd19dda63",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/schema/gen_schema.py",
+      "source": "sistema/schema/gen_schema.py",
+      "sourceSha256": "fefb9eb0b68c5008e075e43898441fdac84a668a26e669adfff1830ddf9746dd",
+      "packagedSha256": "fefb9eb0b68c5008e075e43898441fdac84a668a26e669adfff1830ddf9746dd",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/schema/manifiesto-cobertura-flota.md",
+      "source": "sistema/schema/manifiesto-cobertura-flota.md",
+      "sourceSha256": "d397f18a21c3ced3ab34c193024fb33726f5a93a1d7474ffd381514c78af7607",
+      "packagedSha256": "d397f18a21c3ced3ab34c193024fb33726f5a93a1d7474ffd381514c78af7607",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/schema/objeto.schema.yaml",
+      "source": "sistema/schema/objeto.schema.yaml",
+      "sourceSha256": "5bf0590cc5dcacc6e21221a4d260e530b8712d6045acd13e644999e4948337a0",
+      "packagedSha256": "5bf0590cc5dcacc6e21221a4d260e530b8712d6045acd13e644999e4948337a0",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/schema/test_gen_cobertura.py",
+      "source": "sistema/schema/test_gen_cobertura.py",
+      "sourceSha256": "616c6d29f1bab4d7af508c2f47b9c4e5933664f364678f868fc07d38c885622a",
+      "packagedSha256": "616c6d29f1bab4d7af508c2f47b9c4e5933664f364678f868fc07d38c885622a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/schema/triage.yaml",
+      "source": "sistema/schema/triage.yaml",
+      "sourceSha256": "1c3f3698d41619d909b2dfa53869d2c89a2aefd2326d352c7ee2994354e8a982",
+      "packagedSha256": "1c3f3698d41619d909b2dfa53869d2c89a2aefd2326d352c7ee2994354e8a982",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/sistema/schema/verbos.yaml",
+      "source": "sistema/schema/verbos.yaml",
+      "sourceSha256": "0f96ebdc4b27eff4dcfa836a7920c361cc4037745b996b0ee732783be6c659ad",
+      "packagedSha256": "0f96ebdc4b27eff4dcfa836a7920c361cc4037745b996b0ee732783be6c659ad",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/metodo/objeto/README.md",
+      "source": "docs/metodo/objeto/README.md",
+      "sourceSha256": "aa7219927dd7787cb70e28c12a46517ec4431e722b2d77a78df1d012739033a9",
+      "packagedSha256": "aa7219927dd7787cb70e28c12a46517ec4431e722b2d77a78df1d012739033a9",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/metodo/objeto/brechas.md",
+      "source": "docs/metodo/objeto/brechas.md",
+      "sourceSha256": "25504df91856670bb523a468ffed3c46c85fed21a35168d8fd48a68f42e42168",
+      "packagedSha256": "25504df91856670bb523a468ffed3c46c85fed21a35168d8fd48a68f42e42168",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/metodo/objeto/entidades.md",
+      "source": "docs/metodo/objeto/entidades.md",
+      "sourceSha256": "601b3bb553f11d38ccd4ed5bcd1bb374e2b85ebbecb8d9d5dca83710cff55df6",
+      "packagedSha256": "601b3bb553f11d38ccd4ed5bcd1bb374e2b85ebbecb8d9d5dca83710cff55df6",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/metodo/objeto/glosario.md",
+      "source": "docs/metodo/objeto/glosario.md",
+      "sourceSha256": "8f433e61c98ec491758268c32831e2d5d33e601b571e2b28b820c094f985fd64",
+      "packagedSha256": "8f433e61c98ec491758268c32831e2d5d33e601b571e2b28b820c094f985fd64",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/metodo/objeto/kpis.md",
+      "source": "docs/metodo/objeto/kpis.md",
+      "sourceSha256": "555c97ec085d5414738784127669eae74e76a0647de23193c75d0585a239cdaa",
+      "packagedSha256": "555c97ec085d5414738784127669eae74e76a0647de23193c75d0585a239cdaa",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/metodo/objeto/mejoras.md",
+      "source": "docs/metodo/objeto/mejoras.md",
+      "sourceSha256": "92d7d536be78cde12c23ae59fa9200ef3886d91a1ec7fe5ad2359db539fe3b38",
+      "packagedSha256": "92d7d536be78cde12c23ae59fa9200ef3886d91a1ec7fe5ad2359db539fe3b38",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/metodo/objeto/objetivos.md",
+      "source": "docs/metodo/objeto/objetivos.md",
+      "sourceSha256": "6fd706dd3cf105899e161b5e3efcb909c8ad54ca55dce1021a259100bfa49e2a",
+      "packagedSha256": "6fd706dd3cf105899e161b5e3efcb909c8ad54ca55dce1021a259100bfa49e2a",
+      "adapted": false
+    },
+    {
+      "path": "references/cockpit/docs/metodo/objeto/procesos.md",
+      "source": "docs/metodo/objeto/procesos.md",
+      "sourceSha256": "8680dd5d8d24bf0346464e4834a66014550313508b805b90a3f9cd3b68115202",
+      "packagedSha256": "8680dd5d8d24bf0346464e4834a66014550313508b805b90a3f9cd3b68115202",
+      "adapted": false
+    }
+  ],
+  "unavailableLocalLinks": [],
+  "generatedFiles": [
+    "README.md",
+    "AVAILABILITY.md",
+    "references/prenter/tokens.css",
+    "tools/verify-package.py"
+  ]
+}

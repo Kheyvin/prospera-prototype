@@ -1,0 +1,114 @@
+# ⚠️ ARCHIVADO (CK-19, 2026-07-09) — YA NO ES SSoT. Congelado como registro histórico.
+#    Las capabilities viven ahora en: docs/product/capabilities/cockpit/<cap>.yaml.
+#    Correspondencia CAP-NN → capability: docs/product/MAPEO.md. NO editar este archivo.
+#
+# increment.yaml — Product Increment de Cockpit como dato (CK-11)
+#
+# QUÉ ES: SSoT de las capabilities YA construidas y VERIFICADAS — lo que corre de verdad.
+# Vista humana: INCREMENT.md (se edita en el MISMO evento, jamás divergen).
+# Espejo operativo de sistema/arquitectura/arquitectura.yaml: cada capability referencia por
+# `componentes:` los ids de componente (estado: activo) que la materializan.
+#
+# DISCIPLINA: una capability entra aquí SOLO al quedar `hecho` + verificada (ítem del backlog →
+# entrada acá, mismo evento). Nada aspiracional — lo pendiente vive en docs/product/_archive/backlog.yaml.
+
+meta:
+  id: cockpit-increment
+  nombre: "Product Increment — Cockpit"
+  version: 0.1.0
+  creado: CK-11
+  verificacion_base: "2026-07-06 (CK-10) — go build/vet/test + UI tsc/vitest + export estático real, standalone sin monorepo"
+
+capabilities:
+
+  - id: CAP-01
+    nombre: "Runtime propio — binario `directorio`"
+    que_hace: >-
+      Servidor HTTP puerto 4100: sirve las APIs JSON + la UI embebida (go:embed, export estático
+      Next). Modos single-workspace (-workspace/WORKSPACE_ROOT) y multi (registry
+      ~/.cockpit/cockpit.yaml). Solo lectura — sin auth, sin DB.
+    rutas: [go/cmd/directorio/]
+    componentes: [cockpit-runtime-propio]
+    fichas: [CK-07, CK-08]
+    verificada: 2026-07-06
+
+  - id: CAP-02
+    nombre: "API portfolio — GET /api/portfolio"
+    que_hace: >-
+      Árbol Dueño→Empresa→Sistema; distingue sistemas navegables (instrumentados) vs gaps de
+      digitalización (Odoo compartido/externo/terciarizado/propio sin instrumentar). Registry
+      fresh de disco por request.
+    rutas: [go/portfolio.go]
+    componentes: [portfolio-api, cockpit-go-module]
+    fichas: [CK-02, CK-05]
+    verificada: 2026-07-06
+
+  - id: CAP-03
+    nombre: "API negocio — GET /api/negocio?empresa="
+    que_hace: >-
+      Lee empresa/negocio.yaml, valida (warnings no fatales sobre enums/refs — espejo de
+      negocio.schema), sirve el diagnóstico: objetivos + áreas/procesos + brechas. Sin archivo →
+      empty-state (negocio: null).
+    rutas: [go/negocio.go]
+    componentes: [negocio-api, cockpit-go-module]
+    fichas: [CK-05]
+    verificada: 2026-07-06
+
+  - id: CAP-04
+    nombre: "Vista de Negocio (/negocio)"
+    que_hace: >-
+      Objetivos del directorio (KR from→to) que tensan el Hilo de Oro sobre 4 sub-tabs: Mapa vivo
+      (semáforo de digitalización) · Hilo de oro (cascada objetivo→procesos + huérfanos) · Brechas
+      (caso de negocio + prioridad) · Personas (CAP-07). Drawer de drill-down por proceso
+      (procedencia/confianza); banner de warnings de negocio.yaml.
+    rutas: [ui/components/negocio/NegocioView.tsx, ui/app/negocio/]
+    componentes: [negocio-view]
+    fichas: [CK-06]
+    verificada: 2026-07-06
+
+  - id: CAP-05
+    nombre: "Shell por rol + selector de empresa"
+    que_hace: >-
+      Sidebar con selector de Empresa y nav por rol — Directorio vivo; Área/Consultor placeholders
+      "próximamente".
+    rutas: [ui/components/shell/]
+    componentes: [cockpit-shell]
+    fichas: [CK-06]
+    verificada: 2026-07-06
+
+  - id: CAP-06
+    nombre: "Modelo de portfolio (TS puro)"
+    que_hace: >-
+      Funciones/tipos de navegación Empresa→Sistema, deep-link URL. Cero runtime React/Next.
+      25 tests vitest.
+    rutas: [ui/lib/portfolio.ts]
+    componentes: [portfolio-model]
+    fichas: [CK-02]
+    verificada: 2026-07-06
+
+  - id: CAP-07
+    nombre: "Lente Personas — pilar Personas de primera clase en la Vista de Negocio"
+    que_hace: >-
+      Cuarta lente "Personas" en la Vista de Negocio, consumiendo la rebanada personas/roles de
+      /api/objeto (CAP-08): roles con quién los cumple (inverso por scan), vacantes delatadas
+      ("sin persona asignada"), procesos que corre cada rol (match puesto↔rol.nombre — puente
+      D-13); visible aun sin negocio.yaml (el pilar vive upstream). Modelo puro TS, 7 tests
+      vitest.
+    rutas: [ui/lib/personas.ts, ui/components/negocio/PersonasTab.tsx]
+    componentes: [objeto-api, negocio-view]
+    fichas: [CK-12, CK-13]
+    verificada: 2026-07-07
+
+  - id: CAP-08
+    nombre: "API objeto — GET /api/objeto?empresa= (las 9 entidades)"
+    que_hace: >-
+      El objeto normalizado COMPLETO del shell de la empresa (empresa.yaml = raíz del tenant + 8
+      carpetas un-archivo-por-entidad, objeto.schema · layout plano D-15), validado ENTERO al
+      leer — las refs del Hilo cruzan entidades: ids únicos, toda ref FK/local resuelve, enums,
+      key_results ≥ 1, RACI A exactamente 1, sin ciclos (reporta_a · area.parent_ref),
+      empresa.id == slug. Warnings no fatales. Nació como /api/personas (CK-12), generalizado en
+      CK-13. Verificado contra el shell real de prenter (9 rebanadas, 12 procesos, cero warnings).
+    rutas: [go/objeto.go]
+    componentes: [objeto-api, cockpit-go-module]
+    fichas: [CK-12, CK-13]
+    verificada: 2026-07-07

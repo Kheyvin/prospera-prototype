@@ -1,0 +1,27 @@
+id: negocio-yaml-proyeccion-generada
+type: service-story
+state: idea
+module: sistema
+node: transversal
+cap_target: "sistema/negocio-yaml-proyeccion-generada"
+cap_change_type: derive
+capability_status: planned
+release: F2
+prioridad: media
+fichas: [CK-13]
+dependencies:
+  stories: []
+context:
+  job: "Como arquitecto del objeto normalizado quiero voltear negocio.yaml a una proyección generada del objeto para que deje de curarse a mano y no pueda divergir de la fuente."
+  why: "Es el último tramo de la convergencia D-13; con el objeto poblado de objetivos y brechas, negocio.yaml debe derivarse en vez de mantenerse manualmente."
+provenance:
+  backlog_id: BL-19
+  titulo: "Voltear negocio.yaml a proyección GENERADA del objeto"
+  detalle: >-
+    Último tramo de la convergencia D-13: negocio.yaml deja de curarse a mano y se deriva del
+    objeto. Gatillo: objeto poblado con objetivos y brechas.
+  origen: "CK-13 (deuda declarada) · D-13"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

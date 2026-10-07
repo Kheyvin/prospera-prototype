@@ -1,0 +1,77 @@
+/* ---- DATA · el nivel más fino: instrucción de trabajo por actividad (ISO 10013 nivel 3 ·
+   APQC L5) + el proceso insignia del recorrido. ---- */
+
+/* ---- z3 · instrucción de trabajo (ISO 10013 nivel 3 · APQC L5) — el "cómo" por actividad.
+   key = '<proc>:<ord>'. tareas = el manual disuelto (D-08) renderizado como pasos.
+   m36 = INPUTS de los dos scores (RPA + agente) — los scores se computan, jamás se guardan. ---- */
+DATA.z3 ={
+  'p-cob:1':{ ins:['cartera activa (1.400 cuentas)','cronograma de cuotas'], out:'tablero de vencimientos del día',
+    tareas:[{v:'abrir',t:'Abrir el reporte de cartera del ERP (filtro: cuotas del mes)'},{v:'cruzar',t:'Cruzar vencimientos contra pagos aplicados ayer'},{v:'marcar',t:'Marcar cuentas que entran a gestión hoy'},{v:'priorizar',t:'Priorizar por monto y tramo de mora'}],
+    m36:{volumen:'diario ×1.400', exc:'5%', datos:'estructurados', reglas:'estables', promptable:true, tolerancia:'alta', riesgo:'bajo', rpa:78, agente:64} },
+  'p-cob:2':{ ins:['tablero de vencimientos'], out:'cartera clasificada por tramo y riesgo',
+    tareas:[{v:'segmentar',t:'Segmentar por tramo 0-30 / 31-60 / 61-90 / >90'},{v:'etiquetar',t:'Etiquetar riesgo según historial de pago'},{v:'exportar',t:'Exportar la lista de gestión al día'}],
+    m36:{volumen:'diario', exc:'2%', datos:'estructurados', reglas:'estables', promptable:true, tolerancia:'alta', riesgo:'bajo', rpa:91, agente:55} },
+  'p-cob:3':{ ins:['cartera clasificada','playbook de llamadas','política de refinanciamiento'], out:'compromisos de pago + derivaciones (mora dura · campo)',
+    tareas:[{v:'preparar',t:'Preparar el contexto de cada cuenta (historial + última promesa)'},{v:'contactar',t:'Llamar / escribir según el guion del tramo'},{v:'negociar',t:'Ofrecer fecha de pago dentro de política'},{v:'registrar',t:'Registrar el compromiso y la próxima acción'},{v:'derivar',t:'Derivar: mora dura → Jefe · sin respuesta ×3 → campo'}],
+    m36:{volumen:'~60 contactos/día', exc:'25%', datos:'semi-estructurados', reglas:'con criterio', promptable:true, tolerancia:'media', riesgo:'medio', rpa:34, agente:72},
+    nota:'RTLX 71 (agregado por rol) — carga emocional alta. El agente PREPARA y REDACTA; la conversación difícil queda humana. Candidato a skill del arnés (idea i-agente en el embudo).' },
+  'p-cob:4':{ ins:['casos de mora dura','política de refinanciamiento'], out:'convenio firmado o escalamiento al CFO',
+    tareas:[{v:'evaluar',t:'Evaluar capacidad de pago y garantías del caso'},{v:'proponer',t:'Armar propuesta dentro de política (plazo × tasa)'},{v:'negociar',t:'Negociar con el comprador (40 convenios/mes)'},{v:'escalar',t:'Fuera de política → escalar al CFO con sustento'}],
+    m36:{volumen:'40/mes', exc:'40%', datos:'no estructurados', reglas:'criterio experto', promptable:false, tolerancia:'baja', riesgo:'alto', rpa:8, agente:22},
+    nota:'humano-por-diseño: negociación con criterio y autoridad — el arnés solo prepara el expediente del caso.' },
+  'p-cob:5':{ ins:['lista sin respuesta ×3'], out:'acta de visita con resultado',
+    tareas:[{v:'planificar',t:'Armar la ruta del día por distrito'},{v:'visitar',t:'Visitar y documentar con foto + acta'},{v:'reportar',t:'Reportar resultado y siguiente paso'}],
+    m36:{volumen:'~15 visitas/sem', exc:'30%', datos:'no estructurados', reglas:'con criterio', promptable:false, tolerancia:'baja', riesgo:'medio', rpa:5, agente:18} },
+  'p-cob:6':{ ins:['abonos de tesorería','compromisos registrados'], out:'pagos aplicados a cuota',
+    tareas:[{v:'cruzar',t:'Cruzar abonos bancarios contra cuotas pendientes'},{v:'aplicar',t:'Aplicar el pago a la cuota correcta'},{v:'alertar',t:'Alertar diferencias (pago parcial / sin identificar)'}],
+    m36:{volumen:'diario', exc:'8%', datos:'estructurados', reglas:'estables', promptable:true, tolerancia:'media', riesgo:'medio', rpa:70, agente:48},
+    nota:'mandato PREVENTIVO: el control no se elimina — se asiste. La aplicación la confirma el humano.' },
+  'p-cob:7':{ ins:['convenios del día'], out:'(hoja paralela — duplicada)',
+    tareas:[{v:'copiar',t:'Copiar el convenio ya registrado en el ERP a la hoja'},{v:'archivar',t:'Archivar la hoja que nadie consulta'}],
+    m36:{volumen:'diario', exc:'0%', datos:'estructurados', reglas:'estables', promptable:true, tolerancia:'alta', riesgo:'bajo', rpa:0, agente:0},
+    nota:'veredicto ECRS: ELIMINABLE — no se automatiza el desperdicio, se elimina (M35 antes que M36).' },
+  'p-vta:1':{ ins:['lead de campañas (CRM)'], out:'lead registrado y asignado',
+    tareas:[{v:'verificar',t:'Verificar datos y consentimiento del lead'},{v:'registrar',t:'Registrar en CRM (hoy también en cuaderno — duplicado)'},{v:'asignar',t:'Asignar asesor por caseta y turno'}],
+    m36:{volumen:'~40/día', exc:'5%', datos:'estructurados', reglas:'estables', promptable:true, tolerancia:'alta', riesgo:'bajo', rpa:82, agente:60} },
+  'p-vta:2':{ ins:['lead asignado','stock de unidades'], out:'visita realizada + interés calificado',
+    tareas:[{v:'recibir',t:'Recibir en caseta y calificar necesidad'},{v:'mostrar',t:'Mostrar piloto según perfil (guion de visita)'},{v:'calificar',t:'Calificar interés y registrar siguiente paso'}],
+    m36:{volumen:'~25 visitas/día', exc:'—', datos:'no estructurados', reglas:'criterio experto', promptable:false, tolerancia:'baja', riesgo:'alto', rpa:3, agente:12},
+    nota:'humano-por-diseño: la visita ES la venta. El arnés prepara el contexto del lead antes, no reemplaza el encuentro.' },
+  'p-vta:3':{ ins:['interés calificado','lista de precios'], out:'cotización + simulación entregada',
+    tareas:[{v:'cotizar',t:'Armar cotización por unidad elegida'},{v:'simular',t:'Simular cuota inicial + financiamiento bancario'},{v:'enviar',t:'Enviar y registrar seguimiento a 48h'}],
+    m36:{volumen:'~15/día', exc:'15%', datos:'semi-estructurados', reglas:'con criterio', promptable:true, tolerancia:'media', riesgo:'medio', rpa:41, agente:68},
+    nota:'candidato a skill del arnés del Asesor (puesto HOY sin arnés — el gap visible).' },
+  'p-vta:4':{ ins:['cotización aceptada','pre-aprobación bancaria'], out:'minuta firmada',
+    tareas:[{v:'negociar',t:'Negociar condiciones finales dentro de política'},{v:'armar',t:'Armar expediente del comprador (KYC completo)'},{v:'firmar',t:'Firmar minuta y registrar hito'}],
+    m36:{volumen:'~20/mes', exc:'30%', datos:'no estructurados', reglas:'criterio experto', promptable:false, tolerancia:'baja', riesgo:'alto', rpa:6, agente:20} },
+  'p-vta:5':{ ins:['minuta firmada'], out:'separación + cronograma en ERP',
+    tareas:[{v:'registrar',t:'Registrar separación en CRM'},{v:'replicar',t:'Replicar cronograma de cuotas al ERP (doble registro a mano)'},{v:'verificar',t:'Verificar consistencia CRM↔ERP'}],
+    m36:{volumen:'~20/mes', exc:'10%', datos:'estructurados', reglas:'estables', promptable:true, tolerancia:'media', riesgo:'medio', rpa:74, agente:50},
+    nota:'mandato PREVENTIVO sobre el cronograma — la réplica es candidata a integración, el control queda.' },
+  'p-perm:6':{ ins:['expediente presentado','cargo de recepción'], out:'estado semanal por expediente + alerta de observación',
+    tareas:[{v:'consultar',t:'Consultar portal municipal por expediente (SM) / llamar (PL · Surquillo)'},{v:'registrar',t:'Registrar estado y fecha en el Excel de permisos'},{v:'alertar',t:'Alertar si aparece observación o vence un plazo'}],
+    m36:{volumen:'~12 expedientes ×1/sem', exc:'10%', datos:'semi-estructurados', reglas:'estables', promptable:true, tolerancia:'alta', riesgo:'bajo', rpa:76, agente:58},
+    nota:'el "IAA 74" del levantamiento SOMA, hoy con dos scores: RPA alto (consulta+registro) — la llamada a PL/Surquillo queda humana.' },
+  'p-perm:7':{ ins:['pliego de observaciones','expediente técnico','historial por municipio'], out:'expediente re-presentado con observaciones levantadas',
+    tareas:[{v:'analizar',t:'Analizar el pliego: qué pide realmente el revisor'},{v:'consultar',t:'Consultar el criterio histórico de ESE municipio (hoy: memoria de la Jefa — g-dep)'},{v:'corregir',t:'Corregir planos/memoria con el Arquitecto'},{v:'negociar',t:'Sustentar en mesa técnica con el revisor municipal'},{v:'re-presentar',t:'Re-presentar y reiniciar el seguimiento'}],
+    m36:{volumen:'~7/trimestre', exc:'60%', datos:'no estructurados', reglas:'criterio experto', promptable:false, tolerancia:'baja', riesgo:'alto', rpa:4, agente:15},
+    nota:'el "IAA 22" del SOMA: negociación + criterio + relación por municipio. RTLX 68. La bitácora por municipio (idea i-mun) convertiría la memoria en corpus — y subiría el score del agente.' },
+};
+
+DATA.flagship ={ proc:'p-cob', nm:'Cobranza de cuotas',
+  sub:'AS-IS · ancla del DSO · dueño Jefe de Cobranza. Disparador: factura por vencer. Carriles = roles (BPMN) · tiempos toque/espera (VSM) · triage de automatización por actividad (ECRS + scores).',
+  lanes:[ {role:'Analista de Cobranza',k:'carril'}, {role:'Jefe de Cobranza',k:'carril'}, {role:'Gestor de Cobranza en Campo',k:'campo'} ],
+  vsm:{toque:'13h', espera:'1d'},
+  acts:[
+    {ord:1, lane:0, verbo:'monitorear', ttl:'Monitorear la cartera y sus vencimientos por proyecto', tipo:'humana', toque:'1h', espera:'—', sist:['Nubecont ERP'], triage:'aumentable', conf:'alta', fte:'Nubecont ERP (leído)', note:'1.400 cuentas activas · alimenta DSO + antigüedad de saldos'},
+    {ord:2, lane:0, verbo:'clasificar', ttl:'Clasificar la morosidad por tramo y riesgo (0-30/31-60/61-90/>90)', tipo:'humana', toque:'2h', espera:'—', sist:['Nubecont ERP'], triage:'automatizable-rpa', conf:'alta', fte:'Nubecont ERP (leído)', note:'datos estructurados, reglas estables → RPA'},
+    {ord:3, lane:0, verbo:'contactar', ttl:'Contactar a los compradores morosos (recordatorios y llamadas)', tipo:'humana', toque:'3h', espera:'—', sist:['Nubecont ERP'], triage:'automatizable-agente', rtlx:71, conf:'media', fte:'Entrevista + RTLX del rol', raci:{R:'Analista de Cobranza', A:'Jefe de Cobranza'}, note:'carga emocional alta (RTLX 71, agregado por rol) · deriva por flujos alternos: mora dura → negociar · sin respuesta ×3 → campo'},
+    {ord:4, lane:1, verbo:'negociar', ttl:'Negociar refinanciamientos con compradores en mora dura', tipo:'humana', toque:'90m', espera:'—', sist:['—'], triage:'humano-por-diseño', conf:'media', fte:'Entrevista Jefe de Cobranza', raci:{R:'Jefe de Cobranza', A:'CFO'}, note:'40 convenios/mes · fuera de política escala al CFO'},
+    {ord:5, lane:2, verbo:'visitar', ttl:'Visitar en campo a compradores sin respuesta', tipo:'humana', toque:'4h', espera:'1d', sist:['—'], conf:'alta', fte:'Observación en campo (auditado)', note:'verbo corregido por el consultor (el ingest propuso “transportar”) — auditado'},
+    {ord:6, lane:0, verbo:'verificar', ttl:'Verificar los pagos recibidos y aplicarlos a la cuota', tipo:'humana', toque:'1h', espera:'—', sist:['Nubecont ERP'], mandato:'preventivo', conf:'alta', fte:'Nubecont ERP (leído)', raci:{R:'Analista de Cobranza', A:'Jefe de Cobranza'}, note:'cruza abonos de tesorería contra cuotas — control preventivo, protegido del triage'},
+    {ord:7, lane:0, verbo:'registrar', ttl:'Registrar los compromisos de pago en la hoja paralela', tipo:'humana', toque:'30m', espera:'—', sist:['—'], triage:'eliminable', conf:'media', fte:'Entrevista analista', note:'duplica el convenio ya en el ERP — hoja que nadie consulta'},
+  ],
+  // secuencia real (edges): f→t · c = condición (flujo alterno cuando alt:true)
+  seq:[ {f:1,t:2},{f:2,t:3},{f:3,t:6,c:'paga'},{f:3,t:4,c:'mora dura',alt:true},{f:3,t:5,c:'sin respuesta ×3',alt:true},{f:4,t:6},{f:5,t:6},{f:6,t:7} ]
+};
+

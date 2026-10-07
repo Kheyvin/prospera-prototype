@@ -1,0 +1,29 @@
+id: reconciliar-objeto-schema-9-entidades
+type: service-story
+state: done
+module: sistema
+node: transversal
+cap_target: "cockpit/api-objeto"
+cap_change_type: extend
+capability_status: live
+release: F0
+prioridad: alta
+fichas: [CK-12, CK-13]
+dependencies:
+  stories: []
+context:
+  job: "Como arquitecto del sistema quiero reconciliar objeto.schema (9 entidades) con el negocio.schema implementado (4) para que el contrato vigente sea uno solo y /api/objeto valide las 9 entidades juntas."
+  why: "Dos schemas divergentes rompen la SSoT del objeto normalizado; consolidar en objeto.schema evita drift entre lo modelado y lo servido."
+provenance:
+  backlog_id: BL-02
+  titulo: "Reconciliar objeto.schema (9 entidades) ↔ negocio.schema implementado (4)"
+  detalle: >-
+    CERRADO: contrato vigente = objeto.schema (CK-12); /api/objeto lee y valida las 9 entidades
+    JUNTAS (CK-13, CAP-08). El tramo restante (negocio.yaml → proyección generada) = BL-19.
+  origen: "auditoría CK-11"
+  estado_legacy: hecho
+capability: "cockpit/api-objeto"
+done_via: [CK-12, CK-13]
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

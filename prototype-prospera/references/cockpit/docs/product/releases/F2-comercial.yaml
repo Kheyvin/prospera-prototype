@@ -1,0 +1,23 @@
+id: F2
+nombre: "Comercial — Portal, deuda técnica y catálogo de conectores"
+estado: pendiente
+descripcion: >-
+  Lo que convierte el MVP en negocio repetible (CK-22): el Portal (N3 como producto — login,
+  cobro, asientos, descargas, licencias por fingerprint compuesto sobre el canal técnico
+  TUF/updates/telemetría), el pago de la deuda técnica ANTES de crecer más UI (migración
+  Go/Next→Vite SPA y design system — deuda aceptada conscientemente durante F1, precedente
+  CK-12), el catálogo de conectores por arquetipo, y las proyecciones/vistas que el primer
+  cliente real gatilla (negocio.yaml generado, rol-área real). Multitenant real sigue FUERA
+  (fase >10-20 clientes, CK-21/D3) — se decide con dolor real de costo por instancia.
+stories:
+  - distribucion-telemetria-licencias-n3
+  - portal-cloud-licencias
+  - deuda-go-next-n13-vite-spa
+  - rol-area-real
+  - negocio-yaml-proyeccion-generada
+  - conectores-ingesta-por-sistema
+exit_criteria: >-
+  Un cliente nuevo entra solo por el Portal: paga, obtiene su instancia hosteada, descarga sus
+  apps con licencias por asiento activadas por fingerprint, y su lakehouse ingiere ≥1 sistema
+  vía el catálogo de conectores. UI migrada a Vite + design system aplicado.
+fichas: [CK-18, CK-21, CK-22]

@@ -1,0 +1,121 @@
+
+<div class="app" id="app">
+  <aside class="rail">
+    <div class="brand">
+      <h1>Cockpit<span class="dot">.</span></h1>
+      <div class="sub eyebrow"><span class="eg-ico" title="empresa · Business Actor organizacional (M13 ArchiMate) — la ficha del twin completo"><svg viewBox="0 0 14 14"><path d="M2 12.6V5l5-3 5 3v7.6" fill="none" stroke-width="1.3" stroke-linejoin="round"/><rect class="fl" x="4.1" y="6" width="1.6" height="1.6"/><rect class="fl" x="8.3" y="6" width="1.6" height="1.6"/><path d="M5.6 12.6V9.4h2.8v3.2" fill="none" stroke-width="1.2"/></svg></span>Twin · Desarrolladora Terranova</div>
+    </div>
+    <div class="rail-scroll">
+      <div class="rail-sec">
+        <span class="eyebrow">Niveles de gestión</span>
+        <div class="escalas" id="niveles">
+          <button class="esc" data-nivel="1"><span class="z">1</span><span>Directorio</span><span class="crumb nivb" data-nb="1"></span></button>
+          <button class="esc on" data-nivel="2"><span class="z">2</span><span>Estratégico</span><span class="crumb nivb" data-nb="2"></span></button>
+          <button class="esc" data-nivel="3"><span class="z">3</span><span>Táctico</span><span class="crumb nivb" data-nb="3"></span></button>
+          <button class="esc" data-nivel="4"><span class="z">4</span><span>Operativo</span><span class="crumb nivb" data-nb="4"></span></button>
+        </div>
+        <div class="capa-leg">bajar = cambia la pregunta y la unidad · subir ≠ atrás · el nivel 2 es el territorio; 1 es la sesión del directorio; 3 es la sala de cada área; 4 el flujograma y la instrucción</div>
+      </div>
+      <div class="rail-sec">
+        <span class="eyebrow">Gobierno</span>
+        <div class="gob">
+          <label>Ciclo <select id="cicloSel" title="Cómo gobierna esta empresa su estrategia — cambia etiquetas y qué metas pagan bono (práctica LATAM/BR)">
+            <option value="okr">OKR · trimestral</option><option value="gpd">GPD · anual (bono)</option><option value="mixto">mixto</option></select></label>
+          <label>Ver como <select id="verComoSel" title="Fija tu autoridad: qué acciones puedes ejecutar (las demás se ven, deshabilitadas)">
+            <option value="">— todos (sin lente)</option><option value="dir">Director</option><option value="ger">Gerente</option><option value="jefe">Jefe de área</option><option value="ana">Analista</option></select></label>
+        </div>
+      </div>
+      <div class="rail-sec">
+        <span class="eyebrow">Módulos</span>
+        <div class="escalas" id="modulos">
+          <button class="esc on" data-mod="territorio"><span class="z">N13</span><span>Territorio</span><span class="crumb">el twin</span></button>
+          <button class="esc" data-mod="mejora"><span class="z">O6·7</span><span>Mejora</span><span class="crumb">brecha→KPI</span></button>
+          <button class="esc" data-mod="metodo"><span class="z">M1·3</span><span>Método</span><span class="crumb">engagement</span></button>
+          <button class="esc" data-mod="cambios"><span class="z">ISO</span><span>Cambios</span><span class="crumb">versiones</span></button>
+        </div>
+      </div>
+      <div class="rail-sec">
+        <span class="eyebrow">Capas — se pintan encima</span>
+        <div class="capas" id="capas">
+          <button class="capa on" data-capa="estructura"><span class="sw"></span><span class="lab"><b>Estructura</b><span>organigrama conectado</span></span><span class="oc">O4</span></button>
+          <div class="capa-leg">línea sólida = jerárquico · punteada = funcional (matricial)</div>
+          <button class="capa on" data-capa="hilo"><span class="sw"></span><span class="lab"><b>Hilo de oro</b><span>objetivo → KR → KPI → proceso</span></span><span class="oc">O2</span></button>
+          <div class="capa-leg">objetivo → su hilo se enciende · KPIs = semáforo por banda (gris = sin dato, nunca rojo por ausencia)</div>
+          <button class="capa on capa-salud" data-capa="salud"><span class="sw"></span><span class="lab"><b>Salud — ver el mapa por</b><span>tres lentes, uno a la vez · nunca se mezclan en un color</span></span><span class="oc">O3/5</span></button>
+          <div class="salud-sub" id="saludsub">
+            <button class="sub-t on" data-sub="digital"><span class="r"></span><span class="sl"><b>Digitalización</b><span class="q">¿cómo corre el proceso? · pinta procesos</span></span></button>
+            <div class="sub-leg" data-leg="digital"></div>
+            <button class="sub-t" data-sub="conf"><span class="r"></span><span class="sl"><b>Confianza del dato</b><span class="q">¿cuánto le creo al AS-IS? (provenance) · pinta todo</span></span></button>
+            <div class="sub-leg" data-leg="conf"></div>
+            <button class="sub-t" data-sub="madurez"><span class="r"></span><span class="sl"><b>Madurez</b><span class="q">¿cuánto falta para donde queremos estar? · pinta capacidades, procesos y áreas</span></span></button>
+            <div class="sub-leg" data-leg="madurez"></div>
+          </div>
+          <button class="capa on" data-capa="brechas"><span class="sw"></span><span class="lab"><b>Brechas</b><span>pin sobre lo que ataca</span></span><span class="oc">O6</span></button>
+          <div class="capa-leg">▲ color = severidad · etiqueta = costo de no hacer</div>
+          <button class="capa on" data-capa="plan"><span class="sw"></span><span class="lab"><b>Plan del ciclo</b><span>metas bajadas · compromisos · contramedidas</span></span><span class="oc">O2·7</span></button>
+          <div class="capa-leg">pinta el CÓMO sobre el twin del área (nivel 3) — apagada, la sala muestra solo la organización</div>
+          <button class="capa" data-capa="cinetica"><span class="sw"></span><span class="lab"><b>Cinética</b><span>brecha → proyecto → KPI</span></span><span class="oc">O7</span></button>
+          <div class="capa-leg">● proyecto en curso · etiqueta = fase PDCA</div>
+          <button class="capa" data-capa="trabajo"><span class="sw"></span><span class="lab"><b>Trabajo</b><span>arneses por puesto</span></span><span class="oc">N15·17</span></button>
+          <div class="capa-leg">el twin COMPILA el trabajo: ⛨ arnés vigente · ⚠ desactualizado (el twin cambió) · gris = puesto sin arnés (el gap)</div>
+          <button class="capa" data-capa="respaldo"><span class="sw"></span><span class="lab"><b>Respaldo del método</b><span>cada panel cita su fuente</span></span><span class="oc">N2</span></button>
+          <div class="capa-leg">§ = la metodología detrás de lo que ves · clic en la cita = su ficha · nada de lo que se pinta es opinión</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main" id="mainEl">
+    <div class="corrida-banner" id="corridabanner">
+      <span class="cb-dot"></span><b>Corrida · Cobranza digital fase 2</b>&nbsp;— borrador de simulación · rama aparte sobre el repo oficial · el As-Is NO se toca
+      <span style="flex:1"></span>
+      <button class="btn" id="corridaGate" title="Los cambios propuestos pasan por la cola de Cambios — nada se aplica solo">Enviar a aprobación ›</button>
+      <button class="btn" id="corridaExit">‹ Volver al As-Is</button>
+    </div>
+    <div class="topbar">
+      <div class="idwrap">
+        <button class="idpill" id="idpill"><span class="st"></span>As-Is · Terranova<span class="car">▾</span></button>
+        <div class="idmenu" id="idmenu">
+          <button class="it" id="itAsis"><span class="chk">✓</span><span><b>As-Is · rama principal</b><small>estado real observado — solo lectura</small></span></button>
+          <button class="it" id="itCorrida"><span class="chk"></span><span><b>Corrida · Cobranza digital fase 2</b><small>simulación en borrador — rama aparte, no toca el As-Is</small></span></button>
+          <div class="sep"></div>
+          <button class="it dis"><span class="chk"></span><span>＋ Nueva corrida<small>escenario con nombre, diffs y deltas</small></span></button>
+        </div>
+      </div>
+      <button class="btn ghost" id="back" disabled><span class="arw">‹</span> Big picture</button>
+      <div class="crumbline" id="crumbline"><b>Sala de mando</b></div>
+      <span style="flex:1"></span>
+      <span id="chips" style="display:inline-flex;gap:6px;min-width:0;overflow:hidden"></span>
+      <span class="count" id="count"></span>
+      <label class="search"><span class="ic">⌕</span><input id="search" type="text" placeholder="Buscar área o proceso"><kbd>⌘K</kbd></label>
+      <div class="piel-toggle" id="pieltoggle">
+        <button class="on" data-piel="valor" title="Mapa de valor — se lee de arriba a abajo: a dónde vamos (estrategia) → cómo nos gobernamos (dirección) → qué sabemos hacer (capacidades) → cómo lo hacemos (cadena) → qué nos sostiene (apoyo) → quién lo opera (gente) → sobre qué corre (sistemas)">Mapa de valor</button>
+        <button data-piel="org" title="La estructura como lente: quién responde por qué">Organigrama</button>
+      </div>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="world anim" id="world">
+        <svg class="edges" id="edges"></svg>
+        <div class="layer nodes" id="nodes"></div>
+        <div class="layer pins" id="pins"></div>
+        <div class="lienzo" id="lienzo" style="display:none"></div>
+      </div>
+      <div id="toast"></div>
+    </div>
+
+    <div class="viewctl">
+      <div class="zoomctl"><button id="zout" title="Alejar">−</button><span class="zlevel" id="zlevel">100%</span><button id="zin" title="Acercar">+</button><button id="zfit" title="Encajar">⤢</button></div>
+      <div class="lodctl" id="lodctl" title="atajos de mano gruesa: abrir todo hasta N — cada nodo también se abre por rama (⊕) y empuja a sus vecinas"><span class="lab">Niveles</span><button data-lod="1">1</button><button data-lod="2">2</button><button class="on" data-lod="3">3</button><button data-lod="4" title="puestos — la nómina completa sobre la estructura">4</button></div>
+    </div>
+    <div class="minimap" id="minimap"><div id="mmdots"></div><div class="vw" id="mmview"></div></div>
+
+    <div class="hint" id="hint">Se lee de arriba a abajo: <b>a dónde vamos → cómo nos gobernamos → qué sabemos hacer → cómo lo hacemos → quién lo opera</b> · toca un objetivo y su hilo cruza las bandas por la capacidad que lo sostiene · doble-click un proceso abre su lienzo</div>
+  </main>
+
+  <aside class="inspector" id="inspector">
+    <div class="ihd"><div class="k"><span class="eyebrow" id="inEye"></span><h3 id="inTitle"></h3></div><button class="x" id="inClose" style="display:none">✕</button></div>
+    <div class="ibody" id="inBody"></div>
+  </aside>
+</div>
+

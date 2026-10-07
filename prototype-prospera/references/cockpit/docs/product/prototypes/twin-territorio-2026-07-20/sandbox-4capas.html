@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<title>Sandbox · 4 niveles — gestos v3 (DESECHABLE)</title>
+<style>
+/* ============================================================
+   SANDBOX DE GESTOS v3 — 4 niveles de gestión — GRAY-BOX DESECHABLE.
+   v3 (propuesta v2 firmada por el operador 2026-07-26 — "no solo ver,
+   también accionar"):
+   (1) PANEL DERECHO: ficha del elemento seleccionado + BOTONERA de
+       acciones (catálogo kinético del schema: nivel mínimo de
+       autoridad + tipo de aprobación). El lente "ver como" fija tu
+       autoridad → acciones fuera de tu nivel se ven deshabilitadas.
+   (2) BANDEJA DE DECISIONES por nivel: "qué espera tu firma hoy",
+       derivada de máquina de estados + firmas pendientes (simulada).
+   (3) MODO DE CICLO: OKR trimestral · GPD anual (bono) · mixto —
+       cambia etiquetas y marca "paga bono" (práctica LATAM/BR).
+   (4) HISTORIAL de la organización: toda acción queda versionada
+       (organization as code — la org tiene historial como el código).
+   (5) Nivel 2 gana objetivos de primera clase + brechas ordenadas por
+       costo de no actuar. Nivel 3 gana indicadores por área (regla:
+       fuera de meta sin contramedida = alerta) + embudo de ideas +
+       quién-entrega-a-quién. Nivel 4 gana "tu día" (captura manual
+       con fuente), clasificación del trabajo como oferta, arnés, y
+       la garantía anti-vigilancia (se mide el rol, jamás la persona).
+   Se mantiene v2: tableros heterogéneos · descenso acotado (filtro
+   visible) · subir≠atrás · elevador · trazar · ver-como · cero jerga.
+   ============================================================ */
+:root{
+  --teal:#00b7aa; --teal-hi:#1fc6b8; --teal-700:#007f76;
+  --bg:#000; --panel:#0c1110; --raised:#141a19; --raised2:#181f1e; --border:#1f2826;
+  --tx:rgba(255,255,255,.92); --tx-mut:rgba(255,255,255,.55); --tx-faint:rgba(255,255,255,.32);
+  --warn:#e0ad4e; --crit:#e2766b; --ok:#5cc99a;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:system-ui,sans-serif;overflow:hidden;height:100vh;display:flex;flex-direction:column}
+#bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border);background:var(--panel);z-index:30}
+#bar .ttl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--tx-faint);text-transform:uppercase}
+button{background:var(--raised);border:1px solid var(--border);color:var(--tx);border-radius:8px;padding:7px 12px;font-size:12px;cursor:pointer}
+button:hover{border-color:var(--teal-700)}
+button:disabled{opacity:.35;cursor:default}
+button.on{border-color:var(--teal);color:var(--teal-hi)}
+#crumb{font-family:var(--mono);font-size:11px;color:var(--tx-mut);margin-left:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:8px}
+#crumb b{color:var(--tx)}
+#scopechip{display:none;align-items:center;gap:6px;background:rgba(0,183,170,.08);border:1px solid var(--teal-700);
+  border-radius:20px;padding:3px 10px;font-family:var(--mono);font-size:9.5px;color:var(--teal-hi);cursor:default}
+#scopechip .x{cursor:pointer;opacity:.7;font-size:11px;padding:0 2px}
+#scopechip .x:hover{opacity:1}
+#rt{margin-left:auto;display:flex;align-items:center;gap:8px}
+#rt label{font-family:var(--mono);font-size:9px;color:var(--tx-faint)}
+select{background:var(--raised);border:1px solid var(--border);color:var(--tx);border-radius:8px;padding:7px 10px;font-size:12px}
+#main{flex:1;display:flex;min-height:0}
+#stage{flex:1;position:relative;overflow:hidden;cursor:grab}
+#stage.drag{cursor:grabbing}
+#world{position:absolute;left:0;top:0;transform-origin:0 0}
+#stage.descend #world{animation:desc .3s cubic-bezier(.22,.61,.36,1)}
+#stage.ascend  #world{animation:asc  .3s cubic-bezier(.22,.61,.36,1)}
+@keyframes desc{from{opacity:0;transform:var(--tgt) scale(1.18)}to{opacity:1;transform:var(--tgt) scale(1)}}
+@keyframes asc {from{opacity:0;transform:var(--tgt) scale(.85)}to{opacity:1;transform:var(--tgt) scale(1)}}
+/* ---------- nodos ---------- */
+.nd{position:absolute;background:var(--raised);border:1px solid var(--border);border-radius:9px;
+    display:flex;flex-direction:column;justify-content:center;gap:3px;padding:8px 10px;cursor:pointer;user-select:none}
+.nd:hover{border-color:#33443f}
+.nd .lb{font-size:12px;font-weight:600;line-height:1.15}
+.nd .un{font-family:var(--mono);font-size:8.5px;color:var(--tx-faint);letter-spacing:.08em;text-transform:uppercase}
+.nd .mt{font-family:var(--mono);font-size:9px;color:var(--tx-mut)}
+.nd.sel{border-color:var(--teal);box-shadow:0 0 0 1.5px var(--teal-700),0 0 16px rgba(0,183,170,.3)}
+.nd.kids{border-color:var(--teal-700);background:rgba(0,183,170,.06)}
+.nd.dimh{opacity:.14}
+.nd.ctx{opacity:.38}
+.nd.sil{background:repeating-linear-gradient(45deg,#0d1211,#0d1211 6px,#101615 6px,#101615 12px);border-style:dashed;border-color:#22302d;cursor:not-allowed}
+.nd.sil .lb,.nd.sil .un,.nd.sil .mt{visibility:hidden}
+.nd.sil::after{content:'sin acceso';position:absolute;inset:auto 6px 4px auto;font-family:var(--mono);font-size:7.5px;color:var(--tx-faint)}
+.nd.orf{border-color:rgba(226,118,107,.55)}
+.nd.orf::before{content:'▲ sin objetivo arriba';position:absolute;top:-15px;left:0;font-family:var(--mono);font-size:8px;color:var(--crit)}
+.nd.childless::before{content:'▲ sin compromisos abajo';position:absolute;top:-15px;left:0;font-family:var(--mono);font-size:8px;color:var(--crit)}
+.nd.childless{border-color:rgba(226,118,107,.55)}
+.nd.fire{border-color:var(--crit);animation:fire 1.6s infinite}
+@keyframes fire{0%,100%{box-shadow:0 0 0 0 rgba(226,118,107,0)}50%{box-shadow:0 0 10px 1px rgba(226,118,107,.45)}}
+.bub{position:absolute;top:-8px;right:-8px;background:#2a1512;border:1px solid var(--crit);color:var(--crit);
+     font-family:var(--mono);font-size:9px;border-radius:20px;padding:1px 7px}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#2e3b38;margin-right:5px}
+.dot.g{background:var(--ok)}.dot.a{background:var(--warn)}.dot.r{background:var(--crit)}
+.star{color:var(--warn);font-size:9px}
+/* tableros: paneles y bandas */
+.pane{position:absolute;border:1px dashed var(--border);border-radius:10px;padding:10px 12px}
+.pane .pt{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;color:var(--tx-faint);text-transform:uppercase;margin-bottom:8px}
+.bandlab{position:absolute;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--tx-faint);text-transform:uppercase}
+.bandline{position:absolute;height:1px;background:#243330}
+.caplab{position:absolute;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--tx-faint);text-transform:uppercase}
+.caplab b{color:var(--tx-mut)}
+/* BANDEJA de decisiones */
+.pane.bandeja{border-style:solid;border-color:#2a3835;background:rgba(0,183,170,.03)}
+.bj{font-size:10.5px;color:var(--tx-mut);line-height:1.35;padding:5px 0;border-top:1px solid #16201e;cursor:pointer;display:flex;gap:6px;align-items:baseline}
+.bj:first-of-type{border-top:none}
+.bj:hover{color:var(--tx)}
+.bj .ap{font-family:var(--mono);font-size:7.5px;color:var(--tx-faint);white-space:nowrap;border:1px solid var(--border);border-radius:8px;padding:1px 5px;margin-left:auto}
+.bj.warnrow{color:var(--warn)}
+/* chevron mini (cadena en nivel 2 — contexto) */
+.chev{position:absolute;width:118px;height:40px;background:var(--raised);border:1px solid var(--border);
+  clip-path:polygon(0 0,88% 0,100% 50%,88% 100%,0 100%,7% 50%);display:flex;align-items:center;padding-left:16px;
+  font-size:9.5px;color:var(--tx-mut)}
+/* columnas de área + carriles */
+.areacol{position:absolute;border:1px solid var(--border);border-radius:12px;background:rgba(20,26,25,.35)}
+.areacol .ah{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--tx-mut);text-transform:uppercase;padding:8px 12px;border-bottom:1px solid #161d1c}
+.areafold{position:absolute;border:1px dashed #22302d;border-radius:12px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:6px;cursor:pointer;color:var(--tx-faint)}
+.areafold:hover{border-color:var(--teal-700);color:var(--tx-mut)}
+.areafold .an{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+.areafold .ac{font-family:var(--mono);font-size:10px}
+.areafold .ax{font-size:9px;color:var(--teal-700)}
+.areafold.hasfire{border-color:rgba(226,118,107,.4)}
+svg{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+path{fill:none}
+/* elevador */
+#elev{width:118px;border-left:1px solid var(--border);background:var(--panel);display:flex;flex-direction:column;padding:10px 8px;gap:6px}
+#elev .et{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;color:var(--tx-faint);text-transform:uppercase;text-align:center;margin-bottom:2px}
+.piso{flex:1;border:1px solid var(--border);border-radius:8px;position:relative;cursor:pointer;background:var(--raised);overflow:hidden}
+.piso:hover{border-color:var(--teal-700)}
+.piso.cur{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal-700)}
+.piso .pl{position:absolute;top:3px;left:6px;font-family:var(--mono);font-size:8px;color:var(--tx-mut)}
+.piso .dots{position:absolute;inset:14px 5px 4px}
+.pd{position:absolute;width:4px;height:4px;border-radius:1.5px;background:#2e3b38}
+.pd.hil{background:var(--teal);box-shadow:0 0 4px var(--teal)}
+.pd.me{background:#fff;box-shadow:0 0 5px #fff;width:5px;height:5px}
+.pd.frx{background:var(--crit);border-radius:50%}
+.pd.fr2{background:var(--warn);border-radius:50%}
+.pd.ff{background:var(--crit);animation:fire 1.6s infinite;border-radius:50%}
+#elev .leg{font-family:var(--mono);font-size:7.5px;color:var(--tx-faint);line-height:1.6;padding-top:4px}
+#elev .leg i{font-style:normal}
+/* PANEL DERECHO — ficha + acciones */
+#ficha{width:296px;border-left:1px solid var(--border);background:var(--panel);display:none;flex-direction:column;overflow-y:auto;padding:14px 14px 20px}
+#ficha .fk{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;color:var(--teal-700);text-transform:uppercase;margin:14px 0 6px}
+#ficha .fk:first-child{margin-top:0}
+#ficha h3{font-size:14px;line-height:1.25;margin-bottom:2px}
+#ficha .frow{font-size:11px;color:var(--tx-mut);line-height:1.45;padding:3px 0;border-top:1px solid #131b19}
+#ficha .frow b{color:var(--tx);font-weight:600}
+#ficha .frow:first-of-type{border-top:none}
+#ficha .fx{position:absolute;top:10px;right:12px;cursor:pointer;color:var(--tx-faint);font-size:13px}
+#ficha .fx:hover{color:var(--tx)}
+#ficha{position:relative}
+.flink{color:var(--teal-hi);cursor:pointer;text-decoration:underline dotted}
+.axn{display:block;width:100%;text-align:left;margin-bottom:6px;font-size:11px;padding:7px 9px;line-height:1.3}
+.axn .ax2{display:block;font-family:var(--mono);font-size:7.5px;color:var(--tx-faint);margin-top:3px}
+.axn:disabled .ax2 b{color:var(--warn)}
+#ficha .fnote{font-family:var(--mono);font-size:8px;color:var(--tx-faint);margin-top:16px;line-height:1.6}
+/* popups */
+#padres,#histpop{position:absolute;z-index:40;background:var(--panel);border:1px solid var(--teal-700);border-radius:10px;padding:12px;display:none;max-width:340px}
+#padres .pt,#histpop .pt{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--tx-mut);text-transform:uppercase;margin-bottom:8px}
+#padres button{display:block;width:100%;text-align:left;margin-bottom:6px;font-size:12px}
+#histpop{max-width:420px;right:130px;top:56px}
+#histpop .hrow{font-size:10.5px;color:var(--tx-mut);padding:5px 0;border-top:1px solid #131b19;line-height:1.4}
+#histpop .hrow b{color:var(--tx)}
+#histpop .hnote{font-family:var(--mono);font-size:8px;color:var(--tx-faint);margin-top:8px;line-height:1.5}
+#hint{padding:7px 14px;border-top:1px solid var(--border);background:var(--panel);font-family:var(--mono);font-size:9.5px;color:var(--tx-faint);display:flex;gap:16px;white-space:nowrap;overflow:hidden}
+#hint b{color:var(--tx-mut);font-weight:600}
+#toast{position:absolute;bottom:52px;left:50%;transform:translateX(-50%);background:var(--panel);border:1px solid var(--border);
+  border-radius:8px;padding:8px 16px;font-size:11.5px;color:var(--tx-mut);opacity:0;transition:opacity .25s;pointer-events:none;z-index:50;max-width:70%}
+</style></head><body>
+
+<div id="bar">
+  <span class="ttl">Sandbox · 4 niveles · v3</span>
+  <button id="back" disabled>‹ Atrás</button>
+  <button id="up" title="¿A qué contribuye lo que miro? (semántico — no es historia)">▲ Subir</button>
+  <button id="hilo" title="Traza la cadena completa del elemento seleccionado a través de los 4 niveles">⛓ Trazar</button>
+  <span id="crumb"></span>
+  <span id="scopechip"><span>⌖ <span id="scopetxt"></span></span><span class="x" title="quitar el filtro — ver el nivel completo (el operativo siempre por área)">✕</span></span>
+  <span id="rt">
+    <button id="histb" title="Toda acción queda versionada — la organización tiene historial, como el código">≡ Historial</button>
+    <label>CICLO </label>
+    <select id="modo" title="Cómo gobierna esta empresa su estrategia — cambia etiquetas y qué metas pagan bono">
+      <option value="okr">OKR · trimestral</option>
+      <option value="gpd">GPD · anual (bono)</option>
+      <option value="mixto">mixto</option>
+    </select>
+    <label>VER COMO </label>
+    <select id="who" title="Fija tu vista Y tu autoridad: qué acciones puedes ejecutar">
+      <option value="">— todos (sin lente)</option>
+      <option value="0">Director</option>
+      <option value="1">Gerente comercial</option>
+      <option value="2">Jefe de operación</option>
+      <option value="3">Analista</option>
+    </select>
+  </span>
+</div>
+
+<div id="main">
+  <div id="stage">
+    <div id="world"><svg id="edges"></svg><div id="nodes"></div></div>
+    <div id="padres"></div>
+    <div id="histpop"></div>
+    <div id="toast"></div>
+  </div>
+  <div id="ficha"></div>
+  <div id="elev">
+    <div class="et">Niveles</div>
+    <div class="piso" data-c="D"><span class="pl">1 · Directorio</span><div class="dots"></div></div>
+    <div class="piso" data-c="E"><span class="pl">2 · Estratégico</span><div class="dots"></div></div>
+    <div class="piso" data-c="T"><span class="pl">3 · Táctico</span><div class="dots"></div></div>
+    <div class="piso" data-c="O"><span class="pl">4 · Operativo</span><div class="dots"></div></div>
+    <div class="leg"><i style="color:var(--crit)">●</i> alerta<br><i style="color:var(--teal)">●</i> cadena trazada<br><i style="color:#fff">●</i> estás aquí</div>
+  </div>
+</div>
+
+<div id="hint">
+  <span><b>doble clic</b> = bajar (⌖ filtro; ✕ lo quita)</span>
+  <span><b>clic</b> = ficha + acciones a la derecha</span>
+  <span><b>▲ Subir</b> = ¿a qué aporta?</span>
+  <span><b>‹ Atrás</b> = historia</span>
+  <span><b>bandeja</b> = qué espera tu firma</span>
+</div>
+
+<script>
+/* ============ grafo gris DETERMINISTA ============ */
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const rnd=mulberry32(42);
+const CAPAS=['D','E','T','O'];
+const NIV={D:'Nivel 1 · Directorio',E:'Nivel 2 · Estratégico',T:'Nivel 3 · Táctico',O:'Nivel 4 · Operativo'};
+const NIVC={D:'Directorio',E:'Estratégico',T:'Táctico',O:'Operativo'};
+const AREAS=['Área Comercial','Área Finanzas','Área Operaciones','Área GH'];
+const nodes=[]; const byId={};
+function mk(id,capa,i,extra){
+  const n=Object.assign({id,capa,i,kind:'',label:'',parents:[],owner:Math.floor(rnd()*3)+1,fire:false},extra);
+  nodes.push(n);byId[id]=n;return n}
+/* --- Nivel 1: 5 apuestas (meta+estado, riesgo, perspectiva) --- */
+const DLB=['Liderazgo en vivienda media','Caja sana en proyectos','Expansión provincia','Marca empleadora','Digitalizar la cobranza'];
+const DKR=[['margen →18%','a'],['cobranza: 91→60 días','r'],['2 proyectos nuevos','g'],['rotación −20%','a'],['cobro digital 60%','a']];
+const DRG=['medio','alto','alto','bajo','medio'];
+const DPS=['financiera','financiera','cliente','aprendizaje','procesos'];
+for(let i=0;i<5;i++)mk('D'+(i+1),'D',i,{kind:'apuesta',label:DLB[i],kr:DKR[i][0],krst:DKR[i][1],riesgo:DRG[i],persp:DPS[i]});
+/* --- Nivel 2: 7 OBJETIVOS de primera clase (con metas del ciclo) --- */
+const GDEF=[
+ ['Mejorar el margen',['D1'],[{m:'margen %',from:14,to:18,cur:15.2,st:'a',bono:true}]],
+ ['Sanear la caja',['D2'],[{m:'caja disponible (semanas)',from:3,to:8,cur:4,st:'a'}]],
+ ['Elevar la calidad de entrega',['D1'],[{m:'reclamos por entrega',from:42,to:31,cur:40,st:'r'}]],
+ ['Vender más y mejor',['D3'],[{m:'ventas del mes (S/ mill)',from:1.8,to:2.4,cur:2.1,st:'g'}]],
+ ['Cobrar a tiempo',['D2','D5'],[{m:'días de cobranza',from:91,to:60,cur:78,st:'a',bono:true},{m:'% cobro digital',from:12,to:60,cur:18,st:'r'}]],
+ ['Marca que atrae',['D4'],[{m:'postulantes por vacante',from:4,to:9,cur:7,st:'g'}]],
+ ['Equipo que se queda',['D4'],[{m:'rotación %',from:22,to:17,cur:21,st:'a'}]],
+];
+GDEF.forEach((g,i)=>mk('G'+(i+1),'E',i,{kind:'objetivo',label:g[0],parents:g[1],metas:g[2]}));
+/* --- Nivel 2: 10 capacidades con área + qué tan desarrollada --- */
+const ELB=['Comercializar','Cobrar','Diseñar producto','Ejecutar obra','Postventa','Financiar','Abastecer','Atraer talento','Analítica','Cumplimiento'];
+for(let i=0;i<10;i++)mk('E'+(i+1),'E',i,{kind:'capacidad',label:ELB[i],area:i%4,mad:['g','a','a','r','g','a','g','r','a','g'][i]});
+/* --- Nivel 2: 4 brechas (ordenadas por costo de no actuar) --- */
+const BDEF=[
+ ['Cobranza sin sistema propio','Cobrar','G5','S/ 38 mil/mes','alta','con respuesta: Cobranza digital','T1'],
+ ['Datos de obra en papel','Ejecutar obra','G1','S/ 21 mil/mes (confianza media)','alta','SIN RESPUESTA',null],
+ ['Postventa sin responsable claro','Postventa','G3','S/ 12 mil/mes','media','SIN RESPUESTA',null],
+ ['Rotación alta en obra','Atraer talento','G7','S/ 9 mil/mes (a corroborar)','media','a corroborar',null],
+];
+BDEF.forEach((b,i)=>mk('B'+(i+1),'E',i,{kind:'brecha',label:b[0],contra:b[1],parents:[b[2]],costo:b[3],sev:b[4],resp:b[5],respRef:b[6]}));
+/* --- Nivel 3: 22 compromisos con área (los primeros, con nombre real) --- */
+const TLB=['Cobranza digital','Cierre exprés de caja','Tablero de obra semanal','Postventa en 48 horas','Alta única de proveedores','Marca empleadora en campus'];
+const TST=['en ejecución','en verificación','aprobado','en evaluación','en ejecución','propuesto'];
+for(let i=0;i<22;i++)mk('T'+(i+1),'T',i,{kind:'compromiso',label:TLB[i]||('Compromiso T'+(i+1)),area:i%4,
+  estado:TST[i%6],hitos:{done:(i%3)+1,total:4,prox:'piloto en '+AREAS[(i+1)%4].replace('Área ','')}});
+/* --- Nivel 3: 12 indicadores por área (3 c/u) con meta y umbrales --- */
+const KDEF=[
+ ['ventas del mes','S/ 2.1 mill','meta 2.4','g',0],['visitas que cierran','12 %','meta 15 %','a',0],['ticket promedio','S/ 182 mil','meta 190','g',0],
+ ['días de cobranza','78','meta 60','r',1],['caja disponible','4 semanas','meta 8','a',1],['% cobro digital','18 %','meta 60 %','r',1],
+ ['avance de obra vs plan','−6 %','meta ±3 %','a',2],['costo m² vs presupuesto','+4 %','meta ±2 %','a',2],['entregas a tiempo','88 %','meta 95 %','a',2],
+ ['rotación','21 %','meta 17 %','a',3],['vacantes abiertas','6','meta ≤3','a',3],['horas extra','14 %','meta 8 %','r',3],
+];
+const KPAR={K1:'G4',K4:'G5',K5:'G2',K6:'G5',K7:'G1',K10:'G7'};
+KDEF.forEach((k,i)=>{const id='K'+(i+1);
+  mk(id,'T',i,{kind:'indicador',label:k[0],val:k[1],meta:k[2],st:k[3],area:k[4],
+    parents:KPAR[id]?[KPAR[id]]:[],sinContra:id==='K4'})});
+/* --- Nivel 3: embudo de ideas (4) --- */
+const IDEF=[
+ ['Recordatorio de pago por WhatsApp','aprobada — espera promoción','M. Quispe · Cobranzas','G5'],
+ ['Checklist de entrega en obra','en evaluación','R. Salas · Obra',null],
+ ['Un solo formulario de alta','enviada','A. Torres · Administración',null],
+ ['Premiar puntualidad de subcontratas','rechazada (con respuesta al autor)','J. Díaz · Obra',null],
+];
+IDEF.forEach((d,i)=>mk('I'+(i+1),'T',i,{kind:'idea',label:d[0],estado:d[1],autor:d[2],parents:d[3]?[d[3]]:[]}));
+/* --- Nivel 4: 72 tareas — clasificación del trabajo + arnés --- */
+const CLAS=['aum','rpa','hum',null,'agt','aum','eli',null,'rpa'];
+for(let i=0;i<72;i++)mk('O'+(i+1),'O',i,{kind:'tarea',label:'Tarea O'+(i+1),clas:CLAS[i%9],arn:i%6===0});
+/* --- cableado del grafo (aristas de la cascada) --- */
+nodes.filter(n=>n.kind==='capacidad').forEach((n,i)=>{n.parents=['D'+(i%5+1)];if(i===3)n.parents.push('D'+((i+2)%5+1))});
+nodes.filter(n=>n.kind==='compromiso').forEach((n,i)=>{
+  if(i===20||i===21){n.orphan=true;n.area=null;return}
+  n.parents=['E'+(i%10+1)];if(i%5===0)n.parents.push('E'+((i+4)%10+1));
+  if(i%3===0)n.parents.push('G'+(i%7+1));
+  n.area=byId[n.parents[0]].area;
+  if(i%7===2)n.cruce={de:n.area,a:(n.area+1)%4}});
+nodes.filter(n=>n.kind==='tarea').forEach((n,i)=>{n.parents=['T'+(i%20+1)];n.area=byId[n.parents[0]].area??0});
+byId['E9'].childless=true;nodes.filter(n=>n.kind==='compromiso'&&n.parents.includes('E9')).forEach(n=>n.parents=n.parents.filter(p=>p!=='E9'));
+byId['O47'].fire=true;byId['D1'].owner=0;
+const kidsOf=id=>nodes.filter(n=>n.parents.includes(id));
+const ancestors=id=>{const o=new Set(),q=[id];while(q.length){byId[q.pop()].parents.forEach(p=>{if(!o.has(p)){o.add(p);q.push(p)}})}return o};
+const descendants=id=>{const o=new Set(),q=[id];while(q.length){kidsOf(q.pop()).forEach(k=>{if(!o.has(k.id)){o.add(k.id);q.push(k.id)}})}return o};
+const fireAnc=ancestors('O47');
+const fireArea=byId[[...ancestors('O47')].find(a=>byId[a].kind==='compromiso')]?.area;
+
+/* ============ capa de ACCIÓN (catálogo kinético — simulado del schema) ============ */
+/* autoridad: dirección(4) > estratégico(3) > táctico(2) > operativo(1). El lente la fija. */
+const RANGO={'':99,'0':4,'1':3,'2':2,'3':1};
+const RGNM={4:'Dirección',3:'Estratégico',2:'Táctico',1:'Operativo'};
+const KINDNM={apuesta:'Apuesta',objetivo:'Objetivo',capacidad:'Capacidad',brecha:'Brecha',
+  compromiso:'Compromiso',indicador:'Indicador',idea:'Idea',tarea:'Tarea'};
+const ACCIONES={
+ apuesta:[['Sellar la apuesta',4,'gestión de cambios'],['Re-apostar (cambiar meta o riesgo)',4,'gestión de cambios'],
+   ['Retirar la apuesta',4,'gestión de cambios'],['Convocar rendición de cuentas',4,'directa']],
+ objetivo:[['Publicar / retirar versión',4,'gestión de cambios'],['Ajustar las metas del ciclo',3,'revisión del responsable'],
+   ['Meta lograda → vuelve a indicador',3,'revisión del responsable']],
+ capacidad:[['Levantar una brecha sobre esta capacidad',3,'revisión del responsable']],
+ brecha:[['Convertir en compromiso',3,'gestión de cambios'],['Marcar "a corroborar"',2,'directa'],
+   ['Cerrar la brecha (con evidencia)',3,'revisión del responsable']],
+ compromiso:[['Avanzar el hito',2,'revisión del responsable'],['Comprometer contramedida',2,'directa'],
+   ['Suspender',3,'gestión de cambios']],
+ indicador:[['Registrar medición (a mano, con fuente)',1,'directa'],['Ajustar meta y umbrales',2,'revisión del responsable'],
+   ['Convertir en meta del ciclo',3,'gestión de cambios']],
+ idea:[['Evaluar (comité, con respuesta al autor)',2,'revisión del responsable'],['Promover a compromiso',3,'gestión de cambios']],
+ tarea:[['Trabajar con el arnés',1,'directa'],['Registrar avance',1,'directa'],['Levantar incidencia',1,'directa']],
+};
+/* bandeja por nivel: qué espera tu firma (simulada — se derivaría de estados+firmas) */
+const BANDEJA={
+ D:[{t:'Sellar la apuesta "Digitalizar la cobranza"',sel:'D5',ap:'gestión de cambios'},
+    {t:'Publicar la versión 2 del objetivo "Cobrar a tiempo"',sel:'G5',ap:'gestión de cambios'},
+    {t:'Fijar el apetito de riesgo de expansión (sin definir)',sel:null,ap:'directa'}],
+ E:[{t:'Aprobar el acta de "Cobranza digital" — falta la firma de finanzas',sel:'T1',ap:'gestión de cambios'},
+    {t:'Verificar beneficios reales de "Cierre exprés" (firma posterior de finanzas)',sel:'T2',ap:'revisión del responsable'},
+    {t:'Promover la idea aprobada "Recordatorio de pago por WhatsApp"',sel:'I1',ap:'gestión de cambios'},
+    {t:'Cerrar la brecha "Cobranza sin sistema propio" — su proyecto terminó',sel:'B1',ap:'revisión del responsable'}],
+ T:[{t:'Avanzar el hito de "Cobranza digital": piloto terminado',sel:'T1',ap:'revisión del responsable'},
+    {t:'Evaluar 2 ideas del embudo',sel:'I2',ap:'revisión del responsable'},
+    {t:'"Días de cobranza" fuera de meta y sin contramedida',sel:'K4',ap:'—',warn:true}],
+ O:[{t:'Registrar la medición "días de cobranza" — vence hoy',sel:'K4',ap:'directa'},
+    {t:'Caso crítico O47 sin responder desde ayer',sel:'O47',ap:'directa',warn:true},
+    {t:'Enviar tu idea — 2 compañeros ya enviaron este mes',sel:null,ap:'directa'}],
+};
+const HIST=[
+ 'ayer · <b>Dirección</b> · selló la apuesta "Caja sana en proyectos" · gestión de cambios',
+ 'hace 3 días · <b>Gerencia</b> · aprobó el acta de "Cierre exprés de caja" · gestión de cambios',
+ 'hace 5 días · <b>Jefatura Finanzas</b> · ajustó meta y umbrales de "días de cobranza" · revisión del responsable',
+ 'hace 6 días · <b>Cobranzas</b> · registró la medición "días de cobranza: 78" · directa',
+];
+
+/* ============ estado ============ */
+const st={capa:'D',scope:null,sel:null,hilo:false,lente:'',modo:'okr',hist:[]};
+const view={x:0,y:0,z:1};
+const stage=document.getElementById('stage'),world=document.getElementById('world'),
+      $n=document.getElementById('nodes'),$e=document.getElementById('edges');
+const cicloTxt=()=>({okr:'este trimestre',gpd:'este año',mixto:'trimestre + año'})[st.modo];
+const conBono=()=>st.modo!=='okr';
+function applyV(){world.style.transform=`translate(${view.x}px,${view.y}px) scale(${view.z})`;
+  world.style.setProperty('--tgt',`translate(${view.x}px,${view.y}px)`)}
+function fitPts(pts,pad=160,W,H){const vw=stage.clientWidth,vh=stage.clientHeight;
+  if(!pts||!pts.length){view.z=Math.min(vw/W,vh/H,1);view.x=(vw-W*view.z)/2;view.y=(vh-H*view.z)/2;return}
+  const xs=pts.map(p=>p.x),ys=pts.map(p=>p.y);
+  const x0=Math.min(...xs)-pad,x1=Math.max(...xs)+pad+160,y0=Math.min(...ys)-pad,y1=Math.max(...ys)+pad;
+  const z=Math.max(.4,Math.min(vw/(x1-x0),vh/(y1-y0),1.05));
+  view.z=z;view.x=(vw-(x0+x1)*z)/2;view.y=(vh-(y0+y1)*z)/2}
+function visible(n){if(st.lente==='')return'full';const L=+st.lente;
+  if(L===0)return(n.capa==='D'||n.capa==='E')?'full':(n.owner===0||fireAnc.has(n.id)||n.id==='O47')?'full':'sil';
+  const mine=n.owner===L,anc=[...ancestors(n.id)].some(a=>byId[a].owner===L),desc=[...descendants(n.id)].some(d=>byId[d].owner===L);
+  return(mine||anc||desc)?'full':'sil'}
+
+/* ============ helpers de render ============ */
+function el(t,c,h){const n=document.createElement(t);if(c)n.className=c;if(h!=null)n.innerHTML=h;return n}
+function place(n,x,y,w,h){n.style.left=x+'px';n.style.top=y+'px';if(w)n.style.width=w+'px';if(h)n.style.height=h+'px';$n.appendChild(n);return n}
+let PTS=[];
+function ndEl(n,w,h,extraHtml,hiloSet,inScope){
+  const d=el('div','nd');d.style.width=w+'px';d.style.height=h+'px';
+  d.innerHTML=extraHtml;
+  const vis=visible(n);
+  if(vis==='sil')d.classList.add('sil');
+  if(inScope==='kids')d.classList.add('kids'); if(inScope==='ctx')d.classList.add('ctx');
+  if(hiloSet&&!hiloSet.has(n.id))d.classList.add('dimh');
+  if(n.orphan)d.classList.add('orf'); if(n.childless)d.classList.add('childless'); if(n.fire)d.classList.add('fire');
+  if(st.sel===n.id)d.classList.add('sel');
+  if(fireAnc.has(n.id)&&!n.fire){const b=el('span','bub','▲ 1');b.title='1 incidencia crítica abajo (O47) — escaló hasta aquí';d.appendChild(b)}
+  if(vis!=='sil'){
+    d.onclick=e=>{e.stopPropagation();st.sel=st.sel===n.id?null:n.id;render(false)};
+    d.ondblclick=e=>{e.stopPropagation();descend(n)};
+  } else d.onclick=e=>{e.stopPropagation();toast('Sin acceso — el terreno existe, el detalle no es tuyo.')};
+  d.title=n.label+(n.parents.length?' — aporta a: '+n.parents.map(p=>byId[p].label).join(', '):'');
+  return d}
+function scopeKids(){ if(!st.scope||!st.scope.nodo)return null; return new Set(kidsOf(st.scope.nodo).map(k=>k.id)) }
+function bandejaPane(x,y,w){
+  const items=BANDEJA[st.capa]; if(!items)return;
+  const p=place(el('div','pane bandeja'),x,y,w);
+  p.innerHTML=`<div class="pt">${st.capa==='O'?'Tu día — qué te toca':'Espera tu decisión'} · ${items.length+(st.capa==='D'&&conBono()?1:0)}</div>`;
+  const rows=items.slice();
+  if(st.capa==='D'&&conBono())rows.push({t:'Decidir qué metas pagan bono este año',sel:null,ap:'gestión de cambios'});
+  rows.forEach(r=>{
+    const d=el('div','bj'+(r.warn?' warnrow':''),`<span>· ${r.t}</span><span class="ap">${r.ap}</span>`);
+    d.onclick=e=>{e.stopPropagation();
+      if(!r.sel){toast('Simulado — el dato de esta decisión aún no está en el modelo.');return}
+      go(r.sel)};
+    p.appendChild(d)});
+  return p}
+
+/* ============ TABLEROS por nivel ============ */
+function renderD(hiloSet){
+  const W=2080,H=760;
+  place(el('div','caplab',`<b>${NIV.D}</b> — la apuesta y el riesgo`),36,30);
+  const ap=place(el('div','pane'),120,86,760,64);
+  ap.innerHTML=`<div class="pt">Apetito de riesgo (dato simulado)</div>
+   <span class="mt" style="font-family:var(--mono);font-size:10px;color:var(--tx-mut)">liquidez <b style="color:var(--warn)">media</b> · reputación <b style="color:var(--ok)">baja</b> · expansión <b style="color:var(--crit)">alta — sin definir por el directorio</b></span>`;
+  const dd=nodes.filter(n=>n.kind==='apuesta'), nG=dd.filter(n=>n.krst==='g').length,
+        nA=dd.filter(n=>n.krst==='a').length, nR=dd.filter(n=>n.krst==='r').length;
+  const pu=place(el('div','pane'),920,86,380,72);
+  pu.title='Cada punto = una apuesta: ¿su número del ciclo se mueve hacia la meta?';
+  pu.innerHTML=`<div class="pt">¿Avanzan las apuestas? (${cicloTxt()})</div>
+    <div>${dd.map(n=>`<span class="dot ${n.krst}" title="${n.label}: ${n.kr}"></span>`).join('')}
+    <span class="mt">${nG} en meta · ${nA} cerca · ${nR} fuera</span></div>`;
+  const ex=place(el('div','pane'),1660,86,280);
+  ex.innerHTML=`<div class="pt">Alertas que escalaron</div>
+    <div class="mt" style="line-height:1.7"><span style="color:var(--crit)">▲</span> 1 incidencia crítica (O47 · ${AREAS[fireArea??0]})<br><span style="color:var(--crit)">▲</span> 2 compromisos sin objetivo<br><span style="color:var(--warn)">▲</span> 1 objetivo sin compromisos</div>`;
+  place(el('div','bandlab','Las apuestas — doble clic = ¿qué las sostiene? · clic = ficha y acciones'),120,196);
+  nodes.filter(n=>n.kind==='apuesta').forEach((n,i)=>{
+    const d=ndEl(n,272,150,`<span class="un">apuesta</span><span class="lb">${n.label}</span>
+      <span class="mt"><span class="dot ${n.krst}"></span>Meta: ${n.kr}</span>
+      <span class="mt">riesgo <b style="color:${n.riesgo==='alto'?'var(--crit)':n.riesgo==='medio'?'var(--warn)':'var(--ok)'}">${n.riesgo}</b> · responsable: —</span>`,hiloSet,null);
+    place(d,120+i*300,226); n._x=120+i*300+136;n._y=300; PTS.push({x:n._x,y:n._y});
+  });
+  const po=place(el('div','pane'),120,430,1180,120);
+  po.innerHTML=`<div class="pt">Proyectos en curso — el portafolio (retorno estimado)</div>
+   <div style="display:flex;gap:14px">${['Recuperación Marina 2.4×','Cobranza digital 1.8×','Cierre exprés 3.1×'].map(p=>`<span class="mt" style="border:1px solid var(--border);border-radius:8px;padding:8px 14px">${p}</span>`).join('')}
+   <span class="mt" style="opacity:.5;align-self:center">· cada acción de este tablero queda en el historial</span></div>`;
+  bandejaPane(1660,268,280);
+  const se=place(el('div','pane'),1660,500,280);
+  se.innerHTML=`<div class="pt">Qué cambió desde la última sesión (hace 30 días)</div>
+    <div class="mt" style="line-height:1.7">· cobranza: 91 → 78 días (sigue fuera de meta)<br>· "Expansión provincia" pasó a en-meta<br>· 3 decisiones esperan firma<br>· 1 incidencia crítica escaló</div>`;
+  return{W,H}
+}
+function renderE(hiloSet){
+  const W=1820,H=880; const ks=scopeKids();
+  place(el('div','caplab',`<b>${NIV.E}</b> — el objetivo y la capacidad`),36,30);
+  /* banda 1: OBJETIVOS de primera clase (con metas del ciclo) */
+  place(el('div','bandlab',`Objetivos y sus metas (${cicloTxt()}) · doble clic = ¿qué compromisos los mueven?`),120,88);
+  place(el('div','bandline'),120,102,1240);
+  nodes.filter(n=>n.kind==='objetivo').forEach((n,i)=>{
+    const inS=ks?(ks.has(n.id)?'kids':'ctx'):null;
+    const mAll=n.metas.map(m=>`<span class="dot ${m.st}"></span>`).join('');
+    const d=ndEl(n,166,64,`<span class="un">objetivo</span><span class="lb" style="font-size:10.5px">${n.label}</span>
+      <span class="mt">${mAll}${n.metas.length} meta${n.metas.length>1?'s':''}${conBono()&&n.metas.some(m=>m.bono)?' <span class="star">★ bono</span>':''}</span>`,hiloSet,inS);
+    const x=120+i*180,y=116;
+    place(d,x,y); n._x=x+83;n._y=y+32; if(!ks||ks.has(n.id))PTS.push({x:n._x,y:n._y});
+  });
+  /* banda 2: cadena de valor (contexto twin) */
+  place(el('div','bandlab','Cadena de valor — los procesos del negocio, de punta a punta (contexto)'),120,214);
+  place(el('div','bandline'),120,228,1240);
+  ['Marketing','Venta','Diseño','Ejecución','Valorización','Facturación','Cobranza','Postventa'].forEach((c,i)=>{
+    place(el('div','chev',c),120+i*128,242)});
+  /* banda 3: CAPACIDADES */
+  place(el('div','bandlab','Capacidades — qué tan desarrollada está cada una · doble clic = ¿qué compromisos la construyen?'),120,330);
+  place(el('div','bandline'),120,344,1240);
+  nodes.filter(n=>n.kind==='capacidad').forEach((n,i)=>{
+    const inS=ks?(ks.has(n.id)?'kids':'ctx'):null;
+    const d=ndEl(n,224,86,`<span class="un">capacidad · ${AREAS[n.area].replace('Área ','')}</span><span class="lb">${n.label}</span>
+      <span class="mt"><span class="dot ${n.mad}"></span>nivel ${({g:'4',a:'3',r:'1'})[n.mad]} · deseado 4</span>`,hiloSet,inS);
+    const x=120+(i%5)*252,y=358+Math.floor(i/5)*118;
+    place(d,x,y); n._x=x+112;n._y=y+43; if(!ks||ks.has(n.id))PTS.push({x:n._x,y:n._y});
+  });
+  /* columna derecha: bandeja + brechas por costo de no actuar */
+  bandejaPane(1400,86,280);
+  place(el('div','bandlab','Brechas — por costo de no actuar'),1400,376);
+  nodes.filter(n=>n.kind==='brecha').forEach((n,i)=>{
+    const sin=n.resp.startsWith('SIN');
+    const d=ndEl(n,280,80,`<span class="un">brecha · ${n.contra}</span><span class="lb" style="font-size:10.5px">${n.label}</span>
+      <span class="mt">${n.costo} · <b style="color:${n.sev==='alta'?'var(--crit)':'var(--warn)'}">${n.sev}</b>${sin?' · <b style="color:var(--crit)">sin respuesta</b>':''}</span>`,hiloSet,null);
+    place(d,1400,394+i*96); n._x=1540;n._y=394+i*96+40;
+  });
+  place(el('div','pane',`<div class="pt">este nivel respira: un indicador fuera de meta ENTRA como meta del ciclo; una meta lograda VUELVE a monitoreo</div>`),120,640,760,54);
+  return{W,H}
+}
+function renderT(hiloSet){
+  const ks=scopeKids(); const areasIn=scopeAreaSet();
+  const colW=330,colGap=24; let x=120; const H=900;
+  place(el('div','caplab',`<b>${NIV.T}</b> — el compromiso entre áreas`),36,30);
+  place(el('div','bandlab','Metas a las que aportan (contexto)'),120,88);
+  const MCTX=[['margen 14→18%',true],['cobranza 91→60 días',true],['reclamos 42→31',false],['rotación −20%',false]];
+  MCTX.forEach((k,i)=>place(el('div','nd ctx',`<span class="mt">${k[0]}${conBono()&&k[1]?' <span class="star">★ bono</span>':''}</span>`),120+i*220,102,200,36));
+  bandejaPane(1560,88,300);
+  AREAS.forEach((a,ai)=>{
+    const inScope=!areasIn||areasIn.has(ai);
+    const members=nodes.filter(n=>n.kind==='compromiso'&&n.area===ai);
+    const inds=nodes.filter(n=>n.kind==='indicador'&&n.area===ai);
+    if(!inScope){
+      const f=el('div','areafold'+(ai===fireArea?' hasfire':''));
+      f.innerHTML=`<span class="an">${a}</span><span class="ac">${members.length} compromisos${ai===fireArea?' · <span style="color:var(--crit)">▲</span>':''}</span><span class="ax">expandir ▸</span>`;
+      f.onclick=e=>{e.stopPropagation();expandArea(ai)};
+      place(f,x,170,colW,120); x+=colW+colGap; return }
+    const rows=Math.ceil(members.length/2);
+    const colH=54+rows*84+14+inds.length*36+10;
+    const col=el('div','areacol');col.innerHTML=`<div class="ah">${a}</div>`;
+    place(col,x,170,colW,colH);
+    members.forEach((n,mi)=>{
+      const inS=ks?(ks.has(n.id)?'kids':'ctx'):null;
+      const cr=n.cruce?`<span class="mt" style="color:var(--teal-700)">⇄ entrega a ${AREAS[n.cruce.a].replace('Área ','')}</span>`:`<span class="mt">hito ${n.hitos.done}/${n.hitos.total}</span>`;
+      const d=ndEl(n,146,70,`<span class="un">compromiso</span><span class="lb" style="font-size:10.5px">${n.label}</span>${cr}`,hiloSet,inS);
+      const nx=x+10+(mi%2)*158, ny=224+Math.floor(mi/2)*84;
+      place(d,nx,ny); n._x=nx+73;n._y=ny+35; if(!ks||ks.has(n.id))PTS.push({x:n._x,y:n._y});
+    });
+    /* indicadores del área — fuera de meta sin contramedida = alerta */
+    inds.forEach((n,ii)=>{
+      const d=ndEl(n,300,32,`<span class="mt" style="font-size:9px"><span class="dot ${n.st}"></span>${n.label} · <b>${n.val}</b> (${n.meta})${n.sinContra?' <b style="color:var(--crit)">▲ sin contramedida</b>':''}</span>`,hiloSet,null);
+      d.style.padding='4px 8px';
+      const ny=224+rows*84+8+ii*36;
+      place(d,x+12,ny); n._x=x+162;n._y=ny+16;
+    });
+    x+=colW+colGap;
+  });
+  /* embudo de ideas */
+  if(!areasIn){
+    place(el('div','bandlab','Embudo de ideas — participación del personal'),1560,330);
+    nodes.filter(n=>n.kind==='idea').forEach((n,i)=>{
+      const d=ndEl(n,300,64,`<span class="un">idea · ${n.autor}</span><span class="lb" style="font-size:10px">${n.label}</span>
+        <span class="mt">${n.estado}</span>`,hiloSet,null);
+      place(d,1560,348+i*76); n._x=1710;n._y=348+i*76+32;
+    });
+  }
+  const W=2000;
+  const orph=nodes.filter(n=>n.kind==='compromiso'&&n.orphan);
+  if(!areasIn){ place(el('div','bandlab','Sueltos — no aportan a ningún objetivo'),120,800);
+    orph.forEach((n,i)=>{const d=ndEl(n,146,60,`<span class="un">compromiso</span><span class="lb" style="font-size:10.5px">${n.label}</span>`,hiloSet,null);
+      place(d,120+i*170,820); n._x=120+i*170+73;n._y=850;}) }
+  return{W,H:areasIn?660:H}
+}
+function renderO(hiloSet){
+  const ks=scopeKids(); let areasIn=scopeAreaSet();
+  if(!areasIn){ areasIn=new Set([0]); toast('El nivel operativo nunca se muestra completo — entraste por '+AREAS[0]+'; abre otras áreas si las necesitas.'); }
+  const W=1660,H=840; let x=120;
+  place(el('div','caplab',`<b>${NIV.O}</b> — el caso y la excepción`),36,30);
+  bandejaPane(700,26,560);
+  AREAS.forEach((a,ai)=>{
+    const members=nodes.filter(n=>n.kind==='tarea'&&n.area===ai);
+    if(!areasIn.has(ai)){
+      const f=el('div','areafold'+(ai===fireArea?' hasfire':''));
+      f.innerHTML=`<span class="an">${a}</span><span class="ac">${members.length} tareas pendientes${ai===fireArea?' · <span style="color:var(--crit)">▲ 1 crítica</span>':''}</span><span class="ax">abrir ▸</span>`;
+      f.onclick=e=>{e.stopPropagation();expandArea(ai)};
+      place(f,x,150,240,90); x+=264; return }
+    const col=el('div','areacol');col.innerHTML=`<div class="ah">${a} — pendientes de hoy, por equipo</div>`;
+    const rows=Math.ceil(members.length/6);
+    place(col,x,150,6*128+30,60+rows*58);
+    members.forEach((n,mi)=>{
+      const inS=ks?(ks.has(n.id)?'kids':'ctx'):null;
+      const MK={aum:'⇪',rpa:'⚙',agt:'✦',eli:'✂',hum:'⚖'};
+      const mark=(n.clas?`<span style="color:var(--teal-700)">${MK[n.clas]}</span> `:'')+(n.arn?'<span style="color:var(--teal)">⛨</span> ':'');
+      const d=ndEl(n,116,44,`<span class="lb" style="font-size:9.5px;font-weight:500">${mark}${n.label}</span>`,hiloSet,inS);
+      const nx=x+12+(mi%6)*128, ny=202+Math.floor(mi/6)*58;
+      place(d,nx,ny); n._x=nx+58;n._y=ny+22; if((!ks||ks.has(n.id)))PTS.push({x:n._x,y:n._y});
+    });
+    x+=6*128+60;
+  });
+  place(el('div','pane',`<div class="pt">debajo de este nivel ya no hay mapa — hay trabajo ejecutándose · se mide el rol y el proceso, jamás a la persona</div>`),120,560,700,46);
+  place(el('div','pane',`<div class="pt">clasificación del trabajo (oferta, no amenaza): ✂ se elimina · ⚙ la hace un robot · ✦ la hace un agente · ⇪ tú con un agente al lado · ⚖ humana por diseño · ⛨ cubierta por tu arnés (kit de trabajo)</div>`),850,560,700,46);
+  return{W:Math.max(W,x+120),H}
+}
+
+/* ============ render maestro ============ */
+function render(anim){
+  $n.innerHTML='';$e.innerHTML='';PTS=[];
+  const hiloSet=st.hilo&&st.sel?new Set([st.sel,...ancestors(st.sel),...descendants(st.sel)]):null;
+  const dim={D:renderD,E:renderE,T:renderT,O:renderO}[st.capa](hiloSet);
+  world.style.width=dim.W+'px';world.style.height=dim.H+'px';
+  crumb(); chip(); elevador(hiloSet); btns(); ficha();
+  if(anim){stage.classList.remove('descend','ascend');void stage.offsetWidth;stage.classList.add(anim)}
+  fitPts(PTS.length&&(st.scope)?PTS:null,160,dim.W,dim.H); applyV();
+}
+function crumb(){const path=[];let f=st.scope&&st.scope.nodo;while(f){path.unshift(byId[f].label);f=byId[f].parents[0]||null;if(path.length>3)break}
+  document.getElementById('crumb').innerHTML=(path.length?path.join(' <span style="opacity:.4">›</span> ')+' <span style="opacity:.4">›</span> ':'')+`<b>${NIVC[st.capa]}</b>`}
+function chip(){const c=document.getElementById('scopechip');
+  if(st.scope&&st.scope.nodo){c.style.display='inline-flex';document.getElementById('scopetxt').textContent='viendo: lo que sostiene '+byId[st.scope.nodo].label}
+  else if(st.scope&&st.scope.area!=null){c.style.display='inline-flex';document.getElementById('scopetxt').textContent='viendo: '+AREAS[st.scope.area]}
+  else c.style.display='none'}
+document.querySelector('#scopechip .x').onclick=e=>{e.stopPropagation();
+  if(st.capa==='O'){st.scope={area:(st.scope&&st.scope.area)??(scopeAreaSet()?[...scopeAreaSet()][0]:0)};toast('El nivel operativo nunca se muestra completo — el filtro pasa a "por área".');}
+  else st.scope=null;
+  render(false)};
+function btns(){document.getElementById('back').disabled=!st.hist.length;
+  document.getElementById('up').disabled=st.capa==='D'&&!st.sel;
+  document.getElementById('hilo').classList.toggle('on',st.hilo)}
+function elevador(hiloSet){document.querySelectorAll('.piso').forEach(p=>{
+  const c=p.dataset.c;p.classList.toggle('cur',c===st.capa);
+  const box=p.querySelector('.dots');box.innerHTML='';
+  const list=nodes.filter(n=>n.capa===c);
+  const w=box.clientWidth||96,h=box.clientHeight||70;const NN=list.length;
+  const cols={D:5,E:7,T:8,O:12}[c];
+  list.forEach((n,li)=>{
+    const d=el('span','pd');
+    d.style.left=((li%cols)/cols*w+3)+'px';d.style.top=(Math.floor(li/cols)/Math.ceil(NN/cols)*(h-8)+2)+'px';
+    if(n.orphan||n.childless)d.classList.add(n.orphan?'frx':'fr2');
+    if(n.fire||n.sinContra)d.classList.add('ff');
+    if(hiloSet&&hiloSet.has(n.id))d.classList.add('hil');
+    if(st.sel===n.id||(st.scope&&st.scope.nodo===n.id&&c!==st.capa))d.classList.add('me');
+    box.appendChild(d)});
+  p.onclick=()=>viajar(c)})}
+
+/* ============ FICHA + acciones (panel derecho) ============ */
+function frow(k,v){return `<div class="frow">${k}: <b>${v}</b></div>`}
+function metaRow(m){return `<div class="frow"><span class="dot ${m.st}"></span>${m.m}: ${m.from} → <b>${m.to}</b> · va en <b>${m.cur}</b>${conBono()&&m.bono?' <span class="star">★ paga bono</span>':''}</div>`}
+function fichaBody(n){
+  const k=n.kind;
+  if(k==='apuesta'){
+    const kg=kidsOf(n.id);
+    return frow('Meta del ciclo',`${n.kr} <span class="dot ${n.krst}"></span>`)+
+      frow('Riesgo vs apetito',n.riesgo)+frow('Perspectiva',n.persp)+frow('Responsable','—')+
+      frow('La sostienen',`${kg.filter(x=>x.kind==='objetivo').length} objetivos · ${kg.filter(x=>x.kind==='capacidad').length} capacidades`)+
+      frow('Proyectos que aportan','2 · retorno 1.8× y 3.1×')+
+      (fireAnc.has(n.id)?`<div class="frow" style="color:var(--crit)">▲ 1 incidencia crítica escaló hasta aquí</div>`:'');
+  }
+  if(k==='objetivo'){
+    const kg=kidsOf(n.id).filter(x=>x.kind==='compromiso');
+    const br=nodes.filter(b=>b.kind==='brecha'&&b.parents.includes(n.id));
+    return `<div class="fk">metas (${cicloTxt()})</div>`+n.metas.map(metaRow).join('')+
+      (st.modo==='okr'?`<div class="frow" style="opacity:.6">compensación separada de las metas (modo trimestral)</div>`:'')+
+      `<div class="fk">contexto</div>`+
+      frow('Aporta a',n.parents.map(p=>byId[p].label).join(' · ')||'—')+
+      frow('Lo mueven',kg.length+' compromisos')+
+      (br.length?br.map(b=>`<div class="frow" style="color:var(--warn)">lo frena: <span class="flink" data-go="${b.id}">${b.label}</span></div>`).join(''):'')+
+      frow('Estado','vigente · versión 1');
+  }
+  if(k==='capacidad'){
+    const br=nodes.filter(b=>b.kind==='brecha'&&b.contra===n.label);
+    return frow('Qué tan desarrollada',`nivel ${({g:'4',a:'3',r:'1'})[n.mad]} · deseado 4`)+
+      frow('Evaluó','consultor · marzo 2026')+
+      frow('La sostienen','2 procesos de la cadena')+frow('Sistemas','ERP · hojas de cálculo')+
+      frow('Aporta a',n.parents.map(p=>byId[p].label).join(' · '))+
+      (br.length?br.map(b=>`<div class="frow" style="color:var(--warn)">brecha encima: <span class="flink" data-go="${b.id}">${b.label}</span></div>`).join(''):'');
+  }
+  if(k==='brecha'){
+    const g=byId[n.parents[0]];
+    return frow('Contra qué',n.contra+' (capacidad)')+
+      frow('Bloquea la meta',g?g.metas[0].m+' de "'+g.label+'"':'—')+
+      frow('Tamaño','nivel 2 → 4')+frow('Severidad',n.sev)+frow('Costo de no actuar',n.costo)+
+      `<div class="frow">Respuesta: ${n.respRef?`<span class="flink" data-go="${n.respRef}">${n.resp.replace('con respuesta: ','')}</span>`:`<b style="color:${n.resp.startsWith('SIN')?'var(--crit)':'var(--warn)'}">${n.resp}</b>`}</div>`+
+      frow('Evidencia','entrevista · confianza media');
+  }
+  if(k==='compromiso'){
+    return frow('Estado',n.estado)+
+      frow('Origen',n.id==='T1'?'brecha "Cobranza sin sistema propio"':(n.orphan?'⚠ sin diagnóstico (ni brecha ni idea)':'brecha del diagnóstico'))+
+      `<div class="fk">caso de negocio</div>`+
+      frow('Beneficio anualizado','S/ 456 mil')+frow('Inversión','S/ 120 mil')+frow('Recupero','4 meses')+
+      `<div class="fk">compromiso de medición</div>`+
+      frow('Mueve','días de cobranza · −18 esperado')+
+      frow('Hitos',`${n.hitos.done}/${n.hitos.total} · próximo: ${n.hitos.prox}`)+
+      frow('Responsable + patrocinador','Jefatura Finanzas + Gerencia')+
+      frow('Firmas','patrocinador ✓ · finanzas antes ✓ · después —')+
+      (n.cruce?frow('Entre áreas',`${AREAS[n.cruce.de].replace('Área ','')} entrega a ${AREAS[n.cruce.a].replace('Área ','')}`):'');
+  }
+  if(k==='indicador'){
+    const g=n.parents[0]&&byId[n.parents[0]];
+    return frow('Hoy',`${n.val} <span class="dot ${n.st}"></span>`)+frow('Meta y umbrales',n.meta+' · amarillo ±10%')+
+      frow('Responsable',AREAS[n.area]+' (rol, jamás persona)')+
+      frow('Frecuencia','semanal · última medición hace 3 días')+
+      (g?frow('Contribuye a la meta',`"${g.label}"`):frow('Contribuye a','— (solo monitoreo)'))+
+      (n.id==='K4'?frow('En tensión con','ventas del mes (cobrar duro frena venta)'):'')+
+      (n.sinContra?`<div class="frow" style="color:var(--crit)">▲ fuera de meta y sin contramedida comprometida</div>`:'')+
+      `<div class="fk">últimas mediciones</div>`+
+      `<div class="frow">hace 3 días · <b>${n.val}</b> · declarado · confianza media</div><div class="frow">hace 10 días · — · declarado</div>`;
+  }
+  if(k==='idea'){
+    return frow('Autoría',n.autor+' (con nombre — reconocimiento)')+
+      frow('Dónde duele','proceso de cobranza')+frow('Estado del embudo',n.estado)+
+      (n.id==='I1'?frow('Evaluación','viable · alto impacto · alineada a "Cobrar a tiempo"'):'')+
+      (n.id==='I4'?frow('Respuesta al autor','no viable este año — se agradece y se archiva'):'');
+  }
+  if(k==='tarea'){
+    const t=byId[n.parents[0]];
+    const CN={aum:'tú con un agente al lado',rpa:'la puede hacer un robot',agt:'la puede hacer un agente',eli:'candidata a eliminarse',hum:'humana por diseño (responsabilidad)'};
+    return frow('Parte de',t?t.label:'—')+
+      frow('Responsable','Analista de cobranzas (rol)')+
+      frow('Clasificación',n.clas?CN[n.clas]:'— sin clasificar')+
+      (n.arn?frow('Arnés (tu kit de trabajo)','v2 · autonomía L2 · tú supervisas: revisar 3 casos/día con evidencia'):'')+
+      (n.fire?`<div class="frow" style="color:var(--crit)">▲ caso crítico — escaló hasta el directorio</div>`:frow('Estado','pendiente hoy'));
+  }
+  return ''}
+function ficha(){
+  const p=document.getElementById('ficha');
+  const n=st.sel&&byId[st.sel];
+  if(!n){p.style.display='none';return}
+  p.style.display='flex';
+  const rango=RANGO[st.lente];
+  const acts=(ACCIONES[n.kind]||[]).map((a,i)=>{
+    const ok=rango>=a[1];
+    return `<button class="axn" data-a="${i}" ${ok?'':'disabled'}>${a[0]}
+      <span class="ax2">decide: <b>${RGNM[a[1]]}</b> · aprobación: ${a[2]}${ok?'':' · fuera de tu nivel'}</span></button>`}).join('');
+  p.innerHTML=`<span class="fx" title="cerrar">✕</span>
+    <div class="fk">${KINDNM[n.kind]||n.kind}</div><h3>${n.label}</h3>
+    ${fichaBody(n)}
+    <div class="fk">acciones</div>${acts||'<div class="frow">— solo lectura</div>'}
+    <div class="fnote">toda acción queda en el historial de la organización<br>fuente: simulado (caja gris)</div>`;
+  p.querySelector('.fx').onclick=()=>{st.sel=null;render(false)};
+  p.querySelectorAll('.flink').forEach(l=>l.onclick=e=>{e.stopPropagation();go(l.dataset.go)});
+  p.querySelectorAll('.axn').forEach(b=>b.onclick=()=>{
+    const a=ACCIONES[n.kind][+b.dataset.a];
+    HIST.unshift(`ahora · <b>${st.lente===''?'tú (sin lente)':document.getElementById('who').selectedOptions[0].text}</b> · ${a[0].toLowerCase()} — "${n.label}" · ${a[2]}`);
+    toast(`Registrado en el historial · aprobación: ${a[2]}${a[2]==='gestión de cambios'?' (queda versionado y auditable)':''}.`)});
+}
+function go(id){const n=byId[id];if(!n)return;push();
+  if(n.capa!==st.capa){st.capa=n.capa; if(st.capa!=='O')st.scope=null; else st.scope={area:n.area??0};}
+  st.sel=id;render(false)}
+
+/* ============ gestos ============ */
+function push(){st.hist.push({capa:st.capa,scope:st.scope&&{...st.scope},sel:st.sel})}
+function descend(n){
+  const ci=CAPAS.indexOf(n.capa);if(ci>=3){toast('Nivel operativo — debajo ya no hay mapa: hay trabajo.');return}
+  if(n.kind==='indicador'){toast('El número nace de un proceso — mira su flujograma en el nivel operativo (ficha › contribuye).');return}
+  if(n.kind==='brecha'){toast(n.respRef?'La respuesta a esta brecha es el compromiso "'+byId[n.respRef].label+'" — ábrelo desde la ficha.':'Brecha sin respuesta — conviértela en compromiso desde la ficha.');return}
+  if(n.kind==='idea'){toast('La idea baja al promoverse — evalúala o promuévela desde la ficha.');return}
+  const ks=kidsOf(n.id);
+  if(!ks.length){toast(`${n.label} no tiene nada debajo — ${n.kind==='objetivo'||n.kind==='capacidad'?'sin compromisos que lo muevan':'sin respaldo un nivel abajo'}.`);return}
+  push();st.capa=CAPAS[ci+1];st.scope={nodo:n.id};st.sel=null;
+  render('descend')}
+function expandArea(ai){push();
+  const s=scopeAreaSet()||new Set();s.add(ai);
+  st.scope={area:ai,extra:s};render(false);toast('Abriste '+AREAS[ai]+' — el filtro ahora es por área.')}
+function ascend(){
+  const base=st.sel?byId[st.sel]:st.scope&&st.scope.nodo?byId[st.scope.nodo]:null;
+  if(!base){toast('Selecciona un elemento — subir pregunta "¿a qué aporta ESTO?"');return}
+  const cands=[...new Set(base.parents)];
+  if(!cands.length){toast(`${base.label} no aporta a ningún objetivo — está suelto.`);return}
+  if(cands.length===1)return subirA(cands[0]);
+  const pop=document.getElementById('padres');
+  pop.innerHTML=`<div class="pt">${base.label} aporta a ${cands.length} — ¿por cuál subes?</div>`+
+    cands.map(p=>`<button data-p="${p}">${byId[p].label} <span style="opacity:.5;font-family:var(--mono);font-size:9px">${NIVC[byId[p].capa]}</span></button>`).join('');
+  pop.style.display='block';pop.style.left='50%';pop.style.top='90px';pop.style.transform='translateX(-50%)';
+  pop.querySelectorAll('button').forEach(b=>b.onclick=e=>{e.stopPropagation();pop.style.display='none';subirA(b.dataset.p)})}
+function subirA(pid){push();const p=byId[pid];
+  st.capa=p.capa;st.scope=p.parents[0]?{nodo:p.parents[0]}:null;st.sel=pid;
+  render('ascend')}
+function scopeAreaSet(){const ks=scopeKids();
+  if(ks)return new Set([...ks].map(id=>byId[id].area).filter(a=>a!=null));
+  if(st.scope&&st.scope.extra)return st.scope.extra;
+  if(st.scope&&st.scope.area!=null)return new Set([st.scope.area]);return null}
+document.getElementById('up').onclick=ascend;
+document.getElementById('back').onclick=()=>{const s=st.hist.pop();if(!s)return;
+  st.capa=s.capa;st.scope=s.scope;st.sel=s.sel;render(false)};
+document.getElementById('hilo').onclick=()=>{if(!st.sel&&!st.hilo){toast('Selecciona un elemento primero — se traza SU cadena completa.');return}
+  st.hilo=!st.hilo;render(false)};
+document.getElementById('who').onchange=e=>{st.lente=e.target.value;render(false);
+  if(st.lente!=='')toast('Mismo mapa para todos: ves tu parte con detalle Y tu autoridad fija qué acciones puedes ejecutar.')};
+document.getElementById('modo').onchange=e=>{st.modo=e.target.value;render(false);
+  toast(st.modo==='okr'?'Modo trimestral: compensación separada de las metas.':'Modo anual (práctica LATAM/BR): el despliegue baja en cascada y ciertas metas pagan bono ★.')};
+document.getElementById('histb').onclick=e=>{e.stopPropagation();
+  const h=document.getElementById('histpop');
+  if(h.style.display==='block'){h.style.display='none';return}
+  h.innerHTML=`<div class="pt">Historial de la organización — toda acción, versionada</div>`+
+    HIST.map(r=>`<div class="hrow">${r}</div>`).join('')+
+    `<div class="hnote">quién · qué · cuándo · con qué aprobación — la organización tiene historial, como el código</div>`;
+  h.style.display='block'};
+function viajar(c){if(c===st.capa)return;push();
+  const dir=CAPAS.indexOf(c)>CAPAS.indexOf(st.capa)?'descend':'ascend';
+  st.capa=c;
+  if(st.sel&&st.hilo){const hs=new Set([st.sel,...ancestors(st.sel),...descendants(st.sel)]);
+    const tgt=nodes.filter(n=>n.capa===c&&hs.has(n.id));
+    st.scope=c==='O'&&tgt.length?{area:tgt[0].area}:null;
+  } else st.scope=c==='O'?{area:0}:null;
+  render(dir)}
+stage.onclick=()=>{if(st.sel){st.sel=null;render(false)}
+  document.getElementById('padres').style.display='none';
+  document.getElementById('histpop').style.display='none'};
+let drag=null;
+stage.addEventListener('mousedown',e=>{if(e.target.closest('.nd,#padres,#histpop,.areafold,.bandeja'))return;drag={x:e.clientX,y:e.clientY,ox:view.x,oy:view.y};stage.classList.add('drag')});
+window.addEventListener('mousemove',e=>{if(!drag)return;view.x=drag.ox+e.clientX-drag.x;view.y=drag.oy+e.clientY-drag.y;applyV()});
+window.addEventListener('mouseup',()=>{drag=null;stage.classList.remove('drag')});
+stage.addEventListener('wheel',e=>{e.preventDefault();const f=e.deltaY<0?1.1:0.9;const nz=Math.max(.3,Math.min(2,view.z*f));
+  const r=stage.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;
+  view.x=mx-(mx-view.x)*(nz/view.z);view.y=my-(my-view.y)*(nz/view.z);view.z=nz;applyV()},{passive:false});
+let tT=null;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.opacity=1;clearTimeout(tT);tT=setTimeout(()=>t.style.opacity=0,3400)}
+render(false);
+</script>
+</body></html>

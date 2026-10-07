@@ -1,0 +1,30 @@
+id: brecha-proyecto-ciclo-vida
+type: ui-story
+state: idea
+module: cockpit
+node: N13
+cap_target: "cockpit/brecha-proyecto-ciclo-vida"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: [CK-21]
+dependencies:
+  stories: [schema-v2-hilo-de-oro-kinetica, cruce-estructura-operacion-indicadores]
+context:
+  job: "Como directorio de la organización quiero brechas con costo estimado y ranking ROI (caso de negocio por brecha) y el ciclo de vida del proyecto de mejora dentro de Cockpit (brecha→proyecto→ejecución→KPI movido) para decidir qué mejorar primero y ver el loop PDCA cerrado en la misma herramienta."
+  why: "Nadie del mercado cierra el loop brecha→proyecto→ejecución→KPI movido en la misma herramienta; sin caso de negocio por brecha los proyectos no se priorizan por ROI (lección KYP/Bee360) y el PDCA queda abierto."
+provenance:
+  backlog_id: null
+  titulo: "Brecha → proyecto con caso de negocio + ciclo de vida del proyecto de mejora"
+  detalle: >-
+    NUEVO CK-21. Brechas con costo estimado + ranking ROI (caso de negocio por brecha — lección
+    KYP/Bee360); ciclo de vida del proyecto de mejora DENTRO de Cockpit (brecha→proyecto→
+    ejecución→KPI movido, cierra PDCA). Nadie del mercado cierra este loop en la misma herramienta.
+    La brecha nace en el levantamiento (Consultio, BL-16); acá vive su ciclo en N13. Research:
+    organization-as-code/07 (#12-13).
+  origen: "ficha CK-21 (2026-07-16) — visión organization-as-code + organization twin"
+  estado_legacy: n/a
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

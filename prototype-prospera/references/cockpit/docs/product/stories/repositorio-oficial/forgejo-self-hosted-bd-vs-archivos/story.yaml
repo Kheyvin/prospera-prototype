@@ -1,0 +1,37 @@
+id: forgejo-self-hosted-bd-vs-archivos
+type: service-story
+state: idea
+module: repositorio-oficial
+node: N6
+cap_target: "repositorio-oficial/forgejo-self-hosted-bd-vs-archivos"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: [CK-18]
+dependencies:
+  stories: []
+context:
+  job: >-
+    Como organización cliente quiero un Repositorio Oficial confidencial (Forgejo self-hosted en
+    mi propia infra) como fuente única de verdad de arneses, metadata organizada, documentos
+    oficiales versionados y knowledge, para gobernar mi conocimiento sin depender de un SaaS
+    externo.
+  why: >-
+    La verdad curada de la organización no puede vivir en GitHub/terceros. La decisión firmada
+    git/archivos = SSoT (cualquier BD = índice derivado reconstruible, nunca SSoT) evita lock-in,
+    garantiza reconstruibilidad y habilita backups (forgejo dump + restic).
+provenance:
+  backlog_id: BL-21
+  titulo: "Repositorio Oficial confidencial (Forgejo self-hosted) + BD vs archivos"
+  detalle: >-
+    NUEVO CK-18. Git self-hosted en la máquina del cliente (Forgejo en Docker), con backups
+    (`forgejo dump` + restic). Contiene: Arneses · Metadata Organizada (objeto normalizado) ·
+    Documentos Oficiales versionados (fuente + PDF derivado) · Knowledge DB (BL-27). Decisión
+    firmada: git/archivos = SSoT, cualquier BD = índice derivado reconstruible (nunca SSoT).
+    SOTA: research/rediseno-total/01. Se diseña con el primer despliegue real.
+  origen: "operador CK-18 (D3 base)"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

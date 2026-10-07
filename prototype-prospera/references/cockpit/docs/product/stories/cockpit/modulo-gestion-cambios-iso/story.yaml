@@ -1,0 +1,29 @@
+id: modulo-gestion-cambios-iso
+type: ui-story
+state: idea
+module: cockpit
+node: N13
+cap_target: "cockpit/modulo-gestion-cambios-iso"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: [CK-18, CK-21]
+dependencies:
+  stories: [forgejo-self-hosted-bd-vs-archivos]
+context:
+  job: "Como Analista de Calidad (N19) quiero un módulo de Gestión de Cambios que gobierne solicitud→aprobación→publicación de versiones sobre el Repositorio Oficial para mantener lo oficial conforme a ISO §7.5/§6.3 sin exponer git."
+  why: "Sin gobierno del cambio no hay control de versiones documentales ISO; el Analista de Calidad necesita un flujo formal con firma persistida y trazabilidad."
+provenance:
+  backlog_id: BL-24
+  titulo: "Módulo Gestión de Cambios (ISO)"
+  detalle: >-
+    NUEVO CK-18. El Analista de Calidad (N19) mantiene lo oficial: solicitud→aprobación→publicación
+    de versiones sobre el Repositorio Oficial (ISO §7.5/§6.3). Entidades: SolicitudDeCambio ·
+    VersiónDeDocumento (borrador/vigente/obsoleto) · Aprobación · Acuse · RevisiónPeriódica. Git de
+    backend + UI que oculta git; firma persistida en DB además de git. SOTA: research/rediseno-total/06.
+  origen: "operador CK-18 (D-9 del diagrama)"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

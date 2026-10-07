@@ -1,0 +1,34 @@
+id: construir-lakehouse-dlt-ducklake
+type: service-story
+state: idea
+module: lakehouse
+node: N16
+cap_target: "lakehouse/construir-lakehouse-dlt-ducklake"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: media
+fichas: [CK-18, CK-23]
+dependencies:
+  stories: []
+context:
+  job: >-
+    Como Cockpit quiero un Data Lakehouse (dlt + DuckLake) que reúna la operación de todos los
+    sistemas de la organización (N18), para nutrir la vista de 'cómo vamos día a día'.
+  why: >-
+    Sin un lakehouse que consolide la operación real, Cockpit no puede cruzar estructura × operación.
+    El stack dlt + DuckLake/DuckDB en la infra del cliente da un lakehouse pragmático sin la
+    sobreingeniería de Iceberg/Spark/K8s.
+provenance:
+  backlog_id: BL-22
+  titulo: "Construir el Data Lakehouse (dlt + DuckLake)"
+  detalle: >-
+    NUEVO CK-18. Reúne la operación de todos los sistemas de la org (N18) para nutrir Cockpit. SOTA
+    (research/rediseno-total/03): dlt (ingesta) + DuckLake/DuckDB (catálogo SQLite→Postgres), Excel de
+    primera clase, DuckDB embebido en el Go, orquestación cron/systemd. Default en infra del cliente;
+    hosteado por nosotros = opción comercial (D3). Iceberg/Spark/K8s = sobreingeniería.
+  origen: "operador CK-18"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

@@ -1,0 +1,17 @@
+id: modelo-portfolio
+legacy_id: CAP-06
+module: cockpit
+node: N13
+nombre: "Modelo de portfolio (TS puro)"
+que_hace: >-
+  Funciones/tipos de navegación Empresa→Sistema, deep-link URL. Cero runtime React/Next.
+  25 tests vitest.
+status: live
+rutas: [ui/lib/portfolio.ts]
+componentes: [portfolio-model]
+fichas: [CK-02]
+verificada: 2026-07-06
+business_rules: []
+scenarios: []
+provenance:
+  increment_id: CAP-06

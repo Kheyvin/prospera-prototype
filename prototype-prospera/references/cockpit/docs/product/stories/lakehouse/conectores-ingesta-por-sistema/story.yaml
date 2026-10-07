@@ -1,0 +1,33 @@
+id: conectores-ingesta-por-sistema
+type: service-story
+state: idea
+module: lakehouse
+node: N18
+cap_target: "lakehouse/conectores-ingesta-por-sistema"
+cap_change_type: new
+capability_status: planned
+release: F2
+prioridad: tbd
+fichas: [CK-16, CK-18]
+dependencies:
+  stories: []
+context:
+  job: >-
+    Como integrador quiero conectores de ingesta por sistema (SaaS/ERP/a medida/Excel) que alimenten
+    el lakehouse desde los sistemas operacionales (N18), para llevar la operación real a Cockpit.
+  why: >-
+    El lakehouse no sirve sin datos: los conectores concretos son el puente desde los sistemas
+    operacionales. Se diseñan con el cliente real, por sistema, disparados por el primer despliegue
+    con datos de operación reales.
+provenance:
+  backlog_id: BL-18
+  titulo: "Conectores de ingesta por sistema (SaaS/ERP/a medida/Excel)"
+  detalle: >-
+    REDEFINIDO CK-18 (era 'conexión DevStudio/GitHub→Cockpit', CK-08 derogado). Ahora: los conectores
+    concretos que alimentan el lakehouse desde los sistemas operacionales (N18) — se diseñan con el
+    cliente real, por sistema. Gatillo: primer despliegue con datos de operación reales.
+  origen: "CK-08 (derogado) · CK-16 · redefinido CK-18"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

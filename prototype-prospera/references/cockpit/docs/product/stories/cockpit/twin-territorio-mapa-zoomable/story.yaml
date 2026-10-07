@@ -1,0 +1,46 @@
+id: twin-territorio-mapa-zoomable
+type: ui-story
+state: idea
+module: cockpit
+node: N13
+cap_target: "cockpit/twin-territorio-mapa-zoomable"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: [CK-21, CK-23, CK-27, CK-31, CK-32]   # CK-31 = el nivel Directorio de primera clase + la frontera contable · CK-32 (2026-07-29) = el directorio decide y la gerencia resuelve (la bajada como dato, el hilo al contrato, la madurez con vara); el resto de la historia sigue en `idea`
+dependencies:
+  # HARD deps (deben existir antes de construir):
+  stories:
+    - design-system-atomic-storybook          # el banco PRENTER (átomos/tokens) contra el que se construye
+    - schema-v2-hilo-de-oro-kinetica           # el grafo O2-O7 + hilo medible que el mapa pinta
+    - organizacion-ficticia-golden-fixture     # el dato real (terranova) que el mockup consume
+context:
+  job: "Como equipo de Cockpit quiero UN mockup/prototipo interactivo con datos hardcodeados que muestre el ESTADO FINAL COMPLETO de la solución (territorio/twin + Mejora + Método + Cambios, zoom semántico, capas, las 20 entidades), para tener el contrato visual ratificado ANTES de construir la app real (decisión 10, 2026-07-24 — creció desde 'solo el mapa del twin')."
+  why: "Hoy el twin son 4 tabs planas (Mapa/Hilo/Brechas/Personas) — fragmentado, y el resto del producto (Mejora/Método/Cambios) no tiene vista de referencia. Sin una maqueta de inicio-a-fin ratificada, construir es adivinar el estado final pieza por pieza. Es el diferenciador visual del producto (Organization as Code → Organization Twin, CK-21) Y el plano de construcción."
+provenance:
+  backlog_id: null
+  titulo: "Mockup del estado final de Cockpit — territorio+Mejora+Método+Cambios, datos canned, contrato visual pre-construcción (creció desde 'twin como territorio')"
+  detalle: >-
+    Concepto de sesión 2026-07-20 (post CK-27, design system PRENTER adoptado). Re-concibe la
+    superficie /negocio: de 4 tabs planas a UN mapa (organigrama conectado) con zoom semántico
+    (organización → área → proceso-lienzo → detalle) y capas conmutables que se pintan encima
+    (estructura/hilo-de-oro/salud/brechas/cinética). Inspiración de canvas: ~/Proyectos/harness-studio
+    (repo hermano — su "Organigrama" specado-no-construido = React Flow; su map-canvas swim-lane =
+    HTML+SVG a mano). Mockup interactivo publicado y ya iterado con el operador (fixes visuales:
+    dark-only robusto, organigrama completo 13 nodos, sin relleno plomo). PENDIENTE: el operador
+    tiene MÁS ajustes visuales que dará en una conversación nueva.
+  origen: "operador, sesión 2026-07-20"
+  estado_legacy: nuevo
+links:
+  story_md: 00-story.md
+  contrato_nivel_1: dossier/08-nivel-1-contrato-de-construccion.md   # el nivel Directorio YA es construible: método (M55-M59), esquema (D-24…D-30) y 12 escenarios, con gates verdes
+  tracker_deuda: dossier/07-auditoria-hallazgos.md
+  prototipo: ../../../../../docs/product/prototypes/twin-territorio-2026-07-20/
+  artifact: "https://claude.ai/code/artifact/20907d03-3979-42f2-b5c8-b33fa5e383f6"
+  ledger: ../../../../../LEDGER.md
+  related_stories:
+    - cruce-estructura-operacion-indicadores   # se vuelve la CAPA "hilo/indicadores" DENTRO del territorio (no se duplica)
+    - brecha-proyecto-ciclo-vida               # capa CINÉTICA (O7): brecha → proyecto → KPI movido
+    - persona-puesto-primera-clase             # capa base O4 (organigrama/personas)
+    - negocio-yaml-proyeccion-generada         # la proyección objeto→negocio que ya alimenta los lentes actuales

@@ -1,0 +1,33 @@
+id: captura-manual-kpis
+type: ui-story
+state: idea
+module: cockpit
+node: N13
+cap_target: "cockpit/captura-manual-kpis"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: [CK-21, CK-24]
+dependencies:
+  # KPI como entidad (dueño/tipo/fuente por medición) nace en schema-v2; la vista que consume
+  # los valores es el cruce de indicadores.
+  stories: [schema-v2-hilo-de-oro-kinetica, cruce-estructura-operacion-indicadores]
+context:
+  job: "Como responsable de un proceso en una organización sin sistemas (o con sistemas sin conector) quiero registrar los valores de mis KPIs a mano (planilla/form con periodo y evidencia) para que el twin mida el estado real sin esperar al lakehouse."
+  why: "Hallazgo grave de la auditoría adversarial (2026-07-17): en la organización no-digital — la PyME LatAm objetivo — la pata 'real' del twin (N16) queda vacía y el diferenciador 'hilo de oro MEDIDO' degrada a mapa bonito. La captura manual con provenance `Declarado` + frescura es fuente de PRIMERA clase del motor de indicadores, no un placeholder: el lakehouse la reemplaza métrica a métrica cuando existe conector, sin cambiar la vista (mismo patrón CK-23 fixture→lakehouse)."
+provenance:
+  backlog_id: null
+  titulo: "Captura manual de KPIs con provenance y frescura"
+  detalle: >-
+    NUEVA — auditoría adversarial del refinamiento de arquitectura-refichado-ck21 (escenario
+    'organización no digital', resolución #1). Alcance idea: form/planilla por KPI (valor, periodo,
+    quien-declara, evidencia opcional) → medición con fuente `Declarado` + timestamp de frescura;
+    el motor de indicadores pinta declarado-vs-observado y la frescura (dato viejo = semáforo
+    degradado, no verde mentiroso). Respeta CK-24: se capturan KPIs de proceso/rol/área, no de
+    persona-nombrada.
+  origen: "auditoría adversarial refinamiento arquitectura-refichado-ck21 (2026-07-17) — ratificada por el operador"
+  estado_legacy: n/a
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

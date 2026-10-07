@@ -1,0 +1,18 @@
+  /* ---------- viewport: zoom + LOD abajo-izq · minimapa abajo-der ---------- */
+  .viewctl { position:absolute; left:16px; bottom:16px; z-index:15; display:flex; align-items:center; gap:8px; }
+  .zoomctl { display:flex; align-items:center; border:1px solid var(--border); border-radius:10px; overflow:hidden; background:rgba(12,17,16,.86); backdrop-filter:blur(6px); }
+  .zoomctl button { width:34px; height:32px; background:none; border:none; color:var(--tx-mut); font-size:15px; display:flex; align-items:center; justify-content:center; }
+  .zoomctl button:hover { background:var(--raised); color:var(--tx); }
+  .zoomctl .zlevel { font-family:var(--font-mono); font-size:10px; color:var(--tx-faint); min-width:40px; text-align:center; border-left:1px solid var(--border); border-right:1px solid var(--border); align-self:stretch; display:flex; align-items:center; justify-content:center; }
+  .lodctl { display:flex; align-items:center; gap:2px; border:1px solid var(--border); border-radius:10px; background:rgba(12,17,16,.86); backdrop-filter:blur(6px); padding:3px 6px 3px 9px; }
+  .lodctl .lab { font-family:var(--font-mono); font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:var(--tx-faint); margin-right:5px; }
+  .lodctl button { width:26px; height:26px; border:none; background:none; border-radius:7px; font-family:var(--font-mono); font-size:11px; color:var(--tx-mut); }
+  .lodctl button:hover { background:var(--raised); color:var(--tx); }
+  .lodctl button.on { background:var(--teal-900); color:var(--brand-hi); }
+  .lodctl.hide, .minimap.hide { display:none; }
+
+  .minimap { position:absolute; right:16px; bottom:16px; z-index:15; width:158px; height:100px; border:1px solid var(--border); border-radius:10px;
+    background:rgba(12,17,16,.86); backdrop-filter:blur(6px); overflow:hidden; cursor:pointer; }
+  .minimap i { position:absolute; width:5px; height:4px; border-radius:2px; background:#3a4d48; }
+  .minimap .vw { position:absolute; border:1px solid var(--brand); background:rgba(0,183,170,.08); border-radius:3px; }
+

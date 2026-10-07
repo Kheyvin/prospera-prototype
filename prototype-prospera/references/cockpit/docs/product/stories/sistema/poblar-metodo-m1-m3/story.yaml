@@ -1,0 +1,27 @@
+id: poblar-metodo-m1-m3
+type: service-story
+state: idea
+module: sistema
+node: N2
+cap_target: "sistema/poblar-metodo-m1-m3"
+cap_change_type: extend
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: []
+dependencies:
+  stories: []
+context:
+  job: "Como autor del método quiero poblar M1 beats 2-3 y M3 etapas 1-5 para que el método esté completo y sirva de insumo a los arneses."
+  why: "Hoy solo están poblados M1 Beat 1 y M3 Etapa 0; el resto son esqueletos, y el método poblado es insumo directo de los arneses (Arnesia/Consultio, CK-18)."
+provenance:
+  backlog_id: BL-05
+  titulo: "Poblar el método: M1 beats 2-3 · M3 etapas 1-5"
+  detalle: >-
+    sistema/metodo/proceso/ tiene poblados M1 Beat 1 y M3 Etapa 0; el resto son esqueletos.
+    Insumo directo de los arneses del método (Arnesia/Consultio, CK-18).
+  origen: "sistema/metodo/proceso/README.md"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

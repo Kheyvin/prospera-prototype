@@ -1,0 +1,35 @@
+id: knowledge-database-files-first
+type: service-story
+state: idea
+module: repositorio-oficial
+node: N6
+cap_target: "repositorio-oficial/knowledge-database-files-first"
+cap_change_type: new
+capability_status: planned
+release: F3
+prioridad: tbd
+fichas: [CK-18]
+dependencies:
+  stories: []
+context:
+  job: >-
+    Como trabajador/arnés quiero acceder al know-how tácito de mi rol servido desde una Knowledge
+    Database files-first (knowledge-as-code en el Repositorio Oficial), para ejecutar mi trabajo
+    con el conocimiento organizacional a la mano.
+  why: >-
+    El know-how tácito por rol es un activo que hoy no tiene casa y se pierde. Capturarlo como
+    markdown+frontmatter en el repo (files-first, captura vía skill de cristalización con PR)
+    lo preserva sin sobre-invertir en vector DB antes de que la demanda lo justifique.
+provenance:
+  backlog_id: BL-27
+  titulo: "Knowledge Database (know-how organizacional, files-first)"
+  detalle: >-
+    NUEVO CK-18 (D5: declarada pendiente, 'será importante pronto'). Know-how tácito por rol servido
+    al arnés. SOTA (research/rediseno-total/02): knowledge-as-code (markdown+frontmatter) en el repo,
+    files-first/agentic retrieval; captura vía skill de cristalización con PR; RAG híbrido solo al
+    crecer (+200-500 notas). NO vector DB antes de demanda. Investigación aplicada al activarse.
+  origen: "operador CK-18 (D5, #8)"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

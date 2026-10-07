@@ -1,0 +1,64 @@
+# 06-tickets.yaml — schema-v2-hilo-de-oro-kinetica (ready package, armado a mano — hueco KIT 0.5.3)
+story_id: schema-v2-hilo-de-oro-kinetica
+autonomous_mode: false          # G Chris-verify obligatorio (live-verify /api/objeto + diff NOTACIONES + render de warnings/errors)
+notes: >-
+  Historia schema + servicio (Go). TDD obligatorio: cada validador nace con test RED tabla-driven
+  (patrón go/objeto). Orden: T-1 → T-2 → (T-3 ∥ T-4) → T-5 → T-6. T-3 es independiente de Go
+  (paralelo con T-4). El seed de verbos (T-2) se diseña contra la corporación ficticia (~200
+  empleados — directiva del operador registrada en organizacion-ficticia-golden-fixture).
+
+tickets:
+  - id: T-1
+    titulo: "objeto.schema.yaml v2: 12 entidades (kpi · proyecto_mejora · idea) + ajustes F (corte limpio: eliminar proceso.kpis/tiempo/reporta_a-simple) + config_estrategia + unidades D-07 + relaciones + invariantes + acciones: (contrato + catálogo seed + transiciones proyecto) + backbone O7 + capítulos kpis.md/mejoras.md + housekeeping (process.schema ref, Bloom)"
+    files:
+      - sistema/schema/objeto.schema.yaml
+      - docs/metodo/objeto/README.md          # backbone O7 (estrato Mejora)
+      - docs/metodo/objeto/kpis.md            # nuevo (patrón objetivos.md, breve)
+      - docs/metodo/objeto/mejoras.md         # nuevo (proyecto_mejora + idea)
+      - docs/metodo/objeto/objetivos.md       # §6/§8 ganan modo GPD con fuentes (research)
+    dod: "AC-1 · AC-5 · AC-7; spec §A-§G transcrita 1:1; grep deprecad == 0"
+    dependencias: []
+    assignment: {primary_agent: "orquestador (a mano)", rationale: "diseño de contrato — no delegable"}
+
+  - id: T-2
+    titulo: "verbos.yaml (seed ~30 clasificado ALM×MGI + sinonimos es-419) + gen_schema.py --check (D-A2: schema v2 + verbos + acciones + paridad D-A7) + 4º gate en .githooks/pre-commit"
+    files:
+      - sistema/schema/verbos.yaml
+      - sistema/schema/gen_schema.py
+      - .githooks/pre-commit
+    dod: "AC-3 · AC-4 (gate) · SC-12; SC-5/SC-6 test negativo del hook real"
+    dependencias: [T-1]
+    assignment: {primary_agent: "orquestador (a mano); sub-agente Haiku para el seed mecánico de verbos con la clasificación dictada", rationale: "clasificación ALM×MGI = juicio; transcripción = mecánica"}
+
+  - id: T-3
+    titulo: "Catálogo del método delta (AC-8): dimensión mejora-proyectos (enum + labels) + M-cards GPD/DMAIC/MASP/gestión-de-ideas/ISO-56002-horizonte + M16 suma cl.10 → NOTACIONES.html regenerado (solo ADITIVO — D-A6/R3)"
+    files:
+      - sistema/metodo/methodologies.yaml
+      - sistema/metodo/methodology.schema.yaml
+    dod: "AC-8; gen_metodo --check verde; diff NOTACIONES.html solo agrega (para G)"
+    dependencias: [T-1]
+    assignment: {primary_agent: "sub-agente con la tabla § Catálogo del método de la spec verbatim + 00-research como fuente de las cards", rationale: "doctrina ya cementada — transcribe, no decide (patrón refichado T-5)"}
+
+  - id: T-4
+    titulo: "go/objeto.go v2: tiposObjeto +3 · errors[] en payload · validadores RN-8/14/15 + máquina de estados (tabla D-A7) + refs nuevas + verbos (carga verbos.yaml D-A4) + divergente derivado + detección formas v1 muertas con mensaje-forma-v2 (D-A5) — TDD RED primero por validador"
+    files:
+      - go/objeto.go
+      - go/objeto_test.go
+      - go/testdata/objeto-v2/            # mini-fixture 12 entidades
+    dod: "SC-1..SC-4 · SC-7..SC-11 verdes; go vet/test/build verdes; benchmark NFR"
+    dependencias: [T-2]
+    assignment: {primary_agent: "orquestador (a mano) con skills golang-testing + golang-code-style", rationale: "core del producto; tabla-driven denso"}
+
+  - id: T-5
+    titulo: "Migración shell prenter (repo hermano del registry) a formas v2 + live-verify real: GET /api/objeto?empresa=prenter limpio + GET fixture v2 completo (logs + payload observado)"
+    files: ["<shell prenter>/empresa/** (repo hermano — commit separado allí)"]
+    dod: "AC-2; SC-2 en vivo; si el shell no está disponible → STOP y escalar (R2, no simular)"
+    dependencias: [T-4]
+    assignment: {primary_agent: "orquestador (a mano)", rationale: "toca repo ajeno al workspace — juicio + cuidado"}
+
+  - id: T-6
+    titulo: "Cierre: gates 4/4 exit 0 + SC-1..SC-12 evidenciados en checkpoint + matriz de cobertura viva actualizada + checkpoint developed + preparar G Chris-verify (live-verify + diff NOTACIONES + muestra errors/warnings)"
+    files: [checkpoint.md]
+    dod: "evidencia por SC; phase: AWAIT_CHRIS_VERIFY"
+    dependencias: [T-5, T-3]
+    assignment: {primary_agent: "orquestador (a mano)"}

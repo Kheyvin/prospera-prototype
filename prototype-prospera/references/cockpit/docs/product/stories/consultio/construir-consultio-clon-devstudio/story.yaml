@@ -1,0 +1,28 @@
+id: construir-consultio-clon-devstudio
+type: service-story
+state: idea
+module: consultio
+node: N14
+cap_target: "consultio/construir-consultio-clon-devstudio"
+cap_change_type: new
+capability_status: planned
+release: F3
+prioridad: media
+fichas: [CK-11, CK-18]
+dependencies:
+  stories: []
+context:
+  job: "Como fabricante (Alpaca Púrpura) quiero clonar DevStudio y adaptarlo como Consultio con nombre e identidad propios para dar al consultor una app de levantamiento que carga los arneses del método sobre Claude Code local (BYO licencia)."
+  why: "Sin Consultio el consultor no tiene herramienta para operar el método en el cliente. Es la puerta de entrada del rediseño CK-18 (todo el levantamiento pasa por el consultor) y la base de la que dependen BL-16 y BL-17."
+provenance:
+  backlog_id: BL-15
+  titulo: "Definir/construir Consultio = clon de DevStudio + adaptación propia"
+  detalle: >-
+    REDEFINIDO CK-18 (era 'App del Auditor'). Nombre firmado = Consultio (D4). Se clona de DevStudio
+    cuando esté terminado y se adapta con nombre/identidad propios; carga los arneses del método que
+    produce Arnesia; se cuelga de Claude Code (BYO licencia). Alcance/stack heredan del clon.
+  origen: "operador, sesión CK-11 · redefinido CK-18"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

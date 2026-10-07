@@ -1,0 +1,37 @@
+id: deposito-fuentes-retencion-dpa
+type: service-story
+state: idea
+module: repositorio-oficial
+node: N12
+cap_target: "repositorio-oficial/deposito-fuentes-retencion-dpa"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: media
+fichas: [CK-18]
+dependencies:
+  stories: []
+context:
+  job: >-
+    Como responsable de datos quiero un Depósito de fuentes (landing zone N12) cifrado y auditado
+    donde aterriza el crudo del levantamiento y que se destruye post-mapa, para materializar la
+    cláusula de no-retención del DPA.
+  why: >-
+    N12 era un hueco del backlog (detectado al cerrar BL-07): sin una landing zone separada de la
+    verdad curada (N6), el crudo voluminoso/binario y la destrucción contractual del DPA no tienen
+    dónde vivir ni cómo auditarse.
+provenance:
+  backlog_id: BL-29
+  titulo: "Depósito de fuentes (landing zone N12) + retención/destrucción DPA"
+  detalle: >-
+    NUEVO. Hueco detectado al cerrar BL-07 (auditoría CK-18): N12 (responsabilidades R2/R3) no tenía
+    casa en el backlog, a diferencia de los demás nodos no-construidos de Organización. Zona donde
+    aterriza el crudo del levantamiento (N9 deposita, Consultio procesa): cifrado at-rest, audit de
+    quién depositó qué, y DESTRUCCIÓN post-mapa que materializa la cláusula de no-retención del DPA.
+    NO git (binarios/voluminoso). Separado de N6 (verdad curada) a propósito. Se diseña con el primer
+    despliegue real.
+  origen: "auditoría cierre BL-07 · NODOS.md N12/R3"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

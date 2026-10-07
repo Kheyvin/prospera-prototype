@@ -1,0 +1,25 @@
+id: negocio-schema-ssot-plugin-vs-repo
+type: service-story
+state: idea
+module: sistema
+node: transversal
+cap_target: "sistema/negocio-schema-ssot-plugin-vs-repo"
+cap_change_type: fix
+capability_status: planned
+release: F1
+prioridad: media
+fichas: []
+dependencies:
+  stories: []
+context:
+  job: "Como custodio de la arquitectura quiero decidir dónde vive el SSoT de negocio.schema (repo vs plugin del harness) para eliminar la ambigüedad de fuente de la verdad."
+  why: "Hoy el schema vive en el plugin del harness; falta decidir si se trae al repo (sistema/schema/) o se deja en el kit — deuda detectada en la auditoría CK-11."
+provenance:
+  backlog_id: BL-06
+  titulo: "negocio.schema vive en el plugin del harness, no en el repo"
+  detalle: "Decidir SSoT: ¿traer el schema al repo (sistema/schema/) o dejarlo en el kit?"
+  origen: "auditoría CK-11"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

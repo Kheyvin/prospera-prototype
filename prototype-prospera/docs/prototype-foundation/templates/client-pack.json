@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "client": {
+    "id": null,
+    "name": null,
+    "locale": null,
+    "timeZone": null,
+    "currency": null,
+    "classification": null,
+    "dataMode": null
+  },
+  "presentation": {
+    "title": null,
+    "introduction": null,
+    "tabLabels": {
+      "architecture": "Architecture of the Solution",
+      "scope": "Scope of the Project",
+      "methodologies": "Methodologies Supported",
+      "web": "Web-Module Prototype",
+      "desktop": "Desktop-Module Prototype"
+    }
+  },
+  "sources": [],
+  "solution": { "nodes": [], "edges": [], "boundaries": [] },
+  "scope": { "items": [] },
+  "methodologies": [],
+  "organization": {
+    "entities": [],
+    "relations": [],
+    "views": {
+      "managementLevels": [],
+      "representations": [],
+      "semanticDepths": [],
+      "layers": [],
+      "defaultContext": null
+    }
+  },
+  "desktop": { "workspaces": [], "artifacts": [], "sessions": [] },
+  "scenarios": []
+}

@@ -1,0 +1,29 @@
+id: auth-niveles-acceso-policy-as-data
+type: service-story
+state: idea
+module: cockpit
+node: N13
+cap_target: "cockpit/auth-niveles-acceso-policy-as-data"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: [CK-18]
+dependencies:
+  stories: [forgejo-self-hosted-bd-vs-archivos]
+context:
+  job: "Como operador que despliega Cockpit multi-usuario quiero auth real con los 4 niveles (Gobernanza>Estratégico>Táctico>Operativo) y visibilidad por rol derivada del Repositorio Oficial para que cada usuario vea solo lo que le corresponde (policy-as-data)."
+  why: "Es el gate para el despliegue multi-usuario: sin auth ni niveles reales no se puede exponer Cockpit a varios usuarios con visibilidad controlada. El rol organizacional ES la política."
+provenance:
+  backlog_id: BL-12
+  titulo: "Auth + niveles de acceso reales (4 niveles)"
+  detalle: >-
+    REDEFINIDO CK-18: no solo auth — los 4 niveles (Gobernanza>Estratégico>Táctico>Operativo)
+    con visibilidad por rol derivada del Repositorio Oficial (policy-as-data). SOTA
+    (research/rediseno-total/05): auth embebida argon2id + scs/SQLite + middleware propio; el rol
+    organizacional ES la política; campo `provider` para OIDC futuro. Gate para despliegue multi-usuario.
+  origen: "auditoría CK-11 · redefinido CK-18"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

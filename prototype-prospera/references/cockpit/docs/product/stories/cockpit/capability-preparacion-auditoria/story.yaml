@@ -1,0 +1,27 @@
+id: capability-preparacion-auditoria
+type: service-story
+state: idea
+module: cockpit
+node: N13
+cap_target: "cockpit/capability-preparacion-auditoria"
+cap_change_type: new
+capability_status: planned
+release: F3
+prioridad: tbd
+fichas: [CK-10]
+dependencies:
+  stories: []
+context:
+  job: "Como organización que busca conformidad ISO quiero una capability de 'preparación para auditoría' que haga gap-check contra las cláusulas ISO para saber dónde estoy antes de una auditoría, sin emitir certificados."
+  why: "Cierra el ciclo de conformidad como evidencia documental junto con la Gestión de Cambios (BL-24); se activa solo con demanda real y nunca certifica (I-05)."
+provenance:
+  backlog_id: BL-14
+  titulo: "Capability 'preparación para auditoría' (gap-check vs cláusulas ISO)"
+  detalle: >-
+    Declarada CK-10; se activa solo con demanda real. Nunca emite certificados (I-05). Encaja con
+    la Gestión de Cambios (BL-24) como evidencia documental.
+  origen: "VISION §ISO (CK-10)"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

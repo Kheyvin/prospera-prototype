@@ -1,0 +1,72 @@
+# 06-tickets.yaml — organizacion-ficticia-golden-fixture (ready package, armado a mano — hueco KIT 0.5.3)
+story_id: organizacion-ficticia-golden-fixture
+autonomous_mode: true           # RATIFICADO por el operador 2026-07-18 ("lanza el desarrollo y auditoria, todo") — G se salta, R+B corren
+notes: >-
+  Historia de DATOS + una herramienta (verificador). La matriz de casuística C1-C8 (03-arch) es el
+  contrato de contenido: cada builder recibe sus filas y marca evidencia. TDD aplica al verificador
+  (mutación RED primero). Orden: T-1 → T-2 → (T-3 ∥ T-4) → T-5 → T-6 → (T-7 ∥ T-8) → T-9.
+  Shells = repos git propios (commits por pathspec empresa/, patrón migración prenter).
+
+tickets:
+  - id: T-1
+    titulo: "Schema aditivo: enum tipo_unidad += planta + paridad Go (TestParidadSchema) + gates verdes"
+    files: [sistema/schema/objeto.schema.yaml, go/objeto.go, go/objeto_test.go]
+    dod: "gen_schema --check 0 · go test verde · cero migración (nadie usa planta aún)"
+    dependencias: []
+    assignment: {primary_agent: "orquestador (a mano)", rationale: "toca el contrato — chico pero de juicio"}
+
+  - id: T-2
+    titulo: "gen_cobertura.py (D-A1/D-A2): campos+enums+aristas+verbos+provenance · --shell/--flota/--area/--manifiesto · reparto declarado en gen_cobertura.yaml · TDD mutación RED primero (test_gen_cobertura.py)"
+    files: [sistema/schema/gen_cobertura.py, sistema/schema/gen_cobertura.yaml, sistema/schema/test_gen_cobertura.py]
+    dod: "SC-2 (mutación) · política RN-17 completa · exit codes · manifiesto md"
+    dependencias: [T-1]
+    assignment: {primary_agent: "orquestador (a mano), TDD", rationale: "la única pieza de código real — el contrato de la historia"}
+
+  - id: T-3
+    titulo: "Mini-nichos retail.yaml + manufactura.yaml (4-6 unidades c/u, conforme nicho.schema.yaml; KPIs que Alameda/Vulcano anclan) + verbos nuevos liquidar/calibrar por PR-flujo (D-A7)"
+    files: [sistema/metodo/nichos/retail.yaml, sistema/metodo/nichos/manufactura.yaml, sistema/schema/verbos.yaml]
+    dod: "gen_metodo --check 0 · gen_schema --check 0 · unidades con confianza/derivado_de/condiciones (anti-alucinación)"
+    dependencias: [T-1]
+    assignment: {primary_agent: "sub-agente (brief: nicho.schema + inmobiliario.yaml como patrón + filas C-matrix)", model_preference: inherit, rationale: "patrón existente claro; provenance disciplinada"}
+
+  - id: T-4
+    titulo: "Terranova estructura: empresa.yaml (mixto · unidades obra×3+SPV×2 · entidades_legales) + areas(12, 3 niveles) + roles(~40) + personas(~200, seed-tables curadas D-A3) — casuística C1 completa"
+    files: ["~/Proyectos/terranova/empresa/** (repo nuevo, git init)"]
+    dod: "C1.1-C1.9 evidenciadas · organigrama recorrible · 0E/0W parcial (entidades presentes válidas)"
+    dependencias: [T-2]
+    assignment: {primary_agent: "sub-agente builder con seed-tables dictadas por el orquestador", rationale: "expansión mecánica gobernada; el orquestador cura los seeds"}
+
+  - id: T-5
+    titulo: "Terranova Finanzas 100% (HITO área #1): procesos tortuga (~8: facturación, cobranza, pagos, cierre mensual transversal, conciliación, caja, presupuesto, liquidación de obra) + KPIs nicho (caja/absorción/DSO/margen + dpi antigüedad-saldos) + cascada mixto 4 horizontes + KRs kpi_ref + mediciones series 12m por obra (Aurora verde/Marina roja, divergente) + brechas + pm-dmaic-cobranza (cadena movio) + ideas + triage 5/5 — casuística C2-C4/C6-C7 filas T"
+    files: ["~/Proyectos/terranova/empresa/**"]
+    dod: "gen_cobertura --area finanzas = 0 huecos campos+aristas · C-filas T·Finanzas evidenciadas"
+    dependencias: [T-4]
+    assignment: {primary_agent: "orquestador (a mano) + sub-agentes por lote de entidad", rationale: "el corazón golden — máxima densidad de juicio"}
+
+  - id: T-6
+    titulo: "Terranova resto de áreas hasta golden: Comercial (funnel lead→lag) · Obras (matricial, avance, contratistas) · Desarrollo (permisos espera≫toque) · GH · TI + sistemas(10) + capabilities(8) + resto proyectos/ideas/brechas → 100% campos+aristas Terranova"
+    files: ["~/Proyectos/terranova/empresa/**"]
+    dod: "gen_cobertura terranova: campos 100% · aristas 100% · 0E/0W vía /api/objeto"
+    dependencias: [T-5]
+    assignment: {primary_agent: "sub-agentes por área con filas C-matrix asignadas", rationale: "patrón fijado por T-5; replicación gobernada"}
+
+  - id: T-7
+    titulo: "Alameda completa (~230 archivos): okr-trimestral · 10 sucursales+2 franquicias · procesos plantilla medidos por unidad · estacionalidad · e-commerce producto{} · kaizen merma · outsourcing/proveedor — filas A de C1-C8"
+    files: ["~/Proyectos/alameda/empresa/** (repo nuevo)"]
+    dod: "0E/0W en vivo · filas A evidenciadas · enums exclusivos según reparto"
+    dependencias: [T-5]
+    assignment: {primary_agent: "sub-agente builder (brief: patrón Terranova + filas A + nicho retail)", rationale: "paralelo con T-8"}
+
+  - id: T-8
+    titulo: "Vulcano completa (~275 archivos): gpd-anual+PLR · plantas×2 · MASP loop-back scrap · KRI seguridad rollup peor-hijo · BPO contable · Excel/legacy→brecha→proyecto migración · turnos · calibrar — filas V de C1-C8"
+    files: ["~/Proyectos/vulcano/empresa/** (repo nuevo)"]
+    dod: "0E/0W en vivo · filas V evidenciadas · enums exclusivos según reparto"
+    dependencias: [T-5]
+    assignment: {primary_agent: "sub-agente builder (brief: patrón Terranova + filas V + nicho manufactura)", rationale: "paralelo con T-7"}
+
+  - id: T-9
+    titulo: "Cierre: registro chris-corp+~/.cockpit (D-A5) · live-verify ×3 · gen_cobertura --flota 0 huecos · manifiesto-cobertura-flota.md commiteado + link desde operar-metodo · READMEs por shell + ejemplar comentado por entidad (golden) · SC-8 latencia · checkpoint developed"
+    files: [sistema/schema/manifiesto-cobertura-flota.md, checkpoint.md, "~/Proyectos/{terranova,alameda,vulcano}/README.md", "chris-corp/portfolio/registry.yaml", "~/.cockpit/cockpit.yaml"]
+    dod: "AC-1..AC-8 evidenciados · gates 4/4 · autonomous → AUTO-HANDOFF auditor"
+    dependencias: [T-6, T-7, T-8, T-3]
+    assignment: {primary_agent: "orquestador (a mano)", rationale: "cierre + evidencia + registro cross-repo"}

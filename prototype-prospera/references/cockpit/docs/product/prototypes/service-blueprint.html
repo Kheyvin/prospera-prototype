@@ -1,0 +1,64 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Service Blueprint · prenter-harness (super-admin)</title><!-- GENERADO por tooling/scripts/gen_prototypes.py desde service/process/. No editar a mano. --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><style>
+:root{--ink:#221A2E;--ink-soft:#4A4156;--ink-faint:#8C8499;--paper:#F6F3FB;--card:#fff;--line:#E7E1F0;
+--purpura:#7C3AED;--purpura-deep:#4C1D95;--purpura-wash:#F0EAFB;--oro:#C8962A;--oro-bright:#E6BC57;--oro-wash:#F7EFD9;
+--shadow:0 1px 2px rgba(34,26,46,.04),0 8px 28px rgba(34,26,46,.07)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(1200px 600px at 85% -10%,#EFE9FB 0%,transparent 60%),var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:15px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 22px}.mono{font-family:"IBM Plex Mono",monospace}h1,h2{font-family:"Space Grotesk";letter-spacing:-.01em}
+header.top{position:sticky;top:0;z-index:30;background:rgba(246,243,251,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:14px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Space Grotesk";font-weight:700}
+.brand .dot{width:18px;height:18px;border-radius:50% 50% 50% 2px;background:linear-gradient(150deg,var(--purpura),var(--purpura-deep));box-shadow:0 0 0 3px var(--purpura-wash)}
+.super{margin-left:auto;font-family:"IBM Plex Mono";font-size:11px;color:var(--purpura-deep);background:var(--purpura-wash);border:1px solid #DACBF5;padding:5px 11px;border-radius:999px}
+.intro{padding:26px 0 6px}.eyebrow{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--purpura);margin:0 0 8px}
+.intro h1{font-size:27px;margin:0 0 6px;font-weight:600}.intro p{color:var(--ink-soft);max-width:74ch;margin:.3em 0}
+.tabs{display:flex;gap:8px;margin:18px 0 4px;flex-wrap:wrap}
+.tabs button{font:inherit;font-size:13.5px;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);padding:9px 15px;border-radius:11px;cursor:pointer;text-align:left;box-shadow:var(--shadow)}
+.tabs button .id{font-family:"IBM Plex Mono";font-size:11px;color:var(--ink-faint);display:block}
+.tabs button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}.tabs button[aria-pressed=true] .id{color:#C9BEDA}
+.meta-line{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0;font-size:13px;color:var(--ink-soft)}.meta-line b{color:var(--ink)}.meta-line .lens{color:var(--purpura-deep);font-weight:600}
+.legend{display:flex;gap:8px 16px;flex-wrap:wrap;margin:6px 0 16px;font-size:12px;color:var(--ink-faint)}.legend i{width:11px;height:11px;border-radius:3px;display:inline-block;margin-right:5px;vertical-align:-1px}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);background:var(--card)}
+.grid{display:grid;min-width:1100px}
+.grid>div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:11px 12px;font-size:12px;line-height:1.4}
+.hcell{background:var(--ink);color:#fff;font-family:"Space Grotesk";font-weight:600;font-size:12.5px}
+.hcell.lead{font-family:"IBM Plex Mono";font-weight:500;font-size:11px;color:#C9BEDA;display:flex;align-items:center}
+.emo{background:#FBF9FE;text-align:center;font-size:16px}.emo.lead{font-family:"IBM Plex Mono";font-size:10px;color:var(--ink-faint);text-align:left}
+.rowlabel{position:sticky;left:0;z-index:4;font-family:"Space Grotesk";font-weight:600;font-size:11.5px;display:flex;align-items:center}
+.lane-touch{background:var(--oro-wash)}.lane-touch.rowlabel{background:#F2E7C8}
+.lane-cli{background:#F4F7FD}.lane-cli.rowlabel{background:#E6EEFA}
+.lane-usr{background:#fff}.lane-usr.rowlabel{background:var(--paper)}
+.lane-front{background:#fff}.lane-front.rowlabel{background:var(--paper)}
+.lane-back{background:var(--purpura-wash)}.lane-back.rowlabel{background:#E6DBF8}
+.lane-sup{background:#F5F4F8;color:var(--ink-soft)}.lane-sup.rowlabel{background:#ECEAF1;color:var(--ink)}
+.cell .heart{color:var(--oro);font-weight:700}.dim{color:var(--ink-faint)}
+.linerow{grid-column:1 / -1;border:0!important;padding:0!important;height:0;position:relative;z-index:7}
+.linerow span{position:absolute;left:14px;top:-9px;z-index:6;white-space:nowrap;font-family:"IBM Plex Mono";font-size:10px;letter-spacing:.08em;text-transform:uppercase;background:var(--paper);padding:2px 8px;border:1px dashed var(--purpura);border-radius:999px;color:var(--purpura-deep)}
+.linerow::before{content:"";position:absolute;left:0;right:0;top:0;border-top:2px dashed var(--purpura);opacity:.5}
+.reading{margin:16px 0 10px;padding:13px 15px;background:var(--oro-wash);border:1px solid #EAD9A8;border-radius:11px;font-size:13px;color:#6b5212}
+.hint{font-size:12px;color:var(--ink-faint);margin:14px 0 8px}.hcell.ph{cursor:pointer}.hcell.ph .zoom{opacity:.5;font-size:10px;margin-left:4px}.hcell.ph.sel{background:var(--purpura-deep)}
+.detalle{margin:14px 0 0;padding:18px 20px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);font-size:13.5px}
+.detalle:empty{display:none}.detalle h3{margin:0 0 4px;font-size:18px}.detalle h4{margin:16px 0 6px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--purpura)}
+.detalle ol.flow{margin:0;padding-left:20px}.detalle ol.flow li{margin:5px 0;line-height:1.5}
+.carril{font-family:"IBM Plex Mono";font-size:10px;padding:1px 6px;border-radius:5px;margin-right:4px}
+.c-cliente{background:#EAF0FB;color:#2552A8}.c-consultor{background:var(--oro-wash);color:#7a5a10}.c-sistema{background:var(--purpura-wash);color:var(--purpura-deep)}
+.detalle .alt{margin:5px 0;padding:8px 10px;background:#FBFAFE;border-left:2px solid var(--purpura);border-radius:6px}
+.detalle details{margin:6px 0;border:1px solid var(--line);border-radius:8px;padding:6px 10px}.detalle summary{cursor:pointer;font-family:"IBM Plex Mono";font-size:12px;color:var(--purpura-deep)}
+.detalle pre{white-space:pre-wrap;font-family:"IBM Plex Mono";font-size:12px;color:var(--ink-soft);margin:8px 0 2px;line-height:1.5}
+.detalle .muted{color:var(--ink-faint);font-size:12px;margin:10px 0 0}
+footer{border-top:1px solid var(--line);margin-top:26px;padding:20px 0 56px;color:var(--ink-faint);font-size:12px}footer code{font-family:"IBM Plex Mono";color:var(--ink-soft)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><header class="top"><div class="wrap"><div class="brand"><span class="dot"></span> Service Blueprint</div>
+<span class="super">super-admin · diseño-time</span></div></header>
+<main class="wrap"><section class="intro"><p class="eyebrow">This Is Service Design Doing (M24) · vista interna del factory</p>
+<h1>Blueprint del servicio — cómo se entrega cada etapa</h1>
+<p>Los carriles de abajo hacia el detalle: lo que el usuario <b>ve y hace</b>, <b>frontstage</b> (visible),
+<b>backstage</b> (plano Análisis), y los <b>procesos de soporte</b>. Las 3 líneas punteadas son las fronteras clásicas del service blueprint.</p>
+<div class="tabs" id="tabs"></div><div class="meta-line" id="meta"></div>
+<div class="legend"><span><i style="background:var(--oro-wash);border:1px solid #EAD9A8"></i>Touchpoint</span>
+<span><i style="background:#F4F7FD"></i>Acción cliente</span><span><i style="background:#fff;border:1px solid var(--line)"></i>Frontstage</span>
+<span><i style="background:var(--purpura-wash)"></i>Backstage</span><span><i style="background:#F5F4F8"></i>Soporte</span>
+<span class="heart" style="color:var(--oro)">★ = interfaz corazón</span></div></section>
+<p class="hint">Clic en una <b>fase</b> (encabezado) para ver su detalle: tareas (flujo ideal + alternos) y plantillas.</p>
+<div class="scroll"><div class="grid" id="bp"></div></div><div class="reading" id="reading"></div>
+<div class="detalle" id="detalle"></div>
+<footer id="foot"></footer></main></body></html>

@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagrama de despliegue — ecosistema Cockpit (Fabricante / Organización / Edge)</title>
+<!--
+  Curado a mano (CK-18, rediseño de fondo). SSoT de las fichas de nodo = NODOS.md — este diagrama es
+  la vista visual y se edita en el MISMO evento que la decisión que lo cambia. El drawer lee
+  nodos.data.js GENERADO desde NODOS.md por gen_arquitectura.py — editar el .md y regenerar, jamás
+  editar el .js. gen_arquitectura.py VALIDA este archivo (cobertura data-nodo ↔ índice de NODOS,
+  madurez de cada art). Modelo CK-18: Plano del Fabricante (nuestro, fábrica de software) + Plano de
+  la Organización (del cliente, instalado) + Edge (apps sobre Claude Code local). Mueren N1/N4/N7.
+-->
+<style>
+  :root{
+    --bg:#0e1116;--panel:#161b22;--panel2:#1b212b;--line:#2b3340;--ink:#e6edf3;--dim:#8b949e;
+    --ours:#a371f7;--client:#58a6ff;--edge:#3fb950;--conv:#d29922;--ip:#f0a35e;--open:#f85149;--data:#58a6ff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:13.5px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;padding-bottom:50px}
+  header{padding:18px 26px;border-bottom:1px solid var(--line)}
+  h1{margin:0 0 4px;font-size:20px}
+  .sub{color:var(--dim);font-size:13px;max-width:1000px}
+  .principle{margin:14px 26px;padding:12px 16px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;font-size:13px}
+  .principle b{color:#fff}
+  .legend{display:flex;gap:14px 20px;flex-wrap:wrap;padding:10px 26px;font-size:11.5px;color:var(--dim);border-bottom:1px solid var(--line)}
+  .legend .k{display:inline-flex;align-items:center;gap:5px}
+  .sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .wrap{max-width:1180px;margin:18px auto;padding:0 18px}
+  .node{border:2px solid var(--line);border-radius:12px;padding:13px 15px;margin:0 0 4px;position:relative}
+  .node.ours{border-color:var(--ours);background:rgba(163,113,247,.06)}
+  .node.client{border-color:var(--client);background:rgba(88,166,255,.06)}
+  .node.edge{border-color:var(--edge);background:rgba(63,185,80,.06)}
+  .stereo{font-size:10px;letter-spacing:.06em;color:var(--dim);text-transform:none}
+  .ntitle{font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;margin:2px 0 3px}
+  .nmeta{font-size:11px;color:var(--dim);margin-bottom:10px}
+  .subhdr{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6e7681;margin:10px 0 6px}
+  .arts{display:flex;gap:10px;flex-wrap:wrap}
+  .art{flex:1;min-width:220px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
+  .art .as{font-size:9.5px;color:#6e7681;letter-spacing:.05em}
+  .art .at{font-weight:600;font-size:12.5px;margin:1px 0}
+  .art .ad{color:var(--dim);font-size:11px}
+  .art.ip{border-color:var(--ip);border-left:3px solid var(--ip)}
+  .art.data{border-color:var(--data);border-left:3px solid var(--data)}
+  .art.open{border-color:var(--open);border-left:3px solid var(--open);border-style:dashed}
+  .bdg{display:inline-block;font-size:9.5px;padding:1px 6px;border-radius:10px;margin-left:4px;vertical-align:middle}
+  .bdg.ip{background:rgba(240,163,94,.15);color:var(--ip)}
+  .bdg.data{background:rgba(88,166,255,.15);color:var(--data)}
+  .bdg.open{background:rgba(248,81,73,.15);color:var(--open)}
+  .bdg.new{background:rgba(63,185,80,.15);color:var(--edge)}
+  .runtime{margin-top:9px;font-size:11px;color:var(--dim);border-top:1px dashed var(--line);padding-top:7px}
+  .conn{display:flex;flex-direction:column;align-items:center;margin:8px 0;color:var(--dim);font-size:11px}
+  .conn .ar{color:var(--dim);font-size:18px;line-height:1}
+  .conn .pill{border:1px solid var(--line);border-radius:20px;padding:3px 12px;background:var(--panel)}
+  .conn.pull .pill{border-color:var(--ours);color:#c9aef9}
+  .cols{display:flex;gap:12px;flex-wrap:wrap}
+  .col{flex:1;min-width:250px}
+  .person{background:var(--panel);border:1px dashed var(--line);border-radius:8px;padding:9px 11px;margin-top:8px}
+  .person .as{font-size:9.5px;color:#6e7681;letter-spacing:.05em}
+  .person .at{font-weight:600;font-size:12.5px;margin:1px 0}
+  .person .ad{color:var(--dim);font-size:11px}
+  h2.sec{font-size:14px;margin:24px 26px 8px;border-top:1px solid var(--line);padding-top:16px}
+  table.proto{width:calc(100% - 52px);margin:0 26px;border-collapse:collapse;font-size:12px}
+  table.proto th,table.proto td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  table.proto th{background:var(--panel);color:var(--dim)}
+  .open-dec{margin:0 26px;padding:14px 16px;border:1px dashed var(--open);border-radius:10px;background:rgba(248,81,73,.05)}
+  .open-dec h3{margin:0 0 8px;font-size:13.5px;color:#ff9b95}
+  .open-dec li{margin:6px 0;font-size:12.5px}
+  code{background:#0c0f14;padding:1px 5px;border-radius:4px;font-size:11.5px;color:#c9d4e0}
+  .nid{font-size:10px;color:var(--dim);border:1px solid var(--line);border-radius:4px;padding:0 4px;margin-right:4px;vertical-align:middle}
+  .fwrap{margin:0 26px 16px}
+  .fhint{color:var(--dim);font-size:12px;margin-bottom:10px}
+  .frow{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-bottom:8px;font-size:12px}
+  .fpill{border:1px solid var(--line);border-radius:7px;padding:5px 9px;background:var(--panel);white-space:nowrap}
+  .farr{font-size:11px;white-space:nowrap}
+  .flbl{color:var(--dim);font-size:10.5px;margin-left:4px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🗺️ Diagrama de despliegue — ecosistema Cockpit</h1>
+  <div class="sub">Antes que funcionalidades: <b>qué corre dónde</b>, qué datos viven dónde, cómo se comunican los nodos. Modelo <b>Fabricante / Organización / Edge</b> (CK-18). El <b style="color:var(--ours)">Fabricante</b> construye y distribuye (no razona en runtime); la <b style="color:var(--client)">Organización</b> instala y opera con sus datos en su red; el <b style="color:var(--edge)">Edge</b> son apps sobre Claude Code local. &nbsp;·&nbsp; <b style="color:var(--ours)">Clic en cualquier nodo</b> para su ficha (de <code>NODOS.md</code>, SSoT). Actualizado <b>2026-07-17 (CK-21 · re-fichado fino)</b>: <b>Organization Twin</b> — estado deseado (N6) × estado real (N16) × brecha continua (N13) · la Organización corre como <b>instancia single-tenant por cliente en DOS modalidades</b> (hosteada por nosotros = default D3 · en la red del cliente = tier enterprise/regulados) · N3 asciende a <b>Portal</b> (puerta comercial [R16] + canal técnico [R9]) · R-walk R1–R17. Base <b>2026-07-08 (CK-18)</b>: método entregado en arneses (deroga límite IP) · N6 = Repositorio Oficial confidencial (ya no GitHub) · nacen N15/N16/N17/N18/N19 · mueren N1/N4/N7.</div>
+</header>
+
+<div class="principle">
+  <b>Principio rector (CK-18 + CK-21):</b> el sistema es una <b style="color:var(--ours)">fábrica de software</b> que construye el <b>Organization Twin</b> de cada cliente y lo opera como <b>instancia aislada</b>.
+  <b style="color:var(--ours)">Plano del Fabricante = nuestro</b> (construye, versiona, firma y distribuye — no toca datos del cliente).
+  <b style="color:var(--client)">Plano de la Organización = del cliente, single-tenant, en DOS modalidades (D3)</b>: <b>hosteada por nosotros</b> (default — instancia aislada, cifrada, bajo DPA, exportable: "tu organización as-code es un repo git que te llevas cuando quieras") o <b>en su red</b> (tier enterprise/regulados). Misma arquitectura; la instancia no sabe dónde corre.
+  <b style="color:var(--edge)">Edge = apps sobre Claude Code local</b> (una mecánica, arneses por puesto).
+  <b>El flujo ES el twin:</b> el Repositorio Oficial (N6) declara el <b>estado DESEADO</b> → el Lakehouse (N16) observa el <b>estado REAL</b> → Cockpit (N13) mide el hilo de oro (objetivos→OKR→KPI) y sostiene la <b>BRECHA CONTINUA</b>: brecha→proyecto→KPI movido [R17] — GitOps organizacional, el loop nunca cierra.
+  El método <b>se entrega</b> empaquetado en arneses (Arnesia licenciada); la protección pasa de arquitectura a <b>licencia + contrato</b>. <b>"Transitan, no persisten"</b> = promesa del tier en-red-del-cliente (chequeo 2); en el default hosteado la promesa es la instancia aislada + exportable.
+</div>
+
+<div class="legend">
+  <span class="k"><span class="sw" style="background:var(--ours)"></span>Fabricante (nuestro)</span>
+  <span class="k"><span class="sw" style="background:var(--client)"></span>Organización (cliente)</span>
+  <span class="k"><span class="sw" style="background:var(--edge)"></span>Edge (humanos)</span>
+  <span class="k"><span class="sw" style="background:var(--ip)"></span>≪IP / know-how≫</span>
+  <span class="k"><span class="sw" style="background:var(--data)"></span>≪datos del cliente≫</span>
+  <span class="k"><span class="sw" style="background:var(--open)"></span>≪sin construir≫</span>
+</div>
+
+<div class="wrap">
+
+  <!-- FABRICANTE -->
+  <div class="node ours">
+    <div class="stereo">≪execution environment≫ · nube/repos del Fabricante (Prenter)</div>
+    <div class="ntitle">☁️ PLANO DEL FABRICANTE — lo operamos nosotros <span class="bdg ip">IP aquí</span></div>
+    <div class="nmeta">Fábrica de software: construye, versiona, firma y distribuye. NO razona en runtime. NO almacena datos del cliente. Si se cae, la Organización sigue (no está en el request path).</div>
+    <div class="arts">
+      <div class="art ip" data-nodo="N15"><div class="as"><span class="nid">N15</span>≪servicio≫ fábrica · existe (parcial)</div><div class="at">Arnesia — fábrica de arneses <span class="bdg new">nace</span></div><div class="ad">produce/versiona los arneses por rol-en-proceso (skill=proc · plugin=rol) · compila doc+arnés desde la misma fuente (anti-drift) · <code>~/Proyectos/harness-studio</code> [R8]</div></div>
+      <div class="art ip" data-nodo="N2"><div class="as"><span class="nid">N2</span>≪artefacto≫ · existe (parcial)</div><div class="at">Repositorio Maestro</div><div class="ad">SSoT nuestro: método (m1·m2·m3), motor de discovery como arneses, arneses plantilla, código de las apps — el activo, versionado</div></div>
+      <div class="art open" data-nodo="N3"><div class="as"><span class="nid">N3</span>≪servicio≫ · no-construido</div><div class="at">Portal — puerta comercial + canal <span class="bdg new">asciende CK-21</span></div><div class="ad"><b>Puerta comercial [R16]:</b> login · cobro · gestión de usuarios/asientos · licencias por asiento con <b>fingerprint compuesto (NO MAC)</b> · descargas de las apps. <b>Canal técnico [R9]:</b> releases firmadas (go-tuf v2 / Tauri) que el cliente jala · marketplace de arneses revocable · telemetría OTLP/mTLS opt-in</div></div>
+    </div>
+    <div class="runtime">⚙️ Ya no hay runtime de razonamiento server-side — el motor vive como arneses que corren en el edge (N8). Compute desatendido, si existiera, iría por API key.</div>
+  </div>
+
+  <div class="conn pull">
+    <div class="ar">⇵</div>
+    <div class="pill">PULL por TLS — el cliente jala: releases firmadas · arneses · licencias &nbsp;·&nbsp; push saliente: telemetría agregada (el cliente NO abre puertos · el Fabricante NO ve el dato)</div>
+  </div>
+
+  <!-- ORGANIZACIÓN -->
+  <div class="node client">
+    <div class="stereo">≪device≫ · instancia single-tenant — <b>residencia por tier (D3): nube nuestra bajo DPA (default) / red del cliente (enterprise-regulados)</b> — confidencial, con backups</div>
+    <div class="ntitle">🏢 PLANO DE LA ORGANIZACIÓN — una instancia aislada por cliente <span class="bdg data">datos aquí</span></div>
+    <div class="nmeta">El twin del cliente: <b>estado DESEADO</b> (Repositorio Oficial) × <b>estado REAL</b> (Data Lakehouse) × <b>brecha continua</b> (Cockpit). Misma arquitectura en ambas modalidades; el crudo transitorio en el Depósito.</div>
+    <div class="subhdr">Instalables</div>
+    <div class="arts">
+      <div class="art open data" data-nodo="N6"><div class="as"><span class="nid">N6</span>≪artefacto≫ · no-construido</div><div class="at">Repositorio Oficial <span class="bdg data">confidencial</span> — estado DESEADO</div><div class="ad">git confidencial (Forgejo), residencia por tier: <b>Arneses</b> · <b>Metadata Organizada</b> (objeto normalizado) · <b>Documentos Oficiales</b> versionados · <b>Knowledge DB</b> (futura). SSoT de la estructura · el deber-ser del twin [R7]</div></div>
+      <div class="art" data-nodo="N13"><div class="as"><span class="nid">N13</span>≪exec env≫ · existe (parcial)</div><div class="at">Cockpit — binario <code>directorio</code> — la BRECHA CONTINUA</div><div class="ad">Visualización (estructura N6 × operación N16) [R11] + <b>motor de indicadores</b> (hilo de oro medido: semáforo objetivos→OKR→KPI) + <b>ciclo brecha→proyecto</b> (costo/ROI → proyecto → KPI movido) [R17] + <b>Gestión de Cambios</b> (ISO, gate dev→UAT→prod). Sirve web por <b>niveles de acceso</b>. Auth embebida · puerto 4100 · ESTE repo</div></div>
+      <div class="art open data" data-nodo="N16"><div class="as"><span class="nid">N16</span>≪servicio/dato≫ · no-construido</div><div class="at">Data Lakehouse <span class="bdg new">nace</span> — estado REAL</div><div class="ad">dlt (ingesta) + DuckLake/DuckDB (catálogo SQLite→Postgres) · observa la operación de todos los sistemas — el ser del twin · DuckDB embebido en el Go de Cockpit · KPIs sin sistema → captura manual con provenance [R10]</div></div>
+      <div class="art open data" data-nodo="N12"><div class="as"><span class="nid">N12</span>≪artefacto≫ landing zone · no-construido</div><div class="at">Depósito de fuentes</div><div class="ad">crudo de entrada (docs/USB/correo) que deposita el consultor · transitorio · se destruye tras el mapa · el material más sensible [R3]</div></div>
+    </div>
+    <div class="subhdr">Sistemas de la organización (fuentes del lakehouse)</div>
+    <div class="arts">
+      <div class="art data" data-nodo="N18"><div class="as"><span class="nid">N18</span>≪sistemas fuente≫ · existe</div><div class="at">Sistemas operacionales</div><div class="ad">SaaS externo · ERP enlatado · sistema a medida · Excels — las fuentes que nutren el lakehouse; el a medida además recibe capabilities de los devs [R10]</div></div>
+    </div>
+    <div class="runtime">Los arneses (de N6, producidos por Arnesia) se cargan en las apps del edge; Cockpit lee la estructura de N6 y la operación de N16, y sirve por nivel de acceso.</div>
+  </div>
+
+  <!-- EDGES -->
+  <div class="cols">
+    <div class="col">
+      <div class="conn"><div class="ar">▼</div><div class="pill">git (deploy de procesos) + stream-json</div></div>
+      <div class="node edge">
+        <div class="stereo">≪device≫ · máquina del consultor (Prenter → cliente)</div>
+        <div class="ntitle">🧑 Consultor / Analista</div>
+        <div class="nmeta">Construye el sistema de la organización y lo publica. Rol transferible: inicia Prenter, lo hereda el Analista de Calidad del cliente.</div>
+        <div class="arts">
+          <div class="art open ip" data-nodo="N14"><div class="as"><span class="nid">N14</span>≪exec env≫ app instalable · existe (parcial)</div><div class="at">Consultio — App del Consultor <span class="bdg ip">app fina sobre studio-core</span></div><div class="ad">construye el mapa completo (objeto normalizado + documentos + arneses) con preview local de Cockpit · publica a N6 — "deploy de procesos" · sobre N8 (BYO licencia) [R4][R5][R6][R7]</div></div>
+          <div class="art" data-nodo="N8"><div class="as"><span class="nid">N8</span>≪runtime edge≫ · existe · gestionado por la app</div><div class="at">Claude Code (suscripción del humano)</div><div class="ad">el motor común debajo de Consultio/Colab Studio/DevStudio — una suscripción, un humano (ToS) [R15]</div></div>
+        </div>
+        <div class="person" data-nodo="N9"><div class="as"><span class="nid">N9</span>≪actor≫ · existe</div><div class="at">Consultor (Prenter)</div><div class="ad">levanta, construye y publica el sistema; transfiere la operación al cliente</div></div>
+        <div class="person" data-nodo="N19"><div class="as"><span class="nid">N19</span>≪actor≫ · no-construido</div><div class="at">Analista de Calidad (cliente)</div><div class="ad">hereda Consultio; mantiene lo oficial con la Gestión de Cambios (ISO) [R13]</div></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="conn"><div class="ar">▼</div><div class="pill">arneses por puesto + datos de operación</div></div>
+      <div class="node edge">
+        <div class="stereo">≪device≫ · máquina del trabajador operativo</div>
+        <div class="ntitle">🧑‍💼 Trabajador operativo</div>
+        <div class="nmeta">Hace su día a día con los arneses de su puesto (contador, analista…). Produce salidas que nutren el lakehouse.</div>
+        <div class="arts">
+          <div class="art open" data-nodo="N17"><div class="as"><span class="nid">N17</span>≪exec env≫ app instalable · no-construido</div><div class="at">Colab Studio <span class="bdg new">nace</span></div><div class="ad">como DevStudio pero para el trabajador normal · carga los arneses de su puesto (N roles) · sube salidas/Excels al lakehouse · sobre N8 [R12]</div></div>
+          <div class="art"><div class="at">Claude Code (N8)</div><div class="ad">el mismo motor edge, instancia del trabajador — BYO licencia</div></div>
+        </div>
+        <div class="person" data-nodo="N11"><div class="as"><span class="nid">N11</span>≪actor≫ · existe</div><div class="at">Usuarios de la organización (4 niveles)</div><div class="ad">Gobernanza · Estratégico · Táctico · Operativo — cada nivel ve lo que le toca en Cockpit; los operativos además usan Colab Studio [R1]</div></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="conn"><div class="ar">▼</div><div class="pill">git/deploy al sistema a medida</div></div>
+      <div class="node edge">
+        <div class="stereo">≪device≫ · laptop del developer (del cliente)</div>
+        <div class="ntitle">💻 Developer</div>
+        <div class="nmeta">Construye el software a medida (Sistema B) contra los sistemas de la org, con DevStudio sobre Claude Code.</div>
+        <div class="arts">
+          <div class="art" data-nodo="N5"><div class="as"><span class="nid">N5</span>≪exec env≫ app instalable · existe (parcial)</div><div class="at">DevStudio (P2)</div><div class="ad">sus repos + sus historias · proceso/arquitectura/doc as-code · se entrega también a devs del cliente · arneses de dev en Arnesia · <code>~/Proyectos/dev-studio</code> [R14]</div></div>
+          <div class="art"><div class="at">Claude Code (N8)</div><div class="ad">instancia del dev — historias → testing → prod (BYO licencia)</div></div>
+        </div>
+        <div class="person" data-nodo="N10"><div class="as"><span class="nid">N10</span>≪actor≫ · existe</div><div class="at">Developer (cliente)</div><div class="ad">implementa capabilities en el sistema a medida (N18) [R14]</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="sec">🔀 Flujo — de objetivos a operación viva</h2>
+<div class="fwrap">
+  <div class="fhint">Cómo fluye el trabajo, nodo a nodo (ficha de cada uno en <code>NODOS.md</code>). Aristas: <b style="color:#f85149">crudo</b> (sensible) · <b style="color:#58a6ff">derivado/operación</b> · <b style="color:#a371f7">método/arnés</b> · <b style="color:#8b949e">operación/control</b>.</div>
+  <div class="frow">
+    <span class="flbl">construir ▸</span>
+    <span class="fpill" data-nodo="N11">N11 · Gobernanza</span>
+    <span class="farr" style="color:#58a6ff">──objetivos──▶</span>
+    <span class="fpill" data-nodo="N9">N9 · Consultor</span>
+    <span class="farr" style="color:#f85149">──deposita crudo──▶</span>
+    <span class="fpill" data-nodo="N12">N12 · Depósito</span>
+    <span class="farr" style="color:#a371f7">──procesa con──▶</span>
+    <span class="fpill" data-nodo="N14">N14 · Consultio</span>
+    <span class="farr" style="color:#58a6ff">──deploy de procesos (git)──▶</span>
+    <span class="fpill" data-nodo="N6">N6 · Repositorio Oficial</span>
+  </div>
+  <div class="frow">
+    <span class="flbl">fabricar ▸</span>
+    <span class="fpill" data-nodo="N2">N2 · Repositorio Maestro</span>
+    <span class="farr" style="color:#a371f7">──compila──▶</span>
+    <span class="fpill" data-nodo="N15">N15 · Arnesia</span>
+    <span class="farr" style="color:#a371f7">──arneses por rol──▶</span>
+    <span class="fpill" data-nodo="N3">N3 · Distribución</span>
+    <span class="farr" style="color:#8b949e">──releases firmadas (pull)──▶</span>
+    <span class="fpill" data-nodo="N14">N14 · Consultio</span>
+    <span class="farr" style="color:#8b949e">·</span>
+    <span class="fpill" data-nodo="N17">N17 · Colab Studio</span>
+  </div>
+  <div class="frow">
+    <span class="flbl">operar ▸</span>
+    <span class="fpill" data-nodo="N18">N18 · Sistemas</span>
+    <span class="farr" style="color:#58a6ff">──ingesta──▶</span>
+    <span class="fpill" data-nodo="N16">N16 · Data Lakehouse</span>
+    <span class="farr" style="color:#58a6ff">──cruza op. × estructura──▶</span>
+    <span class="fpill" data-nodo="N13">N13 · Cockpit</span>
+    <span class="farr" style="color:#58a6ff">──vista por nivel──▶</span>
+    <span class="fpill" data-nodo="N11">N11 · Usuarios (4 niveles)</span>
+  </div>
+  <div class="frow">
+    <span class="flbl">mejorar ▸</span>
+    <span class="fpill" data-nodo="N19">N19 · Analista de Calidad</span>
+    <span class="farr" style="color:#58a6ff">──solicitud/aprobación (Gestión de Cambios)──▶</span>
+    <span class="fpill" data-nodo="N13">N13 · Cockpit</span>
+    <span class="farr" style="color:#58a6ff">──publica versión──▶</span>
+    <span class="fpill" data-nodo="N6">N6 · Repositorio Oficial</span>
+    <span class="flbl">— el ciclo PDCA/ISO, ya del lado del cliente</span>
+  </div>
+</div>
+
+<h2 class="sec">🔌 Conexiones (con protocolo) — el dato manda</h2>
+<table class="proto">
+  <tr><th>De → A</th><th>Protocolo</th><th>Qué cruza</th><th>Quién inicia</th><th>Estado</th></tr>
+  <tr><td>Organización → Fabricante</td><td>TLS (outbound, pull)</td><td>jala releases firmadas + arneses + licencias</td><td><b>el cliente</b> (no abre puertos inbound)</td><td>diseñado (N3 no-construido)</td></tr>
+  <tr><td>Organización → Fabricante</td><td>OTLP/mTLS (outbound, push)</td><td>telemetría agregada opt-in (salud/uso, no datos)</td><td>el cliente (opt-in)</td><td>diseñado (N3)</td></tr>
+  <tr><td>N14 Consultio → N6 Repositorio Oficial</td><td>git (push/tag)</td><td>procesos/roles/objetivos/documentos ratificados — "deploy de procesos" [R7]</td><td>consultor desde su app</td><td><b>no-construido (BL-15)</b></td></tr>
+  <tr><td>N15 Arnesia → N6 (arneses)</td><td>git / canal N3</td><td>arneses por rol de la organización</td><td>fábrica / entrega al cliente</td><td>no-construido</td></tr>
+  <tr><td>N18 Sistemas → N16 Data Lakehouse</td><td>según sistema (API/DB/FS/Excel)</td><td>datos de operación (ingesta read-only, dlt)</td><td>el lakehouse (jala)</td><td><b>no-construido (BL nuevo)</b></td></tr>
+  <tr><td>N13 Cockpit → N6 / N16</td><td>git read-only / DuckDB embebido</td><td>estructura (N6) + operación (N16) para el cruce</td><td>Cockpit</td><td>parcial (Visualización viva)</td></tr>
+  <tr><td>App del edge → N8 Claude Code</td><td>stdin/stdout (stream-json)</td><td>parametrización de sesiones de agente</td><td>la app (Consultio/Colab/DevStudio)</td><td>N8 vivo; apps N14/N17 no-construidas</td></tr>
+  <tr><td>Usuario negocio → N13</td><td>HTTPS (navegador)</td><td>Cockpit por nivel de acceso</td><td>usuario</td><td>Visualización viva; niveles no-construidos</td></tr>
+</table>
+
+<h2 class="sec">✅ Decisiones de arquitectura (CK-18)</h2>
+<div class="open-dec" style="border-color:var(--edge);background:rgba(63,185,80,.05)">
+  <h3 style="color:#8be39b">Firmadas (operador, CK-18 — D1..D5)</h3>
+  <ol>
+    <li><b>Deroga el límite de IP "el método nunca al cliente" (D1).</b> El método se entrega empaquetado en arneses; Arnesia se entrega al cliente para que los mantenga. Protección = <b>licencia + contrato</b> (canal N3 revocable), ya no arquitectura.</li>
+    <li><b>Mueren N1, N4, N7.</b> El Motor de Discovery server-side (N1) renace como arneses en N2/N14; la voz (N4) se difiere; los agentes efímeros (N7) mueren — <b>todo el levantamiento es vía consultor</b> (Consultio sobre Claude Code).</li>
+    <li><b>N6 = Repositorio Oficial confidencial</b> en la infra del cliente (ya no GitHub): git self-hosted (Forgejo); BD = índice derivado, nunca SSoT.</li>
+    <li><b>Nacen Arnesia (N15), Data Lakehouse (N16), Colab Studio (N17), sistemas de la org (N18), Analista de Calidad (N19)</b>; N18/N19 como nodos propios (D2).</li>
+    <li><b>Data Lakehouse (D3, CK-18):</b> superseded por CK-21 (ver abajo). <b>Knowledge DB (D5):</b> declarada <code>pendiente</code>, files-first en el repo cuando haya demanda.</li>
+    <li><b>Consultio (D4)</b> = nombre de la App del Consultor (linaje DevStudio).</li>
+  </ol>
+  <h3 style="color:#8be39b;margin-top:10px">Firmadas (operador, CK-21 — el pivote twin, 2026-07-16/17)</h3>
+  <ol>
+    <li><b>Organization as Code → Organization Twin (D1/D2):</b> twin = deseado (N6) × real (N16) × brecha continua (N13); diferenciador = hilo de oro medido + ciclo brecha→proyecto→KPI movido [R17].</li>
+    <li><b>Default comercial invertido (D3):</b> instancia single-tenant <b>hosteada por nosotros</b> (DPA, cifrada, exportable); en la red del cliente = tier enterprise/regulados; multitenant = fase 2. Misma arquitectura en ambas.</li>
+    <li><b>N3 asciende a Portal (D4):</b> puerta comercial [R16] — login/cobro/asientos, licencias por <b>fingerprint compuesto, NO MAC</b> — además del canal técnico [R9].</li>
+    <li><b>Consultio v0 (D7):</b> los arneses del método sobre Claude Code pelado, sin app shell — ya no espera al clon DevStudio (llega en F3).</li>
+    <li><b>Gestión de Cambios al MVP (D5/D8):</b> el pipeline dev→UAT→prod ES la gestión de cambios ISO.</li>
+    <li><b>Frontera métricas de persona (CK-24):</b> el twin mide roles/procesos/áreas; vista persona-nombrada = opt-in Gobernanza + consentimiento.</li>
+  </ol>
+  <h3 style="color:var(--dim);margin-top:10px">Pendiente (tracking = <code>docs/product/</code> — historias + releases; roadmap F1 CK-22/CK-23)</h3>
+  <ul>
+    <li><b>Consultio v0</b> — arneses del método M1-M3 (F1.2 <code>metodo-como-arnes-v0</code> + <code>operar-metodo</code>); el shell y Colab Studio en F3.</li>
+    <li><b>Repositorio Oficial</b> — Forgejo, BD = índice derivado (F1.3 <code>forgejo-self-hosted-bd-vs-archivos</code>).</li>
+    <li><b>Data Lakehouse</b> — dlt + DuckLake (F1.4) + <b>captura manual de KPIs</b> con provenance (F1.4, auditoría 2026-07-17).</li>
+    <li><b>Cockpit</b> — motor de indicadores + brecha→proyecto (F1.1, sobre el golden fixture CK-23) · Gestión de Cambios + niveles de acceso (F1.3).</li>
+    <li><b>Portal (N3)</b> — canal técnico + puerta comercial (F2).</li>
+    <li><b>Knowledge Database</b> — files-first cuando haya demanda (F3, D5).</li>
+  </ul>
+</div>
+
+<!-- DRAWER de nodos · lee window.NODOS (nodos.data.js ← GENERADO desde NODOS.md por gen_arquitectura.py) · NO 2da SSoT -->
+<script src="nodos.data.js"></script>
+<style>
+  [data-nodo]{cursor:pointer;transition:.12s}
+  [data-nodo]:hover{filter:brightness(1.18);outline:1px solid var(--ink);outline-offset:1px}
+  #ndOverlay{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.18s;z-index:40}
+  #ndOverlay.open{opacity:1;pointer-events:auto}
+  #ndDrawer{position:fixed;top:0;right:0;height:100vh;width:min(470px,93vw);background:var(--panel);border-left:1px solid var(--line);
+    transform:translateX(100%);transition:transform .2s;z-index:50;overflow:auto;padding-bottom:40px}
+  #ndDrawer.open{transform:none}
+  #ndHead{position:sticky;top:0;background:var(--panel2);border-bottom:1px solid var(--line);padding:16px 18px}
+  #ndClose{position:absolute;top:11px;right:13px;cursor:pointer;color:var(--dim);font-size:18px;line-height:1;background:none;border:none}
+  #ndClose:hover{color:var(--ink)}
+  #ndTitle{font-size:15px;font-weight:700;color:var(--ink);padding-right:24px}
+  #ndMeta{font-size:11.5px;color:var(--dim);margin-top:4px}
+  .df{padding:11px 18px;border-bottom:1px solid var(--line)}
+  .dk{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#6e7681;margin-bottom:3px}
+  .dv{font-size:12.5px;color:var(--ink);line-height:1.55}
+  .dv a{color:var(--client)} .dv strong{color:#fff}
+  .dv code{background:#0c0f14;padding:1px 5px;border-radius:4px;font-size:11px;color:#c9d4e0}
+</style>
+<div id="ndOverlay"></div>
+<aside id="ndDrawer" aria-hidden="true">
+  <div id="ndHead"><button id="ndClose" title="Cerrar (Esc)">✕</button><div id="ndTitle"></div><div id="ndMeta"></div></div>
+  <div id="ndBody"></div>
+</aside>
+<script>
+(function(){
+  var ov=document.getElementById('ndOverlay'),dr=document.getElementById('ndDrawer'),
+      ti=document.getElementById('ndTitle'),me=document.getElementById('ndMeta'),bo=document.getElementById('ndBody');
+  function md(s){return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g,'<em>$1</em>')
+    .replace(/`([^`]+)`/g,'<code>$1</code>');}
+  function open(id){
+    var n=(window.NODOS||{})[id]; if(!n)return;
+    ti.innerHTML=id+' · '+md(n.titulo);
+    me.textContent=[n.plano,n.tipo,n.madurez].filter(Boolean).join(' · ')+((n.marca&&n.marca!=='—')?'   '+n.marca:'');
+    bo.innerHTML=(n.campos||[]).map(function(c){
+      return '<div class="df"><div class="dk">'+md(c[0])+'</div><div class="dv">'+md(c[1])+'</div></div>';}).join('');
+    dr.classList.add('open');ov.classList.add('open');dr.setAttribute('aria-hidden','false');dr.scrollTop=0;
+  }
+  function close(){dr.classList.remove('open');ov.classList.remove('open');dr.setAttribute('aria-hidden','true');}
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-nodo]'); if(t){open(t.getAttribute('data-nodo'));}
+  });
+  ov.addEventListener('click',close);
+  document.getElementById('ndClose').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+  /* ---------- main stage ---------- */
+  .main { position:relative; min-width:0; overflow:hidden; background:var(--bg); }
+  .topbar { position:absolute; top:0; left:0; right:0; z-index:20; display:flex; align-items:center; gap:10px; padding:11px 14px; pointer-events:none; }
+  .topbar > * { pointer-events:auto; }
+  .crumbline { display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--tx-mut); white-space:nowrap; min-width:0; flex-shrink:1; overflow:hidden; }
+  .crumbline b { color:var(--tx); font-weight:600; }
+  .crumbline .sep { color:var(--tx-faint); }
+  .btn { display:inline-flex; align-items:center; gap:7px; padding:7px 12px; border-radius:8px; border:1px solid var(--border); white-space:nowrap;
+    background:rgba(12,17,16,.82); backdrop-filter:blur(6px); font-size:12.5px; color:var(--tx-mut); transition:border-color .14s,color .14s,background .14s; }
+  .btn:hover { border-color:#2f3f3c; color:var(--tx); }
+  .btn.ghost { background:transparent; }
+  .btn:disabled { opacity:.35; pointer-events:none; }
+  .btn .arw { font-size:14px; }
+
+  /* identidad del contexto — As-Is hoy; nombre de la corrida cuando exista simulación */
+  .idwrap { position:relative; }
+  .idpill { display:inline-flex; align-items:center; gap:8px; padding:7px 12px; border-radius:8px; border:1px solid var(--teal-800);
+    background:rgba(10,96,90,.14); backdrop-filter:blur(6px); font-size:12.5px; color:var(--tx); font-weight:600; white-space:nowrap; }
+  .idpill .st { width:7px; height:7px; border-radius:50%; background:var(--ok); box-shadow:0 0 8px var(--ok); }
+  .idpill .car { color:var(--tx-faint); font-size:10px; }
+  .idmenu { position:absolute; top:calc(100% + 6px); left:0; z-index:40; min-width:264px; background:var(--panel); border:1px solid var(--border);
+    border-radius:11px; padding:6px; box-shadow:0 24px 60px -24px rgba(0,0,0,.95); display:none; }
+  .idmenu.open { display:block; }
+  .idmenu .it { display:flex; align-items:center; gap:9px; width:100%; text-align:left; background:none; border:none; border-radius:8px; padding:9px 10px; font-size:12.5px; color:var(--tx); }
+  .idmenu .it:hover { background:var(--raised); }
+  .idmenu .it .chk { color:var(--brand); font-size:12px; width:14px; }
+  .idmenu .it.dis { opacity:.45; pointer-events:none; }
+  .idmenu .it small { display:block; color:var(--tx-faint); font-size:10px; }
+  .idmenu .sep { height:1px; background:var(--border-soft); margin:5px 4px; }
+
+  .fchip { display:inline-flex; align-items:center; gap:7px; border:1px solid var(--teal-700); color:var(--brand-hi);
+    border-radius:20px; padding:5px 11px; font-size:11.5px; background:rgba(0,183,170,.07); backdrop-filter:blur(6px); max-width:200px; }
+  .fchip .t { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .fchip { min-width:0; flex-shrink:1; }
+  .fchip button { background:none; border:none; color:inherit; font-size:12px; padding:0; line-height:1; }
+  .count { font-family:var(--font-mono); font-size:10px; color:var(--tx-faint); white-space:nowrap; }
+
+  .search { display:flex; align-items:center; gap:7px; border:1px solid var(--border); border-radius:8px;
+    background:rgba(12,17,16,.82); backdrop-filter:blur(6px); padding:6px 10px; }
+  .search .ic { color:var(--tx-faint); font-size:12px; }
+  .search input { background:none; border:none; color:var(--tx); outline:none; width:116px; font-family:inherit; font-size:12.5px; }
+  .search input::placeholder { color:var(--tx-faint); }
+  .search kbd { font-family:var(--font-mono); font-size:9px; color:var(--tx-faint); border:1px solid var(--border); border-radius:4px; padding:1px 4px; }
+
+  .piel-toggle { display:flex; border:1px solid var(--border); border-radius:9px; overflow:hidden; background:rgba(12,17,16,.82); backdrop-filter:blur(6px); }
+  .piel-toggle button { padding:7px 12px; font-size:12px; color:var(--tx-mut); background:none; border:none; white-space:nowrap; }
+  .piel-toggle button.on { background:var(--teal-900); color:var(--brand-hi); }
+  .piel-toggle.hide { display:none; }
+
+  .stage { position:absolute; inset:0; cursor:grab; }
+  .stage.drag { cursor:grabbing; }
+  .world { position:absolute; top:0; left:0; width:1440px; height:900px; transform-origin:0 0; will-change:transform; }
+  .world.anim { transition:transform .5s cubic-bezier(.22,.61,.36,1); }
+  svg.edges { position:absolute; inset:0; overflow:visible; pointer-events:none; z-index:1; }
+  svg.edges path { fill:none; }
+  .layer { position:absolute; inset:0; pointer-events:none; }  /* las capas full-cover NO comen el mouse… */
+  .layer > * { pointer-events:auto; }                           /* …sus hijos sí (nodos, pins, tokens) */
+  .layer.nodes { z-index:3; }
+  .layer.pins { z-index:4; }
+  .node { position:absolute; transform:translate(-50%,-50%); }
+

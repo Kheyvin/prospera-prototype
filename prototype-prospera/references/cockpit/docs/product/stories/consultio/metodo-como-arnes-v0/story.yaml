@@ -1,0 +1,31 @@
+id: metodo-como-arnes-v0
+type: service-story
+state: idea
+module: consultio
+node: N14
+cap_target: "consultio/metodo-como-arnes-v0"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: [CK-21]
+dependencies:
+  stories: [poblar-metodo-m1-m3, schema-v2-hilo-de-oro-kinetica]
+context:
+  job: "Como consultor quiero los arneses del método (M1-M3) corriendo sobre Claude Code pelado — levantamiento por entrevista con agente, doc→modelo con provenance y preview local de Cockpit — para operar el método en el cliente hoy, sin esperar la app shell de Consultio."
+  why: "Consultio estaba bloqueado esperando el clon de DevStudio (CK-21 D7 lo desbloquea): el primer entregable es el método como arnés, sin app. Patrón validado por BusinessOptix Discovery Agent / iGrafx Pia / ARIS AI Companion."
+provenance:
+  backlog_id: null
+  titulo: "El método como arnés v0 — M1-M3 sobre Claude Code pelado (sin app shell)"
+  detalle: >-
+    NUEVO CK-21 (D7). Primer entregable de Consultio SIN app shell: los arneses del método (M1-M3)
+    corriendo sobre Claude Code pelado — levantamiento por entrevista con agente + doc→modelo
+    (MOF/manuales/organigramas/Excel → objeto normalizado con provenance) + preview local de Cockpit
+    (patrón dev-server). Desbloquea a Consultio de la espera a DevStudio. Patrón validado:
+    BusinessOptix Discovery Agent / iGrafx Pia / ARIS AI Companion. Research:
+    organization-as-code/07 (#33-35). La app shell (BL-15) queda como evolución posterior.
+  origen: "ficha CK-21 (2026-07-16) — visión organization-as-code + organization twin"
+  estado_legacy: n/a
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

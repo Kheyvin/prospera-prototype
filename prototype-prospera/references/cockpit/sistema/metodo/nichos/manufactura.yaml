@@ -1,0 +1,90 @@
+# manufactura.yaml — conocimiento de nicho: MANUFACTURA  ·  L1 · INSTANCIA
+#
+# Eje VERTICAL del cerebro (conforma a nichos/nicho.schema.yaml). Qué mide/sabe el rubro
+# manufactura a altura de DIRECTORIO, con su procedencia y condiciones. Gemelo vertical
+# de methodologies.yaml; mismo patrón que inmobiliario.yaml.
+#
+# INVARIANTE: cada unidad lleva confianza + derivado_de + condiciones. Sin fuente verificada
+# NO se citan benchmarks ni rangos (anti-alucinación): las unidades definen la CATEGORÍA a
+# medir y el rango se LEVANTA por cliente.
+#
+# Seed v0 (2026-07-18): golden fixture (historia organizacion-ficticia-golden-fixture,
+# shells alameda/vulcano). Categorías estándar del rubro — NO hallazgos de un cliente real.
+
+_meta:
+  vertical: manufactura
+  cod: MFG
+  total: 6
+  seed: "2026-07-18 · golden fixture (historia organizacion-ficticia-golden-fixture, shells alameda/vulcano)"
+
+N-MFG-01:
+  nicho: manufactura
+  tipo: kpi
+  nombre: "OEE (eficiencia global de equipos)"
+  que: "Eficiencia global de un equipo/línea: producto de disponibilidad (tiempo operado / tiempo planificado) × rendimiento (velocidad real / velocidad nominal) × calidad (piezas buenas / piezas totales)."
+  por_que: "Condensa en un número dónde se pierde capacidad instalada — paradas, ritmo lento o retrabajo — y permite al directorio comparar líneas/plantas antes de aprobar CAPEX para 'ampliar' una capacidad que quizá ya existe."
+  mide: "OEE = disponibilidad × rendimiento × calidad (%), por línea/equipo y turno."
+  confianza: media
+  derivado_de: experto
+  condiciones: "Aplica a producción seriada con tiempo planificado y velocidad nominal definidos por equipo; requiere registro confiable de paradas. Los umbrales de referencia (p.ej. 'clase mundial') NO se asumen — la línea base se levanta por cliente."
+  objeto: O3
+
+N-MFG-02:
+  nicho: manufactura
+  tipo: kpi
+  nombre: "Scrap / FTQ (calidad a la primera)"
+  que: "Merma de proceso: material/producto descartado (scrap) y proporción de unidades que salen conformes a la primera pasada, sin retrabajo ni reproceso (FTQ, first time quality)."
+  por_que: "El retrabajo esconde el costo de la mala calidad: consume capacidad y material sin registrarse como falla. FTQ bajo con calidad final 'alta' significa que la planta paga dos veces por la misma pieza."
+  mide: "Scrap = unidades (o kg) descartadas / producidas (%); FTQ = unidades conformes a la primera / unidades totales (%), por línea y producto."
+  confianza: media
+  derivado_de: experto
+  condiciones: "Requiere definir 'conforme a la primera' por producto y registrar los retrabajos (el modo de falla típico es que no se registran). Los niveles aceptables varían por proceso e industria — se levantan por cliente."
+  objeto: O6
+
+N-MFG-03:
+  nicho: manufactura
+  tipo: kpi
+  nombre: "OTIF (entregas a tiempo y completas)"
+  que: "Porcentaje de pedidos entregados al cliente en la fecha comprometida (on time) Y con cantidad/mix completos (in full); una entrega parcial o tardía cuenta como incumplida."
+  por_que: "Es el indicador con el que el cliente juzga a la planta: OTIF bajo erosiona contratos y dispara penalidades y urgencias (fletes extra, horas extra) que se comen el margen."
+  mide: "OTIF = pedidos entregados a tiempo y completos / pedidos totales (%), por cliente y periodo."
+  confianza: media
+  derivado_de: experto
+  condiciones: "Exige fecha comprometida trazable (la original, no la renegociada) y criterio explícito de 'completo'. La meta contractual varía por industria y cliente — se levanta por cliente."
+  objeto: T2
+
+N-MFG-04:
+  nicho: manufactura
+  tipo: kpi
+  nombre: "Accidentabilidad (LTIFR)"
+  que: "Frecuencia de accidentes con tiempo perdido: accidentes con baja laboral (lost time injuries) por horas-hombre trabajadas, normalizado a una base común."
+  por_que: "La seguridad es responsabilidad indelegable del directorio (deber legal y fiduciario): un LTIFR que sube anticipa un evento grave, y su costo — parada, multa, reputación, moral — excede cualquier KPI operativo."
+  mide: "LTIFR = accidentes con tiempo perdido × 1 000 000 / horas-hombre trabajadas, por planta y periodo (la base del factor se fija con el cliente; algunos marcos usan otra convención)."
+  confianza: media
+  derivado_de: experto
+  condiciones: "Requiere registro disciplinado de incidentes y de horas-hombre (el subregistro es el modo de falla típico). La comparación sectorial depende del rubro y del marco legal local — la referencia se levanta por cliente."
+  objeto: O4
+
+N-MFG-05:
+  nicho: manufactura
+  tipo: kpi
+  nombre: "Costo unitario de producción"
+  que: "Costo total de fabricar una unidad (materiales directos + mano de obra directa + costos indirectos de fábrica absorbidos), por producto/SKU."
+  por_que: "Sin costo unitario confiable el directorio fija precios y acepta pedidos a ciegas: puede estar vendiendo volumen que destruye margen. Es la base de toda decisión de mix, precio y make-or-buy."
+  mide: "Costo unitario = costo total de producción del periodo / unidades producidas (S/ por unidad), por producto y línea; descomponible en material / MOD / CIF."
+  confianza: baja
+  derivado_de: hipotesis
+  condiciones: "⚠ NO hay benchmark universal de costo unitario: el número depende del sistema de costeo del cliente (absorción vs directo, drivers de CIF). Esta unidad define la CATEGORÍA a medir; la línea base y el rango se LEVANTAN por cliente, no se asumen."
+  objeto: O2
+
+N-MFG-06:
+  nicho: manufactura
+  tipo: kpi
+  nombre: "Disponibilidad de equipos (MTBF / MTTR)"
+  que: "Confiabilidad y mantenibilidad de los equipos críticos: tiempo medio entre fallas (MTBF) y tiempo medio de reparación (MTTR); juntos determinan la disponibilidad del activo."
+  por_que: "Separa el problema de mantenimiento del de operación: MTBF corto = el equipo falla mucho (preventivo/activos); MTTR largo = se repara lento (repuestos, personal). Cada hora de parada no planificada es capacidad vendida que no se produjo."
+  mide: "MTBF = tiempo operativo / nº de fallas (horas); MTTR = tiempo total de reparación / nº de fallas (horas); disponibilidad = MTBF / (MTBF + MTTR) (%)."
+  confianza: media
+  derivado_de: experto
+  condiciones: "Aplica a equipos críticos con registro de fallas y órdenes de trabajo (CMMS o bitácora disciplinada); sin historial de fallas el KPI no es medible. Los umbrales dependen del tipo de equipo — se levantan por cliente."
+  objeto: O3

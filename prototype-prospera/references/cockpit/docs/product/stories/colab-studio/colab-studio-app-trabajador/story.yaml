@@ -1,0 +1,28 @@
+id: colab-studio-app-trabajador
+type: service-story
+state: idea
+module: colab-studio
+node: N17
+cap_target: "colab-studio/colab-studio-app-trabajador"
+cap_change_type: new
+capability_status: planned
+release: F3
+prioridad: media
+fichas: [CK-18]
+dependencies:
+  stories: []
+context:
+  job: "Como trabajador operativo (contador, analista) quiero una app que cargue los arneses de mi puesto (N roles) y enfoque mi trabajo diario para producir salidas (Excels) que nutren el lakehouse."
+  why: "Extiende el modelo de apps-sobre-Claude-Code al trabajador normal. Sin Colab Studio la operación día a día no queda instrumentada ni alimenta a Cockpit vía el lakehouse (N16)."
+provenance:
+  backlog_id: BL-23
+  titulo: "Colab Studio — app del trabajador operativo"
+  detalle: >-
+    NUEVO CK-18. Como DevStudio/Consultio pero para el trabajador normal (contador, analista): carga
+    los arneses de su puesto (N roles) y enfoca su trabajo diario; produce salidas (Excels) que nutren
+    el lakehouse. ¿Clon de DevStudio o variante propia? — se decide con Consultio (misma familia).
+  origen: "operador CK-18 (#6)"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

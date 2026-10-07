@@ -1,0 +1,60 @@
+  /* ============================================================
+     Cockpit — Twin como Territorio · concepto (PRENTER dark-first)
+     Design system: PRENTER · teal único acento · dark single-theme
+     Datos: Desarrolladora Terranova S.A.C. (shell real)
+     v12 (2026-07-26 · CK-30/D-19/D-20): puesto ≠ rol — banda Gente = puestos que operan
+       la cadena · Organigrama = plano del puesto (nivel 4 = nómina) · arnés = REGISTRO por
+       rol×proceso (deriva_de · hash/drift derivado · autonomía CSA · supervisión medida ·
+       guardrails con mecanismo) · fichas nuevas: puesto / área / rol re-significado.
+     v13 (2026-07-26 · firmado operador): z1 = FOCO del mapa de valor, no mundo aparte —
+       renderArea muere; el área ilumina SUS procesos EN SU LUGAR (bandas/orden/hilo
+       intactos), vecinos de cadena a media luz, resto fantasma; cámara encuadra el foco
+       (fitPts); pins/cinética/hilo solo del set enfocado; ficha área: chips de proceso
+       con semáforo · misional/apoyo · dueño. Un solo territorio, dos puertas (pieles).
+     Shell v2 (2026-07-20): investigación DTO/what-if/canvas —
+       izquierda = qué existe (escala + capas con leyenda inline)
+       derecha   = inspector contextual (sin selección: sala de mando)
+       arriba    = identidad As-Is/corrida + filtros chips + búsqueda
+       abajo-izq = zoom/fit + niveles (LOD) · abajo-der = minimapa
+     ============================================================ */
+  :root {
+    --teal-50:#e6f8f6; --teal-100:#c2efea; --teal-200:#8fe3da; --teal-300:#54d4c8;
+    --teal-400:#1fc6b8; --teal-500:#00b7aa; --teal-600:#009d92; --teal-700:#007f76;
+    --teal-800:#0a605a; --teal-900:#0d4944;
+    --bg:#000000; --panel:#0c1110; --raised:#141a19; --raised2:#181f1e;
+    --border:#1f2826; --border-soft:#161d1c;
+    /* Materiales por capa ArchiMate v2 — decisión 22 (2026-07-25) */
+    --mat-mot-bg:rgba(0,183,170,.09); --mat-neg-bg:#1e2624; --mat-neg-bd:#2c3936; --mat-app-bg:#080b0a;
+    --brand:var(--teal-500); --brand-hi:var(--teal-400);
+    --tx:rgba(255,255,255,.92); --tx-mut:rgba(255,255,255,.58); --tx-faint:rgba(255,255,255,.34);
+    --ok:#5cc99a; --warn:#e0ad4e; --crit:#e2766b;
+    --ok-dim:rgba(92,201,154,.14); --warn-dim:rgba(224,173,78,.14); --crit-dim:rgba(226,118,107,.16);
+    --font-display:'Coco Gothic','Jost','Century Gothic','URW Gothic',system-ui,sans-serif;
+    --font-body:'Sansation','Mulish',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
+    --rail:246px; --insp:318px;
+    color-scheme:dark; /* dark-first deliberado (doctrina PRENTER, decisión de la historia) */
+  }
+  * { box-sizing:border-box; }
+  /* min-height: el iframe del Artifact dimensiona por scrollHeight — sin altura intrínseca
+     el círculo (100% de un iframe de 0) deja la página en negro. 640px rompe el círculo. */
+  html,body { height:100%; min-height:640px; background:#000; }
+  body {
+    margin:0; background:var(--bg); color:var(--tx);
+    font-family:var(--font-body); font-size:15px; line-height:1.45;
+    -webkit-font-smoothing:antialiased; overflow:hidden;
+  }
+  body::before {
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.5;
+    background:
+      radial-gradient(1100px 700px at 78% -10%, rgba(0,183,170,.06), transparent 60%),
+      radial-gradient(900px 600px at 8% 108%, rgba(0,183,170,.04), transparent 55%);
+  }
+  .eyebrow { font-family:var(--font-mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--tx-faint); }
+  .mono { font-family:var(--font-mono); }
+  button { font-family:inherit; color:inherit; cursor:pointer; background:none; border:none; padding:0; }
+  :focus-visible { outline:2px solid var(--brand-hi); outline-offset:2px; }
+  ::-webkit-scrollbar{width:9px;height:9px} ::-webkit-scrollbar-thumb{background:#20302d;border-radius:8px}
+
+  .app { position:relative; z-index:1; display:grid; grid-template-columns:var(--rail) 1fr var(--insp); height:100vh; min-height:640px; }
+

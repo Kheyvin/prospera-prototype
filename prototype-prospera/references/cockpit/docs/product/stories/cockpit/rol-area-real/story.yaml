@@ -1,0 +1,25 @@
+id: rol-area-real
+type: ui-story
+state: idea
+module: cockpit
+node: N13
+cap_target: "cockpit/shell-por-rol"
+cap_change_type: extend
+capability_status: planned
+release: F2
+prioridad: media
+fichas: [CK-01, CK-06]
+dependencies:
+  stories: []
+context:
+  job: "Como responsable de un Área quiero ver mi rebanada real de procesos/sistemas en Cockpit para dejar de encontrar un placeholder 'próximamente' y trabajar con mi vista efectiva."
+  why: "Hoy el rol Área es un placeholder 'próximamente'; sin su vista real el shell por rol queda incompleto y no puede integrarse con los niveles de acceso (BL-12)."
+provenance:
+  backlog_id: BL-11
+  titulo: "Rol Área real (hoy placeholder 'próximamente')"
+  detalle: "Su rebanada de procesos/sistemas. Se integra con los niveles de acceso (BL-12)."
+  origen: "arquitectura.yaml (rol-area)"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

@@ -1,0 +1,25 @@
+id: arnesia-pipeline-arnes-por-rol
+type: service-story
+state: idea
+module: fabricante
+node: N15
+cap_target: "fabricante/arnesia-pipeline-arnes-por-rol"
+cap_change_type: new
+capability_status: planned
+release: F3
+prioridad: media
+fichas: [CK-18]
+dependencies:
+  stories: []
+context:
+  job: "Como fabricante quiero que Arnesia compile automáticamente el skill/plugin de cada rol-en-proceso desde el objeto normalizado para poder entregar arneses siempre sincronizados con el documento humano, sin drift"
+  why: "El arnés que ejecuta el trabajador y el documento que lee la persona deben salir de la MISMA fuente (objeto normalizado); si divergen, el sistema miente. Un pipeline anti-drift con gate que rechaza edición del generado es lo que garantiza esa coherencia a escala."
+provenance:
+  backlog_id: BL-26
+  titulo: "Arnesia: pipeline arnés-por-rol desde el objeto normalizado (anti-drift)"
+  detalle: "NUEVO CK-18. La fábrica (N15) compila skill/plugin por rol-en-proceso desde la MISMA fuente que el documento humano (objeto normalizado) — anti-drift estilo Inkeep, gate que rechaza edición del generado. skill=procedimiento, plugin=rol, marketplace=mapa de procesos. SOTA: research/rediseno-total/07."
+  origen: "operador CK-18 (#3, #7)"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

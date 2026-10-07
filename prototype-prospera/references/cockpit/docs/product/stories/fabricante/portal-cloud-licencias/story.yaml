@@ -1,0 +1,30 @@
+id: portal-cloud-licencias
+type: service-story
+state: idea
+module: fabricante
+node: N3
+cap_target: "fabricante/portal-cloud-licencias"
+cap_change_type: new
+capability_status: planned
+release: F2
+prioridad: media
+fichas: [CK-21]
+dependencies:
+  stories: [distribucion-telemetria-licencias-n3]
+context:
+  job: "Como fabricante quiero un portal cloud (login, cobro, gestión de usuarios/asientos, descargas de apps y arneses) con licencias por asiento node-locked de fingerprint compuesto para que N3 crezca de mecanismo de distribución a producto comercial."
+  why: "Sin portal no hay autoservicio de compra/asientos/descargas ni control de licencias por asiento; el fingerprint por MAC es spoofeable/inestable — el SOTA es fingerprint compuesto CPU+disco+placa hasheado SHA-256, node-locked, con activación/desactivación y heartbeat."
+provenance:
+  backlog_id: null
+  titulo: "Portal cloud del Fabricante — login, cobro, asientos, descargas, licencias node-locked (N3 producto)"
+  detalle: >-
+    NUEVO CK-21 (D4). N3 crece a producto: portal cloud con login, cobro, gestión de
+    usuarios/asientos, descargas (apps + arneses) y licencias por asiento con fingerprint compuesto
+    (NO MAC: spoofeable/inestable; SOTA = CPU+disco+placa hasheado SHA-256, node-locked,
+    activación/desactivación, heartbeat — keygen-go ya en la ficha N3). Extiende el plano N3 de
+    BL-25 (distribución + telemetría + licencias offline). Research: organization-as-code/08.
+  origen: "ficha CK-21 (2026-07-16) — visión organization-as-code + organization twin"
+  estado_legacy: n/a
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

@@ -1,0 +1,168 @@
+# methodology.schema.yaml — contrato de la metodología-as-code (L0 · DOMINIO)
+#
+# CK-19: reconstruido EN Cockpit. El schema-gemelo original quedó en el monorepo de origen
+# (prenter-harness · tooling/); aquí lo re-forjamos para dar a `sistema/metodo/` la misma
+# disciplina as-code que `sistema/arquitectura/` (SSoT → vista generada + gate anti-drift).
+#
+# v2 (CK-21 · historia arquitectura-refichado-ck21 · WS5): bloque `twin:` por card (rol del
+# estándar en el Organization Twin), familia I, campo opcional `nombre_corto`, y la vista
+# NOTACIONES.html (mapa de decisión por dimensión del twin).
+#
+# Lo consume `sistema/metodo/gen_metodo.py`:
+#   · valida methodologies.yaml (M-cards) contra este contrato,
+#   · valida el árbol proceso/ (Definición: módulos → etapas → pasos),
+#   · regenera METODOLOGIA.md §4 (bloques GEN:indice/GEN:cards/GEN:tabla) desde la SSoT,
+#   · regenera NOTACIONES.html (matriz dimensión→estándar del twin) desde la SSoT.
+#
+# SSoT de datos: methodologies.yaml + proceso/**.  Este archivo = el contrato (la forma).
+
+meta:
+  nombre: "contrato de metodologías (M-cards) + proceso-as-data + notaciones del twin"
+  version: 4            # v4 (2026-07-29 · CK-33): eje NIVEL (nivel_primario + niveles_secundarios) — en qué piso de la organización se usa cada card + GRAFO §6
+                        # v3 (2026-07-22): ciclo de vida del conocimiento (estado/superseded_by) + GRAFO.md + validación nichos/
+  ssot_cards: sistema/metodo/methodologies.yaml
+  ssot_proceso: sistema/metodo/proceso/
+  ssot_nichos: sistema/metodo/nichos/                # contrato propio: nichos/nicho.schema.yaml (el gate lo aplica)
+  vista_generada: sistema/metodo/METODOLOGIA.md      # §4 (bloques GEN)
+  vista_notaciones: sistema/metodo/NOTACIONES.html   # mapa de decisión del twin (GENERADA)
+  vista_grafo: sistema/metodo/GRAFO.md               # índice-grafo de acceso (GENERADA · el mapa del cerebro)
+
+enums:
+  familia:   [A, B, C, D, E, F, G, H, I]   # I = Twin & automatización del trabajo (CK-21)
+  modo:      [columna, paraguas, situacional]
+  # ── ciclo de vida del conocimiento (2026-07-22) — cómo el cerebro aprende sin contradicción:
+  #    vigente (default, campo ausente) · superseded (reemplazada — exige superseded_by + razon_estado;
+  #    la card NO se borra: queda como memoria con puntero al sucesor) · descartada (evaluada y
+  #    rechazada conscientemente — exige razon_estado; distinta del rol twin `descartada`, que es
+  #    su papel EN el twin: acá es el estatus de la card EN el catálogo).
+  estado_card: [vigente, superseded, descartada]
+  objeto:    [O1, O2, O3, O4, O5, O6, O7, T1, T2, T3]   # backbone: O1-O7 hilo · T1-T3 transversal
+  principio: [P1, P2, P3, P4, P5, P6, P7]
+  # ── eje NIVEL (2026-07-29 · CK-33) — EN QUÉ PISO de la organización se usa la card.
+  #    Rótulos = GLOSARIO.md (nivel 1 Directorio · 2 Estratégico · 3 Táctico · 4 Operativo);
+  #    NO decir "capa D/E/T/O" ni "piso" en texto visible. Eje ORTOGONAL a `objeto` (QUÉ toca),
+  #    a `donde.modulos` (CUÁNDO del engagement) y a `twin.dimensiones` (QUÉ dimensión ancla).
+  #    OJO — no confundir con `nivel_acceso` de objeto.schema.yaml ([gobernanza, estrategico,
+  #    tactico, operativo], met: N13): ése gobierna QUIÉN VE el dato (auth); éste, DÓNDE SE USA
+  #    el método. Misma escalera, dos preguntas; el primer peldaño se llama `directorio` acá
+  #    porque es la palabra del GLOSARIO (`gobernanza` es el término técnico del motor de acceso).
+  nivel: [directorio, estrategico, tactico, operativo]
+  modulo:    [m1, m2, m3]
+  # ── twin (CK-21 · WS5) — regla cardinal: estándares como vocabulario · schema propio
+  #    como metamodelo · git como motor · notación = proyección generada, nunca SSoT.
+  # Un estándar juega un rol por (estándar × dimensión × plano): rol_ancla ÚNICO +
+  # proyecciones[] opcionales — "ancla + proyección" son dos PLANOS (dato / vista), no
+  # dos roles en conflicto. Cards del método del ENGAGEMENT → fuera-del-twin.
+  rol_ancla: [metamodelo-propio, ancla, proyeccion, intercambio, horizonte, descartada, fuera-del-twin]
+  # Dimensiones canónicas del twin (las filas de la matriz de la spec, kebab-case)
+  dimension: [metamodelo, vocabulario-arquitectura, procesos-clasificacion, procesos-flujo,
+              organizacion, estrategia, madurez-brecha, riesgo-controles, calidad-loop,
+              mejora-proyectos, provenance, narrativa-actividades, triage-automatizacion,
+              carga-cognitiva, documentacion-qms, simulacion, contrato-entidad,
+              trabajo-compilado]                                   # ★ CK-30 (2026-07-25)
+
+# ── M-card (cada clave MNN de methodologies.yaml) ────────────────────────────
+card:
+  id_pattern: "^M[0-9]{2}$"
+  required: [nombre, familia, fuente, que, aporte_unico, cuando_usar,
+             objeto_primario, nivel_primario, principios, combina_con, donde, modo, twin]
+  optional: [objetos_secundarios, niveles_secundarios, nombre_corto, estado, superseded_by, razon_estado]
+  fields:
+    nombre:              str
+    nombre_corto:        str                             # rótulo para índice/tabla (arregla truncados tipo "Process / Task Mining"→"Process")
+    estado:              enum:estado_card                # ausente = vigente
+    superseded_by:       ref->card                       # OBLIGATORIO si estado=superseded; prohibido si no
+    razon_estado:        str                             # OBLIGATORIO si estado ∈ {superseded, descartada} — el porqué, defendible
+    familia:             enum:familia
+    fuente:              { required: [autor, obra, url] }
+    que:                 str
+    aporte_unico:        str
+    cuando_usar:         str
+    objeto_primario:     enum:objeto
+    objetos_secundarios: list<enum:objeto>
+    # ── eje NIVEL (CK-33). Regla de asignación (para que 61 juicios sean defendibles y no gusto):
+    #    nivel_primario       = el piso donde la card SE ANCLA: dónde se DECIDE o SE FIRMA lo que
+    #                           produce (no dónde se ejecuta el trabajo que habilita).
+    #    niveles_secundarios  = los demás pisos donde se USA de verdad (bajada de la cascada,
+    #                           consumo del artefacto, insumo que aporta). Vacío = card de un solo piso.
+    #    Una card transversal (modo `paraguas`, o regla que aplica a todo) declara su ancla y lista
+    #    los otros tres — el eje no admite "todos" como valor: obliga a nombrar el ancla.
+    nivel_primario:      enum:nivel
+    niveles_secundarios: list<enum:nivel>              # sin repetir nivel_primario
+    principios:          list<enum:principio>          # no vacío
+    combina_con:         "list<{m: ref->card, como: str}>"
+    donde:               { required: [modulos, etapas, capa_contexto],
+                           modulos: list<enum:modulo>, capa_contexto: bool }
+    modo:                enum:modo
+    twin:                "bloque twin (ver abajo)"
+
+# ── twin: rol del estándar en el Organization Twin (CK-21 · WS5) ─────────────
+twin:
+  required: [rol_ancla, proyecciones, dimensiones, cuando_si, cuando_no]
+  fields:
+    rol_ancla:    enum:rol_ancla        # rol ÚNICO de la card
+    proyecciones: list<str>             # vistas GENERADAS que presta (swimlane, organigrama, strategy-map, heatmap-*, manual-generado) — puede ser vacía
+    dimensiones:  list<enum:dimension>  # vacía ⇔ rol_ancla == fuera-del-twin
+    cuando_si:    str                   # 1 línea — cuándo SÍ (derivada de la matriz de la spec)
+    cuando_no:    str                   # 1 línea — cuándo NO / límite; OBLIGATORIA siempre (cardinal en fuera-del-twin: explica que es método del engagement, no dimensión del twin)
+  reglas:
+    - "dimensiones == []  ⇔  rol_ancla == fuera-del-twin"
+    - "cuando_si y cuando_no no pueden estar vacíos"
+  # Etiquetas humanas de las dimensiones — las consume gen_metodo.py para NOTACIONES.html
+  dimension_labels:
+    metamodelo:               "Metamodelo (12 entidades + relaciones + kinética)"
+    vocabulario-arquitectura: "Vocabulario de arquitectura"
+    procesos-clasificacion:   "Procesos — clasificación"
+    procesos-flujo:           "Procesos — flujo"
+    organizacion:             "Organización (personas / roles / áreas)"
+    estrategia:               "Estrategia (objetivos → OKR → KPI)"
+    madurez-brecha:           "Madurez y brecha"
+    riesgo-controles:         "Riesgo y controles"
+    calidad-loop:             "Calidad / loop de mejora"
+    mejora-proyectos:         "Proyectos de mejora e ideas del personal"
+    provenance:               "Provenance (todo dato AS-IS)"
+    narrativa-actividades:    "Narrativa de actividades (nivel más bajo)"
+    triage-automatizacion:    "Triage eliminar / automatizar / aumentar"
+    carga-cognitiva:          "Carga cognitiva medida (desgaste)"
+    documentacion-qms:        "Documentación QMS (pirámide documental)"
+    simulacion:               "Simulación"
+    contrato-entidad:         "Contrato de entidad publicable"
+    trabajo-compilado:        "Trabajo compilado (arneses por rol×proceso)"
+
+# ── proceso/ (la Definición: plantilla del engagement, nuestra IP) ───────────
+proceso:
+  layout: "proceso/<modulo>/_modulo.md · <modulo>/<etapa>/_etapa.md · <modulo>/<etapa>/<paso>.md"
+  modulo:
+    required: [id, nombre, fase, runtime_dominante, orden]
+    id_pattern: "^m[0-9]+$"
+  etapa:
+    required: [id, modulo, nombre, gate, orden]
+    id_pattern: "^m[0-9]+\\.[a-z0-9]+$"
+  paso:
+    required: [id, modulo, etapa, orden, titulo_interno, actor, plano, gate]
+    id_pattern: "^m[0-9]+\\.[a-z0-9]+\\.[a-z0-9]+$"
+    # `metodologia: [...]` — los tokens ^M\d+$ DEBEN resolver a una M-card; el resto
+    #   (ISO9001-cl4, RACI, …) son tags libres (no se validan contra el catálogo).
+    # `desbloqueo` / `consume` / `produce` — refs a pasos/artefactos; ref a paso
+    #   inexistente = WARNING (el árbol está parcialmente poblado, BL-05).
+  gate_tipos: [none, humano, G1, G2, G3, G4, G5, G6, G7, G8]
+
+# ── invariantes que el gate exige (errores duros) ────────────────────────────
+invariantes:
+  - "_meta.total == número de M-cards"
+  - "cada MNN cumple id_pattern + campos required + enums"
+  - "nivel_primario ∈ enums.nivel · niveles_secundarios ⊆ enums.nivel · nivel_primario ∉ niveles_secundarios"
+  - "combina_con[].m resuelve a una M-card existente"
+  - "cada card lleva bloque twin: válido (rol_ancla ∈ enum, dimensiones ⊆ enum, cuando_si/cuando_no no vacíos)"
+  - "twin.dimensiones == [] ⇔ twin.rol_ancla == fuera-del-twin"
+  - "cada _modulo/_etapa/_paso cumple sus campos required"
+  - "id de módulo/etapa/paso == su ruta en proceso/"
+  - "paso.modulo y paso.etapa resuelven a un módulo/etapa existente"
+  - "metodologia[] tokens ^M\\d+$ resuelven a una M-card"
+  - "estado ∈ enums.estado_card · superseded ⇔ superseded_by resuelve (≠ sí misma) · superseded/descartada exigen razon_estado"
+  - "cada unidad de nichos/*.yaml conforma nicho.schema.yaml (required + enums + derivado_ref si observado-en-cliente + combina_con[].m resuelve + agrega[] resuelve en su vertical + _meta.total)"
+  - "METODOLOGIA.md §4 (GEN blocks) == render(methodologies.yaml)  [anti-drift]"
+  - "NOTACIONES.html == render(methodologies.yaml × twin)  [anti-drift]"
+  - "GRAFO.md == render(methodologies.yaml × proceso/ × nichos/)  [anti-drift]"
+  # advertencias (no bloquean): arista combina_con desde card vigente hacia superseded/descartada ·
+  # paso cuya metodologia[] cita una card superseded/descartada · asimetrías combina_con (INFO)

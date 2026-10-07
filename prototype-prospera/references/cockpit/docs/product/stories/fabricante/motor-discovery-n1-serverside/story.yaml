@@ -1,0 +1,26 @@
+id: motor-discovery-n1-serverside
+type: service-story
+state: dropped
+module: fabricante
+node: transversal
+cap_target: "fabricante/motor-discovery-n1-serverside"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: tbd
+fichas: [CK-10, CK-18]
+dependencies:
+  stories: []
+context:
+  job: "Como fabricante quiero un Motor de Discovery multi-tenant server-side para poder razonar el levantamiento en el servidor — DEROGADO: el razonamiento vive ahora como arneses sobre Claude Code local"
+  why: "Se conservó como lápida para no re-proponer un servicio server-side que CK-18 descartó; el trabajo real que lo reemplaza son los arneses (BL-26) y Consultio (BL-15/16)."
+provenance:
+  backlog_id: BL-13
+  titulo: "Motor de Discovery (N1) como servicio server-side"
+  detalle: "DEROGADO CK-18. El motor de discovery ya NO se construye como servicio multi-tenant server-side: su razonamiento vive como arneses (N2/Consultio) sobre Claude Code local. Se conserva el ítem como lápida para no re-proponerlo; el trabajo real es BL-26 (arneses) + BL-15/16 (Consultio)."
+  origen: "VISION §TBD · CK-10 · DEROGADO CK-18"
+  estado_legacy: derogado
+dropped_reason: "DEROGADO CK-18. El motor de discovery ya NO se construye como servicio multi-tenant server-side: su razonamiento vive como arneses (N2/Consultio) sobre Claude Code local. Se conserva el ítem como lápida para no re-proponerlo; el trabajo real es BL-26 (arneses) + BL-15/16 (Consultio)."
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

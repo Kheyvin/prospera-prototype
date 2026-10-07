@@ -1,0 +1,34 @@
+id: operar-metodo-construir-mapa-completo
+type: service-story
+state: idea
+module: consultio
+node: N14
+cap_target: "consultio/operar-metodo-construir-mapa-completo"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: [CK-11, CK-18, CK-23]
+dependencies:
+  # CK-23: el golden fixture es el contrato de aceptación — la corrida del método debe poder
+  # producir un objeto de esa completitud. Contrato CONCRETO (generado, 2026-07-18):
+  # sistema/schema/manifiesto-cobertura-flota.md (208/208 campos · 23 aristas · enums/verbos 100%
+  # flota terranova+alameda+vulcano) — reproducirlo con datos reales = criterio de salida.
+  stories: [metodo-como-arnes-v0, organizacion-ficticia-golden-fixture]
+context:
+  job: "Como consultor quiero operar m1·m2·m3 como un flujo con carriles/provenance y construir el objeto normalizado, los documentos oficiales y los arneses de la organización (con preview local de Cockpit) para entregar el mapa completo As-Is→To-Be→proyectos."
+  why: "Es el corazón del método: convierte el levantamiento en el objeto normalizado, calcula la brecha (TO-BE − AS-IS) con severidad y hace nacer los proyectos de ella (R6). Sin esto Consultio es un cascarón sin método operable."
+provenance:
+  backlog_id: BL-16
+  titulo: "Operar el método como flujo + construir el mapa completo"
+  detalle: >-
+    REDEFINIDO CK-18. Consultio opera m1·m2·m3 con carriles/provenance y construye el objeto
+    normalizado + documentos oficiales + arneses de la org, con preview local de Cockpit (patrón
+    dev-server). Incluye el cálculo de la brecha (TO-BE − AS-IS) + severidad y los proyectos que
+    nacen de ella (R6, el flujo As-Is→To-Be→proyectos de VISION). El método viaja como arneses
+    (no embebido en build rígido).
+  origen: "operador, sesión CK-11 · redefinido CK-18"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

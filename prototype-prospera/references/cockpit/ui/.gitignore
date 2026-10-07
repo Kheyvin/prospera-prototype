@@ -1,0 +1,29 @@
+# Dependencias
+node_modules/
+.pnpm-store/
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# TypeScript
+*.tsbuildinfo
+
+# Variables de entorno locales
+.env.local
+.env*.local
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store

@@ -1,0 +1,37 @@
+id: organizacion-ficticia-golden-fixture
+module: sistema
+node: transversal
+nombre: "Flota golden fixture — 3 organizaciones ficticias que ejercen el 100% del objeto.schema v2"
+que_hace: >-
+  La flota de twins llenos (CK-23 twin-first): Desarrolladora Terranova (golden — inmobiliaria con
+  constructora, ~200 personas, modo mixto, 333 yaml, 100% campos+aristas él solo), Tiendas Alameda
+  (retail multi-sucursal, okr-trimestral, sucursales+franquicias) e Industrias Vulcano
+  (manufactura, gpd-anual+PLR, MASP con loop-back, plantas). Registradas en el cockpit
+  (extra_projects kind client) y servidas por /api/objeto con CERO errores y CERO warnings; el
+  hilo de oro completo recorrible (cascada 4 horizontes → KR↔KPI permeable → mediciones por
+  unidad D-07 → brecha → proyecto de mejora → KPI movido con delta observado). KPIs con series
+  hardcodeadas (semáforo 3 colores, divergencias declarado-vs-observado, estacionalidad, huecos de
+  frescura) = el "estado real" que el lakehouse reemplaza en F1.4. Cobertura verificada por
+  HERRAMIENTA (gen_cobertura: campos+enums+aristas+verbos+provenance, mutación RED, política por
+  dimensiones); su reporte = manifiesto de completitud = contrato de salida de Consultio
+  (operar-metodo). Matriz de casuística C1-C8 (~60 escenarios complejos) auditada
+  adversarialmente (48 filas, fix-loop cerrado). Triple uso: fixture de desarrollo F1.1 ·
+  documentación-por-ejemplo · demo comercial (ficción segura RN-20).
+status: live
+rutas: [sistema/schema/gen_cobertura.py, sistema/schema/gen_cobertura.yaml, sistema/schema/manifiesto-cobertura-flota.md]
+shells_externos: ["~/Proyectos/terranova", "~/Proyectos/alameda", "~/Proyectos/vulcano"]
+componentes: [objeto-api]
+fichas: [CK-23, CK-24]
+verificada: 2026-07-18
+business_rules:
+  - "RN-17 — cobertura golden por herramienta: flota 100% campos+enums+aristas+verbos; Terranova solo 100% campos+aristas (gate: --dimensiones campos,aristas,provenance); enums exclusivos por reparto declarado (gen_cobertura.yaml)"
+  - "RN-18 — cero errores y cero warnings en los 3 shells, verificado EN VIVO"
+  - "RN-19 — provenance realista de corrida M1: ≥4 fuentes por shell, Inferido jamás alta, ninguna combinación fuente×conf >70%; POR actividad además de por entidad"
+  - "RN-20 — ficción segura: nombres/RUC/marcas inventados, emails .example, cero colisión confundible con reales"
+  - "RN-21 — data-plane puro (D-14): shells autocontenidos, cero control-plane filtrado (auditado por grep)"
+  - "RN-22 — CK-24 en los datos: ningún KPI con dueño persona; TLX solo agregable; autoría de ideas sí es de persona"
+  - "RN-23 — verbos nuevos del fixture entran por PR con clase ALM×MGI (liquidar, calibrar — 46 verbos)"
+scenarios: []
+provenance:
+  story: sistema/organizacion-ficticia-golden-fixture
+  ficha: CK-23

@@ -1,0 +1,30 @@
+id: cruce-estructura-operacion-indicadores
+type: ui-story
+state: refining
+module: cockpit
+node: N13
+cap_target: "cockpit/cruce-estructura-operacion-indicadores"
+cap_change_type: new
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: [CK-18, CK-21, CK-23]
+dependencies:
+  # CK-23 twin-first: dep lakehouse → golden fixture (valores "reales" hardcodeados del fixture;
+  # el lakehouse los reemplaza en F1.4-twin-mide-real sin cambiar la vista)
+  stories: [schema-v2-hilo-de-oro-kinetica, organizacion-ficticia-golden-fixture]
+context:
+  job: "Como usuario de Cockpit quiero ver 'cómo vamos día a día' cruzando la operación del lakehouse (N16) contra la estructura (objeto normalizado de N6) por objetivo/proceso/rol/nivel para monitorear el desempeño real."
+  why: "Es el puente entre estructura y operación; sin este cruce Cockpit no puede mostrar indicadores reales de avance del negocio."
+provenance:
+  backlog_id: BL-28
+  titulo: "Cruce estructura × operación (esquema de indicadores)"
+  detalle: >-
+    NUEVO CK-18. Cómo Cockpit mapea la operación del lakehouse (N16) contra la estructura (objeto
+    normalizado de N6) para mostrar 'cómo vamos día a día' por objetivo/proceso/rol/nivel. DuckDB
+    embebido para leer el lake (research/rediseno-total/03). Se diseña con el primer consumidor real.
+  origen: "operador CK-18"
+  estado_legacy: pendiente
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

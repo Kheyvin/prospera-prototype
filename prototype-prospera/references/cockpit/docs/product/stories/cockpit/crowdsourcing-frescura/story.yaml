@@ -1,0 +1,29 @@
+id: crowdsourcing-frescura
+type: ui-story
+state: idea
+module: cockpit
+node: N13
+cap_target: "cockpit/crowdsourcing-frescura"
+cap_change_type: new
+capability_status: planned
+release: F3
+prioridad: baja
+fichas: [CK-21]
+dependencies:
+  stories: []
+context:
+  job: "Como dueño de datos de la organización quiero recibir encuestas/broadcasts que me pidan confirmar o actualizar mi parte del twin, y un chat grounded en el twin con decision-trace, para que el modelo se mantenga fresco y consultable."
+  why: "Un twin desactualizado es un twin muerto (Ardoq Surveys/Broadcasts); el chat grounded con decision-trace (Mavim ConversAI) vuelve el twin consultable por cualquiera sin saber navegarlo."
+provenance:
+  backlog_id: null
+  titulo: "Crowdsourcing de frescura + chat grounded en el twin (V2)"
+  detalle: >-
+    NUEVO CK-21 · prioridad baja / V2 (post-primeros-clientes). Encuestas/broadcasts a dueños de
+    datos para mantener el twin fresco (Ardoq Surveys/Broadcasts — twin desactualizado = twin
+    muerto) + chat grounded en el twin con decision-trace (Mavim ConversAI). Research:
+    organization-as-code/07 (#31-32).
+  origen: "ficha CK-21 (2026-07-16) — visión organization-as-code + organization twin"
+  estado_legacy: n/a
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

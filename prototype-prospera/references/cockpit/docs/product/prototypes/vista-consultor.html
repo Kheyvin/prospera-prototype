@@ -1,0 +1,115 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Vista Consultor · prenter-harness</title><!-- GENERADO por tooling/scripts/gen_prototypes.py desde service/process/. No editar a mano. --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><style>
+:root{--ink:#221A2E;--ink-soft:#4A4156;--ink-faint:#8C8499;--paper:#F6F3FB;--card:#fff;--line:#E7E1F0;
+--purpura:#7C3AED;--purpura-deep:#4C1D95;--purpura-wash:#F0EAFB;--oro:#C8962A;--oro-bright:#E6BC57;--oro-wash:#F7EFD9;
+--shadow:0 1px 2px rgba(34,26,46,.04),0 8px 28px rgba(34,26,46,.07);--thread-w:2px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(1200px 600px at 85% -10%,#EFE9FB 0%,transparent 60%),var(--paper);
+color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}.mono{font-family:"IBM Plex Mono",monospace}
+h1,h2,h3,.disp{font-family:"Space Grotesk",sans-serif;letter-spacing:-.01em}
+header.top{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);background:rgba(246,243,251,.82);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:62px}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Space Grotesk";font-weight:700}
+.brand .dot{width:18px;height:18px;border-radius:50% 50% 50% 2px;background:linear-gradient(150deg,var(--purpura),var(--purpura-deep));box-shadow:0 0 0 3px var(--purpura-wash)}
+.brand small{font-weight:500;color:var(--ink-faint);font-family:"IBM Plex Mono";font-size:11px}
+.viewtoggle{margin-left:auto;display:flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px}
+.viewtoggle button{font:inherit;font-size:13px;border:0;background:none;color:var(--ink-soft);padding:6px 14px;border-radius:999px;cursor:pointer}
+.viewtoggle button[aria-pressed=true]{background:var(--ink);color:#fff}.viewtoggle button:disabled{color:var(--ink-faint);cursor:not-allowed}
+.ctx{padding:34px 0 8px}.eyebrow{font-family:"IBM Plex Mono";font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--purpura);margin:0 0 10px}
+.ctx h1{font-size:34px;line-height:1.08;margin:0 0 6px;font-weight:600}.ctx h1 b{color:var(--purpura-deep);font-weight:700}
+.ctx .sub{color:var(--ink-soft);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.pill{display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:12.5px;color:var(--ink-soft);box-shadow:var(--shadow)}
+.pill b{color:var(--ink);font-weight:600}.pill .k{width:7px;height:7px;border-radius:50%}
+.progress{margin:22px 0 6px;height:7px;background:var(--line);border-radius:999px;overflow:hidden}
+.progress>i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--oro),var(--oro-bright));transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.progress-label{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-faint);font-family:"IBM Plex Mono";margin-top:6px}
+.journey{position:relative;padding:26px 0 60px}
+.band{display:flex;align-items:baseline;gap:12px;margin:30px 0 6px;position:relative;padding-left:46px}
+.band::before{content:"";position:absolute;left:18px;top:-8px;bottom:-8px;width:var(--thread-w);background:var(--line)}
+.band.on-thread::before{background:linear-gradient(var(--oro),var(--oro-bright))}
+.band .num{font-family:"IBM Plex Mono";font-size:12px;color:var(--oro);font-weight:500}
+.band h2{font-size:13px;letter-spacing:.13em;text-transform:uppercase;margin:0;color:var(--ink-soft);font-weight:600}
+.band .phase{margin-left:auto;font-family:"IBM Plex Mono";font-size:11px;color:var(--ink-faint)}
+.node{position:relative;display:grid;grid-template-columns:46px 1fr}
+.rail{position:relative}.rail::before{content:"";position:absolute;left:18px;top:0;bottom:0;width:var(--thread-w);background:var(--line)}
+.node.done .rail::before,.node.current .rail::before{background:linear-gradient(var(--oro),var(--oro-bright))}
+.dot{position:absolute;left:9px;top:14px;width:18px;height:18px;border-radius:50%;background:var(--card);border:2px solid var(--line);z-index:2}
+.node.done .dot{background:var(--oro);border-color:var(--oro)}.node.done .dot::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:10px;font-weight:700}
+.node.current .dot{border-color:var(--oro);box-shadow:0 0 0 5px var(--oro-wash);animation:pulse 2.2s infinite}
+.node.gate .dot{border-radius:5px}.node.gate.locked .dot::after{content:"🔒";position:absolute;inset:0;display:grid;place-items:center;font-size:9px}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 5px var(--oro-wash)}50%{box-shadow:0 0 0 9px rgba(200,150,42,.10)}}
+.etapa{margin:7px 0;padding:15px 18px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.node.current .etapa{border-color:var(--oro);box-shadow:0 0 0 1px var(--oro),var(--shadow)}
+.node.locked .etapa{background:#FBFAFE;box-shadow:none;opacity:.72}
+.etapa-head{display:flex;align-items:center;gap:12px;cursor:default;border-radius:8px}
+.etapa:has(.pasos)>.etapa-head{cursor:pointer}.etapa-head:focus-visible{outline:2px solid var(--purpura);outline-offset:3px}
+.etapa-head .id{font-family:"IBM Plex Mono";font-size:11px;color:var(--ink-faint)}
+.etapa-head h3{font-size:16.5px;margin:0;font-weight:600}.etapa-head .grow{flex:1}
+.chip{font-family:"IBM Plex Mono";font-size:10.5px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--ink-soft);white-space:nowrap}
+.chip.state-done{color:#2E7D5B;border-color:#CDE7DA;background:#F1F9F5}.chip.state-current{color:var(--oro);border-color:#EAD9A8;background:var(--oro-wash)}
+.chip.state-locked,.chip.state-futuro{color:var(--ink-faint)}.chip.gate{color:var(--purpura-deep);border-color:#DACBF5;background:var(--purpura-wash)}
+.chip.gate.g1{color:#824200;border-color:#E8CDA0;background:#FBF1DF}
+.caret{margin-left:6px;color:var(--ink-faint);transition:transform .25s;font-size:13px}.etapa.open .caret{transform:rotate(90deg)}
+.etapa .desc{color:var(--ink-soft);font-size:13.5px;margin:9px 0 0}
+.pasos{display:none;margin-top:14px;border-top:1px dashed var(--line);padding-top:6px}.etapa.open .pasos{display:block}
+.paso{padding:14px 2px;border-bottom:1px solid var(--line)}.paso:last-child{border-bottom:0}
+.paso-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.paso-no{font-family:"IBM Plex Mono";font-size:12px;color:var(--oro);font-weight:600;width:26px}
+.paso-head h4{font-size:14.5px;margin:0;font-family:"Space Grotesk";font-weight:600}.actor{font-size:12px;color:var(--ink-faint)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.tags .t{font-family:"IBM Plex Mono";font-size:10px;padding:2px 7px;border-radius:6px;background:var(--purpura-wash);color:var(--purpura-deep)}
+.tags .t.plane{background:#EEF6F2;color:#2E7D5B}.tags .t.gate{background:#FBEAEC;color:#B23A48}.tags .t.client{background:#EAF0FB;color:#2552A8}
+.paso-body{margin:11px 0 0 36px}.tabs{display:flex;gap:4px;margin-bottom:8px}
+.tabs button{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);padding:4px 11px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.panel{font-size:13.5px;color:var(--ink-soft);display:none}.panel.on{display:block}
+footer{border-top:1px solid var(--line);padding:22px 0 60px;color:var(--ink-faint);font-size:12.5px}footer code{font-family:"IBM Plex Mono";color:var(--ink-soft)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><header class="top"><div class="wrap">
+<div class="brand"><span class="dot"></span> Prenter&nbsp;Harness <small>· cockpit</small></div>
+<div class="viewtoggle" role="group" aria-label="Vista"><button aria-pressed="true">Consultor</button>
+<button disabled title="Próximamente">Cliente</button></div></div></header>
+<main class="wrap">
+<section class="ctx"><p class="eyebrow">Empresa asignada · te toca conducir</p>
+<h1 id="empresa"></h1><p class="sub">Tu trabajo: llevarla de <em>desconocida</em> a <em>monitoreada con todos sus gaps</em>,
+y de ahí a un cockpit que mueve sus KPIs. Cada paso trae su instrucción y la metodología detrás para que te prepares.</p>
+<div class="meta" id="meta"></div>
+<div class="progress"><i id="bar"></i></div>
+<div class="progress-label"><span>Levantamiento</span><span>Mejora continua</span><span>Mantenimiento</span></div></section>
+<section class="journey" id="journey"></section>
+<footer id="foot"></footer></main><script>
+const J = {"empresa": "Inmobiliaria Vértice", "empresa_marca": ["Inmobiliaria", "Vértice"], "sponsor": "Mateo Salas · Dueño", "consultor": "Pedro", "fase": "A · Levantamiento", "meta": "Días de cobro 45 → 30", "progreso": 0.28, "pasos_hechos": 3, "pasos_total": 14, "modulos": [{"id": "m1", "nombre": "Levantamiento", "nota": "Fase A · una vez, right-sized", "etapas": [{"id": "m1.b1", "nombre": "Arranque / AS-IS", "estado": "done", "gate": null, "gateCls": "", "desc": "De una carpeta de ~1GB → un AS-IS borrador honesto (procesos+sistemas+personas, con confianza por dato) + una lista de dudas a corroborar — en horas, no semanas.", "pasos": [{"no": "01", "titulo": "Encuadre (\"Hola\")", "actor": "🧑+🤖 consultor", "plano": "conversacion", "gate": null, "clienteVe": true, "emo": "🙂", "quehacer": "Abre el workspace de la empresa y conduce el \"hola\": captura sector, sponsor, objetivos (OKR ligero) y\nquién tiene autoridad (RACI). **Híbrido:** por defecto un kickoff virtual (30 min, transcrito → resumen IA);\nsi el cliente prefiere, un formulario coach-led async. Pide el organigrama (lo que tengan) y completa lo que\nfalte en la reunión. Conversación corta, no formulario gigante. Siembra la capa de contexto org.", "detras": "ISO 9001 cl.4 (contexto de la organización — ontología, no aparato). OKR (M21): objetivos del trimestre.\nRACI: el modelo de autoridad que luego habilita los gates. Reunión virtual + resumen IA = plano Conversación."}, {"no": "02", "titulo": "Conectar fuentes", "actor": "🧑+🤖 consultor", "plano": "ui", "gate": null, "clienteVe": true, "emo": "🙂", "quehacer": "Apunta a la carpeta Drive (~1GB) y a los repos de código; el cliente otorga accesos. Si no hay repos,\nmarca \"sin sistemas\" → todo será gap/oportunidad (greenfield).", "detras": "Grounding/Provenance (M23): desde aquí cada artefacto cargará su fuente para no confiar en nada a ciegas."}, {"no": "03", "titulo": "Ingesta + triage", "actor": "🤖 analisis", "plano": "analisis", "gate": null, "clienteVe": false, "emo": "😌", "quehacer": "Lanza la ingesta (asíncrona) y lee el **índice de basura**: \"1200 docs: 60% obsoletos, 15% duplicados,\n25% útiles\" → sabes dónde mirar. No intenta entender todo: clasifica y rankea. (Crudo para el consultor;\nal cliente se le enmarca como hallazgo de venta, no se le muestra el triage en bruto.)", "detras": "Grounding/Provenance (M23): cada artefacto queda con fuente·confianza·frescura. Antídoto a \"garbage in\"."}, {"no": "04", "titulo": "document-project de sistemas", "actor": "🤖 analisis", "plano": "analisis", "gate": null, "clienteVe": false, "emo": "😮", "quehacer": "La máquina recorre los repos y contrasta el código contra su documentación → SYSTEM-MAP borrador +\ncapabilities + drift documentado-vs-real. Observa; ajusta si conoces algo (ej. \"ese módulo lo lleva un tercero\").", "detras": "SYSTEM-MAP / document-project (M14, reverse-engineer del código real). ArchiMate (M13): qué procesos son\ndigitales = capa-negocio↔capa-aplicación."}, {"no": "05", "titulo": "AS-IS borrador con confianza", "actor": "🤖 analisis", "plano": "analisis", "gate": null, "clienteVe": false, "emo": "💡", "quehacer": "La máquina ensambla el AS-IS: procesos clasificados en APQC PCF, sistemas del SYSTEM-MAP, personas/áreas,\ncada dato con su confianza. Lo recorres de un vistazo: dónde es sólido (🟢) y dónde no (🟡/🔴).", "detras": "APQC PCF (M12): taxonomía para no perderse / cobertura completa. Grounding/Provenance (M23): la confianza\npor dato es honestidad visible, no adorno."}, {"no": "06", "titulo": "Revisión + marcado \"a corroborar\"", "actor": "🧑 consultor", "plano": "ui", "gate": null, "clienteVe": false, "emo": "💪", "quehacer": "Recorre el AS-IS: corrige lo que conoces y **marca lo dudoso** (🟡 inferido/viejo · 🔴 hueco). Eso arma\nla **lista \"a corroborar\"** = el input de las entrevistas (b2). Enfocas tu esfuerzo humano donde no hay confianza.", "detras": "Grounding (M23): el marcado convierte la incertidumbre en una agenda concreta de corroboración (handoff a b2)."}]}, {"id": "m1.b2", "nombre": "Entrevistas", "estado": "done", "gate": null, "gateCls": "", "desc": "Corroborar documentado-vs-real con los trabajadores → AS-IS validado.", "pasos": []}, {"id": "m1.b3", "nombre": "Diagnóstico", "estado": "done", "gate": null, "gateCls": "", "desc": "Gap analysis + semáforo de madurez + plan priorizado + business case. El entregable que se vende y la semilla de M3.", "pasos": []}], "onThread": true}, {"id": "m3", "nombre": "Mejora continua — el Espinazo", "nota": "Fase B · por outcome", "etapas": [{"id": "m3.e0", "nombre": "Apuesta / Outcome", "estado": "current", "gate": "🔒 gate humano", "gateCls": "gate", "desc": "De brechas diagnosticadas → una apuesta comprometida (outcome medible + señal de appetite), con peso. Autoriza gastar recursos.", "pasos": [{"no": "01", "titulo": "Preparación async", "actor": "🧑+🤖 consultor", "plano": "analisis", "gate": null, "clienteVe": false, "emo": "·", "quehacer": "Revisa el backlog priorizado del Diagnóstico; el sistema destaca el gap top (valor×esfuerzo×confianza)\ncon su business case y su Hilo de Oro. Deja el candidato listo para la sesión de apuesta. Paso interno\n— el cliente no lo ve (es lo que hace que el momento de apostar sea corto y claro).", "detras": "FinOps Quantify Value (M22) para el costo/ahorro; Impact Mapping (M06) + Hilo de Oro (§2) para el anclaje al KR."}, {"no": "02", "titulo": "Presentar el candidato", "actor": "🧑+🤖 sponsor", "plano": "ui", "gate": null, "clienteVe": true, "emo": "🙂", "quehacer": "En sesión: el sistema muestra el outcome candidato, qué meta mueve y cuánto cuesta (~A) vs ahorra (~B).\nLa IA trae datos; no empuja. El sponsor lee y reacciona.", "detras": "Impact Mapping (M06) conecta el outcome a la meta; FinOps (M22) da el business case visible."}, {"no": "03", "titulo": "Elegir / ajustar el outcome", "actor": "🧑 sponsor_accountable", "plano": "conversacion", "gate": null, "clienteVe": true, "emo": "🤔", "quehacer": "El sponsor elige el candidato, lo ajusta, o trae una idea nueva. Si es idea nueva, el sistema la fuerza\na anclarse a un KR (sin KR = alerta). De deseo vago → outcome medible (baseline→target). En este paso\nNO se discute el cómo; solo qué mover y si vale.", "detras": "OKR (M21): el outcome = un KR. OST root (M02, Torres): el outcome será la raíz del árbol. Impact Mapping (M06): outcome↔objetivo."}, {"no": "04", "titulo": "Señal de appetite (gruesa)", "actor": "🧑 sponsor_accountable", "plano": "ui", "gate": null, "clienteVe": true, "emo": "🤔", "quehacer": "El sponsor elige una talla de tiempo: Chico (~1 sem) · Mediano (~1 sprint) · Grande (~1 mes), apoyado\npor el delta del gap. Es señal gruesa para decidir si vale; el appetite fino + no-gos se fijan en\nEtapa 3 (Shaping), tras el Grounding.", "detras": "Shape Up (M04): appetite como tiempo fijo / alcance variable; tallas = small/big batch."}, {"no": "05", "titulo": "Sellar la apuesta", "actor": "🧑 accountable_del_kr", "plano": "ui", "gate": "🔒 gate humano", "clienteVe": true, "emo": "💪", "quehacer": "El accountable del KR sella con gesto de peso (mantener presionado / slide-to-commit). El sistema\nverifica autoridad (es el accountable del KR) y registra quién/cuándo/qué KR de forma inmutable (git).\nGuardrails: sin meta anclada o sin autoridad → no sella.", "detras": "Shape Up betting (M04): el commit de la apuesta. RACI / autoridad (VISION-DESARROLLOS §12, ISO 9001 cl.5.3):\nsolo el accountable puede sellar. FinOps (M22): el business case visible al sellar."}, {"no": "06", "titulo": "Sembrar el OST", "actor": "🤖 sistema", "plano": "analisis", "gate": null, "clienteVe": true, "emo": "😌", "quehacer": "El sistema crea el espacio de trabajo del outcome, enlaza el Hilo de Oro y siembra la raíz del OST.\nMuestra al sponsor \"outcome → arrancamos; siguiente: explorar el problema a fondo\".", "detras": "OST (M02, Torres): el outcome apostado = raíz del árbol Outcome→Oportunidad→Solución→Test (Etapa 1)."}]}, {"id": "m3.e1", "nombre": "Exploración de valor · OST", "estado": "locked", "gate": null, "gateCls": "", "desc": "Crecer el árbol Outcome→Oportunidad→Solución→Test desde la apuesta.", "pasos": []}, {"id": "m3.e2", "nombre": "Grounding del sistema", "estado": "locked", "gate": null, "gateCls": "", "desc": "La IA documenta lo que ya existe; el humano valida la verdad tácita.", "pasos": []}, {"id": "m3.e3", "nombre": "Shaping · Pitch", "estado": "locked", "gate": "🔒 gate humano", "gateCls": "gate", "desc": "Appetite fino + no-gos; future-state (VSM); el Pitch.", "pasos": []}, {"id": "m3.e4", "nombre": "Contrato · spec ratificado", "estado": "locked", "gate": "G1 · fin de discovery", "gateCls": "gate g1", "desc": "Criterios EARS + chequeo de contradicciones → ratificación. Fin de Discovery.", "pasos": []}, {"id": "m3.e5", "nombre": "Construcción", "estado": "locked", "gate": "G3–G8", "gateCls": "gate g1", "desc": "Claude Code construye con gates SDD; QA + aceptación de valor; se mide el aporte.", "pasos": []}], "onThread": true}, {"id": "m2", "nombre": "Mantenimiento", "nota": "continuo", "etapas": [{"id": "m2.mant", "nombre": "Contexto vivo · drift · aprobar/rechazar", "estado": "futuro", "gate": null, "gateCls": "", "desc": "Mantener vivo el baseline; el aporte medido re-prioriza el backlog (loop de valor).", "pasos": []}], "onThread": false}]};
+
+function md(s){s=(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');s=s.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');return s.replace(/\s*\n\s*/g,' ').trim();}
+const ST={done:'hecho',current:'aquí estás',locked:'bloqueada',futuro:'futuro'};
+document.getElementById('empresa').innerHTML = J.empresa_marca ? (J.empresa_marca[0]+' <b>'+J.empresa_marca[1]+'</b>') : J.empresa;
+document.getElementById('meta').innerHTML =
+  `<span class="pill"><span class="k" style="background:#2E7D5B"></span> Fase <b>${J.fase}</b></span>`+
+  `<span class="pill">Sponsor: <b>${J.sponsor}</b></span>`+
+  `<span class="pill">Conduce: <b>${J.consultor} · consultor</b></span>`+
+  `<span class="pill">Meta del trimestre: <b>${J.meta}</b></span>`+
+  `<span class="pill mono">${J.pasos_hechos} / ${J.pasos_total} pasos</span>`;
+document.getElementById('foot').innerHTML='Generado desde <code>service/process/</code> + instancia de muestra ('+J.empresa+'). El sistema real lo renderiza el cockpit. · <code>tooling/scripts/gen_prototypes.py</code>';
+function pasos(e){let h='<div class="pasos">';e.pasos.forEach(p=>{
+  let tags=`<span class="t plane">${p.plano}</span>`+(p.gate?`<span class="t gate">${p.gate}</span>`:'')+(p.clienteVe?'<span class="t client">cliente ve</span>':'');
+  h+=`<div class="paso"><div class="paso-head"><span class="paso-no">${p.no}</span><h4>${p.titulo}</h4><span class="actor">${p.actor}</span><span class="tags">${tags}</span></div>
+  <div class="paso-body"><div class="tabs"><button aria-pressed="true" data-t="q">Qué hacer</button><button aria-pressed="false" data-t="m">Metodología detrás</button></div>
+  <div class="panel on" data-p="q">${md(p.quehacer)}</div><div class="panel" data-p="m">${md(p.detras)}</div></div></div>`;});
+  return h+'</div>';}
+let H='';
+J.modulos.forEach(m=>{
+  H+=`<div class="band ${m.onThread?'on-thread':''}"><span class="num">${m.id.toUpperCase()}</span><h2>${m.nombre}</h2><span class="phase">${m.nota}</span></div>`;
+  m.etapas.forEach(e=>{
+    const node = e.estado==='futuro'?'locked':e.estado;
+    const hasP=e.pasos.length>0, open=e.estado==='current'&&hasP;
+    const gate=e.gate?`<span class="chip ${e.gateCls}">${e.gate}</span>`:'';
+    H+=`<div class="node ${node} ${e.gate?'gate':''}"><div class="rail"><span class="dot"></span></div>
+    <div class="etapa ${open?'open':''}"><div class="etapa-head" ${hasP?'tabindex="0" role="button"':''}>
+    <span class="id mono">${e.id}</span><h3>${e.nombre}</h3><span class="grow"></span>${gate}<span class="chip state-${e.estado}">${ST[e.estado]}</span>${hasP?'<span class="caret">▸</span>':''}</div>
+    <p class="desc">${md(e.desc)}</p>${hasP?pasos(e):''}</div></div>`;});});
+document.getElementById('journey').innerHTML=H;
+addEventListener('load',()=>{document.getElementById('bar').style.width=(J.progreso*100)+'%';});
+document.querySelectorAll('.etapa-head').forEach(h=>{const t=()=>{const e=h.closest('.etapa');if(!e.querySelector('.pasos'))return;const o=e.classList.toggle('open');h.setAttribute('aria-expanded',o);};h.addEventListener('click',t);h.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();t();}});});
+document.querySelectorAll('.tabs').forEach(tabs=>{const body=tabs.parentElement;tabs.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{tabs.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));body.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.dataset.p===b.dataset.t));}));});
+
+</script></body></html>

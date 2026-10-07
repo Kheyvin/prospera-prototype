@@ -1,0 +1,22 @@
+  /* ═══════════════════════════════════════════════════════════════════
+     MATERIALES POR CAPA ArchiMate v2 — decisión 22 (2026-07-25)
+     Tipo de entidad legible por el MATERIAL del contenedor (no solo el
+     ícono TICO), SIN hue nuevo: PRENTER teal-only, el color queda 100%
+     reservado a salud/severidad. Se agrupa por capa ArchiMate (el campo
+     archimate: del schema) → 4 materiales, no 12 bordes de colores.
+     Los estados (.node.hot / .serves / .node.diff) son de 2 clases →
+     ganan por especificidad y siguen mandando sobre el material de reposo.
+     Replicar en cockpit-ui: mismos 4 materiales sobre los átomos ds/.
+     ─────────────────────────────────────────────────────────────────── */
+  /* Motivación — objetivo·kpi·brecha·idea: vidrio teal tenue + spine izq */
+  .obj-node{ background:var(--mat-mot-bg); border-color:var(--teal-800); border-left:3px solid var(--teal-700); }
+  .kchip{ background:rgba(0,183,170,.07); border-color:var(--teal-800); }
+  .fitem[data-idea], .fitem[data-g]{ background:var(--mat-mot-bg); border-color:var(--teal-800); border-left:3px solid var(--teal-700); }
+  /* Negocio — proceso·rol·área: sólido neutro elevado (el músculo) */
+  .chev, .soporte, .proc-node, .rolchip{ background:var(--mat-neg-bg); border-color:var(--mat-neg-bd); }
+  .area-node{ border-color:var(--mat-neg-bd); }   /* área queda transparente — decisión 4 */
+  /* Aplicación — sistema: marco técnico oscuro, esquinas rectas + barra teal */
+  .sysplat{ background:var(--mat-app-bg); border-color:var(--border); border-top:2px solid var(--teal-800); border-radius:2px; box-shadow:inset 0 0 0 1px var(--border-soft); }
+  /* Implementación — proyecto_mejora: movimiento (punteado teal) */
+  .fitem[data-pm]{ background:rgba(0,183,170,.06); border-left:3px dashed var(--brand); }
+  /* .kin (proyecto en el mapa) ya es punteado teal — sin cambio */

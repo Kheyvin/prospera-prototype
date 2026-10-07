@@ -1,0 +1,69 @@
+id: F1
+nombre: "Terreno + MVP Twin vendible"
+estado: en-curso
+descripcion: >-
+  El MVP del Organization Twin (CK-21/CK-22 · re-secuenciada twin-first CK-23): primero el twin
+  LLENO y pintado — organización ficticia completa (golden fixture) contra el schema v2 + vistas
+  hilo de oro y brecha→proyecto en Cockpit, con KPIs hardcodeados del fixture —, después el
+  proceso que lo llena (Consultio v0 = arneses del método sin app shell), después la organización
+  viva (instancia single-tenant con entornos dev→UAT→prod y Gestión de Cambios), y al final el
+  lakehouse real que reemplaza los valores hardcodeados. Cinco fases + un carril de negocio
+  paralelo; la Fase 0 (terreno: re-fichado de la arquitectura + schema v2) precede a todo lo
+  funcional por decisión del operador. Hito intermedio (CK-23): twin completo demo-able con la
+  organización ficticia al cierre de F1.1. Vista humana y criterios de salida:
+  docs/product/ROADMAP.md.
+fases:
+  F1.0-terreno:
+    - design-system-atomic-storybook
+    - arquitectura-refichado-ck21
+    - schema-v2-hilo-de-oro-kinetica
+    - negocio-schema-ssot-plugin-vs-repo
+  F1.1-twin-pintado:
+    - organizacion-ficticia-golden-fixture
+    - twin-territorio-mapa-zoomable
+    - cruce-estructura-operacion-indicadores
+    - brecha-proyecto-ciclo-vida
+  F1.2-metodo-operable:
+    - poblar-metodo-m1-m3
+    - metodo-como-arnes-v0
+    - operar-metodo-construir-mapa-completo
+    - deposito-fuentes-retencion-dpa
+  F1.3-organizacion-viva:
+    - forgejo-self-hosted-bd-vs-archivos
+    - hosteado-single-tenant
+    - modulo-gestion-cambios-iso
+    - publicacion-repo-oficial-deploy-procesos
+    - auth-niveles-acceso-policy-as-data
+  F1.4-twin-mide-real:
+    - captura-manual-kpis
+    - construir-lakehouse-dlt-ducklake
+  F1.x-negocio-paralelo:
+    - comprador-pricing-exito-12-meses
+stories:
+  - design-system-atomic-storybook
+  - arquitectura-refichado-ck21
+  - organizacion-ficticia-golden-fixture
+  - schema-v2-hilo-de-oro-kinetica
+  - negocio-schema-ssot-plugin-vs-repo
+  - poblar-metodo-m1-m3
+  - metodo-como-arnes-v0
+  - operar-metodo-construir-mapa-completo
+  - deposito-fuentes-retencion-dpa
+  - forgejo-self-hosted-bd-vs-archivos
+  - hosteado-single-tenant
+  - modulo-gestion-cambios-iso
+  - publicacion-repo-oficial-deploy-procesos
+  - auth-niveles-acceso-policy-as-data
+  - captura-manual-kpis
+  - construir-lakehouse-dlt-ducklake
+  - cruce-estructura-operacion-indicadores
+  - brecha-proyecto-ciclo-vida
+  - twin-territorio-mapa-zoomable
+  - comprador-pricing-exito-12-meses
+dropped: [motor-discovery-n1-serverside]
+exit_criteria: >-
+  Demo del loop completo contra una organización real (dogfood prenter o cliente 1): mapa
+  publicado con aprobación dev→UAT→prod, hilo de oro con semáforo alimentado por datos reales
+  (Excel + 1 conector), al menos una brecha con costo/ROI convertida en proyecto y trackeada
+  hasta mover su KPI, todo bajo auth con niveles. Pricing definido (carril paralelo).
+fichas: [CK-16, CK-18, CK-19, CK-21, CK-22, CK-23]

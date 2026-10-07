@@ -1,0 +1,33 @@
+id: arquitectura-refichado-ck21
+type: service-story
+state: done
+module: sistema
+node: transversal
+cap_target: "sistema/arquitectura-refichado-ck21"
+cap_change_type: extend
+capability_status: planned
+release: F1
+prioridad: alta
+fichas: [CK-21, CK-22]
+dependencies:
+  stories: []
+context:
+  job: "Como arquitecto del sistema quiero bajar CK-21 completo a la arquitectura-as-code (NODOS fino, despliegue.html curado, arquitectura.yaml, R-walk) para que todo lo funcional del MVP se construya sobre un mapa sin contradicciones con el norte organization-as-code → organization twin."
+  why: "Es la primera historia del roadmap por decisión del operador (CK-22): preparar el terreno antes de lo funcional. CK-21 ajustó las fichas esenciales pero declaró como deuda el pase fino — sin él, las historias del MVP anclan a nodos con residuos del modelo anterior."
+provenance:
+  backlog_id: null
+  titulo: "Re-fichado fino de la arquitectura post-CK-21 (preparar el terreno)"
+  detalle: >-
+    NUEVO CK-22 (deuda declarada en CK-21). Alcance: (1) NODOS.md pase fino — chequeo 2 en
+    profundidad (residencia por tier), R-walk si el Portal (N3) agrega responsabilidad propia,
+    coherencia de todas las fichas con el default hosteado single-tenant; (2) despliegue.html
+    curado — N3 como Portal, las dos modalidades de la Organización (hosteada/self-hosted), el
+    twin como narrativa del flujo; (3) arquitectura.yaml — componentes nuevos declarados
+    (motor-de-indicadores, ciclo brecha→proyecto, portal) con `fichas:` y `ruta:` válidas según
+    el gate; (4) gates verdes en el mismo evento. Research: organization-as-code/07 §Derivación
+    de arquitectura + 08 (pivote comercial).
+  origen: "ficha CK-22 (2026-07-16) — roadmap MVP; deuda de CK-21"
+  estado_legacy: n/a
+links:
+  story_md: 00-story.md
+  ledger: ../../../../../LEDGER.md

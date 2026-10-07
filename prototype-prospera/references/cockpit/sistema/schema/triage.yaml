@@ -1,0 +1,95 @@
+# triage.yaml — derivación DECLARADA de los dos scores de automatizabilidad (M36 · as-code · D-18)
+#
+# SSoT de la FÓRMULA del triage: cómo se computan score-RPA y score-agente por actividad
+# (y por tarea, granularidad L5 — D-17) a partir de la clase del verbo (verbos.yaml, M37)
+# + los inputs `actividad.automatizacion` (objeto.schema.yaml).
+#
+# Doctrina (no negociable — objeto.schema.yaml § principios · M36):
+#   · Los scores se COMPUTAN al leer, JAMÁS se persisten (identidad_vs_observacion).
+#   · El motor PROPONE el veredicto; el consultor RATIFICA (triage.veredicto con provenance).
+#   · La conf se PROPAGA: input ausente/estimado → conf del score baja y VISIBLE.
+#   · Orden ECRS (M35) primero: no se puntúa el desperdicio.
+#
+# GOBERNANZA: mismo patrón que verbos.yaml (RN-11) — cambiar un peso = PR; el gate
+# (gen_schema.py) valida coherencia de claves contra ALM/MGI/enums del objeto.
+#
+# PROVENANCE DE LOS PESOS: fuente = criterios Lacity & Willcocks (RPA) + práctica agéntica
+# 2025-26 + juicio propio; conf = baja (HIPÓTESIS CALIBRABLE — se ajustan con evidencia
+# observada M29 y resultados de proyectos cerrados con veredicto KPI-movido). Los números
+# son punto de partida ratificado, no verdad medida.
+
+meta:
+  version: 1
+  decision: D-18
+  metodologias: [M35, M36, M37, M25, M29]
+  fuente: "Lacity & Willcocks (RPA suitability) · práctica agéntica 2025-26 · propia"
+  conf: baja
+  razon_conf: "pesos iniciales por juicio experto — calibrables con evidencia M29 + loop de proyectos cerrados"
+
+# ---- escala ----
+# Ambos scores en 0-100. Base por capacidad MGI del verbo → ajuste por clase ALM →
+# modificadores por inputs de `actividad.automatizacion` → clamp [0,100].
+
+# ---- 1 · base por capacidad_mgi (del verbo — M37) ----
+base_por_capacidad:
+  recolectar-datos:     { rpa: 70, agente: 55 }
+  procesar-datos:       { rpa: 75, agente: 60 }
+  fisico-predecible:    { rpa: 10, agente: 5 }    # robótica física fuera del alcance del producto
+  fisico-impredecible:  { rpa: 0,  agente: 5 }
+  interfaz-stakeholder: { rpa: 25, agente: 60 }
+  experticia-decision:  { rpa: 15, agente: 65 }   # GenAI automatiza lo no-rutinario-cognitivo (M37 cuando_no)
+  gestion-personas:     { rpa: 5,  agente: 25 }
+
+# ---- 2 · ajuste por clase_alm (del verbo — DESCRIPTIVO, ajusta, no sentencia) ----
+ajuste_por_clase_alm:
+  rutina:
+    rutinaria:            { rpa: 10,  agente: 0 }
+    no-rutinaria:         { rpa: -25, agente: 5 }
+  tipo:
+    manual:               { rpa: -40, agente: -40 }
+    cognitiva-analitica:  { rpa: 0,   agente: 10 }
+    interpersonal:        { rpa: -15, agente: 0 }
+
+# ---- 3 · modificadores por inputs (actividad.automatizacion — cada uno con su peso) ----
+modificadores:
+  datos:                  # enum datos_auto
+    estructurados:        { rpa: 15,  agente: 0 }
+    no-estructurados:     { rpa: -30, agente: 15 }
+    mixtos:               { rpa: -10, agente: 10 }
+  reglas:                 # enum reglas_auto
+    estables:             { rpa: 15,  agente: 5 }
+    cambiantes:           { rpa: -25, agente: 10 }
+  excepciones_pct:        # % de casos fuera de regla (evidencia M29 cuando exista)
+    umbral: 20
+    sobre_umbral:         { rpa: -20, agente: 5 }
+  criterio_promptable:    # ¿el criterio se expresa en prompt/policy?
+    "true":               { rpa: 0,   agente: 15 }
+    "false":              { rpa: 0,   agente: -30 }
+  tolerancia_revision:    # enum conf (alta = tolera revisión humana ligera)
+    alta:                 { rpa: 0,   agente: 10 }
+    media:                { rpa: 0,   agente: 0 }
+    baja:                 { rpa: 0,   agente: -15 }
+  riesgo_error:           # enum impacto
+    alto:                 { rpa: -10, agente: -20 }
+    medio:                { rpa: 0,   agente: 0 }
+    bajo:                 { rpa: 5,   agente: 5 }
+  volumen_alto:           { rpa: 10,  agente: 0 }   # ROI RPA escala con volumen (Lacity); umbral lo aporta mining M29
+
+# ---- 4 · propagación de confianza (M23 — incertidumbre visible) ----
+conf_propagacion:
+  regla: "conf(score) = min(conf de los inputs presentes); input ausente → se computa con el default de la clase y conf(score) = baja"
+  visible: "el heatmap-triage SIEMPRE muestra el score CON su conf al lado — score sin conf no se rinde (M36 cuando_no)"
+
+# ---- 5 · cortes previos (ANTES de mirar scores — el orden es doctrina) ----
+cortes_previos:
+  - { orden: 1, corte: ecrs,           regla: "veredicto `eliminable` sale de ECRS (M35), nunca de los scores — no se automatiza el desperdicio" }
+  - { orden: 2, corte: mandato,        regla: "actividad con `mandato` (regulatorio/preventivo/habilitante) NO es eliminable por 'huérfana de KPI' — protege compliance" }
+  - { orden: 3, corte: accountability, regla: "verbo con accountability (aprobar/autorizar/firmar = RACI A, responsabilidad legal — M25) → `humano-por-diseño` SIN importar scores" }
+
+# ---- 6 · veredicto propuesto (umbrales — el motor propone, el consultor ratifica) ----
+veredicto_propuesto:
+  # se evalúa en orden; el primero que matchea es la propuesta (enum veredicto_triage del objeto)
+  - { veredicto: automatizable-rpa,    cuando: "score_rpa >= 70 y score_rpa > score_agente" }
+  - { veredicto: automatizable-agente, cuando: "score_agente >= 70" }
+  - { veredicto: aumentable,           cuando: "40 <= max(score_rpa, score_agente) < 70" }   # ciudadano de primera clase — ES el producto (arneses)
+  - { veredicto: humano-por-diseño,    cuando: "max(score_rpa, score_agente) < 40" }

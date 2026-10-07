@@ -1,0 +1,19 @@
+id: vista-negocio
+legacy_id: CAP-04
+module: cockpit
+node: N13
+nombre: "Vista de Negocio (/negocio)"
+que_hace: >-
+  Objetivos del directorio (KR from→to) que tensan el Hilo de Oro sobre 4 sub-tabs: Mapa vivo
+  (semáforo de digitalización) · Hilo de oro (cascada objetivo→procesos + huérfanos) · Brechas
+  (caso de negocio + prioridad) · Personas (CAP-07). Drawer de drill-down por proceso
+  (procedencia/confianza); banner de warnings de negocio.yaml.
+status: live
+rutas: [ui/components/negocio/NegocioView.tsx, ui/app/negocio/]
+componentes: [negocio-view]
+fichas: [CK-06]
+verificada: 2026-07-06
+business_rules: []
+scenarios: []
+provenance:
+  increment_id: CAP-04

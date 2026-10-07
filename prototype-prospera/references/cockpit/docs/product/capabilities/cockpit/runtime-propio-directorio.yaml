@@ -1,0 +1,18 @@
+id: runtime-propio-directorio
+legacy_id: CAP-01
+module: cockpit
+node: N13
+nombre: "Runtime propio — binario `directorio`"
+que_hace: >-
+  Servidor HTTP puerto 4100: sirve las APIs JSON + la UI embebida (go:embed, export estático
+  Next). Modos single-workspace (-workspace/WORKSPACE_ROOT) y multi (registry
+  ~/.cockpit/cockpit.yaml). Solo lectura — sin auth, sin DB.
+status: live
+rutas: [go/cmd/directorio/]
+componentes: [cockpit-runtime-propio]
+fichas: [CK-07, CK-08]
+verificada: 2026-07-06
+business_rules: []
+scenarios: []
+provenance:
+  increment_id: CAP-01

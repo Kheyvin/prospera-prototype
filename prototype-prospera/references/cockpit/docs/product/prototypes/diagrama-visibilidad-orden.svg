@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="720" viewBox="0 0 1600 720" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif">
+  <!-- MAQUETA COMERCIAL Prenter — sección 05 Visibilidad Total: "el orden importa" (por qué Fase 1 antes que IA).
+       Dos caminos: atajo (rojo) vs camino Prenter (teal). Dark Prenter. -->
+  <defs>
+    <marker id="ar-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#e5564b"/>
+    </marker>
+    <marker id="ar-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#00b7aa"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="720" fill="#0a0c0d"/>
+
+  <!-- header -->
+  <text x="60" y="70" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" letter-spacing="3" fill="#5e6b6f">POR QUÉ EMPEZAMOS POR EL MAPA</text>
+  <text x="60" y="112" font-size="32" font-weight="700" fill="#e7edee">La tecnología no ordena el desorden — <tspan fill="#e5564b">lo acelera</tspan></text>
+  <text x="60" y="144" font-size="15" fill="#8a989c">Pensar en IA es acertado. El orden de los pasos decide si potencia el negocio o multiplica el caos.</text>
+
+  <!-- punto de partida -->
+  <g>
+    <rect x="60" y="310" width="280" height="140" rx="14" fill="#14191b" stroke="#232b2e"/>
+    <text x="88" y="352" font-size="18" font-weight="700" fill="#e7edee">Su empresa hoy</text>
+    <text x="88" y="380" font-size="12.5" fill="#8a989c">Procesos en cabezas, Excel y</text>
+    <text x="88" y="400" font-size="12.5" fill="#8a989c">WhatsApp. Nadie los mapeó.</text>
+    <text x="88" y="428" font-size="12.5" fill="#5e6b6f">Dos caminos posibles:</text>
+  </g>
+
+  <!-- ── camino A: el atajo (rojo) ── -->
+  <path d="M344 350 C 480 300, 520 268, 640 258" fill="none" stroke="#e5564b" stroke-width="2"/>
+  <g>
+    <rect x="644" y="234" width="170" height="46" rx="23" fill="rgba(229,86,75,.08)" stroke="#5e2b28"/>
+    <text x="729" y="263" text-anchor="middle" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12.5" letter-spacing="1" fill="#e5564b">+ IA, directo</text>
+  </g>
+  <path d="M818 255 C 900 252, 950 248, 1042 245" fill="none" stroke="#e5564b" stroke-width="2" marker-end="url(#ar-r)"/>
+  <text x="480" y="270" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="10.5" letter-spacing="2" fill="#a04038">EL ATAJO</text>
+
+  <g>
+    <rect x="1050" y="150" width="490" height="190" rx="14" fill="#14191b" stroke="#5e2b28"/>
+    <rect x="1050" y="150" width="5" height="190" rx="2.5" fill="#e5564b"/>
+    <text x="1084" y="192" font-size="19" font-weight="700" fill="#e5564b">El desorden, más rápido</text>
+    <text x="1084" y="226" font-size="13" fill="#8a989c">·  Automatiza el error — y lo multiplica</text>
+    <text x="1084" y="252" font-size="13" fill="#8a989c">·  Decisiones sobre datos que nadie valida</text>
+    <text x="1084" y="278" font-size="13" fill="#8a989c">·  Más herramientas, la misma ceguera</text>
+    <text x="1084" y="316" font-size="12" font-style="italic" fill="#5e6b6f">La inversión en tecnología amplifica lo que encuentra.</text>
+  </g>
+
+  <!-- ── camino B: el camino Prenter (teal) ── -->
+  <path d="M344 410 C 420 440, 420 500, 462 520" fill="none" stroke="#00b7aa" stroke-width="2" marker-end="url(#ar-t)"/>
+  <text x="88" y="490" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="10.5" letter-spacing="2" fill="#0c6f68">EL CAMINO PRENTER ↓</text>
+
+  <g>
+    <rect x="466" y="454" width="420" height="186" rx="16" fill="none" stroke="#00b7aa" stroke-opacity=".22" stroke-width="7"/>
+    <rect x="470" y="458" width="412" height="178" rx="14" fill="#101b1a" stroke="#00b7aa" stroke-width="1.5"/>
+    <text x="498" y="492" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="10.5" letter-spacing="2" fill="#00b7aa">FASE 1 · VISIBILIDAD TOTAL</text>
+    <text x="498" y="522" font-size="19" font-weight="700" fill="#e7edee">El mapa vivo de su organización</text>
+    <text x="498" y="550" font-size="13" fill="#8a989c">Procesos, roles, objetivos, personas y sistemas —</text>
+    <text x="498" y="570" font-size="13" fill="#8a989c">cómo opera de verdad, visible y al día.</text>
+    <text x="498" y="604" font-size="12.5" fill="#c9d4d6">Recién entonces se decide qué automatizar.</text>
+  </g>
+
+  <g>
+    <rect x="920" y="524" width="196" height="46" rx="23" fill="rgba(0,183,170,.08)" stroke="#0c6f68"/>
+    <text x="1018" y="553" text-anchor="middle" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12.5" letter-spacing="1" fill="#00b7aa">+ IA, con criterio</text>
+  </g>
+  <path d="M886 547 L 916 547" fill="none" stroke="#00b7aa" stroke-width="2"/>
+  <path d="M1120 547 L 1180 547" fill="none" stroke="#00b7aa" stroke-width="2" marker-end="url(#ar-t)"/>
+
+  <g>
+    <rect x="1188" y="450" width="352" height="194" rx="14" fill="#14191b" stroke="#1f5a45"/>
+    <rect x="1188" y="450" width="5" height="194" rx="2.5" fill="#2ecf96"/>
+    <text x="1222" y="492" font-size="19" font-weight="700" fill="#2ecf96">El negocio, potenciado</text>
+    <text x="1222" y="526" font-size="13" fill="#8a989c">·  Se automatiza lo que conviene,</text>
+    <text x="1222" y="546" font-size="13" fill="#8a989c">   con evidencia</text>
+    <text x="1222" y="572" font-size="13" fill="#8a989c">·  La IA conoce su hoy y su meta</text>
+    <text x="1222" y="598" font-size="13" fill="#8a989c">·  Cada inversión, atada a un</text>
+    <text x="1222" y="618" font-size="13" fill="#8a989c">   objetivo del directorio</text>
+  </g>
+
+  <!-- footer -->
+  <text x="1540" y="694" text-anchor="end" font-size="13" fill="#5e6b6f"><tspan fill="#00b7aa" font-weight="700">Prenter</tspan> · Tecnología Global, Inteligencia Local.</text>
+</svg>

@@ -1,0 +1,107 @@
+# project.config.yaml — EL SEAM del arnés prenter (harness@prenter-marketplace)
+#
+# Única fuente PROYECTO/SISTEMA/TECH que el CORE del arnés lee (charter §3 · DIP-seam).
+# El CORE nombra CERO tech/sistema/locale/engine concreto — todo hecho vive AQUÍ.
+# Lo lee `sistema-arnes/scripts/harness_config.py` (o el del plugin) vía slots punteados.
+#
+# Adopción: CK-19 (migración total al arnés, 2026-07-09). NUNCA se edita un archivo del
+# CORE para encajar Cockpit; todo lo específico entra por este archivo o por reglas
+# project-layer en `.claude/rules/`. Doctor: `python3 <core>/scripts/harness_config.py --doctor`.
+
+meta:
+  product: cockpit
+  description: >-
+    Sistema para el levantamiento, diseño, creación, propagación/adopción, monitoreo y
+    mejora continua de procesos/roles/objetivos/personas(puestos), basado en ontología
+    ISO + PDCA (VISION.md). Modelo de entrega CK-18: Fábrica + Organización instalada.
+  repo_prefix: cockpit
+  norte: VISION.md
+  decisiones: LEDGER.md            # fichas CK-NN (ADR + CIL)
+
+# Instancias de mercado. Cockpit es producto único (P1 del ecosistema) → single-sistema:
+# una entrada. Los "nichos" (inmobiliario, …) son verticales del MÉTODO cliente, NO
+# sistemas de nuestro proceso de desarrollo (viven en sistema/metodo/nichos/).
+sistemas:
+  active:
+    - slug: cockpit
+      cap_gate: soft
+  loop_order: [cockpit]
+
+# Comandos de calidad — verbatim de los build-files del repo (go.mod, ui/package.json,
+# build-ui.sh). Fuente de tool-names = el repo, nunca una tabla lenguaje→herramienta.
+toolchain:
+  go:
+    lint: "cd go && go vet ./..."
+    format: "cd go && gofmt -l ."
+    test: "cd go && go test ./..."
+    build: "cd go && go build ./..."
+  ui:
+    lint: "cd ui && npm run lint"
+    typecheck: "cd ui && npm run typecheck"      # tsc --noEmit
+    test: "cd ui && npm run test"                # vitest run
+    build: "cd ui && npm run build"              # next build
+    static_export: "./build-ui.sh"               # export estático embebido en el binario
+  gates:
+    arquitectura: "python3 sistema/arquitectura/gen_arquitectura.py --check"   # CK-17 anti-drift
+    metodologia: "python3 sistema/metodo/gen_metodo.py --check"                # CK-19 anti-drift
+
+locale:
+  identifier: es-419                # español neutro LATAM
+  dialect_gate: "español neutro — sin voseo regional"
+
+# Dónde vive el código compartido/reutilizable (target del grep anti-duplicación).
+engine_prefix:
+  go_module_prefix: "github.com/alpacapurpura/cockpit/"
+  ui_shared_prefix: "ui/lib/"
+
+# Cómo se EJERCE una historia en vivo antes de `done` (DoD live-verify).
+live_verify_infra:
+  runtime: "binario `directorio` — `cd go && go run ./cmd/directorio` (HTTP :4100, UI estática embebida go:embed, read-only, sin auth/DB)"
+  launch: "./start.sh [-port 4100]"
+  smoke:
+    - "GET /api/portfolio            → Dueño→Empresa→Sistema"
+    - "GET /api/negocio?empresa=<id> → objetivos + áreas/procesos + brechas"
+    - "GET /api/objeto?empresa=<id>  → las 21 entidades validadas juntas"
+  observability_evidence: [runtime-logs]
+  test_creds: none
+
+# Canon de composición UI — design system PRENTER, atomic design, banco DRY (CK-27).
+# Doctrina enforce-able: .claude/rules/ui-design-system.md.
+design_system_ref:
+  status: adopted
+  package: "PRENTER Design System"           # Claude Design, is_default
+  package_ref: "claude-design:a98c2e0d-db82-43f2-8fd7-e7e05c40fd51"
+  tokens_ref: "ui/app/globals.css"           # @theme + :root, ported de tokens/*.css de PRENTER
+  atoms_ref: "ui/components/ds/atoms"         # banco de átomos reutilizable
+  storybook_port: "embedded-route"           # decisión CK-27: ruta embebida, no Storybook.js
+  showcase_route: "/design-system"           # catálogo vivo, embebido en el binario `directorio`
+  note: "PRENTER adoptado (CK-27, materializa design-system-atomic-storybook). Tokens en globals.css (mata el púrpura leftover de devhub); átomos en ui/components/ds; catálogo en /design-system. Migración de organismos existentes a ds/ = follow-up de la story."
+
+# Módulos de negocio (= columnas del backlog = nodos de la arquitectura). SSoT de nodos:
+# sistema/arquitectura/NODOS.md. Cada módulo mapea a su(s) nodo(s) N-NN.
+domain_modules:
+  - { slug: sistema,             nodos: [transversal],  nombre: "El sistema as-code (arquitectura/método/schema)" }
+  - { slug: cockpit,             nodos: [N13],          nombre: "Cockpit — Visualización + Gestión de Cambios ISO + niveles de acceso" }
+  - { slug: consultio,           nodos: [N14],          nombre: "Consultio — App del Consultor (clon DevStudio)" }
+  - { slug: repositorio-oficial, nodos: [N6, N12],      nombre: "Repositorio Oficial confidencial + Depósito de fuentes" }
+  - { slug: lakehouse,           nodos: [N16, N18],     nombre: "Data Lakehouse + conectores de ingesta" }
+  - { slug: colab-studio,        nodos: [N17],          nombre: "Colab Studio — app del trabajador operativo" }
+  - { slug: fabricante,          nodos: [N2, N3, N15],  nombre: "Plano del Fabricante — Arnesia + Repo Maestro + distribución/licencias" }
+
+# Roles trabajadores (builder/auditor). Solo-operador (Chris ratifica). Sin roles FE/agentic
+# de marca del producto de origen — Cockpit no es SaaS multitenant con agentes-producto.
+agent_roster:
+  builder-backend:  { stack: go,       models: [opus, sonnet, haiku] }
+  builder-frontend: { stack: next-ts,  models: [opus, sonnet, haiku] }
+  auditor:          { model: opus }
+  ratificador:      { actor: chris }
+
+# Etapas del value-stream del producto (VISION.md). De aquí se derivan las zonas del mapa.
+value_stream:
+  stages: [ingesta, as-is, to-be, proyectos-desde-brecha]
+  note: "ingesta multi-fuente → As-Is → To-Be → proyectos desde la brecha (VISION.md)."
+
+# Límites WIP que los gates de cierre imponen.
+wip_caps:
+  developed_max: 1
+  developing_max_per_module: 1

@@ -1,0 +1,40 @@
+# 04-validators.yaml — organizacion-ficticia-golden-fixture (armado a mano — hueco KIT 0.5.3)
+story_id: organizacion-ficticia-golden-fixture
+gates:                                  # todos exit 0 (pre-commit del repo cockpit)
+  - python3 sistema/arquitectura/gen_arquitectura.py --check
+  - python3 sistema/metodo/gen_metodo.py --check          # valida mini-nichos nuevos (T-3)
+  - python3 docs/product/gen_roadmap.py --check
+  - python3 sistema/schema/gen_schema.py --check          # valida enum planta (T-1) + verbos nuevos (D-A7)
+toolchain:
+  - "cd go && go vet ./... && gofmt -l . && go test ./... && go build ./..."
+verificador:                            # la herramienta nueva de la historia (T-2)
+  - "python3 sistema/schema/gen_cobertura.py --shell ~/Proyectos/terranova --shell ~/Proyectos/alameda --shell ~/Proyectos/vulcano --flota"
+  - "python3 -m unittest discover -s sistema/schema -p 'test_gen_cobertura.py'"
+
+seam_coverage:                          # HB-94: cubierto = colaborador REAL, no mock
+  verificador_instancias: "gen_cobertura corre contra los SHELLS REALES en disco (jamás YAML armado en memoria); tests con shells sintéticos chicos en tmpdir"
+  codigo_instancias: "live-verify GET /api/objeto real ×3 slugs (runtime-logs + payload observado)"
+  registro: "portfolio real navegado tras editar registry (no unit-test del parser)"
+  mutacion: "SC-2 muta una COPIA real de Terranova y corre el verificador de verdad"
+
+validators:
+  - {sc: SC-1, must_pass: true, grader: "live-verify: GET /api/objeto?empresa={terranova,alameda,vulcano} → 12 entidades · errors:[] · warnings:[] ×3 + portfolio navega los 3"}
+  - {sc: SC-2, must_pass: true, grader: "gen_cobertura flota real = 0 huecos exit 0 · copia Terranova mutada (campo+arista removidos) = exit≠0 nombrando ambos huecos · test_gen_cobertura verde (mutación nació RED)"}
+  - {sc: SC-3, must_pass: true, grader: "verificador aristas 100% en Terranova + inspección payload: cadena actividad→KPI→KR→objetivo y vuelta con unidad_ref obra"}
+  - {sc: SC-4, must_pass: true, grader: "reparto modos 3/3 (gen_cobertura enum cross-shell) + acople_compensacion solo en gpd/mixto (validador v2 existente lo garantiza — 0E en vivo)"}
+  - {sc: SC-5, must_pass: true, grader: "mismo proceso plantilla medido por ≥2 unidades en T (obras) y A (sucursal+franquicia); tipo_unidad 5/5 en flota (incl. planta)"}
+  - {sc: SC-6, must_pass: true, grader: "gen_cobertura regla provenance: ≥4 fuentes/shell · Inferido≠alta · ninguna combinación fuente×conf >70%"}
+  - {sc: SC-7, must_pass: true, grader: "gen_cobertura enums: estado_proyecto 12/12 · estado_idea 5/5 · metodologia 4/4 · tipo_beneficio 4/4 en flota + inspección: cadena movio con delta_observado · loop-back MASP en vulcano · ≥1 divergente en payload"}
+  - {sc: SC-8, must_pass: true, grader: "curl con time_total < 1s lectura fría sobre terranova (shell más grande)"}
+
+casuistica_audit:                       # lo NO estructural — Fase B revisa contra 03-arch § Matriz
+  - "C1-C8 completas: cada fila marcada con evidencia (archivo del shell que la encarna)"
+  - "calidad narrativa: nombres es-419 diversos ficticios (RN-20) · historias coherentes entre entidades (la obra roja tiene la brecha, el proyecto y el KR que la ataca)"
+
+nfr:
+  - {req: "GET /api/objeto por shell < 1s p95 frío", grader: "SC-8"}
+  - {req: "≤500 archivos por shell", grader: "gen_cobertura reporta conteo"}
+  - {req: "es-419 sin voseo", grader: "revisión en audit"}
+
+not_applicable:
+  - {subs: [race-condition, concurrent-users, network-failure, empty-state, accessibility, i18n-FE], reason: "single-tenant · binario read-only sin auth/DB · historia de datos sin superficie FE (cockpit-stack)"}
