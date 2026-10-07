@@ -1,2 +1,3 @@
 ## Your Goal
-To build a prototype (the maintainable code and the standalone HTML) specificated in this [[spec]] . If you have questions, grill me.
+To build a prototype (consisting of maintainable source code and a standalone HTML file) as specified in this document [[spec]]. The source code should be placed in a dedicated folder named **`prototype`** in the root directory, always adhering to clean code and clean architecture principles. The standalone HTML file should represent the final build, compiled output, or bundled result of that well-structured codebase.
+Remember that the HTML will be shared via email or WhatsApp, so it must work in a completely isolated way.
