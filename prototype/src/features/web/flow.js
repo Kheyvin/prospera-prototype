@@ -15,7 +15,7 @@ Primus.module('features/web/flow', function (require) {
   var G = {
     nodeMinWidth: 176, nodeMaxWidth: 240, nodeMinHeight: 56, gap: 24,
     decision: 112, event: 56, laneHeight: 168, laneLabel: 144,
-    columnGap: 64, padX: 32, padY: 24, actorHeight: 128, frameHead: 32, framePad: 12,
+    columnGap: 64, padX: 32, padY: 24, actorHeight: 128, frameHead: 60, framePad: 12,
     loopGap: 36, loopStep: 26, bottomPad: 40
   };
 

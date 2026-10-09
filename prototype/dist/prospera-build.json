@@ -2,8 +2,8 @@
   "clientId": "prospera",
   "schemaVersion": 1,
   "specVersion": "1.0",
-  "sourceRevision": "664ba3c62152b690bc2496a25511b62e6cecc8fd",
-  "generatedAt": "2026-10-09T16:30:12.722Z",
+  "sourceRevision": "1346bda3600a75183d8d1a3efe4f2cfa3d1f1e77",
+  "generatedAt": "2026-10-09T16:32:46.159Z",
   "inputs": [
     {
       "path": "build/manifest.json",
@@ -39,7 +39,7 @@
     },
     {
       "path": "src/styles/visualization.css",
-      "sha256": "4fd19c4eff4987c0530dabe60b7da6f7ee50d7a029e03fa13500a567bc66e300"
+      "sha256": "28ec79ddb9c13e8dca52a4075f8ad9d5dc91f210f5d9f569f41c518f85bef52c"
     },
     {
       "path": "src/styles/responsive.css",
@@ -151,7 +151,7 @@
     },
     {
       "path": "src/components/twin/canvas.js",
-      "sha256": "2de715cc6f9b08734398fe00d6356f6b1f23f12dee30e219a577e596179e2922"
+      "sha256": "0db6aab17f6f7b3b7291cb820b734fd54d10405ddea40920d2f0dedd81a58bb9"
     },
     {
       "path": "src/components/twin/rail.js",
@@ -239,7 +239,7 @@
     },
     {
       "path": "src/features/web/flow.js",
-      "sha256": "0a70c2bd67a6da59c9027b38064598b4cb08a43f9832feb28b34caa367fa1299"
+      "sha256": "2330641b5391a3e99675c58ebfc1f22f9297310864d37ed00935ab2eab170e7b"
     },
     {
       "path": "src/features/web/instruction.js",
@@ -417,9 +417,9 @@
     {
       "id": "html-size",
       "ok": true,
-      "detail": "1,551,238 bytes of 5,242,880"
+      "detail": "1,551,688 bytes of 5,242,880"
     }
   ],
-  "bytes": 1551238,
-  "sha256": "f288dcd2788d6e9062d14f0be7101fd0742159ab8408d4b22985b792333e2eb7"
+  "bytes": 1551688,
+  "sha256": "760650b3c481c63c213da105e0ae87e4f07f07d2db1e6641feaf590903c7c9b3"
 }

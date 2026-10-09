@@ -107,7 +107,9 @@ Primus.module('components/twin/canvas', function (require) {
       var dx = el.scrollLeft, dy = el.scrollTop;
       if (!dx && !dy) return;
       el.scrollLeft = 0; el.scrollTop = 0;
-      if (contextKey) pan(-dx, -dy); else applyTransform({ x: camera.x - dx, y: camera.y - dy, scale: camera.scale });
+      /* Jump immediately so the element stays where the browser just scrolled it to. */
+      applyTransform({ x: camera.x - dx, y: camera.y - dy, scale: camera.scale }, true);
+      if (contextKey) pan(-dx, -dy); else camera = { x: camera.x - dx, y: camera.y - dy, scale: camera.scale };
     });
 
     function applyTransform(cam, immediate) {

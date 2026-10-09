@@ -5610,6 +5610,17 @@ b {
   padding-block: var(--space-1);
 }
 
+/* Compact (subtask) nodes: the id never breaks mid-token. */
+.node--compact .node__meta {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Group frames: the title wraps inside the frame head instead of under the subtasks. */
+.node--group .node__name {
+  overflow-wrap: normal;
+}
+
 /* ==== src/styles/responsive.css ==== */
 /* styles/responsive.css — breakpoints per spec §15 and design.md §5.
  *   ≥1280 px  rail + stage + docked inspector; studio roster | main | side panel
@@ -20346,7 +20357,9 @@ Primus.module('components/twin/canvas', function (require) {
       var dx = el.scrollLeft, dy = el.scrollTop;
       if (!dx && !dy) return;
       el.scrollLeft = 0; el.scrollTop = 0;
-      if (contextKey) pan(-dx, -dy); else applyTransform({ x: camera.x - dx, y: camera.y - dy, scale: camera.scale });
+      /* Jump immediately so the element stays where the browser just scrolled it to. */
+      applyTransform({ x: camera.x - dx, y: camera.y - dy, scale: camera.scale }, true);
+      if (contextKey) pan(-dx, -dy); else camera = { x: camera.x - dx, y: camera.y - dy, scale: camera.scale };
     });
 
     function applyTransform(cam, immediate) {
@@ -26363,7 +26376,7 @@ Primus.module('features/web/flow', function (require) {
   var G = {
     nodeMinWidth: 176, nodeMaxWidth: 240, nodeMinHeight: 56, gap: 24,
     decision: 112, event: 56, laneHeight: 168, laneLabel: 144,
-    columnGap: 64, padX: 32, padY: 24, actorHeight: 128, frameHead: 32, framePad: 12,
+    columnGap: 64, padX: 32, padY: 24, actorHeight: 128, frameHead: 60, framePad: 12,
     loopGap: 36, loopStep: 26, bottomPad: 40
   };
 

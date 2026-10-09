@@ -1204,3 +1204,14 @@
   min-height: var(--control-height-sm);
   padding-block: var(--space-1);
 }
+
+/* Compact (subtask) nodes: the id never breaks mid-token. */
+.node--compact .node__meta {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Group frames: the title wraps inside the frame head instead of under the subtasks. */
+.node--group .node__name {
+  overflow-wrap: normal;
+}
