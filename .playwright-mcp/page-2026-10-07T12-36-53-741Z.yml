@@ -1,0 +1,1861 @@
+- generic [active] [ref=f1e1]:
+  - link "Ir al contenido principal" [ref=f1e2] [cursor=pointer]:
+    - /url: "#catalog-main"
+  - generic [ref=f1e3]:
+    - navigation "Secciones del catálogo" [ref=f1e4]:
+      - paragraph [ref=f1e5]: PRENTER · catálogo
+      - link "Tokens" [ref=f1e6] [cursor=pointer]:
+        - /url: "#tokens"
+      - link "Extensiones" [ref=f1e7] [cursor=pointer]:
+        - /url: "#extensions"
+      - link "Tipografía" [ref=f1e8] [cursor=pointer]:
+        - /url: "#typography"
+      - link "Iconos" [ref=f1e9] [cursor=pointer]:
+        - /url: "#icons"
+      - link "Botones" [ref=f1e10] [cursor=pointer]:
+        - /url: "#buttons"
+      - link "Badges y estados" [ref=f1e11] [cursor=pointer]:
+        - /url: "#badges"
+      - link "Chips" [ref=f1e12] [cursor=pointer]:
+        - /url: "#chips"
+      - link "Fichas (cards)" [ref=f1e13] [cursor=pointer]:
+        - /url: "#cards"
+      - link "Formularios" [ref=f1e14] [cursor=pointer]:
+        - /url: "#fields"
+      - link "Tabs y breadcrumbs" [ref=f1e15] [cursor=pointer]:
+        - /url: "#tabs"
+      - link "Enlaces de entidad" [ref=f1e16] [cursor=pointer]:
+        - /url: "#links"
+      - link "Métricas y clave-valor" [ref=f1e17] [cursor=pointer]:
+        - /url: "#metrics"
+      - link "Tablas" [ref=f1e18] [cursor=pointer]:
+        - /url: "#tables"
+      - link "Disclosure y modales" [ref=f1e19] [cursor=pointer]:
+        - /url: "#disclosure"
+      - link "Avisos, toasts y vacíos" [ref=f1e20] [cursor=pointer]:
+        - /url: "#feedback"
+      - link "Proveniencia" [ref=f1e21] [cursor=pointer]:
+        - /url: "#provenance"
+      - link "Nodos y materiales" [ref=f1e22] [cursor=pointer]:
+        - /url: "#nodes"
+      - link "Lienzo, carriles y bandas" [ref=f1e23] [cursor=pointer]:
+        - /url: "#canvas"
+      - link "Inspector" [ref=f1e24] [cursor=pointer]:
+        - /url: "#inspector"
+      - 'link "Composición: gemelo" [ref=f1e25] [cursor=pointer]':
+        - /url: "#twin"
+      - 'link "Composición: estudio" [ref=f1e26] [cursor=pointer]':
+        - /url: "#studio"
+      - link "Vista estrecha" [ref=f1e27] [cursor=pointer]:
+        - /url: "#narrow"
+    - main [ref=f1e28]:
+      - generic [ref=f1e29]:
+        - paragraph [ref=f1e30]: Página de desarrollo · no se distribuye
+        - heading "Catálogo PRENTER para PRIMUS" [level=1] [ref=f1e31]
+        - paragraph [ref=f1e32]:
+          - text: Tokens, átomos, moléculas, materiales y composiciones de layout del prototipo portable. Cada ejemplo se construye con las mismas fábricas (
+          - code [ref=f1e33]: ds/atoms
+          - text: ","
+          - code [ref=f1e34]: ds/molecules
+          - text: ) que usan las cinco pestañas.
+      - generic [ref=f1e35]:
+        - region [ref=f1e36]:
+          - heading "Tokens PRENTER" [level=2] [ref=f1e37]
+          - paragraph [ref=f1e38]: Copia literal de references/prenter/tokens.css (revisión 2c6feb6). Solo se consumen por var().
+          - generic [ref=f1e39]:
+            - generic [ref=f1e40]: Teal (marca única)
+            - generic [ref=f1e41]:
+              - generic [ref=f1e42]:
+                - generic [ref=f1e44]: "--color-teal-50"
+                - generic [ref=f1e45]: "#e6f8f6"
+              - generic [ref=f1e46]:
+                - generic [ref=f1e48]: "--color-teal-100"
+                - generic [ref=f1e49]: "#c2efea"
+              - generic [ref=f1e50]:
+                - generic [ref=f1e52]: "--color-teal-200"
+                - generic [ref=f1e53]: "#8fe3da"
+              - generic [ref=f1e54]:
+                - generic [ref=f1e56]: "--color-teal-300"
+                - generic [ref=f1e57]: "#54d4c8"
+              - generic [ref=f1e58]:
+                - generic [ref=f1e60]: "--color-teal-400"
+                - generic [ref=f1e61]: "#1fc6b8"
+              - generic [ref=f1e62]:
+                - generic [ref=f1e64]: "--color-teal-500"
+                - generic [ref=f1e65]: "#00b7aa"
+              - generic [ref=f1e66]:
+                - generic [ref=f1e68]: "--color-teal-600"
+                - generic [ref=f1e69]: "#009d92"
+              - generic [ref=f1e70]:
+                - generic [ref=f1e72]: "--color-teal-700"
+                - generic [ref=f1e73]: "#007f76"
+              - generic [ref=f1e74]:
+                - generic [ref=f1e76]: "--color-teal-800"
+                - generic [ref=f1e77]: "#0a605a"
+              - generic [ref=f1e78]:
+                - generic [ref=f1e80]: "--color-teal-900"
+                - generic [ref=f1e81]: "#0d4944"
+          - generic [ref=f1e82]:
+            - generic [ref=f1e83]: Neutros
+            - generic [ref=f1e84]:
+              - generic [ref=f1e85]:
+                - generic [ref=f1e87]: "--color-neutral-50"
+                - generic [ref=f1e88]: "#f6f8f8"
+              - generic [ref=f1e89]:
+                - generic [ref=f1e91]: "--color-neutral-100"
+                - generic [ref=f1e92]: "#eef1f1"
+              - generic [ref=f1e93]:
+                - generic [ref=f1e95]: "--color-neutral-200"
+                - generic [ref=f1e96]: "#e1e6e6"
+              - generic [ref=f1e97]:
+                - generic [ref=f1e99]: "--color-neutral-300"
+                - generic [ref=f1e100]: "#c9d1d1"
+              - generic [ref=f1e101]:
+                - generic [ref=f1e103]: "--color-neutral-400"
+                - generic [ref=f1e104]: "#98a3a3"
+              - generic [ref=f1e105]:
+                - generic [ref=f1e107]: "--color-neutral-500"
+                - generic [ref=f1e108]: "#6b7676"
+              - generic [ref=f1e109]:
+                - generic [ref=f1e111]: "--color-neutral-600"
+                - generic [ref=f1e112]: "#4d5757"
+              - generic [ref=f1e113]:
+                - generic [ref=f1e115]: "--color-neutral-700"
+                - generic [ref=f1e116]: "#353d3d"
+              - generic [ref=f1e117]:
+                - generic [ref=f1e119]: "--color-neutral-800"
+                - generic [ref=f1e120]: "#1a201f"
+              - generic [ref=f1e121]:
+                - generic [ref=f1e123]: "--color-neutral-900"
+                - generic [ref=f1e124]: "#0e1312"
+          - generic [ref=f1e125]:
+            - generic [ref=f1e126]: Superficies oscuras y estados sobre oscuro
+            - generic [ref=f1e127]:
+              - generic [ref=f1e128]:
+                - generic [ref=f1e130]: "--color-dark-bg"
+                - generic [ref=f1e131]: "#000000"
+              - generic [ref=f1e132]:
+                - generic [ref=f1e134]: "--color-dark-surface"
+                - generic [ref=f1e135]: "#0c1110"
+              - generic [ref=f1e136]:
+                - generic [ref=f1e138]: "--color-dark-raised"
+                - generic [ref=f1e139]: "#141a19"
+              - generic [ref=f1e140]:
+                - generic [ref=f1e142]: "--color-dark-border"
+                - generic [ref=f1e143]: "#1f2826"
+              - generic [ref=f1e144]:
+                - generic [ref=f1e146]: "--color-brand"
+                - generic [ref=f1e147]: "#00b7aa"
+              - generic [ref=f1e148]:
+                - generic [ref=f1e150]: "--color-brand-hover"
+                - generic [ref=f1e151]: "#1fc6b8"
+              - generic [ref=f1e152]:
+                - generic [ref=f1e154]: "--color-brand-active"
+                - generic [ref=f1e155]: "#009d92"
+              - generic [ref=f1e156]:
+                - generic [ref=f1e158]: "--color-focus-ring"
+                - generic [ref=f1e159]: "#1fc6b8"
+              - generic [ref=f1e160]:
+                - generic [ref=f1e162]: "--color-success-dark"
+                - generic [ref=f1e163]: "#5cc99a"
+              - generic [ref=f1e164]:
+                - generic [ref=f1e166]: "--color-warning-dark"
+                - generic [ref=f1e167]: "#e0ad4e"
+              - generic [ref=f1e168]:
+                - generic [ref=f1e170]: "--color-danger-dark"
+                - generic [ref=f1e171]: "#e2766b"
+          - generic [ref=f1e172]:
+            - generic [ref=f1e173]: Texto sobre oscuro
+            - paragraph [ref=f1e174]: Texto principal --text-on-dark
+            - paragraph [ref=f1e175]: Texto secundario --text-on-dark-muted
+            - paragraph [ref=f1e176]: Metadata decorativa --text-on-dark-faint (nunca para instrucciones esenciales)
+            - paragraph [ref=f1e177]: Énfasis de marca --text-on-dark-brand
+          - generic [ref=f1e178]:
+            - generic [ref=f1e179]: Espaciado (grid 4 px)
+            - generic [ref=f1e180]:
+              - generic [ref=f1e181]: "--space-1 = 4px"
+              - generic [ref=f1e184]: "--space-2 = 8px"
+              - generic [ref=f1e187]: "--space-3 = 12px"
+              - generic [ref=f1e190]: "--space-4 = 16px"
+              - generic [ref=f1e193]: "--space-5 = 24px"
+              - generic [ref=f1e196]: "--space-6 = 32px"
+              - generic [ref=f1e199]: "--space-7 = 48px"
+              - generic [ref=f1e202]: "--space-8 = 64px"
+              - generic [ref=f1e205]: "--space-9 = 96px"
+              - generic [ref=f1e208]: "--space-10 = 128px"
+          - generic [ref=f1e211]:
+            - generic [ref=f1e212]: Radios y sombras
+            - generic [ref=f1e213]:
+              - generic [ref=f1e214]: "--radius-sm"
+              - generic [ref=f1e217]: "--radius-md"
+              - generic [ref=f1e220]: "--radius-lg"
+              - generic [ref=f1e223]: "--radius-xl"
+              - generic [ref=f1e226]: "--radius-pill"
+        - region [ref=f1e229]:
+          - heading "Extensiones del prototipo" [level=2] [ref=f1e230]
+          - paragraph [ref=f1e231]: "Tokens nuevos de design.md §2, registrados en ds/extensions.css: layout, controles, duración, z, geometría de grafo, tintes y materiales por tipo de entidad."
+          - generic [ref=f1e232]:
+            - generic [ref=f1e233]:
+              - generic [ref=f1e234]: Layout
+              - generic [ref=f1e235]:
+                - generic [ref=f1e236]:
+                  - term [ref=f1e237]: "--layout-header"
+                  - definition [ref=f1e238]: 72px
+                - generic [ref=f1e239]:
+                  - term [ref=f1e240]: "--layout-tabs"
+                  - definition [ref=f1e241]: 48px
+                - generic [ref=f1e242]:
+                  - term [ref=f1e243]: "--layout-contextbar"
+                  - definition [ref=f1e244]: 56px
+                - generic [ref=f1e245]:
+                  - term [ref=f1e246]: "--layout-rail"
+                  - definition [ref=f1e247]: 224px
+                - generic [ref=f1e248]:
+                  - term [ref=f1e249]: "--layout-inspector"
+                  - definition [ref=f1e250]: 360px
+                - generic [ref=f1e251]:
+                  - term [ref=f1e252]: "--layout-inspector-min"
+                  - definition [ref=f1e253]: 320px
+                - generic [ref=f1e254]:
+                  - term [ref=f1e255]: "--layout-inspector-max"
+                  - definition [ref=f1e256]: 420px
+                - generic [ref=f1e257]:
+                  - term [ref=f1e258]: "--layout-roster"
+                  - definition [ref=f1e259]: 260px
+                - generic [ref=f1e260]:
+                  - term [ref=f1e261]: "--layout-side"
+                  - definition [ref=f1e262]: 380px
+                - generic [ref=f1e263]:
+                  - term [ref=f1e264]: "--layout-sheet-max"
+                  - definition [ref=f1e265]: 85vh
+            - generic [ref=f1e266]:
+              - generic [ref=f1e267]: Controles y movimiento
+              - generic [ref=f1e268]:
+                - generic [ref=f1e269]:
+                  - term [ref=f1e270]: "--control-min-target"
+                  - definition [ref=f1e271]: 44px
+                - generic [ref=f1e272]:
+                  - term [ref=f1e273]: "--control-height-sm"
+                  - definition [ref=f1e274]: 36px
+                - generic [ref=f1e275]:
+                  - term [ref=f1e276]: "--control-height-md"
+                  - definition [ref=f1e277]: 44px
+                - generic [ref=f1e278]:
+                  - term [ref=f1e279]: "--control-height-lg"
+                  - definition [ref=f1e280]: 52px
+                - generic [ref=f1e281]:
+                  - term [ref=f1e282]: "--control-radius"
+                  - definition [ref=f1e283]: 8px
+                - generic [ref=f1e284]:
+                  - term [ref=f1e285]: "--duration-fast"
+                  - definition [ref=f1e286]: 120ms
+                - generic [ref=f1e287]:
+                  - term [ref=f1e288]: "--duration-normal"
+                  - definition [ref=f1e289]: 180ms
+                - generic [ref=f1e290]:
+                  - term [ref=f1e291]: "--easing-standard"
+                  - definition [ref=f1e292]: cubic-bezier(0.2, 0, 0, 1)
+            - generic [ref=f1e293]:
+              - generic [ref=f1e294]: Apilado
+              - generic [ref=f1e295]:
+                - generic [ref=f1e296]:
+                  - term [ref=f1e297]: "--z-base"
+                  - definition [ref=f1e298]: "0"
+                - generic [ref=f1e299]:
+                  - term [ref=f1e300]: "--z-sticky"
+                  - definition [ref=f1e301]: "10"
+                - generic [ref=f1e302]:
+                  - term [ref=f1e303]: "--z-inspector"
+                  - definition [ref=f1e304]: "20"
+                - generic [ref=f1e305]:
+                  - term [ref=f1e306]: "--z-dialog"
+                  - definition [ref=f1e307]: "30"
+                - generic [ref=f1e308]:
+                  - term [ref=f1e309]: "--z-toast"
+                  - definition [ref=f1e310]: "40"
+            - generic [ref=f1e311]:
+              - generic [ref=f1e312]: Grafo
+              - generic [ref=f1e313]:
+                - generic [ref=f1e314]:
+                  - term [ref=f1e315]: "--graph-node-min-width"
+                  - definition [ref=f1e316]: 176px
+                - generic [ref=f1e317]:
+                  - term [ref=f1e318]: "--graph-node-max-width"
+                  - definition [ref=f1e319]: 240px
+                - generic [ref=f1e320]:
+                  - term [ref=f1e321]: "--graph-node-min-height"
+                  - definition [ref=f1e322]: 56px
+                - generic [ref=f1e323]:
+                  - term [ref=f1e324]: "--graph-node-gap"
+                  - definition [ref=f1e325]: 24px
+                - generic [ref=f1e326]:
+                  - term [ref=f1e327]: "--graph-line-default"
+                  - definition [ref=f1e328]: 1px
+                - generic [ref=f1e329]:
+                  - term [ref=f1e330]: "--graph-line-selected"
+                  - definition [ref=f1e331]: 2px
+                - generic [ref=f1e332]:
+                  - term [ref=f1e333]: "--graph-decision-size"
+                  - definition [ref=f1e334]: 112px
+                - generic [ref=f1e335]:
+                  - term [ref=f1e336]: "--graph-event-size"
+                  - definition [ref=f1e337]: 56px
+                - generic [ref=f1e338]:
+                  - term [ref=f1e339]: "--lane-height"
+                  - definition [ref=f1e340]: 168px
+                - generic [ref=f1e341]:
+                  - term [ref=f1e342]: "--lane-label-width"
+                  - definition [ref=f1e343]: 144px
+                - generic [ref=f1e344]:
+                  - term [ref=f1e345]: "--band-min-height"
+                  - definition [ref=f1e346]: 120px
+                - generic [ref=f1e347]:
+                  - term [ref=f1e348]: "--band-label-width"
+                  - definition [ref=f1e349]: 160px
+          - generic [ref=f1e350]:
+            - generic [ref=f1e351]: Tintes derivados (alfa de tokens PRENTER, sin tonos nuevos)
+            - generic [ref=f1e352]:
+              - generic [ref=f1e353]:
+                - generic [ref=f1e355]: "--tint-brand-faint"
+                - generic [ref=f1e356]: rgba(0, 183, 170, 0.12)
+              - generic [ref=f1e357]:
+                - generic [ref=f1e359]: "--tint-brand-soft"
+                - generic [ref=f1e360]: rgba(0, 183, 170, 0.22)
+              - generic [ref=f1e361]:
+                - generic [ref=f1e363]: "--tint-warning-faint"
+                - generic [ref=f1e364]: rgba(224, 173, 78, 0.12)
+              - generic [ref=f1e365]:
+                - generic [ref=f1e367]: "--tint-danger-faint"
+                - generic [ref=f1e368]: rgba(226, 118, 107, 0.12)
+              - generic [ref=f1e369]:
+                - generic [ref=f1e371]: "--tint-success-faint"
+                - generic [ref=f1e372]: rgba(92, 201, 154, 0.12)
+              - generic [ref=f1e373]:
+                - generic [ref=f1e375]: "--tint-white-hover"
+                - generic [ref=f1e376]: rgba(255, 255, 255, 0.06)
+              - generic [ref=f1e377]:
+                - generic [ref=f1e379]: "--tint-white-active"
+                - generic [ref=f1e380]: rgba(255, 255, 255, 0.1)
+              - generic [ref=f1e381]:
+                - generic [ref=f1e383]: "--tint-backdrop"
+                - generic [ref=f1e384]: rgba(0, 0, 0, 0.7)
+        - region [ref=f1e385]:
+          - heading "Tipografía" [level=2] [ref=f1e386]
+          - paragraph [ref=f1e387]: Display para títulos (narrativa 36–48 px, web 22–28 px), cuerpo 16 px/1.5, mono para IDs, valores y terminal. Fuentes locales con fallback de sistema; sin descargas.
+          - generic [ref=f1e388]:
+            - generic [ref=f1e389]: Escala
+            - generic [ref=f1e390]:
+              - heading "Título de narrativa (h1)" [level=1] [ref=f1e391]
+              - heading "Sección de narrativa (h2)" [level=2] [ref=f1e392]
+              - heading "Título web / inspector (h3)" [level=3] [ref=f1e393]
+              - heading "Subtítulo (h4, cuerpo)" [level=4] [ref=f1e394]
+              - paragraph [ref=f1e395]: Cuerpo 16 px / 1.5. La prosa se limita a 760 px (.text-narrow) y las páginas a 1200 px (.container).
+              - paragraph [ref=f1e396]: Pequeño 14 px para notas y metadatos.
+              - paragraph [ref=f1e397]: Eyebrow mono · firma PRENTER
+              - paragraph [ref=f1e398]: PR-BOLETAS · V-ASIS-01 · 06/10/2026 10:00:03
+              - paragraph [ref=f1e399]:
+                - text: "Teclas:"
+                - generic [ref=f1e400]: Esc
+                - generic [ref=f1e401]: Tab
+                - generic [ref=f1e402]: ↑
+                - generic [ref=f1e403]: ↓
+        - region [ref=f1e404]:
+          - heading "Iconos" [level=2] [ref=f1e405]
+          - paragraph [ref=f1e406]: SVG inline 24×24, trazo 1.5 px, currentColor. Decorativos con aria-hidden; con label → role="img" y <title>. Nunca sustituyen al nombre.
+          - generic [ref=f1e407]:
+            - generic [ref=f1e408]:
+              - img "organization" [ref=f1e409]
+              - generic [ref=f1e411]: organization
+            - generic [ref=f1e412]:
+              - img "building" [ref=f1e413]
+              - generic [ref=f1e415]: building
+            - generic [ref=f1e416]:
+              - img "area" [ref=f1e417]
+              - generic [ref=f1e419]: area
+            - generic [ref=f1e420]:
+              - img "macroprocess" [ref=f1e421]
+              - generic [ref=f1e423]: macroprocess
+            - generic [ref=f1e424]:
+              - img "process" [ref=f1e425]
+              - generic [ref=f1e427]: process
+            - generic [ref=f1e428]:
+              - img "activity" [ref=f1e429]
+              - generic [ref=f1e431]: activity
+            - generic [ref=f1e432]:
+              - img "role" [ref=f1e433]
+              - generic [ref=f1e435]: role
+            - generic [ref=f1e436]:
+              - img "position" [ref=f1e437]
+              - generic [ref=f1e439]: position
+            - generic [ref=f1e440]:
+              - img "person" [ref=f1e441]
+              - generic [ref=f1e443]: person
+            - generic [ref=f1e444]:
+              - img "user" [ref=f1e445]
+              - generic [ref=f1e447]: user
+            - generic [ref=f1e448]:
+              - img "external" [ref=f1e449]
+              - generic [ref=f1e451]: external
+            - generic [ref=f1e452]:
+              - img "externalProvider" [ref=f1e453]
+              - generic [ref=f1e455]: externalProvider
+            - generic [ref=f1e456]:
+              - img "externalActor" [ref=f1e457]
+              - generic [ref=f1e459]: externalActor
+            - generic [ref=f1e460]:
+              - img "system" [ref=f1e461]
+              - generic [ref=f1e463]: system
+            - generic [ref=f1e464]:
+              - img "monitor" [ref=f1e465]
+              - generic [ref=f1e467]: monitor
+            - generic [ref=f1e468]:
+              - img "document" [ref=f1e469]
+              - generic [ref=f1e471]: document
+            - generic [ref=f1e472]:
+              - img "policy" [ref=f1e473]
+              - generic [ref=f1e475]: policy
+            - generic [ref=f1e476]:
+              - img "shield" [ref=f1e477]
+              - generic [ref=f1e479]: shield
+            - generic [ref=f1e480]:
+              - img "objective" [ref=f1e481]
+              - generic [ref=f1e483]: objective
+            - generic [ref=f1e484]:
+              - img "indicator" [ref=f1e485]
+              - generic [ref=f1e487]: indicator
+            - generic [ref=f1e488]:
+              - img "gap" [ref=f1e489]
+              - generic [ref=f1e491]: gap
+            - generic [ref=f1e492]:
+              - img "warning" [ref=f1e493]
+              - generic [ref=f1e495]: warning
+            - generic [ref=f1e496]:
+              - img "incident" [ref=f1e497]
+              - generic [ref=f1e499]: incident
+            - generic [ref=f1e500]:
+              - img "flag" [ref=f1e501]
+              - generic [ref=f1e503]: flag
+            - generic [ref=f1e504]:
+              - img "project" [ref=f1e505]
+              - generic [ref=f1e507]: project
+            - generic [ref=f1e508]:
+              - img "folder" [ref=f1e509]
+              - generic [ref=f1e511]: folder
+            - generic [ref=f1e512]:
+              - img "version" [ref=f1e513]
+              - generic [ref=f1e515]: version
+            - generic [ref=f1e516]:
+              - img "decision" [ref=f1e517]
+              - generic [ref=f1e519]: decision
+            - generic [ref=f1e520]:
+              - img "event" [ref=f1e521]
+              - generic [ref=f1e523]: event
+            - generic [ref=f1e524]:
+              - img "start" [ref=f1e525]
+              - generic [ref=f1e527]: start
+            - generic [ref=f1e528]:
+              - img "end" [ref=f1e529]
+              - generic [ref=f1e532]: end
+            - generic [ref=f1e533]:
+              - img "close" [ref=f1e534]
+              - generic [ref=f1e536]: close
+            - generic [ref=f1e537]:
+              - img "back" [ref=f1e538]
+              - generic [ref=f1e540]: back
+            - generic [ref=f1e541]:
+              - img "forward" [ref=f1e542]
+              - generic [ref=f1e544]: forward
+            - generic [ref=f1e545]:
+              - img "arrowUp" [ref=f1e546]
+              - generic [ref=f1e548]: arrowUp
+            - generic [ref=f1e549]:
+              - img "arrowDown" [ref=f1e550]
+              - generic [ref=f1e552]: arrowDown
+            - generic [ref=f1e553]:
+              - img "search" [ref=f1e554]
+              - generic [ref=f1e556]: search
+            - generic [ref=f1e557]:
+              - img "zoomIn" [ref=f1e558]
+              - generic [ref=f1e560]: zoomIn
+            - generic [ref=f1e561]:
+              - img "zoomOut" [ref=f1e562]
+              - generic [ref=f1e564]: zoomOut
+            - generic [ref=f1e565]:
+              - img "fit" [ref=f1e566]
+              - generic [ref=f1e568]: fit
+            - generic [ref=f1e569]:
+              - img "reset" [ref=f1e570]
+              - generic [ref=f1e572]: reset
+            - generic [ref=f1e573]:
+              - img "chevronDown" [ref=f1e574]
+              - generic [ref=f1e576]: chevronDown
+            - generic [ref=f1e577]:
+              - img "chevronRight" [ref=f1e578]
+              - generic [ref=f1e580]: chevronRight
+            - generic [ref=f1e581]:
+              - img "chevronUp" [ref=f1e582]
+              - generic [ref=f1e584]: chevronUp
+            - generic [ref=f1e585]:
+              - img "chevronLeft" [ref=f1e586]
+              - generic [ref=f1e588]: chevronLeft
+            - generic [ref=f1e589]:
+              - img "check" [ref=f1e590]
+              - generic [ref=f1e592]: check
+            - generic [ref=f1e593]:
+              - img "error" [ref=f1e594]
+              - generic [ref=f1e596]: error
+            - generic [ref=f1e597]:
+              - img "info" [ref=f1e598]
+              - generic [ref=f1e600]: info
+            - generic [ref=f1e601]:
+              - img "list" [ref=f1e602]
+              - generic [ref=f1e604]: list
+            - generic [ref=f1e605]:
+              - img "map" [ref=f1e606]
+              - generic [ref=f1e608]: map
+            - generic [ref=f1e609]:
+              - img "menu" [ref=f1e610]
+              - generic [ref=f1e612]: menu
+            - generic [ref=f1e613]:
+              - img "externalLink" [ref=f1e614]
+              - generic [ref=f1e616]: externalLink
+            - generic [ref=f1e617]:
+              - img "play" [ref=f1e618]
+              - generic [ref=f1e620]: play
+            - generic [ref=f1e621]:
+              - img "pause" [ref=f1e622]
+              - generic [ref=f1e624]: pause
+            - generic [ref=f1e625]:
+              - img "stop" [ref=f1e626]
+              - generic [ref=f1e628]: stop
+            - generic [ref=f1e629]:
+              - img "retry" [ref=f1e630]
+              - generic [ref=f1e632]: retry
+            - generic [ref=f1e633]:
+              - img "plus" [ref=f1e634]
+              - generic [ref=f1e636]: plus
+            - generic [ref=f1e637]:
+              - img "minus" [ref=f1e638]
+              - generic [ref=f1e639]: minus
+            - generic [ref=f1e640]:
+              - img "edit" [ref=f1e641]
+              - generic [ref=f1e643]: edit
+            - generic [ref=f1e644]:
+              - img "trash" [ref=f1e645]
+              - generic [ref=f1e647]: trash
+            - generic [ref=f1e648]:
+              - img "lock" [ref=f1e649]
+              - generic [ref=f1e651]: lock
+            - generic [ref=f1e652]:
+              - img "gear" [ref=f1e653]
+              - generic [ref=f1e655]: gear
+            - generic [ref=f1e656]:
+              - img "database" [ref=f1e657]
+              - generic [ref=f1e659]: database
+            - generic [ref=f1e660]:
+              - img "window" [ref=f1e661]
+              - generic [ref=f1e663]: window
+            - generic [ref=f1e664]:
+              - img "terminal" [ref=f1e665]
+              - generic [ref=f1e667]: terminal
+            - generic [ref=f1e668]:
+              - img "cloud" [ref=f1e669]
+              - generic [ref=f1e671]: cloud
+            - generic [ref=f1e672]:
+              - img "graph" [ref=f1e673]
+              - generic [ref=f1e675]: graph
+            - generic [ref=f1e676]:
+              - img "history" [ref=f1e677]
+              - generic [ref=f1e679]: history
+            - generic [ref=f1e680]:
+              - img "link" [ref=f1e681]
+              - generic [ref=f1e683]: link
+            - generic [ref=f1e684]:
+              - img "send" [ref=f1e685]
+              - generic [ref=f1e687]: send
+            - generic [ref=f1e688]:
+              - img "clock" [ref=f1e689]
+              - generic [ref=f1e691]: clock
+            - generic [ref=f1e692]:
+              - img "calendar" [ref=f1e693]
+              - generic [ref=f1e695]: calendar
+            - generic [ref=f1e696]:
+              - img "filter" [ref=f1e697]
+              - generic [ref=f1e699]: filter
+            - generic [ref=f1e700]:
+              - img "layers" [ref=f1e701]
+              - generic [ref=f1e703]: layers
+            - generic [ref=f1e704]:
+              - img "compare" [ref=f1e705]
+              - generic [ref=f1e707]: compare
+            - generic [ref=f1e708]:
+              - img "table" [ref=f1e709]
+              - generic [ref=f1e711]: table
+            - generic [ref=f1e712]:
+              - img "sort" [ref=f1e713]
+              - generic [ref=f1e715]: sort
+            - generic [ref=f1e716]:
+              - img "sortAsc" [ref=f1e717]
+              - generic [ref=f1e719]: sortAsc
+            - generic [ref=f1e720]:
+              - img "sortDesc" [ref=f1e721]
+              - generic [ref=f1e723]: sortDesc
+            - generic [ref=f1e724]:
+              - img "home" [ref=f1e725]
+              - generic [ref=f1e727]: home
+            - generic [ref=f1e728]:
+              - img "eye" [ref=f1e729]
+              - generic [ref=f1e731]: eye
+            - generic [ref=f1e732]:
+              - img "circle" [ref=f1e733]
+              - generic [ref=f1e735]: circle
+            - generic [ref=f1e736]:
+              - img "dot" [ref=f1e737]
+              - generic [ref=f1e739]: dot
+            - generic [ref=f1e740]:
+              - img "spinner" [ref=f1e741]
+              - generic [ref=f1e743]: spinner
+          - generic [ref=f1e744]:
+            - generic [ref=f1e745]: Nombre desconocido (fallback marcado con data-icon-missing)
+            - generic [ref=f1e746]:
+              - img "no-existe" [ref=f1e747]
+              - generic [ref=f1e749]: icon("no-existe")
+        - region [ref=f1e750]:
+          - heading "Botones" [level=2] [ref=f1e751]
+          - paragraph [ref=f1e752]: <button> nativo; alturas 36/44/52; primario, secundario, fantasma y peligro. Deshabilitado conserva el foco (aria-disabled) y muestra el motivo adyacente (.btn__reason). Ocupado mantiene el texto visible y bloquea comandos duplicados.
+          - generic [ref=f1e753]:
+            - generic [ref=f1e754]:
+              - generic [ref=f1e755]: primary
+              - generic [ref=f1e756]:
+                - button "Pequeño" [ref=f1e757] [cursor=pointer]
+                - button "Mediano" [ref=f1e759] [cursor=pointer]
+                - button "Grande" [ref=f1e761] [cursor=pointer]
+              - generic [ref=f1e763]:
+                - button "Con icono" [ref=f1e764] [cursor=pointer]
+                - button "Pulsado" [pressed] [ref=f1e768] [cursor=pointer]
+                - button "Deshabilitado" [disabled] [ref=f1e770]
+              - generic [ref=f1e772]:
+                - button "Ocupado" [disabled] [ref=f1e773]
+                - generic [ref=f1e777]:
+                  - button "Deshabilitado con motivo" [disabled] [ref=f1e778]
+                  - generic [ref=f1e780]: Esta vista requiere un perfil administrador
+              - button "Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado" [ref=f1e782] [cursor=pointer]
+            - generic [ref=f1e784]:
+              - generic [ref=f1e785]: secondary
+              - generic [ref=f1e786]:
+                - button "Pequeño" [ref=f1e787] [cursor=pointer]
+                - button "Mediano" [ref=f1e789] [cursor=pointer]
+                - button "Grande" [ref=f1e791] [cursor=pointer]
+              - generic [ref=f1e793]:
+                - button "Con icono" [ref=f1e794] [cursor=pointer]
+                - button "Pulsado" [pressed] [ref=f1e798] [cursor=pointer]
+                - button "Deshabilitado" [disabled] [ref=f1e800]
+              - generic [ref=f1e802]:
+                - button "Ocupado" [disabled] [ref=f1e803]
+                - generic [ref=f1e807]:
+                  - button "Deshabilitado con motivo" [disabled] [ref=f1e808]
+                  - generic [ref=f1e810]: Esta vista requiere un perfil administrador
+              - button "Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado" [ref=f1e812] [cursor=pointer]
+            - generic [ref=f1e814]:
+              - generic [ref=f1e815]: ghost
+              - generic [ref=f1e816]:
+                - button "Pequeño" [ref=f1e817] [cursor=pointer]
+                - button "Mediano" [ref=f1e819] [cursor=pointer]
+                - button "Grande" [ref=f1e821] [cursor=pointer]
+              - generic [ref=f1e823]:
+                - button "Con icono" [ref=f1e824] [cursor=pointer]
+                - button "Pulsado" [pressed] [ref=f1e828] [cursor=pointer]
+                - button "Deshabilitado" [disabled] [ref=f1e830]
+              - generic [ref=f1e832]:
+                - button "Ocupado" [disabled] [ref=f1e833]
+                - generic [ref=f1e837]:
+                  - button "Deshabilitado con motivo" [disabled] [ref=f1e838]
+                  - generic [ref=f1e840]: Esta vista requiere un perfil administrador
+              - button "Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado" [ref=f1e842] [cursor=pointer]
+            - generic [ref=f1e844]:
+              - generic [ref=f1e845]: danger
+              - generic [ref=f1e846]:
+                - button "Pequeño" [ref=f1e847] [cursor=pointer]
+                - button "Mediano" [ref=f1e849] [cursor=pointer]
+                - button "Grande" [ref=f1e851] [cursor=pointer]
+              - generic [ref=f1e853]:
+                - button "Con icono" [ref=f1e854] [cursor=pointer]
+                - button "Pulsado" [pressed] [ref=f1e858] [cursor=pointer]
+                - button "Deshabilitado" [disabled] [ref=f1e860]
+              - generic [ref=f1e862]:
+                - button "Ocupado" [disabled] [ref=f1e863]
+                - generic [ref=f1e867]:
+                  - button "Deshabilitado con motivo" [disabled] [ref=f1e868]
+                  - generic [ref=f1e870]: Esta vista requiere un perfil administrador
+              - button "Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado" [ref=f1e872] [cursor=pointer]
+          - generic [ref=f1e874]:
+            - generic [ref=f1e875]: Solo icono (siempre con ariaLabel) y foco
+            - generic [ref=f1e876]:
+              - button "Cerrar" [ref=f1e877] [cursor=pointer]
+              - button "Acercar" [ref=f1e880] [cursor=pointer]
+              - button "Ver como mapa" [pressed] [ref=f1e883] [cursor=pointer]
+              - button "Navegación del módulo" [ref=f1e886] [cursor=pointer]
+              - button "Mostrar anillo de foco" [ref=f1e889] [cursor=pointer]
+              - button "Objetivo del foco (anillo exterior teal)" [ref=f1e891] [cursor=pointer]
+        - region [ref=f1e893]:
+          - heading "Badges y etiquetas de estado" [level=2] [ref=f1e894]
+          - paragraph [ref=f1e895]: "Texto + forma, nunca solo color: éxito/aviso/error llevan glifo, propuesto usa borde discontinuo teal, demo usa tono aviso con bandera."
+          - generic [ref=f1e896]:
+            - generic [ref=f1e897]: Badge por tono
+            - generic [ref=f1e898]:
+              - generic [ref=f1e899]: neutral
+              - generic [ref=f1e901]: brand
+              - generic [ref=f1e903]: success
+              - generic [ref=f1e907]: warning
+              - generic [ref=f1e911]: danger
+              - generic [ref=f1e915]: proposed
+              - generic [ref=f1e919]: demo
+              - generic [ref=f1e923]: info
+          - generic [ref=f1e927]:
+            - generic [ref=f1e928]: Etiquetas exactas de proveniencia (spec §13)
+            - generic [ref=f1e929]:
+              - generic [ref=f1e930]: Fuente del cliente
+              - generic [ref=f1e932]: Síntesis de las fuentes
+              - generic [ref=f1e934]: Relación por validar
+              - generic [ref=f1e938]: Propuesto · por validar
+              - generic [ref=f1e942]: Ejemplo de demostración
+              - generic [ref=f1e946]: Sin dato proporcionado
+              - generic [ref=f1e948]: Prototipo · Interacciones simuladas
+              - generic [ref=f1e950]: Confidencial · Uso exclusivo de Próspera
+          - generic [ref=f1e954]:
+            - generic [ref=f1e955]: Status label (en línea, con marca de forma)
+            - generic [ref=f1e956]:
+              - generic [ref=f1e957]: neutral
+              - generic [ref=f1e960]: brand
+              - generic [ref=f1e963]: success
+              - generic [ref=f1e966]: warning
+              - generic [ref=f1e969]: danger
+              - generic [ref=f1e972]: proposed
+              - generic [ref=f1e975]: demo
+              - generic [ref=f1e978]: info
+            - generic [ref=f1e981]:
+              - generic [ref=f1e982]: Completado
+              - generic [ref=f1e986]: En curso
+              - generic [ref=f1e990]: Vencido
+              - generic [ref=f1e994]: Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado
+        - region [ref=f1e997]:
+          - heading "Chips" [level=2] [ref=f1e998]
+          - paragraph [ref=f1e999]: Informativos (span), interactivos (button con aria-pressed) y removibles (botón adyacente, nunca anidado).
+          - generic [ref=f1e1000]:
+            - generic [ref=f1e1001]: Variantes
+            - generic [ref=f1e1002]:
+              - generic [ref=f1e1003]: Próspera
+              - generic [ref=f1e1008]: Emisión de boletas
+              - generic [ref=f1e1011]: 5 fuentes disponibles
+              - generic [ref=f1e1014]: TO-BE 2 · Propuesto
+              - button "Filtro activo" [pressed] [ref=f1e1017] [cursor=pointer]
+              - button "Filtro inactivo" [ref=f1e1019] [cursor=pointer]
+              - generic [ref=f1e1021]:
+                - generic [ref=f1e1022]: Administración y Finanzas
+                - button "Quitar Administración y Finanzas" [ref=f1e1024] [cursor=pointer]
+              - generic [ref=f1e1027] [cursor=pointer]:
+                - button "Con ambos" [pressed] [ref=f1e1028]
+                - button "Quitar Con ambos" [ref=f1e1030]
+        - region [ref=f1e1033]:
+          - heading "Fichas (cards)" [level=2] [ref=f1e1034]
+          - paragraph [ref=f1e1035]: Contenedor sin rol de botón; la acción real va dentro. Seleccionada = contorno persistente.
+          - generic [ref=f1e1036]:
+            - region [ref=f1e1037]:
+              - generic [ref=f1e1038]:
+                - heading "Ficha estándar" [level=3] [ref=f1e1039]
+                - paragraph [ref=f1e1040]: Subtítulo breve
+              - paragraph [ref=f1e1042]: Cuerpo de la ficha con texto explicativo.
+              - button "Ver en la demo" [ref=f1e1044] [cursor=pointer]
+            - region [ref=f1e1046]:
+              - heading "Ficha silenciosa" [level=3] [ref=f1e1048]
+              - paragraph [ref=f1e1050]: Fondo transparente para agrupar sin peso visual.
+            - region [ref=f1e1051]:
+              - heading "Ficha elevada" [level=3] [ref=f1e1053]
+              - paragraph [ref=f1e1055]: Superficie elevada con sombra media.
+            - region [ref=f1e1056]:
+              - generic [ref=f1e1057]:
+                - generic [ref=f1e1058]: SC-01
+                - heading "Ficha seleccionada" [level=3] [ref=f1e1059]
+              - paragraph [ref=f1e1061]: Contorno de selección de 2 px.
+            - region [ref=f1e1062]:
+              - heading "Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado" [level=3] [ref=f1e1064]
+              - paragraph [ref=f1e1066]: Título largo que envuelve sin cortar.
+            - paragraph [ref=f1e1069]: Ficha sin título (sin aria-labelledby).
+        - region [ref=f1e1070]:
+          - heading "Formularios (variante oscura)" [level=2] [ref=f1e1071]
+          - paragraph [ref=f1e1072]: "Label visible, hint y error asociados por aria-describedby, aria-invalid en error; el primer error recibe el foco al guardar. Controles con color-scheme: dark."
+          - generic [ref=f1e1073]:
+            - generic [ref=f1e1074]:
+              - generic [ref=f1e1075]: Input válido con hint
+              - generic [ref=f1e1076]:
+                - generic [ref=f1e1077]:
+                  - generic [ref=f1e1078]: Asunto
+                  - generic [ref=f1e1079]:
+                    - text: "*"
+                    - generic [ref=f1e1080]: Obligatorio
+                - generic [ref=f1e1081]: Entre 5 y 120 caracteres
+                - textbox "Asunto Obligatorio" [ref=f1e1083]: Expediente sin convenio firmado
+            - generic [ref=f1e1084]:
+              - generic [ref=f1e1085]: Input con error
+              - generic [ref=f1e1086]:
+                - generic [ref=f1e1087]: Fecha límite
+                - textbox "Fecha límite" [invalid] [ref=f1e1090]
+                - generic [ref=f1e1091]: Ingresa una fecha válida (AAAA-MM-DD)
+            - generic [ref=f1e1095]:
+              - generic [ref=f1e1096]: Deshabilitado y solo lectura
+              - generic [ref=f1e1097]:
+                - generic [ref=f1e1098]: Usuario
+                - textbox "Usuario" [disabled] [ref=f1e1101]: demo.analista
+              - generic [ref=f1e1102]:
+                - generic [ref=f1e1103]: Creado
+                - textbox "Creado" [ref=f1e1106]: 01/10/2026
+            - generic [ref=f1e1107]:
+              - generic [ref=f1e1108]: Select
+              - generic [ref=f1e1109]:
+                - generic [ref=f1e1110]: Responsable
+                - combobox "Responsable" [ref=f1e1113] [cursor=pointer]:
+                  - option "Ventas"
+                  - option "Administración" [selected]
+                  - option "Contabilidad"
+                  - option "Administración y Finanzas" [disabled]
+            - generic [ref=f1e1114]:
+              - generic [ref=f1e1115]: Textarea con contador
+              - generic [ref=f1e1116]:
+                - generic [ref=f1e1117]:
+                  - generic [ref=f1e1118]: Nota de revisión
+                  - generic [ref=f1e1119]: (Opcional)
+                - generic [ref=f1e1120]: Máximo 300 caracteres
+                - textbox "Nota de revisión (Opcional)" [ref=f1e1122]
+              - paragraph [ref=f1e1123]: 0 / 300
+            - generic [ref=f1e1124]:
+              - generic [ref=f1e1125]: Checkbox
+              - generic [ref=f1e1126] [cursor=pointer]:
+                - checkbox "Confirmo el cierre ficticio para esta demo" [ref=f1e1127]
+                - generic [ref=f1e1131]: Confirmo el cierre ficticio para esta demo
+              - generic [ref=f1e1132] [cursor=pointer]:
+                - checkbox "Marcado" [checked] [ref=f1e1133]
+                - generic [ref=f1e1137]: Marcado
+              - generic [ref=f1e1138] [cursor=pointer]:
+                - checkbox "Deshabilitado" [disabled] [ref=f1e1139]
+                - generic [ref=f1e1143]: Deshabilitado
+            - generic [ref=f1e1144]:
+              - generic [ref=f1e1145]: Campo de búsqueda
+              - search [ref=f1e1146]:
+                - generic [ref=f1e1147]: Buscar
+                - generic [ref=f1e1148]:
+                  - searchbox "Buscar" [ref=f1e1149]: boletas
+                  - button "Limpiar búsqueda" [ref=f1e1150] [cursor=pointer]
+                - generic [ref=f1e1153]: 3 resultados
+              - search [ref=f1e1154]:
+                - generic [ref=f1e1155]: Buscar
+                - searchbox "Buscar" [ref=f1e1157]
+            - generic [ref=f1e1158]:
+              - generic [ref=f1e1159]: Formulario compuesto
+              - generic [ref=f1e1160]:
+                - generic [ref=f1e1161]:
+                  - generic [ref=f1e1162]:
+                    - generic [ref=f1e1163]:
+                      - generic [ref=f1e1164]: Nombre
+                      - generic [ref=f1e1165]:
+                        - text: "*"
+                        - generic [ref=f1e1166]: Obligatorio
+                    - textbox "Nombre Obligatorio" [ref=f1e1168]
+                  - generic [ref=f1e1169]:
+                    - generic [ref=f1e1170]: Estado
+                    - combobox "Estado" [ref=f1e1173] [cursor=pointer]:
+                      - option "Abierta" [selected]
+                      - option "En atención"
+                - generic [ref=f1e1174]:
+                  - button "Cancelar" [ref=f1e1175] [cursor=pointer]
+                  - button "Guardar" [ref=f1e1177] [cursor=pointer]
+        - region [ref=f1e1179]:
+          - heading "Tabs y breadcrumbs" [level=2] [ref=f1e1180]
+          - paragraph [ref=f1e1181]: "Activación manual: flechas mueven el foco, Home/End a los extremos, Enter/Espacio activa, Tab sale. Un solo tab stop."
+          - generic [ref=f1e1182]:
+            - generic [ref=f1e1183]: Modo presentación (shell; en estrecho se desplaza horizontalmente)
+            - generic [ref=f1e1184]:
+              - tablist [ref=f1e1185]:
+                - tab "Arquitectura de la solución" [ref=f1e1186] [cursor=pointer]
+                - tab "Alcance del proyecto" [ref=f1e1188] [cursor=pointer]
+                - tab "Metodologías aplicadas" [ref=f1e1190] [cursor=pointer]
+                - tab "Prototipo web" [selected] [ref=f1e1192] [cursor=pointer]
+                - tab "Prototipo de escritorio" [ref=f1e1194] [cursor=pointer]
+              - tabpanel "Prototipo web" [ref=f1e1196]:
+                - paragraph [ref=f1e1197]: Panel de web (role=tabpanel enlazado).
+          - generic [ref=f1e1198]:
+            - generic [ref=f1e1199]: Modo local (pestañas del proceso / estudio)
+            - generic [ref=f1e1200]:
+              - tablist [ref=f1e1201]:
+                - tab "Conversación" [selected] [ref=f1e1202] [cursor=pointer]
+                - tab "Operaciones" [ref=f1e1204] [cursor=pointer]
+              - tabpanel "Conversación" [ref=f1e1206]:
+                - paragraph [ref=f1e1207]: Panel de chat (role=tabpanel enlazado).
+          - generic [ref=f1e1208]:
+            - generic [ref=f1e1209]: Vertical
+            - tablist [ref=f1e1210]:
+              - tab "Ficha" [selected] [ref=f1e1211] [cursor=pointer]
+              - tab "Flujo" [ref=f1e1213] [cursor=pointer]
+              - tab "Comparar" [ref=f1e1215] [cursor=pointer]
+          - generic [ref=f1e1217]:
+            - generic [ref=f1e1218]: Breadcrumbs
+            - navigation "Ruta de navegación" [ref=f1e1219]:
+              - list [ref=f1e1220]:
+                - listitem [ref=f1e1221]:
+                  - button "Próspera Grupo Inmobiliario" [ref=f1e1222] [cursor=pointer]
+                - listitem [ref=f1e1223]:
+                  - button "Administración y Finanzas" [ref=f1e1226] [cursor=pointer]
+                - listitem [ref=f1e1227]:
+                  - button "Emisión y envío de boletas" [ref=f1e1230] [cursor=pointer]
+                - listitem [ref=f1e1231]:
+                  - generic [ref=f1e1234]: A-03 · Verificar abono y documentos
+        - region [ref=f1e1235]:
+          - heading "Enlaces de entidad" [level=2] [ref=f1e1236]
+          - paragraph [ref=f1e1237]: Botón con icono de tipo (role=img con el tipo como nombre), nombre, relación opcional y badge opcional. Abre el inspector.
+          - generic [ref=f1e1238]:
+            - generic [ref=f1e1239]:
+              - generic [ref=f1e1240]: Por tipo
+              - generic [ref=f1e1241]:
+                - button "Organización Próspera Grupo Inmobiliario" [ref=f1e1242] [cursor=pointer]:
+                  - img "Organización" [ref=f1e1243]
+                  - generic [ref=f1e1245]: Próspera Grupo Inmobiliario
+                - button "Área Administración y Finanzas" [ref=f1e1249] [cursor=pointer]:
+                  - img "Área" [ref=f1e1250]
+                  - generic [ref=f1e1252]: Administración y Finanzas
+                - button "Macroproceso Administración y Finanzas (MP-AF)" [ref=f1e1256] [cursor=pointer]:
+                  - img "Macroproceso" [ref=f1e1257]
+                  - generic [ref=f1e1259]: Administración y Finanzas (MP-AF)
+                - button "Proceso Emisión y envío de boletas" [ref=f1e1263] [cursor=pointer]:
+                  - img "Proceso" [ref=f1e1264]
+                  - generic [ref=f1e1266]: Emisión y envío de boletas
+                - button "Actividad A-03 · Verificar abono y documentos" [ref=f1e1270] [cursor=pointer]:
+                  - img "Actividad" [ref=f1e1271]
+                  - generic [ref=f1e1273]: A-03 · Verificar abono y documentos
+                - button "Rol ASISTENTE ADMINISTRATIVO" [ref=f1e1277] [cursor=pointer]:
+                  - img "Rol" [ref=f1e1278]
+                  - generic [ref=f1e1280]: ASISTENTE ADMINISTRATIVO
+                - button "Puesto Asistente administrativa" [ref=f1e1284] [cursor=pointer]:
+                  - img "Puesto" [ref=f1e1285]
+                  - generic [ref=f1e1287]: Asistente administrativa
+                - button "Persona Sin dato proporcionado" [ref=f1e1291] [cursor=pointer]:
+                  - img "Persona" [ref=f1e1292]
+                  - generic [ref=f1e1294]: Sin dato proporcionado
+                - button "Servicio externo Servicio externo" [ref=f1e1298] [cursor=pointer]:
+                  - img "Servicio externo" [ref=f1e1299]
+                  - generic [ref=f1e1301]: Servicio externo
+                - button "Sistema SPERANT" [ref=f1e1305] [cursor=pointer]:
+                  - img "Sistema" [ref=f1e1306]
+                  - generic [ref=f1e1308]: SPERANT
+                - button "Documento Boleta" [ref=f1e1312] [cursor=pointer]:
+                  - img "Documento" [ref=f1e1313]
+                  - generic [ref=f1e1315]: Boleta
+                - button "Política Política de calidad" [ref=f1e1319] [cursor=pointer]:
+                  - img "Política" [ref=f1e1320]
+                  - generic [ref=f1e1322]: Política de calidad
+                - button "Objetivo OBJ-01" [ref=f1e1326] [cursor=pointer]:
+                  - img "Objetivo" [ref=f1e1327]
+                  - generic [ref=f1e1329]: OBJ-01
+                - button "Indicador KPI-01" [ref=f1e1333] [cursor=pointer]:
+                  - img "Indicador" [ref=f1e1334]
+                  - generic [ref=f1e1336]: KPI-01
+                - button "Brecha GAP-01" [ref=f1e1340] [cursor=pointer]:
+                  - img "Brecha" [ref=f1e1341]
+                  - generic [ref=f1e1343]: GAP-01
+                - button "Incidencia INC-DEMO-01" [ref=f1e1347] [cursor=pointer]:
+                  - img "Incidencia" [ref=f1e1348]
+                  - generic [ref=f1e1350]: INC-DEMO-01
+                - button "Proyecto PM-01" [ref=f1e1354] [cursor=pointer]:
+                  - img "Proyecto" [ref=f1e1355]
+                  - generic [ref=f1e1357]: PM-01
+                - button "Versión V-TOBE-02" [ref=f1e1361] [cursor=pointer]:
+                  - img "Versión" [ref=f1e1362]
+                  - generic [ref=f1e1364]: V-TOBE-02
+            - generic [ref=f1e1368]:
+              - generic [ref=f1e1369]: Con relación, badge, tipo visible, seleccionado y nombre largo
+              - generic [ref=f1e1370]:
+                - button "Área Administración y Finanzas pertenece a" [ref=f1e1371] [cursor=pointer]:
+                  - img "Área" [ref=f1e1372]
+                  - generic [ref=f1e1374]:
+                    - generic [ref=f1e1375]: Administración y Finanzas
+                    - generic [ref=f1e1376]: pertenece a
+                - button "Objetivo Objetivo propuesto Propuesto · por validar" [ref=f1e1379] [cursor=pointer]:
+                  - img "Objetivo" [ref=f1e1380]
+                  - generic [ref=f1e1382]: Objetivo propuesto
+                  - generic [ref=f1e1384]: Propuesto · por validar
+                - button "Rol Relación inferida Rol ejecuta Relación propuesta" [ref=f1e1390] [cursor=pointer]:
+                  - img "Rol" [ref=f1e1391]
+                  - generic [ref=f1e1393]:
+                    - generic [ref=f1e1394]: Relación inferida
+                    - generic [ref=f1e1395]: Rol
+                    - generic [ref=f1e1396]: ejecuta
+                  - generic [ref=f1e1397]: Relación propuesta
+                - button "Sistema Seleccionado" [ref=f1e1403] [cursor=pointer]:
+                  - img "Sistema" [ref=f1e1404]
+                  - generic [ref=f1e1406]: Seleccionado
+                - button "Actividad Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado usa · SYS-DRIVE" [ref=f1e1410] [cursor=pointer]:
+                  - img "Actividad" [ref=f1e1411]
+                  - generic [ref=f1e1413]:
+                    - generic [ref=f1e1414]: Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado
+                    - generic [ref=f1e1415]: usa · SYS-DRIVE
+                - generic [ref=f1e1418]:
+                  - button "Área Compacto" [ref=f1e1419] [cursor=pointer]:
+                    - img "Área" [ref=f1e1420]
+                    - generic [ref=f1e1422]: Compacto
+                  - button "Rol Otro compacto" [ref=f1e1424] [cursor=pointer]:
+                    - img "Rol" [ref=f1e1425]
+                    - generic [ref=f1e1427]: Otro compacto
+        - region [ref=f1e1429]:
+          - heading "Métricas y clave-valor" [level=2] [ref=f1e1430]
+          - paragraph [ref=f1e1431]: Valor, unidad, fecha y meta separados; null muestra «Sin dato proporcionado», nunca 0.
+          - generic [ref=f1e1432]:
+            - generic [ref=f1e1433]:
+              - generic [ref=f1e1434]: Conocido
+              - generic [ref=f1e1435]:
+                - generic [ref=f1e1436]: Boletas emitidas
+                - generic [ref=f1e1437]:
+                  - generic [ref=f1e1438]: "128"
+                  - generic [ref=f1e1439]: boletas
+                - generic [ref=f1e1440]: "06/10/2026 · Meta: 150"
+            - generic [ref=f1e1441]:
+              - generic [ref=f1e1442]: Sin dato
+              - generic [ref=f1e1443]:
+                - generic [ref=f1e1444]: KPI-01 · Tiempo de emisión
+                - generic [ref=f1e1445]: Sin dato proporcionado
+                - generic [ref=f1e1447]: Meta por definir
+            - generic [ref=f1e1448]:
+              - generic [ref=f1e1449]: Propuesto
+              - generic [ref=f1e1450]:
+                - generic [ref=f1e1451]: Indicador propuesto
+                - generic [ref=f1e1452]: —
+            - generic [ref=f1e1454]:
+              - generic [ref=f1e1455]: Clave-valor con faltantes
+              - generic [ref=f1e1456]:
+                - generic [ref=f1e1457]:
+                  - term [ref=f1e1458]: Dueño
+                  - definition [ref=f1e1459]: Administración y Finanzas
+                - generic [ref=f1e1460]:
+                  - term [ref=f1e1461]: Tiempo
+                  - definition [ref=f1e1462]: Sin dato proporcionado
+                - generic [ref=f1e1463]:
+                  - term [ref=f1e1464]: ID
+                  - definition [ref=f1e1465]: PR-BOLETAS
+                - generic [ref=f1e1466]:
+                  - term [ref=f1e1467]: Nota
+                  - definition [ref=f1e1468]: Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado
+        - region [ref=f1e1469]:
+          - heading "Tablas" [level=2] [ref=f1e1470]
+          - paragraph [ref=f1e1471]: <table> con <caption>, región desplazable rotulada, cabeceras ordenables como botones con aria-sort, selección por botón en la primera celda (nunca click en <tr>). .table--cards se vuelve tarjetas por debajo de 768 px con el mismo DOM.
+          - generic [ref=f1e1472]:
+            - generic [ref=f1e1473]: Ordenable con selección y acciones
+            - region [ref=f1e1475]:
+              - table [ref=f1e1476]:
+                - caption [ref=f1e1477]: Incidencias de emisión de boletas
+                - rowgroup [ref=f1e1478]:
+                  - row [ref=f1e1479]:
+                    - columnheader [ref=f1e1480]:
+                      - button "Asunto Orden ascendente" [ref=f1e1481] [cursor=pointer]:
+                        - generic [ref=f1e1482]: Asunto
+                        - generic [ref=f1e1485]: Orden ascendente
+                    - columnheader [ref=f1e1486]:
+                      - button "Estado" [ref=f1e1487] [cursor=pointer]
+                    - columnheader [ref=f1e1492]:
+                      - button "Fecha límite" [ref=f1e1493] [cursor=pointer]
+                    - columnheader "Aviso" [ref=f1e1498]
+                    - columnheader "Acciones" [ref=f1e1499]
+                - rowgroup [ref=f1e1500]:
+                  - row [ref=f1e1501]:
+                    - cell [ref=f1e1502]:
+                      - button "Comprobante ilegible" [ref=f1e1503] [cursor=pointer]
+                    - cell "En atención" [ref=f1e1504]
+                    - cell "08/10/2026" [ref=f1e1505]
+                    - cell "Por vencer" [ref=f1e1506]
+                    - cell [ref=f1e1510]:
+                      - generic [ref=f1e1511]:
+                        - button "Editar" [ref=f1e1512] [cursor=pointer]
+                        - button "Cerrar" [ref=f1e1516] [cursor=pointer]
+                  - row [ref=f1e1518]:
+                    - cell [ref=f1e1519]:
+                      - button "Expediente sin convenio firmado" [ref=f1e1520] [cursor=pointer]
+                    - cell "Abierta" [ref=f1e1521]
+                    - cell "04/10/2026" [ref=f1e1522]
+                    - cell "Vencido" [ref=f1e1523]
+                    - cell [ref=f1e1527]:
+                      - generic [ref=f1e1528]:
+                        - button "Editar" [ref=f1e1529] [cursor=pointer]
+                        - button "Cerrar" [ref=f1e1533] [cursor=pointer]
+                  - row [ref=f1e1535]:
+                    - cell [ref=f1e1536]:
+                      - button "Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado" [ref=f1e1537] [cursor=pointer]
+                    - cell "Cerrada" [ref=f1e1538]
+                    - cell "Sin dato proporcionado" [ref=f1e1539]
+                    - cell "Cerrada" [ref=f1e1540]
+                    - cell [ref=f1e1544]:
+                      - generic [ref=f1e1545]:
+                        - button "Editar" [ref=f1e1546] [cursor=pointer]
+                        - button "Cerrar" [ref=f1e1550] [cursor=pointer]
+          - generic [ref=f1e1552]:
+            - generic [ref=f1e1553]: Modo tarjetas (reduce la ventana a <768 px)
+            - region [ref=f1e1554]:
+              - table [ref=f1e1555]:
+                - caption [ref=f1e1556]: Incidencias de emisión de boletas
+                - rowgroup [ref=f1e1557]:
+                  - row [ref=f1e1558]:
+                    - columnheader [ref=f1e1559]:
+                      - button "Asunto Orden ascendente" [ref=f1e1560] [cursor=pointer]:
+                        - generic [ref=f1e1561]: Asunto
+                        - generic [ref=f1e1564]: Orden ascendente
+                    - columnheader [ref=f1e1565]:
+                      - button "Estado" [ref=f1e1566] [cursor=pointer]
+                    - columnheader [ref=f1e1571]:
+                      - button "Fecha límite" [ref=f1e1572] [cursor=pointer]
+                    - columnheader "Aviso" [ref=f1e1577]
+                    - columnheader "Acciones" [ref=f1e1578]
+                - rowgroup [ref=f1e1579]:
+                  - row [ref=f1e1580]:
+                    - cell [ref=f1e1581]:
+                      - button "Comprobante ilegible" [ref=f1e1582] [cursor=pointer]
+                    - cell "En atención" [ref=f1e1583]
+                    - cell "08/10/2026" [ref=f1e1584]
+                    - cell "Por vencer" [ref=f1e1585]
+                    - cell [ref=f1e1589]:
+                      - generic [ref=f1e1590]:
+                        - button "Editar" [ref=f1e1591] [cursor=pointer]
+                        - button "Cerrar" [ref=f1e1595] [cursor=pointer]
+                  - row [ref=f1e1597]:
+                    - cell [ref=f1e1598]:
+                      - button "Expediente sin convenio firmado" [ref=f1e1599] [cursor=pointer]
+                    - cell "Abierta" [ref=f1e1600]
+                    - cell "04/10/2026" [ref=f1e1601]
+                    - cell "Vencido" [ref=f1e1602]
+                    - cell [ref=f1e1606]:
+                      - generic [ref=f1e1607]:
+                        - button "Editar" [ref=f1e1608] [cursor=pointer]
+                        - button "Cerrar" [ref=f1e1612] [cursor=pointer]
+                  - row [ref=f1e1614]:
+                    - cell [ref=f1e1615]:
+                      - button "Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado" [ref=f1e1616] [cursor=pointer]
+                    - cell "Cerrada" [ref=f1e1617]
+                    - cell "Sin dato proporcionado" [ref=f1e1618]
+                    - cell "Cerrada" [ref=f1e1619]
+                    - cell [ref=f1e1623]:
+                      - generic [ref=f1e1624]:
+                        - button "Editar" [ref=f1e1625] [cursor=pointer]
+                        - button "Cerrar" [ref=f1e1629] [cursor=pointer]
+          - generic [ref=f1e1631]:
+            - generic [ref=f1e1632]: Densa
+            - region [ref=f1e1633]:
+              - table [ref=f1e1634]:
+                - caption [ref=f1e1635]: Incidencias de emisión de boletas
+                - rowgroup [ref=f1e1636]:
+                  - row [ref=f1e1637]:
+                    - columnheader [ref=f1e1638]:
+                      - button "Asunto Orden ascendente" [ref=f1e1639] [cursor=pointer]:
+                        - generic [ref=f1e1640]: Asunto
+                        - generic [ref=f1e1643]: Orden ascendente
+                    - columnheader [ref=f1e1644]:
+                      - button "Estado" [ref=f1e1645] [cursor=pointer]
+                    - columnheader [ref=f1e1650]:
+                      - button "Fecha límite" [ref=f1e1651] [cursor=pointer]
+                    - columnheader "Aviso" [ref=f1e1656]
+                    - columnheader "Acciones" [ref=f1e1657]
+                - rowgroup [ref=f1e1658]:
+                  - row [ref=f1e1659]:
+                    - cell [ref=f1e1660]:
+                      - button "Comprobante ilegible" [ref=f1e1661] [cursor=pointer]
+                    - cell "En atención" [ref=f1e1662]
+                    - cell "08/10/2026" [ref=f1e1663]
+                    - cell "Por vencer" [ref=f1e1664]
+                    - cell [ref=f1e1668]:
+                      - generic [ref=f1e1669]:
+                        - button "Editar" [ref=f1e1670] [cursor=pointer]
+                        - button "Cerrar" [ref=f1e1674] [cursor=pointer]
+                  - row [ref=f1e1676]:
+                    - cell [ref=f1e1677]:
+                      - button "Expediente sin convenio firmado" [ref=f1e1678] [cursor=pointer]
+                    - cell "Abierta" [ref=f1e1679]
+                    - cell "04/10/2026" [ref=f1e1680]
+                    - cell "Vencido" [ref=f1e1681]
+                    - cell [ref=f1e1685]:
+                      - generic [ref=f1e1686]:
+                        - button "Editar" [ref=f1e1687] [cursor=pointer]
+                        - button "Cerrar" [ref=f1e1691] [cursor=pointer]
+                  - row [ref=f1e1693]:
+                    - cell [ref=f1e1694]:
+                      - button "Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado" [ref=f1e1695] [cursor=pointer]
+                    - cell "Cerrada" [ref=f1e1696]
+                    - cell "Sin dato proporcionado" [ref=f1e1697]
+                    - cell "Cerrada" [ref=f1e1698]
+                    - cell [ref=f1e1702]:
+                      - generic [ref=f1e1703]:
+                        - button "Editar" [ref=f1e1704] [cursor=pointer]
+                        - button "Cerrar" [ref=f1e1708] [cursor=pointer]
+          - generic [ref=f1e1710]:
+            - generic [ref=f1e1711]: Vacía
+            - region [ref=f1e1712]:
+              - table [ref=f1e1713]:
+                - caption [ref=f1e1714]: Bitácora de la sesión
+                - rowgroup [ref=f1e1715]:
+                  - row [ref=f1e1716]:
+                    - columnheader "Fecha" [ref=f1e1717]
+                    - columnheader "Acción" [ref=f1e1718]
+                - rowgroup [ref=f1e1719]:
+                  - row [ref=f1e1720]:
+                    - cell "No hay acciones registradas en esta sesión" [ref=f1e1721]
+        - region [ref=f1e1722]:
+          - heading "Disclosure y modales" [level=2] [ref=f1e1723]
+          - paragraph [ref=f1e1724]: "Disclosure: <button aria-expanded aria-controls>. Modal: role=dialog + aria-modal, en #primus-overlays, fondo inert, trampa de foco, Escape cierra y el foco vuelve al origen."
+          - generic [ref=f1e1725]:
+            - generic [ref=f1e1726]:
+              - generic [ref=f1e1727]: No controlado
+              - button "Entrada y resultado de la herramienta" [ref=f1e1730] [cursor=pointer]
+              - generic [ref=f1e1734]:
+                - button "Abierto por defecto Completado" [expanded] [ref=f1e1736] [cursor=pointer]:
+                  - generic [ref=f1e1739]: Abierto por defecto
+                  - generic [ref=f1e1740]: Completado
+                - region "Abierto por defecto Completado" [ref=f1e1741]:
+                  - paragraph [ref=f1e1742]: Contenido visible al cargar.
+            - generic [ref=f1e1743]:
+              - generic [ref=f1e1744]: Controlado
+              - button "Controlado por estado (onToggle)" [ref=f1e1748] [cursor=pointer]
+            - generic [ref=f1e1752]:
+              - generic [ref=f1e1753]: Modales
+              - generic [ref=f1e1754]:
+                - button "Abrir modal" [ref=f1e1755] [cursor=pointer]
+                - button "Confirmación" [ref=f1e1757] [cursor=pointer]
+                - button "Reinicio (peligro)" [ref=f1e1759] [cursor=pointer]
+                - button "Sheet (inferior)" [ref=f1e1761] [cursor=pointer]
+        - region [ref=f1e1763]:
+          - heading "Avisos, toasts y estados vacíos" [level=2] [ref=f1e1764]
+          - paragraph [ref=f1e1765]: Toasts con role=status (5 s, gestionados por el shell) y botón de cierre; los errores de formulario no desaparecen solos. Avisos con acción y cierre.
+          - generic [ref=f1e1766]:
+            - generic [ref=f1e1767]:
+              - generic [ref=f1e1768]: Avisos por tono
+              - status [ref=f1e1769]:
+                - paragraph [ref=f1e1773]: La vista se ajustó al perfil seleccionado
+                - button "Cerrar aviso" [ref=f1e1774] [cursor=pointer]
+              - status [ref=f1e1777]:
+                - generic [ref=f1e1780]:
+                  - paragraph [ref=f1e1781]: Hay una nueva versión de demostración
+                  - button "Ver versión" [ref=f1e1782] [cursor=pointer]
+              - status [ref=f1e1784]:
+                - paragraph [ref=f1e1788]: Versión TO-BE 3 creada en esta sesión
+              - status [ref=f1e1789]:
+                - paragraph [ref=f1e1793]: Versión histórica · solo lectura
+              - alert [ref=f1e1794]:
+                - generic [ref=f1e1797]:
+                  - paragraph [ref=f1e1798]: La propuesta contiene una referencia no válida y no puede publicarse
+                  - button "Reintentar" [ref=f1e1799] [cursor=pointer]
+              - status [ref=f1e1801]:
+                - paragraph [ref=f1e1805]: Registros ficticios para demostrar seguimiento
+            - generic [ref=f1e1806]:
+              - generic [ref=f1e1807]: Toasts
+              - generic [ref=f1e1808]:
+                - button "Toast info" [ref=f1e1809] [cursor=pointer]
+                - button "Toast éxito" [ref=f1e1811] [cursor=pointer]
+                - button "Toast error" [ref=f1e1813] [cursor=pointer]
+              - list [ref=f1e1816]:
+                - status [ref=f1e1817]:
+                  - generic [ref=f1e1820]: Ejemplo estático
+                  - button "Cerrar aviso" [ref=f1e1821] [cursor=pointer]
+                - status [ref=f1e1824]:
+                  - generic [ref=f1e1827]: Con aviso
+                  - button "Cerrar aviso" [ref=f1e1828] [cursor=pointer]
+            - generic [ref=f1e1831]:
+              - generic [ref=f1e1832]: Estados vacíos
+              - generic [ref=f1e1833]:
+                - paragraph [ref=f1e1836]: No hay elementos con este filtro
+                - button "Mostrar todo" [ref=f1e1837] [cursor=pointer]
+              - paragraph [ref=f1e1842]: Selecciona un elemento para ver su ficha
+            - generic [ref=f1e1843]:
+              - generic [ref=f1e1844]: Spinner y lista
+              - status [ref=f1e1845]:
+                - generic [ref=f1e1848]: Procesando paso de demostración
+              - separator [ref=f1e1849]
+              - list "Pendientes" [ref=f1e1850]:
+                - listitem [ref=f1e1851]: Confirmar cuota normal o complementaria
+                - listitem [ref=f1e1852]: Validar automatización de SPERANT
+                - listitem [ref=f1e1853]: Confirmar emisión por variante de pago
+        - region [ref=f1e1854]:
+          - heading "Proveniencia" [level=2] [ref=f1e1855]
+          - paragraph [ref=f1e1856]: "Badges con las etiquetas exactas + «Fuentes: S-ORG · título (sección)». Botón opcional para abrir el overlay de fuentes."
+          - generic [ref=f1e1857]:
+            - generic [ref=f1e1858]:
+              - generic [ref=f1e1859]: Fuente del cliente
+              - generic [ref=f1e1860]:
+                - generic [ref=f1e1861]: Fuente del cliente
+                - generic [ref=f1e1864]:
+                  - generic [ref=f1e1865]: "Fuentes:"
+                  - list [ref=f1e1866]:
+                    - listitem [ref=f1e1867]: S-ORG · Organigrama de Próspera (septiembre de 2026)
+            - generic [ref=f1e1868]:
+              - generic [ref=f1e1869]: Síntesis con botón
+              - generic [ref=f1e1870]:
+                - generic [ref=f1e1871]:
+                  - generic [ref=f1e1872]: Síntesis de las fuentes
+                  - generic [ref=f1e1874]: Relación por validar
+                - generic [ref=f1e1878]:
+                  - generic [ref=f1e1879]: "Fuentes:"
+                  - list [ref=f1e1880]:
+                    - listitem [ref=f1e1881]: "S-CASE · Caso de mejora de proceso: emisión de boletas (Láminas 1–4)"
+                    - listitem [ref=f1e1882]: S-ORG · Organigrama de Próspera (septiembre de 2026)
+                - button "Ver fuentes" [ref=f1e1883] [cursor=pointer]
+            - generic [ref=f1e1887]:
+              - generic [ref=f1e1888]: Propuesto y demo
+              - generic [ref=f1e1889]:
+                - generic [ref=f1e1890]:
+                  - generic [ref=f1e1891]: Propuesto · por validar
+                  - generic [ref=f1e1895]: Ejemplo de demostración
+                - generic [ref=f1e1899]:
+                  - generic [ref=f1e1900]: "Fuentes:"
+                  - list [ref=f1e1901]:
+                    - listitem [ref=f1e1902]: S-DEMO · Datos ficticios de demostración
+            - generic [ref=f1e1903]:
+              - generic [ref=f1e1904]: Sin fuente conocida
+              - generic [ref=f1e1905]:
+                - generic [ref=f1e1906]: Sin dato proporcionado
+                - generic [ref=f1e1909]:
+                  - generic [ref=f1e1910]: "Fuentes:"
+                  - list [ref=f1e1911]:
+                    - listitem [ref=f1e1912]: S-X
+        - region [ref=f1e1913]:
+          - heading "Nodos y materiales por tipo" [level=2] [ref=f1e1914]
+          - paragraph [ref=f1e1915]: Material = superficie + borde + textura + glifo (solo tokens PRENTER). Externo discontinuo; decisión rombo con etiqueta sin rotar; evento círculo con etiqueta debajo; propuesto discontinuo teal.
+          - generic [ref=f1e1916]:
+            - generic [ref=f1e1917]: Estructura y negocio
+            - generic [ref=f1e1918]:
+              - button "Próspera Grupo Inmobiliario Organización" [ref=f1e1919] [cursor=pointer]:
+                - generic [ref=f1e1920]: Próspera Grupo Inmobiliario
+                - generic [ref=f1e1924]: Organización
+              - button "Administración y Finanzas 3 puestos" [ref=f1e1925] [cursor=pointer]:
+                - generic [ref=f1e1926]: Administración y Finanzas
+                - generic [ref=f1e1930]: 3 puestos
+              - button "Asistente administrativa Puesto" [ref=f1e1931] [cursor=pointer]:
+                - generic [ref=f1e1932]: Asistente administrativa
+                - generic [ref=f1e1936]: Puesto
+              - button "Sin dato proporcionado Ocupante" [ref=f1e1937] [cursor=pointer]:
+                - generic [ref=f1e1938]: Sin dato proporcionado
+                - generic [ref=f1e1942]: Ocupante
+              - button "Servicio externo Proveedor" [ref=f1e1943] [cursor=pointer]:
+                - generic [ref=f1e1944]: Servicio externo
+                - generic [ref=f1e1948]: Proveedor
+              - button "Administración y Finanzas Macroproceso propuesto" [ref=f1e1949] [cursor=pointer]:
+                - generic [ref=f1e1950]: Administración y Finanzas
+                - generic [ref=f1e1954]: Macroproceso propuesto
+              - button "Emisión y envío de boletas 1 proceso con detalle" [ref=f1e1955] [cursor=pointer]:
+                - generic [ref=f1e1956]: Emisión y envío de boletas
+                - generic [ref=f1e1960]: 1 proceso con detalle
+              - button "A-03 · Verificar abono y documentos Administración" [ref=f1e1961] [cursor=pointer]:
+                - generic [ref=f1e1962]: A-03 · Verificar abono y documentos
+                - generic [ref=f1e1966]: Administración
+              - button "ASISTENTE ADMINISTRATIVO Rol en el proceso" [ref=f1e1967] [cursor=pointer]:
+                - generic [ref=f1e1968]: ASISTENTE ADMINISTRATIVO
+                - generic [ref=f1e1972]: Rol en el proceso
+          - generic [ref=f1e1973]:
+            - generic [ref=f1e1974]: Aplicación, implementación, motivación y seguimiento
+            - generic [ref=f1e1975]:
+              - button "SPERANT Sistema actual" [ref=f1e1976] [cursor=pointer]:
+                - generic [ref=f1e1977]: SPERANT
+                - generic [ref=f1e1981]: Sistema actual
+              - button "Boleta Documento" [ref=f1e1982] [cursor=pointer]:
+                - generic [ref=f1e1983]: Boleta
+                - generic [ref=f1e1987]: Documento
+              - button "Política de calidad Política" [ref=f1e1988] [cursor=pointer]:
+                - generic [ref=f1e1989]: Política de calidad
+                - generic [ref=f1e1993]: Política
+              - button "OBJ-01 Propuesto · por validar" [ref=f1e1994] [cursor=pointer]:
+                - generic [ref=f1e1995]: OBJ-01
+                - generic [ref=f1e1999]: Propuesto · por validar
+              - button "KPI-01 Meta por definir" [ref=f1e2000] [cursor=pointer]:
+                - generic [ref=f1e2001]: KPI-01
+                - generic [ref=f1e2005]: Meta por definir
+              - button "GAP-01 Brecha" [ref=f1e2006] [cursor=pointer]:
+                - generic [ref=f1e2007]: GAP-01
+                - generic [ref=f1e2011]: Brecha
+              - button "INC-DEMO-01 Incidencia" [ref=f1e2012] [cursor=pointer]:
+                - generic [ref=f1e2013]: INC-DEMO-01
+                - generic [ref=f1e2017]: Incidencia
+              - button "PM-01 Proyecto" [ref=f1e2018] [cursor=pointer]:
+                - generic [ref=f1e2019]: PM-01
+                - generic [ref=f1e2023]: Proyecto
+              - button "V-TOBE-02 TO-BE propuesto" [ref=f1e2024] [cursor=pointer]:
+                - generic [ref=f1e2025]: V-TOBE-02
+                - generic [ref=f1e2029]: TO-BE propuesto
+          - generic [ref=f1e2030]:
+            - generic [ref=f1e2031]: Formas de flujo y C4
+            - generic [ref=f1e2032]:
+              - button "Pago y documentación recibidos" [ref=f1e2033] [cursor=pointer]
+              - button "¿Solicitud conforme?" [ref=f1e2038] [cursor=pointer]
+              - button "Evento intermedio" [ref=f1e2043] [cursor=pointer]
+              - button "Boleta enviada" [ref=f1e2048] [cursor=pointer]
+              - generic [ref=f1e2054]: Cambio de estado propuesto
+              - button "Portal web Aplicación web" [ref=f1e2057] [cursor=pointer]:
+                - generic [ref=f1e2058]: Portal web
+                - generic [ref=f1e2062]: Aplicación web
+              - button "Base de conocimiento Neo4j · conocimiento conectado" [ref=f1e2063] [cursor=pointer]:
+                - generic [ref=f1e2064]: Base de conocimiento
+                - generic [ref=f1e2068]: Neo4j · conocimiento conectado
+              - button "Administrador Actor" [ref=f1e2069] [cursor=pointer]:
+                - generic [ref=f1e2070]: Administrador
+                - generic [ref=f1e2074]: Actor
+              - button "Detalle por definir Decisión pendiente" [ref=f1e2075] [cursor=pointer]:
+                - generic [ref=f1e2076]: Detalle por definir
+                - generic [ref=f1e2080]: Decisión pendiente
+          - generic [ref=f1e2081]:
+            - generic [ref=f1e2082]: Estados
+            - generic [ref=f1e2083]:
+              - button "Seleccionado is-selected" [ref=f1e2084] [cursor=pointer]:
+                - generic [ref=f1e2085]: Seleccionado
+                - generic [ref=f1e2089]: is-selected
+              - button "Relacionado is-related" [ref=f1e2090] [cursor=pointer]:
+                - generic [ref=f1e2091]: Relacionado
+                - generic [ref=f1e2095]: is-related
+              - button "Atenuado (≥ 3:1) is-dimmed" [ref=f1e2096] [cursor=pointer]:
+                - generic [ref=f1e2097]: Atenuado (≥ 3:1)
+                - generic [ref=f1e2101]: is-dimmed
+              - button "Raíz del recorrido is-root" [ref=f1e2102] [cursor=pointer]:
+                - generic [ref=f1e2103]: Raíz del recorrido
+                - generic [ref=f1e2107]: is-root
+              - button "Propuesto node--proposed" [ref=f1e2108] [cursor=pointer]:
+                - generic [ref=f1e2109]: Propuesto
+                - generic [ref=f1e2113]: node--proposed
+              - button "No disponible is-unavailable" [ref=f1e2114]:
+                - generic [ref=f1e2115]: No disponible
+                - generic [ref=f1e2119]: is-unavailable
+              - button "Demo is-demo" [ref=f1e2120] [cursor=pointer]:
+                - generic [ref=f1e2121]: Demo
+                - generic [ref=f1e2125]: is-demo
+              - button "Rombo seleccionado" [ref=f1e2126] [cursor=pointer]
+              - button "Fin seleccionado" [ref=f1e2131] [cursor=pointer]
+              - 'button "Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado Nombre largo: el nodo crece, no se recorta" [ref=f1e2137] [cursor=pointer]':
+                - generic [ref=f1e2138]: Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado
+                - generic [ref=f1e2142]: "Nombre largo: el nodo crece, no se recorta"
+          - generic [ref=f1e2143]:
+            - generic [ref=f1e2144]: Leyenda
+            - generic [ref=f1e2145]:
+              - generic [ref=f1e2146]: Leyenda
+              - generic [ref=f1e2147]: Entidad
+              - generic [ref=f1e2149]: Servicio externo
+              - generic [ref=f1e2151]: Propuesto · por validar
+              - generic [ref=f1e2153]: Seleccionado
+              - generic [ref=f1e2155]: Secuencia
+              - generic [ref=f1e2157]: Relación resaltada
+              - generic [ref=f1e2159]: Retorno
+              - generic [ref=f1e2161]: Decisión
+              - generic [ref=f1e2163]: Evento
+              - generic [ref=f1e2165]: Ejemplo de demostración
+        - region [ref=f1e2167]:
+          - heading "Lienzo, carriles y bandas" [level=2] [ref=f1e2168]
+          - paragraph [ref=f1e2169]: "Lienzo: viewport con foco, capa transformada, aristas SVG debajo, barra de cámara. Carriles con etiqueta sticky (modo scroll). Bandas del mapa con mensaje explícito cuando falta la banda."
+          - generic [ref=f1e2170]:
+            - generic [ref=f1e2171]: Lienzo con cámara (± / ajustar / reiniciar)
+            - group "Lienzo de ejemplo" [ref=f1e2172]:
+              - generic [ref=f1e2173]:
+                - img:
+                  - generic: Sí
+                  - generic: "No"
+                - button "Próspera Grupo Inmobiliario ORG-01" [ref=f1e2174] [cursor=pointer]:
+                  - generic [ref=f1e2175]: Próspera Grupo Inmobiliario
+                  - generic [ref=f1e2179]: ORG-01
+                - button "Administración y Finanzas 3 puestos" [ref=f1e2180] [cursor=pointer]:
+                  - generic [ref=f1e2181]: Administración y Finanzas
+                  - generic [ref=f1e2185]: 3 puestos
+                - button "Comercial 2 puestos" [ref=f1e2186] [cursor=pointer]:
+                  - generic [ref=f1e2187]: Comercial
+                  - generic [ref=f1e2191]: 2 puestos
+                - button "¿Solicitud conforme?" [ref=f1e2192] [cursor=pointer]
+                - button "A-03 · Verificar abono y documentos Administración" [ref=f1e2197] [cursor=pointer]:
+                  - generic [ref=f1e2198]: A-03 · Verificar abono y documentos
+                  - generic [ref=f1e2202]: Administración
+                - button "Expandir Administración y Finanzas" [ref=f1e2203] [cursor=pointer]
+              - group "Controles de cámara" [ref=f1e2206]:
+                - button "Alejar" [ref=f1e2207] [cursor=pointer]
+                - generic [ref=f1e2210]: 100 %
+                - button "Acercar" [ref=f1e2211] [cursor=pointer]
+                - button "Ajustar vista" [ref=f1e2214] [cursor=pointer]
+                - button "Restablecer cámara" [ref=f1e2217] [cursor=pointer]
+          - generic [ref=f1e2220]:
+            - generic [ref=f1e2221]: Carriles
+            - generic [ref=f1e2222]:
+              - generic [ref=f1e2223]:
+                - generic [ref=f1e2224]:
+                  - text: Ventas
+                  - generic [ref=f1e2225]: ASISTENTE VENTAS
+                - generic [ref=f1e2226]:
+                  - button "Pago y documentación recibidos" [ref=f1e2227] [cursor=pointer]
+                  - button "A-01 · Recibir comprobante" [ref=f1e2232] [cursor=pointer]
+                  - button "Boleta enviada" [ref=f1e2237] [cursor=pointer]
+              - generic [ref=f1e2243]:
+                - generic [ref=f1e2244]: Administración
+                - generic [ref=f1e2245]:
+                  - button "¿Solicitud conforme?" [ref=f1e2246] [cursor=pointer]
+                  - button "A-03 · Verificar abono y documentos" [ref=f1e2251] [cursor=pointer]
+                  - generic [ref=f1e2256]: Cambio de estado propuesto
+              - generic [ref=f1e2259]:
+                - generic [ref=f1e2260]: Contabilidad
+                - button "A-07 · Emitir boleta" [ref=f1e2262] [cursor=pointer]
+              - generic [ref=f1e2267]:
+                - generic [ref=f1e2268]:
+                  - text: Cliente
+                  - generic [ref=f1e2269]: Actor externo
+                - button "Cliente Comprobante y datos del bien" [ref=f1e2271] [cursor=pointer]:
+                  - generic [ref=f1e2272]: Cliente
+                  - generic [ref=f1e2276]: Comprobante y datos del bien
+          - generic [ref=f1e2277]:
+            - generic [ref=f1e2278]: Bandas del mapa
+            - generic [ref=f1e2279]:
+              - generic [ref=f1e2280]:
+                - generic [ref=f1e2281]: Objetivo propuesto
+                - button "OBJ-01 Propuesto · por validar" [ref=f1e2284] [cursor=pointer]:
+                  - generic [ref=f1e2285]: OBJ-01
+                  - generic [ref=f1e2289]: Propuesto · por validar
+              - generic [ref=f1e2290]:
+                - generic [ref=f1e2291]: Dirección
+                - paragraph [ref=f1e2294]: No se proporcionó un mapa de procesos estratégicos
+              - generic [ref=f1e2295]:
+                - generic [ref=f1e2296]:
+                  - generic [ref=f1e2297]: Procesos del negocio proporcionados
+                  - generic [ref=f1e2298]: Cadena de valor
+                - generic [ref=f1e2299]:
+                  - button "PR-01 Resumen" [ref=f1e2300] [cursor=pointer]:
+                    - generic [ref=f1e2301]: PR-01
+                    - generic [ref=f1e2305]: Resumen
+                  - button "PR-02 Resumen" [ref=f1e2308] [cursor=pointer]:
+                    - generic [ref=f1e2309]: PR-02
+                    - generic [ref=f1e2313]: Resumen
+                  - button "PR-03 Resumen" [ref=f1e2316] [cursor=pointer]:
+                    - generic [ref=f1e2317]: PR-03
+                    - generic [ref=f1e2321]: Resumen
+              - generic [ref=f1e2322]:
+                - generic [ref=f1e2323]: Soporte
+                - generic [ref=f1e2325]:
+                  - button "Administración y Finanzas MP-AF" [ref=f1e2326] [cursor=pointer]:
+                    - generic [ref=f1e2327]: Administración y Finanzas
+                    - generic [ref=f1e2331]: MP-AF
+                  - button "Emisión y envío de boletas 1 proceso con detalle" [ref=f1e2332] [cursor=pointer]:
+                    - generic [ref=f1e2333]: Emisión y envío de boletas
+                    - generic [ref=f1e2337]: 1 proceso con detalle
+              - generic [ref=f1e2338]:
+                - generic [ref=f1e2339]: Personas y roles del caso
+                - generic [ref=f1e2341]:
+                  - button "VENTAS" [ref=f1e2342] [cursor=pointer]
+                  - button "ADMINISTRACIÓN" [ref=f1e2347] [cursor=pointer]
+                  - button "CONTABILIDAD" [ref=f1e2352] [cursor=pointer]
+              - generic [ref=f1e2357]:
+                - generic [ref=f1e2358]: Sistemas del caso
+                - generic [ref=f1e2360]:
+                  - button "WhatsApp" [ref=f1e2361] [cursor=pointer]
+                  - button "Drive" [ref=f1e2366] [cursor=pointer]
+                  - button "SPERANT" [ref=f1e2371] [cursor=pointer]
+          - generic [ref=f1e2376]:
+            - generic [ref=f1e2377]: Zonas C4
+            - generic [ref=f1e2378]:
+              - generic [ref=f1e2379]:
+                - generic [ref=f1e2380]: Equipo del usuario
+                - generic [ref=f1e2383]:
+                  - button "Portal web Navegador" [ref=f1e2384] [cursor=pointer]:
+                    - generic [ref=f1e2385]: Portal web
+                    - generic [ref=f1e2389]: Navegador
+                  - button "Estudio de escritorio Aplicación de escritorio" [ref=f1e2390] [cursor=pointer]:
+                    - generic [ref=f1e2391]: Estudio de escritorio
+                    - generic [ref=f1e2395]: Aplicación de escritorio
+              - generic [ref=f1e2396]:
+                - generic [ref=f1e2397]: VPS de Próspera · servidor privado en internet
+                - generic [ref=f1e2400]:
+                  - generic [ref=f1e2401]: PRIMUS
+                  - generic [ref=f1e2402]:
+                    - button "API Servicio" [ref=f1e2403] [cursor=pointer]:
+                      - generic [ref=f1e2404]: API
+                      - generic [ref=f1e2408]: Servicio
+                    - button "Base de conocimiento Neo4j · conocimiento conectado" [ref=f1e2409] [cursor=pointer]:
+                      - generic [ref=f1e2410]: Base de conocimiento
+                      - generic [ref=f1e2414]: Neo4j · conocimiento conectado
+                    - button "Archivos Almacén" [ref=f1e2415] [cursor=pointer]:
+                      - generic [ref=f1e2416]: Archivos
+                      - generic [ref=f1e2420]: Almacén
+              - generic [ref=f1e2421]:
+                - generic [ref=f1e2422]: Servicio de IA
+                - button "Modelo de IA Servicio externo" [ref=f1e2426] [cursor=pointer]:
+                  - generic [ref=f1e2427]: Modelo de IA
+                  - generic [ref=f1e2431]: Servicio externo
+        - region [ref=f1e2432]:
+          - heading "Inspector" [level=2] [ref=f1e2433]
+          - paragraph [ref=f1e2434]: "Mismo orden para todo tipo: tipo/nombre, cerrar/volver, hechos, relaciones, evidencia, acciones. Complementary en escritorio; sheet modal en estrecho."
+          - generic [ref=f1e2435]:
+            - generic [ref=f1e2436]:
+              - generic [ref=f1e2437]: Entidad seleccionada
+              - generic [ref=f1e2438]:
+                - generic [ref=f1e2439]:
+                  - generic [ref=f1e2440]:
+                    - button "Ficha anterior" [ref=f1e2441] [cursor=pointer]
+                    - button "Cerrar ficha" [ref=f1e2445] [cursor=pointer]
+                  - generic [ref=f1e2448]: Área
+                  - heading "Administración y Finanzas" [level=3] [ref=f1e2451]
+                  - paragraph [ref=f1e2452]: Dueño documentado de Emisión y envío de boletas
+                  - generic [ref=f1e2453]:
+                    - generic [ref=f1e2454]: Fuente del cliente
+                    - generic [ref=f1e2457]:
+                      - generic [ref=f1e2458]: "Fuentes:"
+                      - list [ref=f1e2459]:
+                        - listitem [ref=f1e2460]: S-ORG · Organigrama de Próspera (septiembre de 2026)
+                - generic [ref=f1e2461]:
+                  - heading "Datos" [level=4] [ref=f1e2462]
+                  - generic [ref=f1e2463]:
+                    - generic [ref=f1e2464]:
+                      - term [ref=f1e2465]: Puestos
+                      - definition [ref=f1e2466]: "3"
+                    - generic [ref=f1e2467]:
+                      - term [ref=f1e2468]: Personas
+                      - definition [ref=f1e2469]: "2"
+                    - generic [ref=f1e2470]:
+                      - term [ref=f1e2471]: Soporte
+                      - definition [ref=f1e2472]: Sin dato proporcionado
+                - generic [ref=f1e2473]:
+                  - heading "Procesos conocidos" [level=4] [ref=f1e2474]
+                  - button "Proceso Emisión y envío de boletas dueño documentado" [ref=f1e2476] [cursor=pointer]:
+                    - img "Proceso" [ref=f1e2477]
+                    - generic [ref=f1e2479]:
+                      - generic [ref=f1e2480]: Emisión y envío de boletas
+                      - generic [ref=f1e2481]: dueño documentado
+                - generic [ref=f1e2484]:
+                  - heading "Puestos" [level=4] [ref=f1e2485]
+                  - generic [ref=f1e2486]:
+                    - button "Puesto Jefa de Administración y Finanzas" [ref=f1e2487] [cursor=pointer]:
+                      - img "Puesto" [ref=f1e2488]
+                      - generic [ref=f1e2490]: Jefa de Administración y Finanzas
+                    - button "Puesto Asistente administrativa" [ref=f1e2494] [cursor=pointer]:
+                      - img "Puesto" [ref=f1e2495]
+                      - generic [ref=f1e2497]: Asistente administrativa
+                - generic [ref=f1e2501]:
+                  - button "Enfocar esta área" [ref=f1e2502] [cursor=pointer]
+                  - button "Abrir espacio del área" [ref=f1e2504] [cursor=pointer]
+                  - button "Histórico" [ref=f1e2506] [cursor=pointer]
+            - generic [ref=f1e2510]:
+              - generic [ref=f1e2511]: Vacío
+              - paragraph [ref=f1e2513]: Selecciona un elemento para ver su ficha
+        - region [ref=f1e2514]:
+          - 'heading "Composición: gemelo (tab 4)" [level=2] [ref=f1e2515]'
+          - paragraph [ref=f1e2516]: rail 224 | stage | inspector 360 (≥1280); 768–1279 rail colapsable tras «Navegación del módulo» e inspector superpuesto; <768 lista por defecto y ficha en hoja. Reduce la ventana para ver cada modo.
+          - generic [ref=f1e2518]:
+            - generic [ref=f1e2519]:
+              - generic [ref=f1e2520]:
+                - button "Navegación del módulo" [ref=f1e2521] [cursor=pointer]
+                - button "Volver" [ref=f1e2524] [cursor=pointer]
+                - navigation "Ruta de navegación" [ref=f1e2528]:
+                  - list [ref=f1e2529]:
+                    - listitem [ref=f1e2530]:
+                      - button "Próspera Grupo Inmobiliario" [ref=f1e2531] [cursor=pointer]
+                    - listitem [ref=f1e2532]:
+                      - generic [ref=f1e2535]: Administración y Finanzas
+              - generic [ref=f1e2536]:
+                - generic [ref=f1e2537]: Simular acceso como
+                - combobox "Simular acceso como" [ref=f1e2538] [cursor=pointer]:
+                  - option "Gerencia General · Solo lectura" [selected]
+                  - option "Asistente administrativa · Consulta de mi trabajo"
+              - search [ref=f1e2540]:
+                - generic [ref=f1e2541]: Buscar
+                - searchbox "Buscar" [ref=f1e2543]
+              - generic [ref=f1e2544]:
+                - button "Ver como lista" [ref=f1e2545] [cursor=pointer]
+                - button "Abrir ficha" [ref=f1e2548] [cursor=pointer]
+            - generic [ref=f1e2551]:
+              - status [ref=f1e2553]:
+                - paragraph [ref=f1e2557]: La vista se ajustó al perfil seleccionado
+                - button "Cerrar aviso" [ref=f1e2558] [cursor=pointer]
+              - generic [ref=f1e2561]:
+                - generic [ref=f1e2562]:
+                  - heading "Próspera Grupo Inmobiliario" [level=3] [ref=f1e2563]
+                  - paragraph [ref=f1e2564]: Datos del organigrama de septiembre de 2026. El detalle de procesos se limita al caso de boletas
+                - tablist [ref=f1e2566]:
+                  - tab "Solo áreas" [ref=f1e2567] [cursor=pointer]
+                  - tab "Áreas y puestos" [selected] [ref=f1e2569] [cursor=pointer]
+                  - tab "Mostrar ocupantes" [ref=f1e2571] [cursor=pointer]
+              - group "Lienzo de ejemplo" [ref=f1e2574]:
+                - generic [ref=f1e2575]:
+                  - img:
+                    - generic: Sí
+                    - generic: "No"
+                  - button "Próspera Grupo Inmobiliario ORG-01" [ref=f1e2576] [cursor=pointer]:
+                    - generic [ref=f1e2577]: Próspera Grupo Inmobiliario
+                    - generic [ref=f1e2581]: ORG-01
+                  - button "Administración y Finanzas 3 puestos" [ref=f1e2582] [cursor=pointer]:
+                    - generic [ref=f1e2583]: Administración y Finanzas
+                    - generic [ref=f1e2587]: 3 puestos
+                  - button "Comercial 2 puestos" [ref=f1e2588] [cursor=pointer]:
+                    - generic [ref=f1e2589]: Comercial
+                    - generic [ref=f1e2593]: 2 puestos
+                  - button "¿Solicitud conforme?" [ref=f1e2594] [cursor=pointer]
+                  - button "A-03 · Verificar abono y documentos Administración" [ref=f1e2599] [cursor=pointer]:
+                    - generic [ref=f1e2600]: A-03 · Verificar abono y documentos
+                    - generic [ref=f1e2604]: Administración
+                  - button "Expandir Administración y Finanzas" [ref=f1e2605] [cursor=pointer]
+                - group "Controles de cámara" [ref=f1e2608]:
+                  - button "Alejar" [ref=f1e2609] [cursor=pointer]
+                  - generic [ref=f1e2612]: 100 %
+                  - button "Acercar" [ref=f1e2613] [cursor=pointer]
+                  - button "Ajustar vista" [ref=f1e2616] [cursor=pointer]
+                  - button "Restablecer cámara" [ref=f1e2619] [cursor=pointer]
+              - generic [ref=f1e2622]:
+                - generic [ref=f1e2623]: Agrupado por área; las líneas entre puestos no representan dependencias de mando
+                - generic [ref=f1e2624]:
+                  - generic [ref=f1e2625]:
+                    - generic [ref=f1e2626]: "6"
+                    - text: áreas
+                  - generic [ref=f1e2627]:
+                    - generic [ref=f1e2628]: "14"
+                    - text: puestos
+            - button "Cerrar ficha" [ref=f1e2629] [cursor=pointer]
+            - complementary "Inspector" [ref=f1e2630]:
+              - generic [ref=f1e2632]:
+                - generic [ref=f1e2633]:
+                  - generic [ref=f1e2634]:
+                    - button "Ficha anterior" [ref=f1e2635] [cursor=pointer]
+                    - button "Cerrar ficha" [ref=f1e2639] [cursor=pointer]
+                  - generic [ref=f1e2642]: Área
+                  - heading "Administración y Finanzas" [level=3] [ref=f1e2645]
+                  - paragraph [ref=f1e2646]: Dueño documentado de Emisión y envío de boletas
+                  - generic [ref=f1e2647]:
+                    - generic [ref=f1e2648]: Fuente del cliente
+                    - generic [ref=f1e2651]:
+                      - generic [ref=f1e2652]: "Fuentes:"
+                      - list [ref=f1e2653]:
+                        - listitem [ref=f1e2654]: S-ORG · Organigrama de Próspera (septiembre de 2026)
+                - generic [ref=f1e2655]:
+                  - heading "Datos" [level=4] [ref=f1e2656]
+                  - generic [ref=f1e2657]:
+                    - generic [ref=f1e2658]:
+                      - term [ref=f1e2659]: Puestos
+                      - definition [ref=f1e2660]: "3"
+                    - generic [ref=f1e2661]:
+                      - term [ref=f1e2662]: Personas
+                      - definition [ref=f1e2663]: "2"
+                    - generic [ref=f1e2664]:
+                      - term [ref=f1e2665]: Soporte
+                      - definition [ref=f1e2666]: Sin dato proporcionado
+                - generic [ref=f1e2667]:
+                  - heading "Procesos conocidos" [level=4] [ref=f1e2668]
+                  - button "Proceso Emisión y envío de boletas dueño documentado" [ref=f1e2670] [cursor=pointer]:
+                    - img "Proceso" [ref=f1e2671]
+                    - generic [ref=f1e2673]:
+                      - generic [ref=f1e2674]: Emisión y envío de boletas
+                      - generic [ref=f1e2675]: dueño documentado
+                - generic [ref=f1e2678]:
+                  - heading "Puestos" [level=4] [ref=f1e2679]
+                  - generic [ref=f1e2680]:
+                    - button "Puesto Jefa de Administración y Finanzas" [ref=f1e2681] [cursor=pointer]:
+                      - img "Puesto" [ref=f1e2682]
+                      - generic [ref=f1e2684]: Jefa de Administración y Finanzas
+                    - button "Puesto Asistente administrativa" [ref=f1e2688] [cursor=pointer]:
+                      - img "Puesto" [ref=f1e2689]
+                      - generic [ref=f1e2691]: Asistente administrativa
+                - generic [ref=f1e2695]:
+                  - button "Enfocar esta área" [ref=f1e2696] [cursor=pointer]
+                  - button "Abrir espacio del área" [ref=f1e2698] [cursor=pointer]
+                  - button "Histórico" [ref=f1e2700] [cursor=pointer]
+        - region [ref=f1e2704]:
+          - 'heading "Composición: estudio del analista (tab 5)" [level=2] [ref=f1e2705]'
+          - paragraph [ref=f1e2706]: roster 260 | main (chips, tabs locales, conversación, compositor, pie) | panel lateral 380 (≥1280). Por debajo, el panel lateral se apila bajo la conversación; en estrecho el roster es una franja horizontal siempre visible.
+          - generic [ref=f1e2708]:
+            - generic [ref=f1e2709]:
+              - generic [ref=f1e2710]: Estudio del analista
+              - generic [ref=f1e2713]: Claude Code · Simulado. Esta demostración no ejecuta IA ni accede a tus archivos
+            - complementary "Espacios de trabajo" [ref=f1e2716]:
+              - generic [ref=f1e2717]: Espacios
+              - generic [ref=f1e2718]:
+                - button "Emisión de boletas Listo para revisar" [ref=f1e2719] [cursor=pointer]:
+                  - generic [ref=f1e2723]: Emisión de boletas
+                  - generic [ref=f1e2724]: Listo para revisar
+                - button "Estructura organizacional Consulta de evidencia 2" [ref=f1e2725] [cursor=pointer]:
+                  - generic [ref=f1e2729]: Estructura organizacional
+                  - generic [ref=f1e2730]: Consulta de evidencia
+                  - generic [ref=f1e2731]: "2"
+            - generic [ref=f1e2732]:
+              - generic [ref=f1e2733]:
+                - generic [ref=f1e2734]: Próspera
+                - generic [ref=f1e2739]: Emisión de boletas
+                - generic [ref=f1e2742]: 5 fuentes disponibles
+                - generic [ref=f1e2745]: TO-BE 2 · Propuesto
+              - generic [ref=f1e2748]:
+                - tablist [ref=f1e2749]:
+                  - tab "Conversación" [selected] [ref=f1e2750] [cursor=pointer]
+                  - tab "Operaciones" [ref=f1e2752] [cursor=pointer]
+                - button "Reiniciar escenario" [ref=f1e2754] [cursor=pointer]
+              - generic [ref=f1e2758]:
+                - generic [ref=f1e2759]:
+                  - generic [ref=f1e2760]:
+                    - generic [ref=f1e2761]: Analista
+                    - generic [ref=f1e2762]: 10:00:01
+                  - paragraph [ref=f1e2763]: Revisa el AS-IS y el TO-BE de boletas y prepara una mejora documental con sus fuentes
+                - generic [ref=f1e2764]:
+                  - generic [ref=f1e2765]:
+                    - generic [ref=f1e2766]: Asistente
+                    - generic [ref=f1e2767]: 10:00:02
+                  - paragraph [ref=f1e2768]: Voy a revisar las cinco fuentes disponibles antes de proponer cambios.
+                - generic [ref=f1e2769]:
+                  - button "Revisar fuentes del proceso En curso" [expanded] [ref=f1e2771] [cursor=pointer]:
+                    - generic [ref=f1e2774]: Revisar fuentes del proceso
+                    - generic [ref=f1e2775]: En curso
+                  - generic [ref=f1e2780]: READ_EVIDENCE · EV-CASE, EV-ASIS, EV-TOBE1, EV-TOBE2, EV-ORG
+                - button "Comprobar consistencia y pendientes Completado" [ref=f1e2783] [cursor=pointer]:
+                  - generic [ref=f1e2786]: Comprobar consistencia y pendientes
+                  - generic [ref=f1e2787]: Completado
+                - generic [ref=f1e2792]:
+                  - generic [ref=f1e2793]: Aprobación requerida
+                  - paragraph [ref=f1e2796]: Publicar TO-BE 3 en la demo. No cambia el AS-IS.
+                  - generic [ref=f1e2797]:
+                    - button "Publicar en la demo" [ref=f1e2798] [cursor=pointer]
+                    - button "Rechazar con motivo" [ref=f1e2800] [cursor=pointer]
+                    - button "Cancelar revisión" [ref=f1e2802] [cursor=pointer]
+                - status [ref=f1e2805]:
+                  - generic [ref=f1e2808]: Procesando paso de demostración
+                - button "Ir al último mensaje" [ref=f1e2809] [cursor=pointer]
+              - generic [ref=f1e2813]:
+                - generic [ref=f1e2814]:
+                  - button "Revisar propuesta de boletas" [ref=f1e2815] [cursor=pointer]
+                  - generic [ref=f1e2819]:
+                    - button "Preparar nuevo AS-IS" [disabled] [ref=f1e2820]
+                    - generic [ref=f1e2824]: Este escenario ya se aplicó. Consulta el resultado o reinicia la demo
+                - generic [ref=f1e2825]:
+                  - generic [ref=f1e2826]:
+                    - generic [ref=f1e2827]: Solicitud del analista
+                    - textbox "Solicitud del analista" [ref=f1e2830]:
+                      - /placeholder: Elige un escenario o escribe una nota
+                  - button "Enviar" [ref=f1e2831] [cursor=pointer]
+              - generic [ref=f1e2835]:
+                - generic [ref=f1e2836]: Cambios solo en esta sesión
+                - generic [ref=f1e2839]: ·
+                - generic [ref=f1e2840]: Revisión pendiente del analista
+            - complementary "Evidencia y revisión" [ref=f1e2843]:
+              - generic [ref=f1e2844]:
+                - heading "Evidencia" [level=3] [ref=f1e2845]
+                - generic [ref=f1e2846]:
+                  - generic [ref=f1e2847]: Caso de mejora de emisión de boletas
+                  - generic [ref=f1e2848]: Dueño, límites y problemas; diagramas AS-IS y TO-BE
+                  - generic [ref=f1e2849]: Fuente del cliente
+              - generic [ref=f1e2851]:
+                - generic [ref=f1e2852]:
+                  - heading "Propuesta de actualización documental · TO-BE 3" [level=3] [ref=f1e2853]
+                  - paragraph [ref=f1e2854]: Nueva versión TO-BE; no cambia el AS-IS
+                - generic [ref=f1e2855]:
+                  - generic [ref=f1e2856]:
+                    - generic [ref=f1e2857]: Antes
+                    - text: Revisar documentos
+                  - generic [ref=f1e2858]:
+                    - generic [ref=f1e2859]: Después
+                    - text: Comparar los documentos recibidos…
+                - generic [ref=f1e2860]:
+                  - generic [ref=f1e2861]: Instrucción propuesta
+                  - generic [ref=f1e2863]: Entre 20 y 600 caracteres
+                  - textbox "Instrucción propuesta" [ref=f1e2865]: Comparar los documentos recibidos…
+                - button "Restaurar texto propuesto" [ref=f1e2867] [cursor=pointer]
+              - generic [ref=f1e2869]:
+                - heading "Artefacto" [level=3] [ref=f1e2870]
+                - generic [ref=f1e2871]:
+                  - generic [ref=f1e2872]: proceso-boletas.yml · representación de ejemplo
+                  - text: "version: V-TOBE-03 estado: propuesta-en-demo"
+        - region [ref=f1e2873]:
+          - heading "Vista estrecha y zoom de texto" [level=2] [ref=f1e2874]
+          - paragraph [ref=f1e2875]: "Los puntos de corte responden al ancho disponible (no al user-agent). Abre esta misma página a 390 px o usa el zoom de texto del navegador al 200 %: alturas mínimas en rem, nada recortado."
+          - generic [ref=f1e2876]:
+            - button "Abrir a 390 × 844" [ref=f1e2877] [cursor=pointer]
+            - button "Abrir a 1024 × 768" [ref=f1e2881] [cursor=pointer]
+            - button "Imprimir (print.css)" [ref=f1e2885] [cursor=pointer]
+    - generic "Avisos"

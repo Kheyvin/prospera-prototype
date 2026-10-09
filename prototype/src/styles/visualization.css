@@ -1,0 +1,1193 @@
+/* styles/visualization.css — canvases, nodes, materials per entity type, lanes, bands,
+ * edges, legends and C4-style zones (CONTRACTS §8 materials, §9 canvas architecture).
+ * Materials come from ds/extensions.css (--material-*); nothing here invents a colour.
+ * Selected = persistent outline (box-shadow ring), focus = outer ring, related = 2 px
+ * teal line, dimmed = reduced opacity that stays ≥ 3:1. */
+
+/* ── Canvas ──────────────────────────────────────────────────────────── */
+.canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 20rem;
+  overflow: hidden;
+  background-color: var(--color-dark-bg);
+  background-image: radial-gradient(var(--color-dark-border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  touch-action: none;
+  outline-offset: -3px;
+  cursor: grab;
+}
+
+.canvas.is-panning {
+  cursor: grabbing;
+}
+
+.canvas.is-panning .canvas__layer {
+  transition: none;
+  will-change: transform;
+}
+
+.canvas.canvas--static {
+  cursor: default;
+  touch-action: auto;
+}
+
+.canvas__layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  transition: transform var(--duration-normal) var(--easing-standard);
+}
+
+.canvas__edges {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.canvas__layer > .node,
+.canvas__layer > .node-expand,
+.canvas__layer > .band,
+.canvas__layer > .lane,
+.canvas__layer > .zone,
+.canvas__layer > .boundary,
+.canvas__layer > .canvas__label {
+  position: absolute;
+}
+
+.canvas__layer > .node,
+.canvas__layer > .node-expand {
+  z-index: 1;
+}
+
+.canvas__label {
+  font-size: var(--text-sm);
+  color: var(--text-on-dark-muted);
+  white-space: nowrap;
+}
+
+.canvas__toolbar {
+  position: absolute;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  z-index: var(--z-sticky);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-md);
+  background: var(--color-dark-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.canvas__toolbar-zoom {
+  min-width: 3.5rem;
+  padding: 0 var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-align: center;
+  color: var(--text-on-dark-muted);
+}
+
+.canvas__toolbar--top {
+  top: var(--space-3);
+  bottom: auto;
+}
+
+.canvas__message {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  text-align: center;
+  color: var(--text-on-dark-muted);
+}
+
+/* ── Node (shared) ───────────────────────────────────────────────────── */
+.node {
+  --node-surface: var(--color-dark-raised);
+  --node-border: var(--color-neutral-400);
+  --node-style: solid;
+  --node-radius: var(--radius-md);
+  --node-glyph: var(--text-on-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
+  box-sizing: border-box;
+  min-width: var(--graph-node-min-width);
+  max-width: var(--graph-node-max-width);
+  min-height: var(--graph-node-min-height);
+  padding: var(--graph-node-padding-y) var(--graph-node-padding-x);
+  border: var(--graph-line-default) var(--node-style) var(--node-border);
+  border-radius: var(--node-radius);
+  background: var(--node-surface);
+  color: var(--text-on-dark);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  text-align: left;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: border-color var(--duration-fast) var(--easing-standard),
+    box-shadow var(--duration-fast) var(--easing-standard),
+    opacity var(--duration-fast) var(--easing-standard);
+}
+
+.node:hover {
+  box-shadow: var(--shadow-md), 0 0 0 1px var(--node-border);
+}
+
+.node__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 0;
+  max-width: 100%;
+}
+
+.node__icon {
+  flex-shrink: 0;
+  width: 1.1em;
+  height: 1.1em;
+  color: var(--node-glyph);
+}
+
+.node__name {
+  font-weight: var(--weight-medium);
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.node__meta {
+  font-size: var(--text-xs);
+  color: var(--text-on-dark-muted);
+  overflow-wrap: anywhere;
+}
+
+.node__id {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-on-dark-muted);
+}
+
+.node__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.125rem var(--space-1);
+  margin-top: 0.125rem;
+}
+
+.node__badges .badge {
+  min-height: 1.25rem;
+  padding: 0 var(--space-1);
+  font-size: var(--text-xs);
+}
+
+.node__count {
+  margin-left: auto;
+  padding: 0 var(--space-1);
+  border-radius: var(--radius-pill);
+  background: var(--color-dark-bg);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-on-dark-muted);
+}
+
+/* States. Selection ring sits outside the border; focus ring sits further out. */
+.node.is-selected {
+  box-shadow: 0 0 0 2px var(--color-dark-bg), 0 0 0 calc(2px + var(--graph-line-selected)) var(--color-teal-300);
+}
+
+.node:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+.node.is-selected:focus-visible {
+  outline-offset: 6px;
+}
+
+.node.is-related {
+  border-color: var(--color-teal-400);
+  box-shadow: inset 0 0 0 calc(var(--graph-line-selected) - var(--graph-line-default)) var(--color-teal-400), var(--shadow-sm);
+}
+
+.node.is-related.is-selected {
+  box-shadow: inset 0 0 0 1px var(--color-teal-400), 0 0 0 2px var(--color-dark-bg), 0 0 0 4px var(--color-teal-300);
+}
+
+.node.is-root {
+  border-color: var(--color-teal-500);
+  box-shadow: inset 0 0 0 1px var(--color-teal-500), 0 0 0 1px var(--color-teal-700);
+}
+
+.node.is-dimmed {
+  opacity: 0.6;
+}
+
+.node.is-dimmed:hover,
+.node.is-dimmed:focus-visible {
+  opacity: 1;
+}
+
+.node.is-expanded {
+  border-bottom-left-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.node.is-unavailable {
+  border-style: dotted;
+  color: var(--text-on-dark-muted);
+  cursor: not-allowed;
+}
+
+.node.is-demo {
+  border-color: var(--tint-warning-line);
+}
+
+.node--compact {
+  min-width: 0;
+  min-height: var(--graph-chip-height);
+  padding: var(--space-1) var(--space-2);
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.node--wide {
+  max-width: calc(var(--graph-node-max-width) * 1.5);
+}
+
+/* Expand/collapse control for tree nodes: a sibling button, never nested in .node. */
+.node-expand {
+  display: inline-grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--color-neutral-500);
+  border-radius: 50%;
+  background: var(--color-dark-surface);
+  color: var(--text-on-dark);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+.node-expand::before {
+  content: '';
+  position: absolute;
+  inset: -0.5rem;
+}
+
+.node-expand:hover {
+  border-color: var(--color-teal-400);
+  color: var(--color-teal-300);
+}
+
+.node-expand .icon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform var(--duration-fast) var(--easing-standard);
+}
+
+.node-expand[aria-expanded='true'] .icon {
+  transform: rotate(90deg);
+}
+
+/* ── Materials per entity type (design.md §4) ────────────────────────── */
+.node--organization {
+  --node-surface: var(--material-organization-surface);
+  --node-border: var(--material-organization-border);
+  --node-style: var(--material-organization-style);
+  --node-radius: var(--material-organization-radius);
+  --node-glyph: var(--material-organization-glyph);
+}
+
+.node--area {
+  --node-surface: var(--material-area-surface);
+  --node-border: var(--material-area-border);
+  --node-style: var(--material-area-style);
+  --node-radius: var(--material-area-radius);
+  --node-glyph: var(--material-area-glyph);
+}
+
+.node--position {
+  --node-surface: var(--material-position-surface);
+  --node-border: var(--material-position-border);
+  --node-style: var(--material-position-style);
+  --node-radius: var(--material-position-radius);
+  --node-glyph: var(--material-position-glyph);
+}
+
+.node--person {
+  --node-surface: var(--material-person-surface);
+  --node-border: var(--material-person-border);
+  --node-style: var(--material-person-style);
+  --node-radius: var(--material-person-radius);
+  --node-glyph: var(--material-person-glyph);
+}
+
+.node--external,
+.node--externalProvider,
+.node--externalActor {
+  --node-surface: var(--material-external-surface);
+  --node-border: var(--material-external-border);
+  --node-style: var(--material-external-style);
+  --node-radius: var(--material-external-radius);
+  --node-glyph: var(--material-external-glyph);
+}
+
+.node--macroprocess {
+  --node-surface: var(--material-macroprocess-surface);
+  --node-border: var(--material-macroprocess-border);
+  --node-style: var(--material-macroprocess-style);
+  --node-radius: var(--material-macroprocess-radius);
+  --node-glyph: var(--material-macroprocess-glyph);
+  border-width: 3px;
+}
+
+.node--process {
+  --node-surface: var(--material-process-surface);
+  --node-border: var(--material-process-border);
+  --node-style: var(--material-process-style);
+  --node-radius: var(--material-process-radius);
+  --node-glyph: var(--material-process-glyph);
+}
+
+.node--activity {
+  --node-surface: var(--material-activity-surface);
+  --node-border: var(--material-activity-border);
+  --node-style: var(--material-activity-style);
+  --node-radius: var(--material-activity-radius);
+  --node-glyph: var(--material-activity-glyph);
+}
+
+.node--role {
+  --node-surface: var(--material-role-surface);
+  --node-border: var(--material-role-border);
+  --node-style: var(--material-role-style);
+  --node-radius: var(--material-role-radius);
+  --node-glyph: var(--material-role-glyph);
+}
+
+.node--system {
+  --node-surface: var(--material-system-surface);
+  --node-border: var(--material-system-border);
+  --node-style: var(--material-system-style);
+  --node-radius: var(--material-system-radius);
+  --node-glyph: var(--material-system-glyph);
+  border-width: 2px;
+}
+
+.node--document {
+  --node-surface: var(--material-document-surface);
+  --node-border: var(--material-document-border);
+  --node-style: var(--material-document-style);
+  --node-radius: var(--material-document-radius);
+  --node-glyph: var(--material-document-glyph);
+  border-top-right-radius: var(--radius-lg);
+}
+
+.node--policy {
+  --node-surface: var(--material-policy-surface);
+  --node-border: var(--material-policy-border);
+  --node-style: var(--material-policy-style);
+  --node-radius: var(--material-policy-radius);
+  --node-glyph: var(--material-policy-glyph);
+  border-width: 3px;
+}
+
+.node--objective {
+  --node-surface: var(--material-objective-surface);
+  --node-border: var(--material-objective-border);
+  --node-style: var(--material-objective-style);
+  --node-radius: var(--material-objective-radius);
+  --node-glyph: var(--material-objective-glyph);
+  border-width: 3px;
+}
+
+.node--indicator {
+  --node-surface: var(--material-indicator-surface);
+  --node-border: var(--material-indicator-border);
+  --node-style: var(--material-indicator-style);
+  --node-radius: var(--material-indicator-radius);
+  --node-glyph: var(--material-indicator-glyph);
+  border-width: 2px;
+}
+
+.node--gap {
+  --node-surface: var(--material-gap-surface);
+  --node-border: var(--material-gap-border);
+  --node-style: var(--material-gap-style);
+  --node-radius: var(--material-gap-radius);
+  --node-glyph: var(--material-gap-glyph);
+}
+
+.node--incident {
+  --node-surface: var(--material-incident-surface);
+  --node-border: var(--material-incident-border);
+  --node-style: var(--material-incident-style);
+  --node-radius: var(--material-incident-radius);
+  --node-glyph: var(--material-incident-glyph);
+}
+
+.node--project {
+  --node-surface: var(--material-project-surface);
+  --node-border: var(--material-project-border);
+  --node-style: var(--material-project-style);
+  --node-radius: var(--material-project-radius);
+  --node-glyph: var(--material-project-glyph);
+}
+
+.node--version {
+  --node-surface: var(--material-version-surface);
+  --node-border: var(--material-version-border);
+  --node-style: var(--material-version-style);
+  --node-radius: var(--material-version-radius);
+  --node-glyph: var(--material-version-glyph);
+}
+
+/* Proposed overrides any type: dashed teal, teal glyph. */
+.node--proposed {
+  --node-surface: var(--material-proposed-surface);
+  --node-border: var(--material-proposed-border);
+  --node-style: var(--material-proposed-style);
+  --node-glyph: var(--material-proposed-glyph);
+  border-width: var(--graph-line-default);
+}
+
+/* Decision: rotated square with an un-rotated label. */
+.node--decision {
+  --node-surface: var(--material-decision-surface);
+  --node-border: var(--material-decision-border);
+  --node-glyph: var(--material-decision-glyph);
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--graph-decision-size);
+  height: var(--graph-decision-size);
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  padding: var(--space-2);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+}
+
+.node--decision::before {
+  content: '';
+  position: absolute;
+  inset: 14%;
+  border: var(--graph-line-default) var(--material-decision-style) var(--node-border);
+  border-radius: var(--radius-sm);
+  background: var(--node-surface);
+  box-shadow: var(--shadow-sm);
+  transform: rotate(45deg);
+  transition: border-color var(--duration-fast) var(--easing-standard),
+    box-shadow var(--duration-fast) var(--easing-standard);
+}
+
+.node--decision > * {
+  position: relative;
+  z-index: 1;
+}
+
+.node--decision .node__name {
+  max-width: 74%;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+}
+
+/* The rhombus itself is the decision glyph (spec §13); the inline icon would collide
+ * with the two-line label inside the diamond. */
+.node--decision .node__icon {
+  display: none;
+}
+
+.node--decision:hover::before {
+  box-shadow: var(--shadow-md);
+}
+
+.node--decision.is-selected {
+  box-shadow: none;
+}
+
+.node--decision.is-selected::before {
+  box-shadow: 0 0 0 2px var(--color-dark-bg), 0 0 0 4px var(--color-teal-300);
+}
+
+.node--decision.is-related::before {
+  border-color: var(--color-teal-400);
+  box-shadow: inset 0 0 0 1px var(--color-teal-400);
+}
+
+.node--decision:focus-visible {
+  outline-offset: 0;
+}
+
+/* Events (start/end/intermediate): circle with the label beneath. */
+.node--event,
+.node--start,
+.node--end {
+  --node-surface: var(--material-event-surface);
+  --node-border: var(--material-event-border);
+  --node-glyph: var(--material-event-glyph);
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--graph-event-size);
+  height: var(--graph-event-size);
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  padding: 0;
+  border-width: var(--graph-line-default);
+  border-radius: var(--radius-pill);
+  overflow: visible;
+}
+
+.node--start {
+  border-width: 2px;
+}
+
+.node--end {
+  border-width: 3px;
+  box-shadow: inset 0 0 0 2px var(--color-dark-bg), inset 0 0 0 3px var(--node-border);
+}
+
+.node--event .node__icon,
+.node--start .node__icon,
+.node--end .node__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.node--event .node__name,
+.node--start .node__name,
+.node--end .node__name {
+  position: absolute;
+  top: calc(100% + var(--space-1));
+  left: 50%;
+  width: 9rem;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--text-on-dark);
+  text-shadow: 0 0 4px var(--color-dark-bg);
+}
+
+/* In-flow contexts (lanes, bands, lists) must reserve the label overhang; on a canvas
+ * layer the layout function already accounts for it. */
+.node--event:not(.canvas__layer > .node),
+.node--start:not(.canvas__layer > .node),
+.node--end:not(.canvas__layer > .node) {
+  margin: 0 2.75rem 2.5rem;
+}
+
+.node--event.is-selected,
+.node--start.is-selected,
+.node--end.is-selected {
+  box-shadow: 0 0 0 2px var(--color-dark-bg), 0 0 0 4px var(--color-teal-300);
+}
+
+.node--end.is-selected {
+  box-shadow: inset 0 0 0 2px var(--color-dark-bg), inset 0 0 0 3px var(--node-border), 0 0 0 2px var(--color-dark-bg), 0 0 0 4px var(--color-teal-300);
+}
+
+/* Subtask group marker (T-06 / T-08 parallel subtasks) and system chip between nodes. */
+.node--group {
+  border-style: dashed;
+  background: transparent;
+  box-shadow: none;
+}
+
+.node-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: var(--graph-chip-height);
+  padding: 0 var(--space-2);
+  border: 1px dotted var(--material-system-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-dark-surface);
+  font-size: var(--text-xs);
+  color: var(--text-on-dark-muted);
+}
+
+.node-chip .icon {
+  color: var(--material-system-glyph);
+}
+
+/* ── C4-style architecture (tab 1) ───────────────────────────────────── */
+.node--component {
+  --node-surface: var(--color-dark-raised);
+  --node-border: var(--color-neutral-400);
+  --node-style: solid;
+  --node-radius: var(--radius-md);
+  --node-glyph: var(--text-on-dark-brand);
+}
+
+.node--store {
+  --node-surface: var(--color-dark-surface);
+  --node-border: var(--color-teal-700);
+  --node-style: solid;
+  --node-radius: var(--radius-lg) var(--radius-lg) var(--radius-sm) var(--radius-sm);
+  --node-glyph: var(--text-on-dark-brand);
+  border-width: 2px;
+}
+
+.node--actor {
+  --node-surface: transparent;
+  --node-border: var(--color-neutral-500);
+  --node-style: solid;
+  --node-radius: var(--radius-xl);
+  --node-glyph: var(--text-on-dark);
+  align-items: center;
+  text-align: center;
+  box-shadow: none;
+}
+
+.node--pending {
+  border-style: dashed;
+  border-color: var(--tint-warning-line);
+}
+
+.node--pending .node__meta {
+  color: var(--color-warning-dark);
+}
+
+.node__subtitle {
+  font-size: var(--text-xs);
+  color: var(--text-on-dark-muted);
+}
+
+.zone {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-dark-surface);
+  min-width: 0;
+}
+
+.zone__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-overline);
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--text-on-dark-muted);
+}
+
+.zone__body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--graph-node-gap);
+  align-content: flex-start;
+}
+
+.zone--external {
+  border-style: dashed;
+}
+
+.zone--vps {
+  border-color: var(--color-neutral-600);
+}
+
+.boundary {
+  padding: var(--space-3);
+  border: 1px solid var(--dark-border-teal);
+  border-radius: var(--radius-lg);
+  background: var(--tint-brand-faint);
+}
+
+.boundary__label {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-on-dark-brand);
+  margin-bottom: var(--space-2);
+}
+
+.arch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: var(--space-4);
+  padding: var(--space-4);
+}
+
+/* ── Lanes (process flows) ───────────────────────────────────────────── */
+.lanes {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: max-content;
+  border: 1px solid var(--lane-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--lane-surface);
+}
+
+.lanes--scroll {
+  overflow: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.lane {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--lane-label-width) minmax(0, 1fr);
+  min-height: var(--lane-height);
+  border-top: 1px solid var(--lane-border);
+  background: var(--lane-surface);
+}
+
+.lane:first-child {
+  border-top: 0;
+}
+
+.lane:nth-child(even) {
+  background: var(--lane-surface-alt);
+}
+
+.lane__label {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  border-right: 1px solid var(--lane-border);
+  background: inherit;
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm);
+  color: var(--text-on-dark);
+  overflow-wrap: anywhere;
+}
+
+.lane__label-role {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
+  color: var(--text-on-dark-muted);
+}
+
+.lane__body {
+  position: relative;
+  min-height: var(--lane-height);
+}
+
+.lane--external {
+  border-top: 1px dashed var(--color-neutral-500);
+}
+
+.lane--external .lane__label {
+  border-right-style: dashed;
+  color: var(--text-on-dark-muted);
+}
+
+.lane--highlight {
+  box-shadow: inset 3px 0 0 var(--color-teal-600);
+}
+
+/* ── Bands (process map) ─────────────────────────────────────────────── */
+.bands {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  min-width: 0;
+}
+
+.band {
+  display: grid;
+  grid-template-columns: var(--band-label-width) minmax(0, 1fr);
+  min-height: var(--band-min-height);
+  border: 1px solid var(--band-border);
+  border-radius: var(--radius-md);
+  background: var(--band-surface);
+  overflow: hidden;
+}
+
+.band__label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border-right: 1px solid var(--band-border);
+  background: var(--color-dark-raised);
+}
+
+.band__title {
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm);
+  overflow-wrap: anywhere;
+}
+
+.band__subtitle {
+  font-size: var(--text-xs);
+  color: var(--text-on-dark-muted);
+}
+
+.band__body {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  gap: var(--graph-node-gap);
+  padding: var(--space-3);
+  min-width: 0;
+}
+
+.band__body .node {
+  position: static;
+}
+
+.band__message {
+  align-self: center;
+  font-size: var(--text-sm);
+  color: var(--text-on-dark-muted);
+}
+
+.band--objective {
+  border-color: var(--dark-border-teal);
+}
+
+.band--direction {
+  border-style: dashed;
+}
+
+.band--direction .band__label {
+  background: transparent;
+}
+
+.band--business .band__body {
+  gap: var(--space-2);
+}
+
+.band--business .node {
+  min-width: 10rem;
+}
+
+.band--people .node,
+.band--systems .node {
+  min-width: 0;
+  min-height: var(--graph-chip-height);
+}
+
+.band--support {
+  border-left: 3px solid var(--color-neutral-600);
+}
+
+.band.is-dimmed {
+  opacity: 0.7;
+}
+
+.band__chain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.band__chain-arrow {
+  width: 1rem;
+  height: 1rem;
+  color: var(--text-on-dark-faint);
+}
+
+/* ── Edges ───────────────────────────────────────────────────────────── */
+.edge {
+  fill: none;
+  stroke: var(--edge-default);
+  stroke-width: var(--graph-line-default);
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  transition: stroke var(--duration-fast) var(--easing-standard),
+    stroke-width var(--duration-fast) var(--easing-standard),
+    opacity var(--duration-fast) var(--easing-standard);
+}
+
+.edge--related {
+  stroke: var(--edge-related);
+  stroke-width: var(--graph-line-selected);
+}
+
+.edge--selected {
+  stroke: var(--edge-selected);
+  stroke-width: var(--graph-line-selected);
+}
+
+.edge--loop {
+  stroke-dasharray: 6 4;
+}
+
+.edge--proposed,
+.edge--inferred {
+  stroke: var(--color-teal-600);
+  stroke-dasharray: 3 3;
+}
+
+.edge--dimmed {
+  opacity: 0.35;
+}
+
+.edge--group {
+  stroke-dasharray: 2 4;
+  stroke: var(--color-neutral-500);
+}
+
+.edge--exchange {
+  stroke-dasharray: 8 4;
+  stroke: var(--color-neutral-500);
+}
+
+.edge-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  fill: var(--text-on-dark);
+  paint-order: stroke;
+  stroke: var(--edge-label-surface);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.edge-label--muted {
+  fill: var(--text-on-dark-muted);
+}
+
+.edge-label__bg {
+  fill: var(--edge-label-surface);
+  stroke: var(--lane-border);
+  stroke-width: 1px;
+  rx: 4;
+}
+
+.edge-marker {
+  fill: var(--edge-default);
+  stroke: none;
+}
+
+.edge-marker--related {
+  fill: var(--edge-related);
+}
+
+.edge-marker--selected {
+  fill: var(--edge-selected);
+}
+
+.edge-marker--muted {
+  fill: var(--color-neutral-500);
+}
+
+/* Org chart grouping lines (no command dependency implied). */
+.edge--group-line {
+  stroke: var(--color-neutral-600);
+  stroke-width: var(--graph-line-default);
+}
+
+/* ── Legend ──────────────────────────────────────────────────────────── */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--text-on-dark-muted);
+}
+
+.legend__title {
+  font-weight: var(--weight-medium);
+  color: var(--text-on-dark);
+}
+
+.legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.legend__swatch {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid var(--color-neutral-400);
+  border-radius: var(--radius-sm);
+  background: var(--color-dark-raised);
+}
+
+.legend__swatch--external {
+  border-style: dashed;
+  border-radius: var(--radius-pill);
+}
+
+.legend__swatch--proposed {
+  border-style: dashed;
+  border-color: var(--color-brand);
+  background: transparent;
+}
+
+.legend__swatch--related {
+  width: 1.5rem;
+  height: 0;
+  border: 0;
+  border-top: var(--graph-line-selected) solid var(--edge-related);
+  border-radius: 0;
+  background: none;
+}
+
+.legend__swatch--default-line {
+  width: 1.5rem;
+  height: 0;
+  border: 0;
+  border-top: var(--graph-line-default) solid var(--edge-default);
+  border-radius: 0;
+  background: none;
+}
+
+.legend__swatch--loop {
+  width: 1.5rem;
+  height: 0;
+  border: 0;
+  border-top: var(--graph-line-default) dashed var(--edge-default);
+  border-radius: 0;
+  background: none;
+}
+
+.legend__swatch--selected {
+  box-shadow: 0 0 0 2px var(--color-dark-bg), 0 0 0 3px var(--color-teal-300);
+}
+
+.legend__swatch--decision {
+  transform: rotate(45deg) scale(0.8);
+}
+
+.legend__swatch--event {
+  border-radius: 50%;
+  background: var(--material-event-surface);
+}
+
+.legend__swatch--system {
+  border-style: dotted;
+  border-color: var(--material-system-border);
+}
+
+.legend__swatch--objective {
+  border-style: double;
+  border-width: 3px;
+  border-color: var(--material-objective-border);
+  border-radius: var(--radius-pill);
+}
+
+.legend__swatch--gap {
+  border-color: var(--material-gap-border);
+}
+
+.legend__swatch--demo {
+  border-style: dashed;
+  border-color: var(--tint-warning-line);
+}
+
+/* ── SIPOC / RACI helpers ────────────────────────────────────────────── */
+.raci__mark {
+  display: inline-grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--color-teal-600);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-semibold);
+  color: var(--text-on-dark-brand);
+}
+
+.raci__missing {
+  color: var(--text-on-dark-muted);
+}
+
+.sipoc {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(8rem, 1fr));
+  gap: var(--space-2);
+}
+
+.sipoc__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-md);
+  background: var(--color-dark-surface);
+  font-size: var(--text-sm);
+}
+
+.sipoc__column--process {
+  border-color: var(--dark-border-teal);
+}
+
+.sipoc__title {
+  font-family: var(--font-mono);
+  font-size: var(--text-overline);
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--text-on-dark-muted);
+}
+
+/* ── History / version timeline ──────────────────────────────────────── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--color-dark-border);
+}
+
+.timeline__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.timeline__item::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--space-4) * -1 - 0.3125rem);
+  top: 0.4rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border: 1.5px solid var(--color-neutral-400);
+  border-radius: 50%;
+  background: var(--color-dark-bg);
+}
+
+.timeline__item.is-current::before {
+  border-color: var(--color-brand);
+  background: var(--color-brand);
+}
+
+.timeline__item.is-demo::before {
+  border-style: dashed;
+  border-color: var(--color-warning-dark);
+}

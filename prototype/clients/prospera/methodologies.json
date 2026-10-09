@@ -1,0 +1,324 @@
+{
+  "methodologies": {
+    "title": "Un método para ordenar, revisar y mantener el conocimiento",
+    "intro": "Usaremos prácticas concretas allí donde aportan claridad al trabajo. La selección descrita es la propuesta metodológica de esta primera versión; Próspera validará el contenido. Usar estas prácticas no equivale a una certificación",
+    "groups": [
+      { "id": "applied", "label": "Aplicadas en la demostración" },
+      { "id": "reference", "label": "Referencias para el diseño" },
+      { "id": "excluded", "label": "No incluidas en esta versión" }
+    ],
+    "items": [
+      {
+        "id": "MET-BPM",
+        "name": "Gestión por procesos",
+        "group": "applied",
+        "statusLabel": "aplicada",
+        "question": "¿Qué trabajo atraviesa varias áreas?",
+        "usage": "Relacionamos el resultado del proceso con quienes participan, sus documentos y los puntos de revisión",
+        "scopeItemIds": ["SC-01", "SC-02", "SC-03"],
+        "evidence": "PR-BOLETAS ficha",
+        "limit": "Clasificación estratégica, negocio y soporte solo donde hay datos",
+        "sourceIds": ["S-PROP", "S-CASE"],
+        "example": {
+          "label": "Ver ejemplo",
+          "target": {
+            "tab": "web",
+            "web": {
+              "module": "twin",
+              "level": "operational",
+              "processId": "PR-BOLETAS",
+              "processView": "sheet",
+              "versionId": "V-ASIS-01"
+            }
+          }
+        },
+        "externalReference": null
+      },
+      {
+        "id": "MET-BPMN",
+        "name": "Diagramas de proceso, basados en BPMN",
+        "group": "applied",
+        "statusLabel": "aplicada",
+        "question": "¿Qué pasa después y quién interviene?",
+        "usage": "Mostramos actividades, decisiones y carriles para entender la emisión de boletas y sus devoluciones",
+        "scopeItemIds": ["SC-03", "SC-07"],
+        "evidence": "flujo AS-IS/TO-BE",
+        "limit": "Vista resumida, no motor ejecutable ni exportación BPMN certificada",
+        "sourceIds": ["S-ASIS", "S-TOBE2"],
+        "example": {
+          "label": "Ver ejemplo",
+          "target": {
+            "tab": "web",
+            "web": {
+              "module": "twin",
+              "level": "operational",
+              "processId": "PR-BOLETAS",
+              "processView": "flow",
+              "versionId": "V-ASIS-01",
+              "paymentVariant": "separacion"
+            }
+          }
+        },
+        "externalReference": {
+          "label": "Especificación OMG BPMN 2.0.2",
+          "url": "https://www.omg.org/spec/BPMN/2.0.2"
+        }
+      },
+      {
+        "id": "MET-SIPOC",
+        "name": "Límites del proceso",
+        "group": "applied",
+        "statusLabel": "aplicada",
+        "question": "¿Qué recibimos y qué entregamos?",
+        "usage": "Resumimos proveedores, entradas, pasos principales, salidas y destinatarios antes de entrar al detalle",
+        "scopeItemIds": ["SC-03"],
+        "evidence": "ficha SIPOC; síntesis S-CASE/ASIS",
+        "limit": "No afirmar ficha aprobada",
+        "sourceIds": ["S-CASE", "S-ASIS"],
+        "example": {
+          "label": "Ver ejemplo",
+          "target": {
+            "tab": "web",
+            "web": {
+              "module": "twin",
+              "level": "operational",
+              "processId": "PR-BOLETAS",
+              "processView": "sheet",
+              "versionId": "V-ASIS-01"
+            }
+          }
+        },
+        "externalReference": {
+          "label": "SIPOC según ASQ",
+          "url": "https://asq.org/quality-resources/sipoc"
+        }
+      },
+      {
+        "id": "MET-RACI",
+        "name": "Responsabilidades",
+        "group": "applied",
+        "statusLabel": "aplicada parcialmente",
+        "question": "¿Quién hace el trabajo y quién responde por él?",
+        "usage": "Distinguimos ejecutores por actividad y el área dueña del proceso; dejamos pendientes las asignaciones que no fueron entregadas",
+        "scopeItemIds": ["SC-03"],
+        "evidence": "matriz de responsabilidades; carriles y A-AF",
+        "limit": "R documentado; A/C/I no se completan por intuición",
+        "sourceIds": [],
+        "example": {
+          "label": "Ver ejemplo",
+          "target": {
+            "tab": "web",
+            "web": {
+              "module": "twin",
+              "level": "operational",
+              "processId": "PR-BOLETAS",
+              "processView": "sheet",
+              "versionId": "V-ASIS-01"
+            }
+          }
+        },
+        "externalReference": null
+      },
+      {
+        "id": "MET-VERSION",
+        "name": "Versiones y mejora controlada",
+        "group": "applied",
+        "statusLabel": "aplicada",
+        "question": "¿Qué cambió y cuál versión consultamos?",
+        "usage": "Conservamos AS-IS y TO-BE, comparamos sus cambios y publicamos otra versión al cerrar una mejora",
+        "scopeItemIds": ["SC-06", "SC-07", "SC-09"],
+        "evidence": "histórico y PM-01; S-MAIL 5/9/10",
+        "limit": "Aprobaciones corporativas externas",
+        "sourceIds": ["S-MAIL"],
+        "example": {
+          "label": "Ver ejemplo",
+          "target": {
+            "tab": "web",
+            "web": {
+              "module": "twin",
+              "level": "operational",
+              "processId": "PR-BOLETAS",
+              "processView": "sheet",
+              "versionId": "V-ASIS-01",
+              "overlay": { "kind": "history", "entityId": "PR-BOLETAS" }
+            }
+          }
+        },
+        "externalReference": null
+      },
+      {
+        "id": "MET-AOC",
+        "name": "Conocimiento estructurado",
+        "group": "applied",
+        "statusLabel": "aplicada",
+        "question": "¿Cómo evitamos rehacer los mismos documentos?",
+        "usage": "Las actividades, responsables y fuentes se registran una vez y alimentan las vistas y el texto estructurado",
+        "scopeItemIds": ["SC-05", "SC-10"],
+        "evidence": "artefacto desktop; S-PROP §3.4",
+        "limit": "Sin flujos autónomos de agentes",
+        "sourceIds": ["S-PROP"],
+        "example": {
+          "label": "Ver ejemplo",
+          "target": {
+            "tab": "desktop",
+            "desktop": {
+              "workspaceId": "WS-BOLETAS",
+              "scenarioId": "SCN-01"
+            }
+          }
+        },
+        "externalReference": null
+      },
+      {
+        "id": "MET-ACCESS",
+        "name": "Permisos por rol y relación con el puesto",
+        "group": "applied",
+        "statusLabel": "aplicada como simulación",
+        "question": "¿Quién puede ver o cambiar cada información?",
+        "usage": "Combinamos el tipo de usuario con su puesto y los procesos que tiene autorizados",
+        "scopeItemIds": ["SC-04"],
+        "evidence": "selector y seguridad",
+        "limit": "Diseño RBAC con reglas de relación/atributos; no un motor ABAC completo en HTML",
+        "sourceIds": ["S-REQ", "S-MAIL"],
+        "example": {
+          "label": "Ver ejemplo",
+          "target": {
+            "tab": "web",
+            "web": {
+              "module": "twin",
+              "level": "strategic",
+              "representation": "orgchart"
+            }
+          }
+        },
+        "externalReference": null
+      },
+      {
+        "id": "MET-APQC",
+        "name": "APQC PCF",
+        "group": "reference",
+        "statusLabel": "referencia",
+        "question": "¿Cómo ordenaremos el catálogo al crecer?",
+        "usage": "Servirá como referencia para revisar niveles y nombres de procesos sin sustituir la terminología de Próspera",
+        "scopeItemIds": ["SC-01", "SC-02"],
+        "evidence": "mapa",
+        "limit": "No cargar códigos APQC, edición ni correspondencias no acordadas",
+        "sourceIds": ["S-MAIL", "S-PROP"],
+        "example": {
+          "label": "Ver ejemplo",
+          "target": {
+            "tab": "web",
+            "web": {
+              "module": "twin",
+              "level": "strategic",
+              "representation": "processmap"
+            }
+          }
+        },
+        "externalReference": {
+          "label": "Marcos de clasificación de procesos APQC",
+          "url": "https://www.apqc.org/process-frameworks"
+        }
+      },
+      {
+        "id": "MET-EA",
+        "name": "ArchiMate y TOGAF",
+        "group": "reference",
+        "statusLabel": "referencia",
+        "question": "¿Cómo conectamos negocio y tecnología?",
+        "usage": "Tomamos la separación entre objetivos, trabajo, responsables y sistemas para mantener relaciones comprensibles",
+        "scopeItemIds": ["SC-01", "SC-03"],
+        "evidence": "relaciones",
+        "limit": "No se entrega programa de arquitectura empresarial ni modelo ArchiMate formal",
+        "sourceIds": ["S-MAIL"],
+        "example": {
+          "label": "Ver ejemplo",
+          "target": {
+            "tab": "web",
+            "web": {
+              "module": "twin",
+              "level": "strategic",
+              "representation": "relations",
+              "relationsRootId": "PR-BOLETAS"
+            }
+          }
+        },
+        "externalReference": null
+      },
+      {
+        "id": "MET-ISO",
+        "name": "Enfoque por procesos e información documentada",
+        "group": "reference",
+        "statusLabel": "referencia",
+        "question": "¿Cómo mantenemos información ordenada y revisable?",
+        "usage": "Usamos fuentes, responsables y versiones como disciplina de documentación, en línea con las referencias ISO 9001 e ISO 10013 de la propuesta",
+        "scopeItemIds": ["SC-03", "SC-06"],
+        "evidence": "POL-01/histórico",
+        "limit": "Sin checklist de auditoría, cobertura de cláusulas ni certificación",
+        "sourceIds": ["S-PROP"],
+        "example": {
+          "label": "Ver ejemplo",
+          "target": {
+            "tab": "web",
+            "web": {
+              "module": "twin",
+              "level": "operational",
+              "processId": "PR-BOLETAS",
+              "processView": "sheet",
+              "versionId": "V-ASIS-01",
+              "overlay": { "kind": "policy", "entityId": "POL-01" }
+            }
+          }
+        },
+        "externalReference": null
+      },
+      {
+        "id": "MET-COBIT",
+        "name": "COBIT 2019",
+        "group": "excluded",
+        "statusLabel": "no incluida como módulo",
+        "question": null,
+        "usage": "Gobierno y control tecnológico: referencia candidata para una etapa posterior si Próspera necesita desarrollar esos controles",
+        "scopeItemIds": [],
+        "evidence": "sin CTA funcional ni dashboard de riesgo",
+        "limit": "no se adopta el marco completo",
+        "sourceIds": ["S-MAIL"],
+        "example": null,
+        "externalReference": null
+      },
+      {
+        "id": "MET-MINING",
+        "name": "Minería de procesos",
+        "group": "excluded",
+        "statusLabel": "no incluida",
+        "question": null,
+        "usage": "Contrastar el proceso con lo que ocurre requiere registros operativos y conexiones que no forman parte de esta entrega",
+        "scopeItemIds": ["SC-16", "SC-19"],
+        "evidence": null,
+        "limit": "Sin event logs empresariales. La bitácora de publicaciones no es minería",
+        "sourceIds": ["S-MAIL", "S-VISION"],
+        "example": null,
+        "externalReference": null
+      },
+      {
+        "id": "MET-VSM",
+        "name": "Análisis de flujo y tiempos",
+        "group": "excluded",
+        "statusLabel": "no incluido como medición",
+        "question": null,
+        "usage": "Podremos analizar esperas y tiempos cuando Próspera disponga de mediciones. Esta demo solo muestra dónde hay revisiones y devoluciones",
+        "scopeItemIds": [],
+        "evidence": "ficha sin mediciones",
+        "limit": "No calcular eficiencia, capacidad, cuellos de botella cuantificados ni ahorro",
+        "sourceIds": ["S-PROP"],
+        "example": null,
+        "externalReference": null
+      }
+    ],
+    "referencesNote": "Estas referencias verifican el significado, no validan el modelo de Próspera. El HTML contiene la explicación necesaria offline; enlaces externos son opcionales y solo se abren por acción explícita",
+    "footer": [
+      "La arquitectura se explica con un mapa de aplicaciones y almacenes de información"
+    ],
+    "c4Note": "C4 es la notación de comunicación de arquitectura de tab 1, no una metodología de gestión que deba adoptar el cliente"
+  }
+}

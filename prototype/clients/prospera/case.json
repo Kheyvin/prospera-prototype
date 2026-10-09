@@ -1,0 +1,3834 @@
+{
+  "organization": {
+    "entities": [
+      {
+        "id": "MP-AF",
+        "type": "macroprocess",
+        "name": "Gestión administrativa y financiera",
+        "description": "Agrupación propuesta para la demo",
+        "attributes": {
+          "proposed": true,
+          "kind": "support"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-DEMO",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "labels": [
+          "Propuesto · por validar"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "PR-BOLETAS",
+        "type": "process",
+        "name": "Emisión y envío de boletas",
+        "description": "Emisión y envío de boletas por pagos de departamentos, cocheras o almacenes. El caso comprende la recepción de información y documentación del pago, la revisión administrativa, la emisión y el envío al cliente",
+        "attributes": {
+          "detailed": true,
+          "portfolio": false,
+          "start": "Pago y documentación recibidos",
+          "end": "Boleta emitida y enviada",
+          "note": "El diagrama fuente también contiene pasos comerciales previos y de financiamiento. El recorrido principal de esta demo se concentra en pago → revisión → emisión → envío",
+          "ownerLabel": "Administración y Finanzas",
+          "participantsText": "Cliente, Ejecutivo de Ventas, Asistente administrativo y Asistente contable",
+          "variants": [
+            {
+              "id": "separacion",
+              "label": "Separación",
+              "note": null
+            },
+            {
+              "id": "cuotaInicial",
+              "label": "Cuota inicial",
+              "note": null
+            },
+            {
+              "id": "cuotaNormal",
+              "label": "Cuota normal / complementaria: denominación por confirmar",
+              "note": null
+            }
+          ],
+          "timeText": null,
+          "bankAccountNote": "«Cuenta bancaria» se conserva como referencia del control de abono, no se inventa nombre de banco o aplicación bancaria"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-CASE",
+            "S-ASIS"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "RL-VENTAS",
+        "type": "role",
+        "name": "Ejecutivo de Ventas",
+        "description": null,
+        "attributes": {
+          "laneLabel": "EJECUTIVO DE VENTAS",
+          "positionIds": [
+            "J-08"
+          ],
+          "mappingNote": "Correspondencia por validar"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-TOBE2"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "RL-ADMIN",
+        "type": "role",
+        "name": "Asistente administrativo",
+        "description": null,
+        "attributes": {
+          "laneLabel": "ASISTENTE ADMINISTRATIVO",
+          "positionIds": [
+            "J-03"
+          ],
+          "mappingNote": "Correspondencia por validar",
+          "positionLabelNote": "El organigrama denomina el puesto «Asistente administrativa» y el carril del diagrama usa el literal «ASISTENTE ADMINISTRATIVO». Se trata del mismo puesto y de la misma ocupante; no son dos personas distintas"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-TOBE2"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "RL-CONT",
+        "type": "role",
+        "name": "Asistente contable",
+        "description": null,
+        "attributes": {
+          "laneLabel": "ASISTENTE CONTABLE",
+          "positionIds": [
+            "J-04"
+          ],
+          "mappingNote": "Correspondencia por validar"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-TOBE2"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "ACTOR-CLIENTE",
+        "type": "externalActor",
+        "name": "Cliente",
+        "description": "Actor externo sin nombre real",
+        "attributes": {
+          "kind": "externalActor"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "SYS-WA",
+        "type": "system",
+        "name": "WhatsApp",
+        "description": "comunicación de comprobantes y datos del bien",
+        "attributes": {
+          "status": "current",
+          "statusLabel": "Actual según AS-IS",
+          "connected": false,
+          "visibleText": "WhatsApp — comunicación de comprobantes y datos del bien"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "SYS-DRIVE",
+        "type": "system",
+        "name": "Google Drive",
+        "description": "carpeta y documentos del cliente",
+        "attributes": {
+          "status": "current",
+          "statusLabel": "Actual según AS-IS",
+          "connected": false,
+          "visibleText": "Google Drive — carpeta y documentos del cliente"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "SYS-MAIL",
+        "type": "system",
+        "name": "Correo electrónico",
+        "description": "solicitud, emisión y envío dentro del hilo del caso",
+        "attributes": {
+          "status": "current",
+          "statusLabel": "Actual según AS-IS",
+          "connected": false,
+          "visibleText": "Correo electrónico — solicitud, emisión y envío dentro del hilo del caso"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "SYS-SPERANT",
+        "type": "system",
+        "name": "SPERANT CRM",
+        "description": "centralización propuesta de datos y expedientes",
+        "attributes": {
+          "status": "proposed",
+          "statusLabel": "Propuesto en TO-BE; sin conexión",
+          "connected": false,
+          "visibleText": "SPERANT CRM — centralización propuesta de datos y expedientes"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "labels": [
+          "Fuente del cliente",
+          "Propuesto · por validar"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "SYS-FACT",
+        "type": "system",
+        "name": "Sistema de facturación",
+        "description": "nombre y funcionamiento no proporcionados",
+        "attributes": {
+          "status": "unknown",
+          "statusLabel": "Solo carril de TO-BE; sin integración",
+          "connected": false,
+          "visibleText": "Sistema de facturación — nombre y funcionamiento no proporcionados",
+          "note": "SYS-FACT no se vincula a una tarea concreta: el carril fuente está vacío"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "DOC-DNI",
+        "type": "document",
+        "name": "DNI del cliente",
+        "description": "Documento requerido en la conformación del expediente. No se incluye ningún DNI real.",
+        "attributes": {
+          "text": "Documento requerido en la conformación del expediente. No se incluye ningún DNI real.",
+          "hasFile": false,
+          "fileMessage": "Documento referenciado; archivo no incluido en la demo",
+          "contentRef": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "DOC-CONVENIO",
+        "type": "document",
+        "name": "Convenio de separación",
+        "description": "El caso pide convenio firmado; no se adjuntó un expediente individual.",
+        "attributes": {
+          "text": "El caso pide convenio firmado; no se adjuntó un expediente individual.",
+          "hasFile": false,
+          "fileMessage": "Documento referenciado; archivo no incluido en la demo",
+          "contentRef": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "DOC-VOUCHER",
+        "type": "document",
+        "name": "Comprobante de pago",
+        "description": "Sustento del pago de separación o cuota. Sin importes ni datos bancarios.",
+        "attributes": {
+          "text": "Sustento del pago de separación o cuota. Sin importes ni datos bancarios.",
+          "hasFile": false,
+          "fileMessage": "Documento referenciado; archivo no incluido en la demo",
+          "contentRef": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "DOC-MINUTA",
+        "type": "document",
+        "name": "Minuta de compraventa",
+        "description": "Documento cuya firma y versión se revisan para cuota inicial.",
+        "attributes": {
+          "text": "Documento cuya firma y versión se revisan para cuota inicial.",
+          "hasFile": false,
+          "fileMessage": "Documento referenciado; archivo no incluido en la demo",
+          "contentRef": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-TOBE2"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "DOC-PRECAL",
+        "type": "document",
+        "name": "Evidencia de precalificación de financiamiento",
+        "description": "Captura del correo indicada en la fuente; no prueba aprobación final del financiamiento.",
+        "attributes": {
+          "text": "Captura del correo indicada en la fuente; no prueba aprobación final del financiamiento.",
+          "hasFile": false,
+          "fileMessage": "Documento referenciado; archivo no incluido en la demo",
+          "contentRef": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "DOC-SOLICITUD",
+        "type": "document",
+        "name": "Solicitud de emisión de boleta",
+        "description": "Contiene empresa, número de departamento, nombre del cliente, información de pago y sustentos según AS-IS.",
+        "attributes": {
+          "text": "Contiene empresa, número de departamento, nombre del cliente, información de pago y sustentos según AS-IS.",
+          "hasFile": false,
+          "fileMessage": "Documento referenciado; archivo no incluido en la demo",
+          "contentRef": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-TOBE2"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "DOC-BOLETA",
+        "type": "document",
+        "name": "Boleta",
+        "description": "Resultado de la emisión; no se genera ni se adjunta una boleta tributaria real.",
+        "attributes": {
+          "text": "Resultado de la emisión; no se genera ni se adjunta una boleta tributaria real.",
+          "hasFile": false,
+          "fileMessage": "Documento referenciado; archivo no incluido en la demo",
+          "contentRef": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "DOC-CASO",
+        "type": "document",
+        "name": "Caso de mejora de proceso: emisión de boletas",
+        "description": "Resumen entregado: pago, documentación, emisión y envío; problemas y propuesta de control preventivo.",
+        "attributes": {
+          "text": "Expedientes incompletos, falta de estandarización e información dispersa generan reprocesos, carga manual y menor trazabilidad. Beneficios esperados del TO-BE: expedientes completos a la primera, centralización documental, menos observaciones y menor tiempo de emisión. No se proporcionaron mediciones que acrediten esos resultados",
+          "paragraphs": [
+            "Expedientes incompletos, falta de estandarización e información dispersa generan reprocesos, carga manual y menor trazabilidad",
+            "Beneficios esperados del TO-BE: expedientes completos a la primera, centralización documental, menos observaciones y menor tiempo de emisión. No se proporcionaron mediciones que acrediten esos resultados"
+          ],
+          "hasFile": false,
+          "fileMessage": "Documento referenciado; archivo no incluido en la demo",
+          "contentRef": null,
+          "links": {
+            "flow": true,
+            "compare": true
+          }
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "POL-01",
+        "type": "policy",
+        "name": "Política de Gestión de Calidad",
+        "description": null,
+        "attributes": {
+          "date": "2026-08-24",
+          "dateLabel": "24 de agosto de 2026",
+          "signature": "Gustavo Yurivilca · Gerente General",
+          "signatureNote": "Correspondencia de cargo; el documento firma como Gustavo Yurivilca",
+          "signaturePositionId": "J-01",
+          "body": [
+            "PROSPERA GRUPO INMOBILIARIO, empresa dedicada al desarrollo y gestión de proyectos inmobiliarios residenciales, orientados a generar confianza, bienestar y valor para nuestros clientes, gestionando nuestras actividades desde la evaluación y adquisición del terreno hasta la venta, entrega y atención posventa.",
+            "Por lo cual, asume los siguientes compromisos:"
+          ],
+          "commitments": [
+            "Comprender y atender las necesidades y expectativas de nuestros clientes, brindándoles información clara, transparente y oportuna.",
+            "Cumplir los requisitos legales, reglamentarios, contractuales y demás compromisos aplicables a nuestros proyectos y operaciones.",
+            "Gestionar nuestros procesos de manera ordenada, coordinada y controlada, promoviendo el cumplimiento de los plazos prometidos y de los requisitos, especificaciones y estándares de calidad establecidos.",
+            "Asegurar que nuestros proveedores y contratistas cumplan con los requisitos, especificaciones y condiciones establecidos, contribuyendo al logro de los estándares de calidad de nuestros proyectos.",
+            "Fortalecer las competencias y la participación de nuestros colaboradores, proporcionando capacitación continua, infraestructura y condiciones adecuadas para el desarrollo de sus funciones.",
+            "Promover una cultura de integridad, ética, responsabilidad y transparencia en nuestra gestión y en todas nuestras relaciones con colaboradores, clientes y demás partes interesadas.",
+            "Establecer y revisar objetivos de calidad que permitan evaluar nuestros resultados, prevenir riesgos y mejorar continuamente nuestros procesos, proyectos y la eficacia del Sistema de Gestión de Calidad.",
+            "Fortalecer relaciones de confianza con nuestros inversionistas, fondos de inversión y entidades financieras, cumpliendo los compromisos asumidos y proporcionando información oportuna, confiable y transparente sobre la gestión y desempeño de nuestros proyectos."
+          ],
+          "closing": [
+            "Lima, 24 de agosto del 2026.",
+            "Gustavo Yurivilca",
+            "Gerente General"
+          ],
+          "hasFile": false,
+          "fileMessage": "Documento referenciado; archivo no incluido en la demo",
+          "contentRef": "POL-01"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-POL"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "OBJ-01",
+        "type": "objective",
+        "name": "Reducir reprocesos por expedientes incompletos",
+        "description": "Ordenar la revisión documental para disminuir devoluciones y revisiones repetidas en la emisión de boletas",
+        "attributes": {
+          "proposed": true,
+          "label": "Propuesto · por validar",
+          "target": null,
+          "commitmentDate": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-CASE",
+            "S-DEMO"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "labels": [
+          "Propuesto · por validar"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "KPI-01",
+        "type": "indicator",
+        "name": "Expedientes completos en la primera revisión",
+        "description": null,
+        "attributes": {
+          "proposed": true,
+          "label": "Propuesto · por validar",
+          "formula": "Expedientes conformes en primera revisión / expedientes revisados × 100",
+          "value": null,
+          "numerator": null,
+          "denominator": null,
+          "target": null,
+          "measuredAt": null,
+          "targetLabel": "Meta por definir",
+          "noMeasurement": "Sin medición. No se proporcionaron datos para calcular este indicador"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-CASE",
+            "S-DEMO"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "labels": [
+          "Propuesto · por validar"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "GAP-01",
+        "type": "gap",
+        "name": "Expedientes incompletos o sin firmas",
+        "description": "Expedientes incompletos o sin firmas. Situación descrita en el caso entregado; frecuencia e impacto no medidos",
+        "attributes": {
+          "severity": null,
+          "cost": null,
+          "frequency": null,
+          "noteText": "Situación descrita en el caso entregado; frecuencia e impacto no medidos"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-CASE",
+            "S-ASIS"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "GAP-02",
+        "type": "gap",
+        "name": "Documentación duplicada o sin nombres consistentes",
+        "description": "Documentación duplicada o sin nombres consistentes. Situación descrita en el caso entregado; frecuencia e impacto no medidos",
+        "attributes": {
+          "severity": null,
+          "cost": null,
+          "frequency": null,
+          "noteText": "Situación descrita en el caso entregado; frecuencia e impacto no medidos"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-CASE",
+            "S-ASIS"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "GAP-03",
+        "type": "gap",
+        "name": "Información dispersa entre WhatsApp, Drive y correo",
+        "description": "Información dispersa entre WhatsApp, Drive y correo. Situación descrita en el caso entregado; frecuencia e impacto no medidos",
+        "attributes": {
+          "severity": null,
+          "cost": null,
+          "frequency": null,
+          "noteText": "Situación descrita en el caso entregado; frecuencia e impacto no medidos"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-CASE",
+            "S-ASIS"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "GAP-04",
+        "type": "gap",
+        "name": "Devoluciones y revisiones repetidas",
+        "description": "Devoluciones y revisiones repetidas. Situación descrita en el caso entregado; frecuencia e impacto no medidos",
+        "attributes": {
+          "severity": null,
+          "cost": null,
+          "frequency": null,
+          "noteText": "Situación descrita en el caso entregado; frecuencia e impacto no medidos"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-CASE",
+            "S-ASIS"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "labels": [
+          "Fuente del cliente"
+        ],
+        "isDemo": false
+      },
+      {
+        "id": "A-01",
+        "type": "activity",
+        "name": "Comunicar el comprobante de pago",
+        "description": "Compartir el comprobante y los detalles del bien por WhatsApp",
+        "attributes": {
+          "versionId": "V-ASIS-01",
+          "key": "A-01",
+          "laneId": "L-VENTAS",
+          "nodeKind": "task",
+          "instruction": "Compartir el comprobante y los detalles del bien por WhatsApp",
+          "whatToDo": "Compartir el comprobante y los detalles del bien por WhatsApp",
+          "control": "Identificar el pago y el bien al que corresponde",
+          "output": "Comprobante comunicado",
+          "time": null,
+          "sourceNodeIds": {
+            "separacion": [
+              "E03"
+            ],
+            "cuotaInicial": [
+              "E20"
+            ]
+          },
+          "roleIds": [
+            "RL-VENTAS"
+          ],
+          "systemIds": [
+            "SYS-WA"
+          ],
+          "documentIds": {
+            "requires": [
+              "DOC-VOUCHER"
+            ],
+            "produces": []
+          },
+          "variantNotes": {}
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "A-02",
+        "type": "activity",
+        "name": "Organizar el expediente",
+        "description": "Crear o actualizar la carpeta del cliente en Google Drive y reunir los documentos correspondientes al tipo de pago",
+        "attributes": {
+          "versionId": "V-ASIS-01",
+          "key": "A-02",
+          "laneId": "L-VENTAS",
+          "nodeKind": "task",
+          "instruction": "Crear o actualizar la carpeta del cliente en Google Drive y reunir los documentos correspondientes al tipo de pago",
+          "whatToDo": "Crear o actualizar la carpeta del cliente en Google Drive y reunir los documentos correspondientes al tipo de pago",
+          "control": "En separación: DNI, convenio firmado y comprobante. En cuota inicial: minuta y comprobante de la cuota",
+          "output": "Expediente disponible para revisión",
+          "time": null,
+          "sourceNodeIds": {
+            "separacion": [
+              "E04"
+            ],
+            "cuotaInicial": [
+              "E21"
+            ]
+          },
+          "roleIds": [
+            "RL-VENTAS"
+          ],
+          "systemIds": [
+            "SYS-DRIVE"
+          ],
+          "documentIds": {
+            "requires": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER",
+              "DOC-MINUTA"
+            ],
+            "produces": []
+          },
+          "variantNotes": {
+            "separacion": "En separación: DNI, convenio firmado y comprobante",
+            "cuotaInicial": "En cuota inicial: minuta y comprobante de la cuota"
+          },
+          "documentIdsByVariant": {
+            "separacion": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER"
+            ],
+            "cuotaInicial": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER",
+              "DOC-MINUTA"
+            ]
+          }
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "A-03",
+        "type": "activity",
+        "name": "Verificar abono y documentos",
+        "description": "Revisar el abono y la documentación de la carpeta. Para cuota inicial se verifican el abono y la minuta firmada",
+        "attributes": {
+          "versionId": "V-ASIS-01",
+          "key": "A-03",
+          "laneId": "L-ADMIN",
+          "nodeKind": "task",
+          "instruction": "Revisar el abono y la documentación de la carpeta. Para cuota inicial se verifican el abono y la minuta firmada",
+          "whatToDo": "Revisar el abono y la documentación de la carpeta. Para cuota inicial se verifican el abono y la minuta firmada",
+          "control": "No confundir recepción del comprobante con verificación del abono",
+          "output": "Resultado de revisión",
+          "time": null,
+          "sourceNodeIds": {
+            "separacion": [
+              "E05"
+            ],
+            "cuotaInicial": [
+              "E22",
+              "E23"
+            ]
+          },
+          "roleIds": [
+            "RL-ADMIN"
+          ],
+          "systemIds": [
+            "SYS-DRIVE"
+          ],
+          "documentIds": {
+            "requires": [
+              "DOC-VOUCHER",
+              "DOC-CONVENIO",
+              "DOC-MINUTA"
+            ],
+            "produces": []
+          },
+          "variantNotes": {
+            "cuotaInicial": "Para cuota inicial se verifican el abono y la minuta firmada"
+          },
+          "documentIdsByVariant": {
+            "separacion": [
+              "DOC-VOUCHER",
+              "DOC-CONVENIO"
+            ],
+            "cuotaInicial": [
+              "DOC-VOUCHER",
+              "DOC-MINUTA"
+            ]
+          }
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "A-04",
+        "type": "activity",
+        "name": "Validar la solicitud",
+        "description": "Determinar si la información está conforme para solicitar la boleta",
+        "attributes": {
+          "versionId": "V-ASIS-01",
+          "key": "A-04",
+          "laneId": "L-ADMIN",
+          "nodeKind": "task",
+          "instruction": "Determinar si la información está conforme para solicitar la boleta",
+          "whatToDo": "Determinar si la información está conforme para solicitar la boleta",
+          "control": "Una observación devuelve el expediente a Ventas para corrección",
+          "output": "Solicitud conforme u observada",
+          "time": null,
+          "sourceNodeIds": {
+            "separacion": [
+              "E06"
+            ],
+            "cuotaInicial": [
+              "E25"
+            ]
+          },
+          "roleIds": [
+            "RL-ADMIN"
+          ],
+          "systemIds": [
+            "SYS-DRIVE"
+          ],
+          "documentIds": {
+            "requires": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER",
+              "DOC-MINUTA"
+            ],
+            "produces": []
+          },
+          "variantNotes": {},
+          "documentsText": "Documentos de la variante",
+          "documentIdsByVariant": {
+            "separacion": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER"
+            ],
+            "cuotaInicial": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER",
+              "DOC-MINUTA"
+            ]
+          }
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "A-05",
+        "type": "activity",
+        "name": "Corregir observaciones",
+        "description": "Atender las observaciones comunicadas por Administración y actualizar la documentación para una nueva revisión",
+        "attributes": {
+          "versionId": "V-ASIS-01",
+          "key": "A-05",
+          "laneId": "L-VENTAS",
+          "nodeKind": "task",
+          "instruction": "Atender las observaciones comunicadas por Administración y actualizar la documentación para una nueva revisión",
+          "whatToDo": "Atender las observaciones comunicadas por Administración y actualizar la documentación para una nueva revisión",
+          "control": "Volver a la revisión; no saltar directamente a emisión",
+          "output": "Expediente corregido",
+          "time": null,
+          "sourceNodeIds": {
+            "separacion": [
+              "E32",
+              "E34"
+            ],
+            "cuotaInicial": [
+              "E26",
+              "E37"
+            ]
+          },
+          "roleIds": [
+            "RL-VENTAS"
+          ],
+          "systemIds": [
+            "SYS-DRIVE"
+          ],
+          "documentIds": {
+            "requires": [],
+            "produces": []
+          },
+          "variantNotes": {},
+          "documentsText": "Documentos observados"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "A-06",
+        "type": "activity",
+        "name": "Solicitar emisión por correo",
+        "description": "Enviar la solicitud a Contabilidad, con los datos y sustentos del caso y copia a los involucrados. Mantener el hilo del correo",
+        "attributes": {
+          "versionId": "V-ASIS-01",
+          "key": "A-06",
+          "laneId": "L-ADMIN",
+          "nodeKind": "task",
+          "instruction": "Enviar la solicitud a Contabilidad, con los datos y sustentos del caso y copia a los involucrados. Mantener el hilo del correo",
+          "whatToDo": "Enviar la solicitud a Contabilidad, con los datos y sustentos del caso y copia a los involucrados. Mantener el hilo del correo",
+          "control": "Empresa, número de departamento, nombre del cliente, información del pago y sustentos",
+          "output": "Solicitud enviada",
+          "time": null,
+          "sourceNodeIds": {
+            "separacion": [
+              "E33"
+            ],
+            "cuotaInicial": [
+              "E27"
+            ]
+          },
+          "roleIds": [
+            "RL-ADMIN"
+          ],
+          "systemIds": [
+            "SYS-MAIL"
+          ],
+          "documentIds": {
+            "requires": [],
+            "produces": [
+              "DOC-SOLICITUD"
+            ]
+          },
+          "variantNotes": {}
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "A-07",
+        "type": "activity",
+        "name": "Generar y adjuntar la boleta",
+        "description": "Generar la boleta y adjuntarla en el mismo hilo de correo de la solicitud",
+        "attributes": {
+          "versionId": "V-ASIS-01",
+          "key": "A-07",
+          "laneId": "L-CONT",
+          "nodeKind": "task",
+          "instruction": "Generar la boleta y adjuntarla en el mismo hilo de correo de la solicitud",
+          "whatToDo": "Generar la boleta y adjuntarla en el mismo hilo de correo de la solicitud",
+          "control": "El sistema de emisión no está identificado en el AS-IS",
+          "output": "Boleta adjunta",
+          "time": null,
+          "sourceNodeIds": {
+            "separacion": [
+              "E35",
+              "E08"
+            ],
+            "cuotaInicial": [
+              "E28"
+            ]
+          },
+          "roleIds": [
+            "RL-CONT"
+          ],
+          "systemIds": [
+            "SYS-MAIL"
+          ],
+          "documentIds": {
+            "requires": [
+              "DOC-SOLICITUD"
+            ],
+            "produces": [
+              "DOC-BOLETA"
+            ]
+          },
+          "variantNotes": {}
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "A-08",
+        "type": "activity",
+        "name": "Descargar y enviar la boleta",
+        "description": "Descargar la boleta del correo y enviarla al cliente",
+        "attributes": {
+          "versionId": "V-ASIS-01",
+          "key": "A-08",
+          "laneId": "L-VENTAS",
+          "nodeKind": "task",
+          "instruction": "Descargar la boleta del correo y enviarla al cliente",
+          "whatToDo": "Descargar la boleta del correo y enviarla al cliente",
+          "control": "Canal de envío final no especificado",
+          "output": "Boleta enviada al cliente",
+          "time": null,
+          "sourceNodeIds": {
+            "separacion": [
+              "E09",
+              "E10"
+            ],
+            "cuotaInicial": [
+              "E29",
+              "E30",
+              "E31"
+            ]
+          },
+          "roleIds": [
+            "RL-VENTAS"
+          ],
+          "systemIds": [
+            "SYS-MAIL"
+          ],
+          "documentIds": {
+            "requires": [
+              "DOC-BOLETA"
+            ],
+            "produces": []
+          },
+          "variantNotes": {},
+          "systemsText": "SYS-MAIL para descarga"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "T-01",
+        "type": "activity",
+        "name": "Identificar pago y preparar expediente",
+        "description": "Identificar si corresponde a separación, cuota inicial o cuota normal y reunir los documentos indicados para esa variante",
+        "attributes": {
+          "versionId": "V-TOBE-02",
+          "key": "T-01",
+          "laneId": "L-VENTAS",
+          "nodeKind": "task",
+          "instruction": "Identificar si corresponde a separación, cuota inicial o cuota normal y reunir los documentos indicados para esa variante",
+          "whatToDo": "Identificar si corresponde a separación, cuota inicial o cuota normal y reunir los documentos indicados para esa variante",
+          "control": "Denominación cuota normal/complementaria por confirmar",
+          "output": "Expediente preparado",
+          "time": null,
+          "sourceNodeIds": [
+            "E05",
+            "E06",
+            "E08",
+            "E09",
+            "E10",
+            "E07"
+          ],
+          "roleIds": [
+            "RL-VENTAS"
+          ],
+          "systemIds": [],
+          "documentIds": {
+            "requires": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER",
+              "DOC-MINUTA",
+              "DOC-PRECAL"
+            ],
+            "produces": []
+          },
+          "variantNotes": {},
+          "documentIdsByVariant": {
+            "separacion": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER"
+            ],
+            "cuotaInicial": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER",
+              "DOC-MINUTA",
+              "DOC-PRECAL"
+            ],
+            "cuotaNormal": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER",
+              "DOC-MINUTA",
+              "DOC-PRECAL"
+            ]
+          },
+          "documentsByVariant": {
+            "title": "Documentos por tipo de pago · propuesta del cliente",
+            "activityKeys": [
+              "T-01",
+              "T-02"
+            ],
+            "variants": [
+              {
+                "id": "separacion",
+                "label": "Separación",
+                "items": [
+                  "DNI del cliente",
+                  "convenio de separación firmado por ambas partes",
+                  "comprobante de pago"
+                ],
+                "documentIds": [
+                  "DOC-DNI",
+                  "DOC-CONVENIO",
+                  "DOC-VOUCHER"
+                ],
+                "observation": "Fuente S-TOBE2; los mismos tipos aparecen en AS-IS."
+              },
+              {
+                "id": "cuotaInicial",
+                "label": "Cuota inicial",
+                "items": [
+                  "Documentos de separación",
+                  "minuta",
+                  "captura de precalificación de financiamiento",
+                  "comprobante de cuota inicial"
+                ],
+                "documentIds": [
+                  "DOC-DNI",
+                  "DOC-CONVENIO",
+                  "DOC-VOUCHER",
+                  "DOC-MINUTA",
+                  "DOC-PRECAL"
+                ],
+                "observation": "La fuente abrevia “Documentos de S.”; se interpreta como documentos de separación y requiere validación"
+              },
+              {
+                "id": "cuotaNormal",
+                "label": "Cuota normal",
+                "items": [
+                  "Documentos requeridos de cuota inicial",
+                  "comprobante de cuota normal"
+                ],
+                "documentIds": [
+                  "DOC-DNI",
+                  "DOC-CONVENIO",
+                  "DOC-VOUCHER",
+                  "DOC-MINUTA",
+                  "DOC-PRECAL"
+                ],
+                "observation": "La presentación usa “cuota complementaria”. Confirmar equivalencia y documentos aplicables"
+              }
+            ],
+            "namingStandard": [
+              "DNI_NOMBRE_CLIENTE",
+              "CONVENIO_SEPARACION_NOMBRE_CLIENTE",
+              "VOUCHER_NOMBRE_CLIENTE",
+              "MINUTA_NOMBRE_CLIENTE"
+            ],
+            "namingNote": "Ejemplo de plantilla, no archivo de cliente",
+            "controls": [
+              "Completo",
+              "Firmado",
+              "Versión vigente"
+            ],
+            "controlsNote": "Controles «Completo», «Firmado», «Versión vigente» son requisitos descritos, no checkboxes que confirmen un expediente real"
+          }
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "T-02",
+        "type": "activity",
+        "name": "Revisar documentos, firmas y nombres",
+        "description": "Verificar documentos obligatorios, firmas y versión; nombrar los archivos según el estándar de la propuesta",
+        "attributes": {
+          "versionId": "V-TOBE-02",
+          "key": "T-02",
+          "laneId": "L-VENTAS",
+          "nodeKind": "task",
+          "instruction": "Verificar documentos obligatorios, firmas y versión; nombrar los archivos según el estándar de la propuesta",
+          "whatToDo": "Verificar documentos obligatorios, firmas y versión; nombrar los archivos según el estándar de la propuesta",
+          "control": "Control preventivo antes de cargar el expediente",
+          "output": "Expediente completo o solicitud de subsanación",
+          "time": null,
+          "sourceNodeIds": [
+            "E12",
+            "E13",
+            "E11"
+          ],
+          "roleIds": [
+            "RL-VENTAS"
+          ],
+          "systemIds": [],
+          "documentIds": {
+            "requires": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER",
+              "DOC-MINUTA",
+              "DOC-PRECAL"
+            ],
+            "produces": []
+          },
+          "variantNotes": {},
+          "documentsText": "Documentos de variante",
+          "documentIdsByVariant": {
+            "separacion": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER"
+            ],
+            "cuotaInicial": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER",
+              "DOC-MINUTA",
+              "DOC-PRECAL"
+            ],
+            "cuotaNormal": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER",
+              "DOC-MINUTA",
+              "DOC-PRECAL"
+            ]
+          },
+          "documentsByVariant": {
+            "title": "Documentos por tipo de pago · propuesta del cliente",
+            "activityKeys": [
+              "T-01",
+              "T-02"
+            ],
+            "variants": [
+              {
+                "id": "separacion",
+                "label": "Separación",
+                "items": [
+                  "DNI del cliente",
+                  "convenio de separación firmado por ambas partes",
+                  "comprobante de pago"
+                ],
+                "documentIds": [
+                  "DOC-DNI",
+                  "DOC-CONVENIO",
+                  "DOC-VOUCHER"
+                ],
+                "observation": "Fuente S-TOBE2; los mismos tipos aparecen en AS-IS."
+              },
+              {
+                "id": "cuotaInicial",
+                "label": "Cuota inicial",
+                "items": [
+                  "Documentos de separación",
+                  "minuta",
+                  "captura de precalificación de financiamiento",
+                  "comprobante de cuota inicial"
+                ],
+                "documentIds": [
+                  "DOC-DNI",
+                  "DOC-CONVENIO",
+                  "DOC-VOUCHER",
+                  "DOC-MINUTA",
+                  "DOC-PRECAL"
+                ],
+                "observation": "La fuente abrevia “Documentos de S.”; se interpreta como documentos de separación y requiere validación"
+              },
+              {
+                "id": "cuotaNormal",
+                "label": "Cuota normal",
+                "items": [
+                  "Documentos requeridos de cuota inicial",
+                  "comprobante de cuota normal"
+                ],
+                "documentIds": [
+                  "DOC-DNI",
+                  "DOC-CONVENIO",
+                  "DOC-VOUCHER",
+                  "DOC-MINUTA",
+                  "DOC-PRECAL"
+                ],
+                "observation": "La presentación usa “cuota complementaria”. Confirmar equivalencia y documentos aplicables"
+              }
+            ],
+            "namingStandard": [
+              "DNI_NOMBRE_CLIENTE",
+              "CONVENIO_SEPARACION_NOMBRE_CLIENTE",
+              "VOUCHER_NOMBRE_CLIENTE",
+              "MINUTA_NOMBRE_CLIENTE"
+            ],
+            "namingNote": "Ejemplo de plantilla, no archivo de cliente",
+            "controls": [
+              "Completo",
+              "Firmado",
+              "Versión vigente"
+            ],
+            "controlsNote": "Controles «Completo», «Firmado», «Versión vigente» son requisitos descritos, no checkboxes que confirmen un expediente real"
+          }
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "T-03",
+        "type": "activity",
+        "name": "Solicitar y atender subsanación",
+        "description": "Identificar lo que falta, solicitarlo al cliente y revisar lo recibido antes de continuar",
+        "attributes": {
+          "versionId": "V-TOBE-02",
+          "key": "T-03",
+          "laneId": "L-VENTAS",
+          "nodeKind": "task",
+          "instruction": "Identificar lo que falta, solicitarlo al cliente y revisar lo recibido antes de continuar",
+          "whatToDo": "Identificar lo que falta, solicitarlo al cliente y revisar lo recibido antes de continuar",
+          "control": "No cargar un expediente incompleto como validado",
+          "output": "Documentación subsanada",
+          "time": null,
+          "sourceNodeIds": [
+            "E15",
+            "E16",
+            "C03"
+          ],
+          "roleIds": [
+            "RL-VENTAS"
+          ],
+          "systemIds": [],
+          "documentIds": {
+            "requires": [],
+            "produces": []
+          },
+          "variantNotes": {},
+          "actorIds": [
+            "ACTOR-CLIENTE"
+          ],
+          "channelNote": "canal no indicado"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "T-04",
+        "type": "activity",
+        "name": "Cargar expediente y registrar solicitud",
+        "description": "Cargar el expediente validado y registrar la solicitud de boleta en SPERANT",
+        "attributes": {
+          "versionId": "V-TOBE-02",
+          "key": "T-04",
+          "laneId": "L-VENTAS",
+          "nodeKind": "task",
+          "instruction": "Cargar el expediente validado y registrar la solicitud de boleta en SPERANT",
+          "whatToDo": "Cargar el expediente validado y registrar la solicitud de boleta en SPERANT",
+          "control": "El cambio automático de estado requiere validación con el proveedor",
+          "output": "Solicitud pendiente de validación",
+          "time": null,
+          "sourceNodeIds": [
+            "E17",
+            "E18"
+          ],
+          "roleIds": [
+            "RL-VENTAS"
+          ],
+          "systemIds": [
+            "SYS-SPERANT"
+          ],
+          "documentIds": {
+            "requires": [],
+            "produces": [
+              "DOC-SOLICITUD"
+            ]
+          },
+          "variantNotes": {}
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "T-05",
+        "type": "activity",
+        "name": "Revisar expediente para emisión",
+        "description": "Administración revisa el expediente y determina su conformidad para emitir la boleta",
+        "attributes": {
+          "versionId": "V-TOBE-02",
+          "key": "T-05",
+          "laneId": "L-ADMIN",
+          "nodeKind": "task",
+          "instruction": "Administración revisa el expediente y determina su conformidad para emitir la boleta",
+          "whatToDo": "Administración revisa el expediente y determina su conformidad para emitir la boleta",
+          "control": "Validación administrativa final",
+          "output": "Solicitud conforme u observada",
+          "time": null,
+          "sourceNodeIds": [
+            "E20"
+          ],
+          "roleIds": [
+            "RL-ADMIN"
+          ],
+          "systemIds": [
+            "SYS-SPERANT"
+          ],
+          "documentIds": {
+            "requires": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER",
+              "DOC-MINUTA",
+              "DOC-PRECAL"
+            ],
+            "produces": []
+          },
+          "variantNotes": {},
+          "documentsText": "Documentos de variante",
+          "documentIdsByVariant": {
+            "separacion": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER"
+            ],
+            "cuotaInicial": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER",
+              "DOC-MINUTA",
+              "DOC-PRECAL"
+            ],
+            "cuotaNormal": [
+              "DOC-DNI",
+              "DOC-CONVENIO",
+              "DOC-VOUCHER",
+              "DOC-MINUTA",
+              "DOC-PRECAL"
+            ]
+          }
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "T-06",
+        "type": "activity",
+        "name": "Registrar y atender observaciones",
+        "description": "Administración registra la observación; Ventas la atiende y actualiza el expediente en SPERANT para otra revisión",
+        "attributes": {
+          "versionId": "V-TOBE-02",
+          "key": "T-06",
+          "laneId": "L-ADMIN",
+          "nodeKind": "task",
+          "instruction": "Administración registra la observación; Ventas la atiende y actualiza el expediente en SPERANT para otra revisión",
+          "whatToDo": "Administración registra la observación; Ventas la atiende y actualiza el expediente en SPERANT para otra revisión",
+          "control": "Retornar a revisión administrativa",
+          "output": "Expediente actualizado",
+          "time": null,
+          "sourceNodeIds": [
+            "E22",
+            "E23",
+            "E24"
+          ],
+          "roleIds": [
+            "RL-ADMIN",
+            "RL-VENTAS"
+          ],
+          "systemIds": [
+            "SYS-SPERANT"
+          ],
+          "documentIds": {
+            "requires": [],
+            "produces": []
+          },
+          "variantNotes": {},
+          "laneIds": [
+            "L-ADMIN",
+            "L-VENTAS"
+          ],
+          "multiRole": true,
+          "subtasks": [
+            {
+              "id": "T-06a",
+              "name": "Registrar observación",
+              "roleId": "RL-ADMIN",
+              "laneId": "L-ADMIN",
+              "instruction": "Administración registra la observación",
+              "sourceNodeIds": [
+                "E22"
+              ]
+            },
+            {
+              "id": "T-06b",
+              "name": "Atender y actualizar",
+              "roleId": "RL-VENTAS",
+              "laneId": "L-VENTAS",
+              "instruction": "Ventas la atiende y actualiza el expediente en SPERANT para otra revisión",
+              "sourceNodeIds": [
+                "E23",
+                "E24"
+              ]
+            }
+          ]
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "T-07",
+        "type": "activity",
+        "name": "Autorizar y solicitar la boleta",
+        "description": "Administración aprueba la solicitud de boleta y solicita su generación por correo con copia a los involucrados",
+        "attributes": {
+          "versionId": "V-TOBE-02",
+          "key": "T-07",
+          "laneId": "L-ADMIN",
+          "nodeKind": "task",
+          "instruction": "Administración aprueba la solicitud de boleta y solicita su generación por correo con copia a los involucrados",
+          "whatToDo": "Administración aprueba la solicitud de boleta y solicita su generación por correo con copia a los involucrados",
+          "control": "Aprobación operativa del expediente; no aprobación de versiones PRIMUS",
+          "output": "Solicitud enviada a Contabilidad",
+          "time": null,
+          "sourceNodeIds": [
+            "E25",
+            "E26"
+          ],
+          "roleIds": [
+            "RL-ADMIN"
+          ],
+          "systemIds": [
+            "SYS-SPERANT",
+            "SYS-MAIL"
+          ],
+          "documentIds": {
+            "requires": [
+              "DOC-SOLICITUD"
+            ],
+            "produces": []
+          },
+          "variantNotes": {}
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      },
+      {
+        "id": "T-08",
+        "type": "activity",
+        "name": "Emitir y enviar la boleta",
+        "description": "Contabilidad genera y adjunta la boleta en el mismo hilo; Ventas la descarga y envía al cliente",
+        "attributes": {
+          "versionId": "V-TOBE-02",
+          "key": "T-08",
+          "laneId": "L-CONT",
+          "nodeKind": "task",
+          "instruction": "Contabilidad genera y adjunta la boleta en el mismo hilo; Ventas la descarga y envía al cliente",
+          "whatToDo": "Contabilidad genera y adjunta la boleta en el mismo hilo; Ventas la descarga y envía al cliente",
+          "control": "Herramienta de emisión y aplicación a todas las variantes por confirmar",
+          "output": "Boleta emitida y enviada",
+          "time": null,
+          "sourceNodeIds": [
+            "E27",
+            "E28",
+            "E29"
+          ],
+          "roleIds": [
+            "RL-CONT",
+            "RL-VENTAS"
+          ],
+          "systemIds": [
+            "SYS-MAIL"
+          ],
+          "documentIds": {
+            "requires": [],
+            "produces": [
+              "DOC-BOLETA"
+            ]
+          },
+          "variantNotes": {},
+          "laneIds": [
+            "L-CONT",
+            "L-VENTAS"
+          ],
+          "multiRole": true,
+          "subtasks": [
+            {
+              "id": "T-08a",
+              "name": "Generar y adjuntar",
+              "roleId": "RL-CONT",
+              "laneId": "L-CONT",
+              "instruction": "Contabilidad genera y adjunta la boleta en el mismo hilo",
+              "sourceNodeIds": [
+                "E27"
+              ]
+            },
+            {
+              "id": "T-08b",
+              "name": "Descargar y enviar",
+              "roleId": "RL-VENTAS",
+              "laneId": "L-VENTAS",
+              "instruction": "Ventas la descarga y envía al cliente",
+              "sourceNodeIds": [
+                "E28",
+                "E29"
+              ]
+            }
+          ]
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "isDemo": false,
+        "labels": [
+          "Síntesis de las fuentes"
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "id": "R-CASE-001",
+        "type": "agrupadoEn",
+        "from": "PR-BOLETAS",
+        "to": "MP-AF",
+        "provenance": {
+          "sourceIds": [
+            "S-DEMO",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-002",
+        "type": "tieneDueñoÁrea",
+        "from": "PR-BOLETAS",
+        "to": "A-AF",
+        "provenance": {
+          "sourceIds": [
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-003",
+        "type": "participaEn",
+        "from": "A-COM",
+        "to": "PR-BOLETAS",
+        "provenance": {
+          "sourceIds": [
+            "S-CASE",
+            "S-ASIS"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-004",
+        "type": "participaEn",
+        "from": "A-AF",
+        "to": "PR-BOLETAS",
+        "provenance": {
+          "sourceIds": [
+            "S-CASE",
+            "S-ASIS"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-005",
+        "type": "desempeña",
+        "from": "J-08",
+        "to": "RL-VENTAS",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-ORG"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": "Correspondencia por validar",
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-006",
+        "type": "desempeña",
+        "from": "J-03",
+        "to": "RL-ADMIN",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-ORG"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": "Correspondencia por validar",
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-007",
+        "type": "desempeña",
+        "from": "J-04",
+        "to": "RL-CONT",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-ORG"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": "Correspondencia por validar",
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-008",
+        "type": "ejecuta",
+        "from": "RL-VENTAS",
+        "to": "A-01",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-009",
+        "type": "ejecuta",
+        "from": "RL-VENTAS",
+        "to": "A-02",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-010",
+        "type": "ejecuta",
+        "from": "RL-ADMIN",
+        "to": "A-03",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-011",
+        "type": "ejecuta",
+        "from": "RL-ADMIN",
+        "to": "A-04",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-012",
+        "type": "ejecuta",
+        "from": "RL-VENTAS",
+        "to": "A-05",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-013",
+        "type": "ejecuta",
+        "from": "RL-ADMIN",
+        "to": "A-06",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-014",
+        "type": "ejecuta",
+        "from": "RL-CONT",
+        "to": "A-07",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-015",
+        "type": "ejecuta",
+        "from": "RL-VENTAS",
+        "to": "A-08",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-016",
+        "type": "usa",
+        "from": "A-01",
+        "to": "SYS-WA",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-017",
+        "type": "usa",
+        "from": "A-02",
+        "to": "SYS-DRIVE",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-018",
+        "type": "usa",
+        "from": "A-03",
+        "to": "SYS-DRIVE",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-019",
+        "type": "usa",
+        "from": "A-04",
+        "to": "SYS-DRIVE",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-020",
+        "type": "usa",
+        "from": "A-05",
+        "to": "SYS-DRIVE",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-021",
+        "type": "usa",
+        "from": "A-06",
+        "to": "SYS-MAIL",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-022",
+        "type": "usa",
+        "from": "A-07",
+        "to": "SYS-MAIL",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-023",
+        "type": "usa",
+        "from": "A-08",
+        "to": "SYS-MAIL",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-024",
+        "type": "requiere",
+        "from": "A-01",
+        "to": "DOC-VOUCHER",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-025",
+        "type": "requiere",
+        "from": "A-02",
+        "to": "DOC-DNI",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-026",
+        "type": "requiere",
+        "from": "A-02",
+        "to": "DOC-CONVENIO",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-027",
+        "type": "requiere",
+        "from": "A-02",
+        "to": "DOC-VOUCHER",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-028",
+        "type": "requiere",
+        "from": "A-02",
+        "to": "DOC-MINUTA",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-029",
+        "type": "requiere",
+        "from": "A-03",
+        "to": "DOC-VOUCHER",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-030",
+        "type": "requiere",
+        "from": "A-03",
+        "to": "DOC-CONVENIO",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-031",
+        "type": "requiere",
+        "from": "A-03",
+        "to": "DOC-MINUTA",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-032",
+        "type": "requiere",
+        "from": "A-04",
+        "to": "DOC-DNI",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-033",
+        "type": "requiere",
+        "from": "A-04",
+        "to": "DOC-CONVENIO",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-034",
+        "type": "requiere",
+        "from": "A-04",
+        "to": "DOC-VOUCHER",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-035",
+        "type": "requiere",
+        "from": "A-04",
+        "to": "DOC-MINUTA",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-036",
+        "type": "produce",
+        "from": "A-06",
+        "to": "DOC-SOLICITUD",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-037",
+        "type": "requiere",
+        "from": "A-07",
+        "to": "DOC-SOLICITUD",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-038",
+        "type": "produce",
+        "from": "A-07",
+        "to": "DOC-BOLETA",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-039",
+        "type": "requiere",
+        "from": "A-08",
+        "to": "DOC-BOLETA",
+        "provenance": {
+          "sourceIds": [
+            "S-ASIS",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-040",
+        "type": "ejecuta",
+        "from": "RL-VENTAS",
+        "to": "T-01",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-041",
+        "type": "ejecuta",
+        "from": "RL-VENTAS",
+        "to": "T-02",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-042",
+        "type": "ejecuta",
+        "from": "RL-VENTAS",
+        "to": "T-03",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-043",
+        "type": "ejecuta",
+        "from": "RL-VENTAS",
+        "to": "T-04",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-044",
+        "type": "ejecuta",
+        "from": "RL-ADMIN",
+        "to": "T-05",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-045",
+        "type": "ejecuta",
+        "from": "RL-ADMIN",
+        "to": "T-06",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-046",
+        "type": "ejecuta",
+        "from": "RL-VENTAS",
+        "to": "T-06",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-047",
+        "type": "ejecuta",
+        "from": "RL-ADMIN",
+        "to": "T-07",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-048",
+        "type": "ejecuta",
+        "from": "RL-CONT",
+        "to": "T-08",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-049",
+        "type": "ejecuta",
+        "from": "RL-VENTAS",
+        "to": "T-08",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-050",
+        "type": "usa",
+        "from": "T-04",
+        "to": "SYS-SPERANT",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-051",
+        "type": "usa",
+        "from": "T-05",
+        "to": "SYS-SPERANT",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-052",
+        "type": "usa",
+        "from": "T-06",
+        "to": "SYS-SPERANT",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-053",
+        "type": "usa",
+        "from": "T-07",
+        "to": "SYS-SPERANT",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-054",
+        "type": "usa",
+        "from": "T-07",
+        "to": "SYS-MAIL",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-055",
+        "type": "usa",
+        "from": "T-08",
+        "to": "SYS-MAIL",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-056",
+        "type": "requiere",
+        "from": "T-01",
+        "to": "DOC-DNI",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-057",
+        "type": "requiere",
+        "from": "T-01",
+        "to": "DOC-CONVENIO",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-058",
+        "type": "requiere",
+        "from": "T-01",
+        "to": "DOC-VOUCHER",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-059",
+        "type": "requiere",
+        "from": "T-01",
+        "to": "DOC-MINUTA",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-060",
+        "type": "requiere",
+        "from": "T-01",
+        "to": "DOC-PRECAL",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-061",
+        "type": "requiere",
+        "from": "T-02",
+        "to": "DOC-DNI",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-062",
+        "type": "requiere",
+        "from": "T-02",
+        "to": "DOC-CONVENIO",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-063",
+        "type": "requiere",
+        "from": "T-02",
+        "to": "DOC-VOUCHER",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-064",
+        "type": "requiere",
+        "from": "T-02",
+        "to": "DOC-MINUTA",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-065",
+        "type": "requiere",
+        "from": "T-02",
+        "to": "DOC-PRECAL",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-066",
+        "type": "produce",
+        "from": "T-04",
+        "to": "DOC-SOLICITUD",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-067",
+        "type": "requiere",
+        "from": "T-05",
+        "to": "DOC-DNI",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-068",
+        "type": "requiere",
+        "from": "T-05",
+        "to": "DOC-CONVENIO",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-069",
+        "type": "requiere",
+        "from": "T-05",
+        "to": "DOC-VOUCHER",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-070",
+        "type": "requiere",
+        "from": "T-05",
+        "to": "DOC-MINUTA",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-071",
+        "type": "requiere",
+        "from": "T-05",
+        "to": "DOC-PRECAL",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-072",
+        "type": "requiere",
+        "from": "T-07",
+        "to": "DOC-SOLICITUD",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-073",
+        "type": "produce",
+        "from": "T-08",
+        "to": "DOC-BOLETA",
+        "provenance": {
+          "sourceIds": [
+            "S-TOBE2",
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-074",
+        "type": "contribuyeA",
+        "from": "PR-BOLETAS",
+        "to": "OBJ-01",
+        "provenance": {
+          "sourceIds": [
+            "S-CASE",
+            "S-DEMO"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-075",
+        "type": "mide",
+        "from": "KPI-01",
+        "to": "OBJ-01",
+        "provenance": {
+          "sourceIds": [
+            "S-CASE",
+            "S-DEMO"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "proposed"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-076",
+        "type": "orienta",
+        "from": "POL-01",
+        "to": "PR-BOLETAS",
+        "provenance": {
+          "sourceIds": [
+            "S-POL",
+            "S-CASE"
+          ],
+          "confidence": "inferred",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": true
+      },
+      {
+        "id": "R-CASE-077",
+        "type": "afecta",
+        "from": "GAP-01",
+        "to": "PR-BOLETAS",
+        "provenance": {
+          "sourceIds": [
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-078",
+        "type": "afecta",
+        "from": "GAP-02",
+        "to": "PR-BOLETAS",
+        "provenance": {
+          "sourceIds": [
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-079",
+        "type": "afecta",
+        "from": "GAP-03",
+        "to": "PR-BOLETAS",
+        "provenance": {
+          "sourceIds": [
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-CASE-080",
+        "type": "afecta",
+        "from": "GAP-04",
+        "to": "PR-BOLETAS",
+        "provenance": {
+          "sourceIds": [
+            "S-CASE"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      }
+    ],
+    "flows": {
+      "FLOW-ASIS": {
+        "id": "FLOW-ASIS",
+        "processId": "PR-BOLETAS",
+        "title": "Así está documentado el proceso",
+        "subtitle": "AS-IS · Resumen navegable",
+        "lanes": [
+          {
+            "id": "L-VENTAS",
+            "label": "Ventas",
+            "roleId": "RL-VENTAS"
+          },
+          {
+            "id": "L-ADMIN",
+            "label": "Administración",
+            "roleId": "RL-ADMIN"
+          },
+          {
+            "id": "L-CONT",
+            "label": "Contabilidad",
+            "roleId": "RL-CONT"
+          }
+        ],
+        "externalActor": {
+          "entityId": "ACTOR-CLIENTE",
+          "label": "Cliente",
+          "exchanges": [
+            {
+              "nodeId": "A-01",
+              "direction": "in",
+              "label": "Comprobante y datos del bien"
+            },
+            {
+              "nodeId": "A-08",
+              "direction": "out",
+              "label": "Boleta"
+            }
+          ]
+        },
+        "variantSelectorLabel": "Tipo de pago",
+        "variants": [
+          {
+            "id": "separacion",
+            "label": "Separación (inicial)",
+            "available": true
+          },
+          {
+            "id": "cuotaInicial",
+            "label": "Cuota inicial",
+            "available": true
+          },
+          {
+            "id": "cuotaNormal",
+            "label": "Cuota normal / complementaria",
+            "available": false,
+            "message": "El AS-IS no proporciona detalle suficiente para esta variante. Consulta el TO-BE propuesto"
+          }
+        ],
+        "defaultVariant": "separacion",
+        "nodes": [
+          {
+            "id": "A-START",
+            "kind": "start",
+            "label": "Pago y documentación recibidos",
+            "laneId": "L-VENTAS"
+          },
+          {
+            "id": "A-01",
+            "kind": "task",
+            "laneId": "L-VENTAS"
+          },
+          {
+            "id": "A-02",
+            "kind": "task",
+            "laneId": "L-VENTAS"
+          },
+          {
+            "id": "A-03",
+            "kind": "task",
+            "laneId": "L-ADMIN"
+          },
+          {
+            "id": "A-04",
+            "kind": "task",
+            "laneId": "L-ADMIN"
+          },
+          {
+            "id": "A-G1",
+            "kind": "decision",
+            "label": "¿Solicitud conforme?",
+            "laneId": "L-ADMIN",
+            "sourceNodeIds": {
+              "separacion": [
+                "E07"
+              ],
+              "cuotaInicial": [
+                "E36"
+              ]
+            }
+          },
+          {
+            "id": "A-05",
+            "kind": "task",
+            "laneId": "L-VENTAS"
+          },
+          {
+            "id": "A-06",
+            "kind": "task",
+            "laneId": "L-ADMIN"
+          },
+          {
+            "id": "A-07",
+            "kind": "task",
+            "laneId": "L-CONT"
+          },
+          {
+            "id": "A-08",
+            "kind": "task",
+            "laneId": "L-VENTAS"
+          },
+          {
+            "id": "A-END",
+            "kind": "end",
+            "label": "Boleta enviada",
+            "laneId": "L-VENTAS"
+          }
+        ],
+        "edges": [
+          {
+            "id": "F-ASIS-01",
+            "from": "A-START",
+            "to": "A-01"
+          },
+          {
+            "id": "F-ASIS-02",
+            "from": "A-01",
+            "to": "A-02"
+          },
+          {
+            "id": "F-ASIS-03",
+            "from": "A-02",
+            "to": "A-03"
+          },
+          {
+            "id": "F-ASIS-04",
+            "from": "A-03",
+            "to": "A-04"
+          },
+          {
+            "id": "F-ASIS-05",
+            "from": "A-04",
+            "to": "A-G1"
+          },
+          {
+            "id": "F-ASIS-06",
+            "from": "A-G1",
+            "to": "A-06",
+            "label": "Sí"
+          },
+          {
+            "id": "F-ASIS-07",
+            "from": "A-06",
+            "to": "A-07"
+          },
+          {
+            "id": "F-ASIS-08",
+            "from": "A-07",
+            "to": "A-08"
+          },
+          {
+            "id": "F-ASIS-09",
+            "from": "A-08",
+            "to": "A-END"
+          },
+          {
+            "id": "F-ASIS-10",
+            "from": "A-G1",
+            "to": "A-05",
+            "label": "No",
+            "loop": true
+          },
+          {
+            "id": "F-ASIS-11",
+            "from": "A-05",
+            "to": "A-03",
+            "loop": true
+          }
+        ],
+        "legend": [
+          "Secuencia resumida"
+        ],
+        "contextTitle": "Contexto adicional de la fuente",
+        "context": [
+          {
+            "title": "Antes del pago: elección del bien",
+            "text": "Detalle fuera del recorrido principal; disponible como referencia del modelo entregado"
+          },
+          {
+            "title": "Entre separación y cuota inicial: evaluación de financiamiento y coordinación de la minuta",
+            "text": "Detalle fuera del recorrido principal; disponible como referencia del modelo entregado"
+          },
+          {
+            "title": "Si no procede el financiamiento: gestión de devolución",
+            "text": "Detalle fuera del recorrido principal; disponible como referencia del modelo entregado"
+          }
+        ],
+        "notes": [
+          "En cuota inicial A-03 agrupa dos verificaciones paralelas del original, sin presentarlas falsamente como dependencia temporal entre sí"
+        ],
+        "groups": []
+      },
+      "FLOW-TOBE1": {
+        "id": "FLOW-TOBE1",
+        "processId": "PR-BOLETAS",
+        "title": "Así se propone trabajar",
+        "subtitle": "TO-BE · borrador incompleto",
+        "incomplete": true,
+        "message": "Este modelo contiene tareas sin definir y conexiones incompletas. Se conserva como antecedente y no se utiliza como propuesta publicable en la demo",
+        "items": [
+          "Tarea 1",
+          "Tarea 2",
+          "Subprocesos sin detalle"
+        ],
+        "lanes": [],
+        "variants": [],
+        "defaultVariant": null,
+        "nodes": [],
+        "edges": [],
+        "legend": [],
+        "context": [],
+        "notes": [],
+        "groups": []
+      },
+      "FLOW-TOBE2": {
+        "id": "FLOW-TOBE2",
+        "processId": "PR-BOLETAS",
+        "title": "Así se propone trabajar",
+        "subtitle": "TO-BE 2 · propuesta del cliente",
+        "lanes": [
+          {
+            "id": "L-VENTAS",
+            "label": "Ventas",
+            "roleId": "RL-VENTAS"
+          },
+          {
+            "id": "L-ADMIN",
+            "label": "Administración",
+            "roleId": "RL-ADMIN"
+          },
+          {
+            "id": "L-CONT",
+            "label": "Contabilidad",
+            "roleId": "RL-CONT"
+          }
+        ],
+        "externalActor": {
+          "entityId": "ACTOR-CLIENTE",
+          "label": "Cliente",
+          "exchanges": [
+            {
+              "nodeId": "T-01",
+              "direction": "in",
+              "label": "Documentación del pago"
+            },
+            {
+              "nodeId": "T-03",
+              "direction": "out",
+              "label": "Solicitud de subsanación"
+            },
+            {
+              "nodeId": "T-03",
+              "direction": "in",
+              "label": "Documentación subsanada"
+            },
+            {
+              "nodeId": "T-08",
+              "direction": "out",
+              "label": "Boleta"
+            }
+          ]
+        },
+        "variants": [],
+        "defaultVariant": null,
+        "nodes": [
+          {
+            "id": "T-START",
+            "kind": "start",
+            "label": "Documentación del pago recibida",
+            "laneId": "L-VENTAS"
+          },
+          {
+            "id": "T-01",
+            "kind": "task",
+            "laneId": "L-VENTAS"
+          },
+          {
+            "id": "T-02",
+            "kind": "task",
+            "laneId": "L-VENTAS"
+          },
+          {
+            "id": "T-G1",
+            "kind": "decision",
+            "label": "¿Expediente completo y correcto?",
+            "laneId": "L-VENTAS",
+            "sourceNodeIds": [
+              "E14"
+            ]
+          },
+          {
+            "id": "T-03",
+            "kind": "task",
+            "laneId": "L-VENTAS"
+          },
+          {
+            "id": "T-04",
+            "kind": "task",
+            "laneId": "L-VENTAS"
+          },
+          {
+            "id": "T-05",
+            "kind": "task",
+            "laneId": "L-ADMIN"
+          },
+          {
+            "id": "T-G2",
+            "kind": "decision",
+            "label": "¿Conforme para emisión?",
+            "laneId": "L-ADMIN",
+            "sourceNodeIds": [
+              "E21"
+            ]
+          },
+          {
+            "id": "T-06",
+            "kind": "task",
+            "laneId": "L-ADMIN",
+            "laneIds": [
+              "L-ADMIN",
+              "L-VENTAS"
+            ],
+            "group": true
+          },
+          {
+            "id": "T-07",
+            "kind": "task",
+            "laneId": "L-ADMIN"
+          },
+          {
+            "id": "T-08",
+            "kind": "task",
+            "laneId": "L-CONT",
+            "laneIds": [
+              "L-CONT",
+              "L-VENTAS"
+            ],
+            "group": true
+          },
+          {
+            "id": "T-END",
+            "kind": "end",
+            "label": "Boleta emitida y enviada",
+            "laneId": "L-VENTAS",
+            "sourceNodeIds": [
+              "E30"
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "id": "F-TOBE2-01",
+            "from": "T-START",
+            "to": "T-01"
+          },
+          {
+            "id": "F-TOBE2-02",
+            "from": "T-01",
+            "to": "T-02"
+          },
+          {
+            "id": "F-TOBE2-03",
+            "from": "T-02",
+            "to": "T-G1"
+          },
+          {
+            "id": "F-TOBE2-04",
+            "from": "T-G1",
+            "to": "T-03",
+            "label": "No",
+            "loop": true
+          },
+          {
+            "id": "F-TOBE2-05",
+            "from": "T-03",
+            "to": "T-02",
+            "loop": true,
+            "inferred": true,
+            "label": "Revisión preventiva resumida · inferida"
+          },
+          {
+            "id": "F-TOBE2-06",
+            "from": "T-G1",
+            "to": "T-04",
+            "label": "Sí"
+          },
+          {
+            "id": "F-TOBE2-07",
+            "from": "T-04",
+            "to": "T-05"
+          },
+          {
+            "id": "F-TOBE2-08",
+            "from": "T-05",
+            "to": "T-G2"
+          },
+          {
+            "id": "F-TOBE2-09",
+            "from": "T-G2",
+            "to": "T-06",
+            "label": "No",
+            "loop": true
+          },
+          {
+            "id": "F-TOBE2-10",
+            "from": "T-06",
+            "to": "T-05",
+            "loop": true
+          },
+          {
+            "id": "F-TOBE2-11",
+            "from": "T-G2",
+            "to": "T-07",
+            "label": "Sí"
+          },
+          {
+            "id": "F-TOBE2-12",
+            "from": "T-07",
+            "to": "T-08"
+          },
+          {
+            "id": "F-TOBE2-13",
+            "from": "T-08",
+            "to": "T-END"
+          }
+        ],
+        "groups": [
+          {
+            "id": "T-06",
+            "subtaskIds": [
+              "T-06a",
+              "T-06b"
+            ]
+          },
+          {
+            "id": "T-08",
+            "subtaskIds": [
+              "T-08a",
+              "T-08b"
+            ]
+          }
+        ],
+        "systemChip": {
+          "betweenNodeIds": [
+            "T-04",
+            "T-05"
+          ],
+          "systemId": "SYS-SPERANT",
+          "label": "Cambio de estado propuesto",
+          "sourceNodeIds": [
+            "E19"
+          ]
+        },
+        "documentsByVariant": {
+          "title": "Documentos por tipo de pago · propuesta del cliente",
+          "activityKeys": [
+            "T-01",
+            "T-02"
+          ],
+          "variants": [
+            {
+              "id": "separacion",
+              "label": "Separación",
+              "items": [
+                "DNI del cliente",
+                "convenio de separación firmado por ambas partes",
+                "comprobante de pago"
+              ],
+              "documentIds": [
+                "DOC-DNI",
+                "DOC-CONVENIO",
+                "DOC-VOUCHER"
+              ],
+              "observation": "Fuente S-TOBE2; los mismos tipos aparecen en AS-IS."
+            },
+            {
+              "id": "cuotaInicial",
+              "label": "Cuota inicial",
+              "items": [
+                "Documentos de separación",
+                "minuta",
+                "captura de precalificación de financiamiento",
+                "comprobante de cuota inicial"
+              ],
+              "documentIds": [
+                "DOC-DNI",
+                "DOC-CONVENIO",
+                "DOC-VOUCHER",
+                "DOC-MINUTA",
+                "DOC-PRECAL"
+              ],
+              "observation": "La fuente abrevia “Documentos de S.”; se interpreta como documentos de separación y requiere validación"
+            },
+            {
+              "id": "cuotaNormal",
+              "label": "Cuota normal",
+              "items": [
+                "Documentos requeridos de cuota inicial",
+                "comprobante de cuota normal"
+              ],
+              "documentIds": [
+                "DOC-DNI",
+                "DOC-CONVENIO",
+                "DOC-VOUCHER",
+                "DOC-MINUTA",
+                "DOC-PRECAL"
+              ],
+              "observation": "La presentación usa “cuota complementaria”. Confirmar equivalencia y documentos aplicables"
+            }
+          ],
+          "namingStandard": [
+            "DNI_NOMBRE_CLIENTE",
+            "CONVENIO_SEPARACION_NOMBRE_CLIENTE",
+            "VOUCHER_NOMBRE_CLIENTE",
+            "MINUTA_NOMBRE_CLIENTE"
+          ],
+          "namingNote": "Ejemplo de plantilla, no archivo de cliente",
+          "controls": [
+            "Completo",
+            "Firmado",
+            "Versión vigente"
+          ],
+          "controlsNote": "Controles «Completo», «Firmado», «Versión vigente» son requisitos descritos, no checkboxes que confirmen un expediente real"
+        },
+        "legend": [
+          "Secuencia resumida",
+          "Revisión preventiva resumida · inferida"
+        ],
+        "contextTitle": null,
+        "context": [],
+        "previousContextSourceNodeIds": [
+          "E01",
+          "E02",
+          "E03",
+          "C01",
+          "C02",
+          "E04"
+        ],
+        "notes": [],
+        "sourceNotes": [
+          "En TO-BE2 hay un mensaje desde «Enviar comprobante de pago y documentos solicitados» cuyo XML no expresa Target; la imagen conecta con «Documentos recibidos». El resumen arranca en recepción de documentación y no importa un endpoint inválido",
+          "En TO-BE2 el retorno de «Enviar documentos subsanados» termina en «Nombrar documentos según estándar»; la demo propone mostrar una nueva revisión preventiva y la etiqueta como síntesis por validar"
+        ]
+      }
+    },
+    "versions": [
+      {
+        "id": "V-ASIS-01",
+        "processId": "PR-BOLETAS",
+        "type": "AS-IS",
+        "label": "AS-IS documentado",
+        "state": "documented",
+        "stateLabel": "Documentado",
+        "flowId": "FLOW-ASIS",
+        "baseVersionId": null,
+        "publishedAt": null,
+        "publishedBy": null,
+        "summary": "Proceso actual entregado",
+        "changeLabel": "Proceso actual entregado",
+        "sourceIds": [
+          "S-ASIS",
+          "S-CASE"
+        ],
+        "publishable": false,
+        "isDemo": false,
+        "pending": [],
+        "notes": [],
+        "activityOverrides": {}
+      },
+      {
+        "id": "V-TOBE-01",
+        "processId": "PR-BOLETAS",
+        "type": "TO-BE",
+        "label": "TO-BE · borrador incompleto",
+        "state": "incomplete-draft",
+        "stateLabel": "Borrador incompleto",
+        "flowId": "FLOW-TOBE1",
+        "baseVersionId": null,
+        "publishedAt": null,
+        "publishedBy": null,
+        "summary": "Alternativa con tareas y conexiones pendientes",
+        "changeLabel": "Alternativa con elementos pendientes",
+        "sourceIds": [
+          "S-TOBE1"
+        ],
+        "publishable": false,
+        "isDemo": false,
+        "pending": [],
+        "notes": [],
+        "activityOverrides": {}
+      },
+      {
+        "id": "V-TOBE-02",
+        "processId": "PR-BOLETAS",
+        "type": "TO-BE",
+        "label": "TO-BE 2 · propuesta del cliente",
+        "state": "proposed",
+        "stateLabel": "Propuesto",
+        "flowId": "FLOW-TOBE2",
+        "baseVersionId": null,
+        "publishedAt": null,
+        "publishedBy": null,
+        "summary": "Control preventivo y centralización propuesta",
+        "changeLabel": "Control documental preventivo propuesto",
+        "sourceIds": [
+          "S-TOBE2",
+          "S-CASE"
+        ],
+        "publishable": true,
+        "isDemo": false,
+        "pending": [
+          "Confirmar cuota normal o complementaria",
+          "Validar automatización de SPERANT",
+          "Confirmar emisión por variante de pago"
+        ],
+        "notes": [],
+        "activityOverrides": {}
+      }
+    ]
+  }
+}

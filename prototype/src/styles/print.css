@@ -1,0 +1,313 @@
+/* styles/print.css — the active tab prints readable, black on white; chrome, rails,
+ * toolbars, toasts and dialogs are hidden; canvases and tables expand. */
+@media print {
+  @page {
+    margin: 16mm;
+  }
+
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+
+  .shell {
+    display: block;
+    height: auto;
+    min-height: 0;
+  }
+
+  .shell-header {
+    display: block;
+    min-height: 0;
+    padding: 0 0 4mm;
+    border-bottom: 1px solid #000;
+  }
+
+  .shell-header__actions,
+  .shell-tabs,
+  .skip-link,
+  .toasts,
+  .modal-backdrop,
+  .twin-rail,
+  .twin-rail__toggle,
+  .twin-rail__backdrop,
+  .twin-inspector__backdrop,
+  .canvas__toolbar,
+  .twin-contextbar__search,
+  .twin-contextbar__tools,
+  .studio-composer,
+  .studio-roster,
+  .search-field,
+  .notice__dismiss,
+  .toast__dismiss,
+  .modal__close,
+  .btn--icon-only,
+  .studio-stream__jump,
+  .entity-link__chevron,
+  .table__sort-icon,
+  .disclosure__chevron,
+  [aria-hidden='true'].icon {
+    display: none !important;
+  }
+
+  .shell-main {
+    overflow: visible;
+    height: auto;
+  }
+
+  .shell-main > [role='tabpanel'][hidden] {
+    display: none !important;
+  }
+
+  .shell-main > [role='tabpanel'] {
+    min-height: 0;
+    height: auto;
+  }
+
+  /* Twin and studio flow as blocks. */
+  .twin,
+  .studio,
+  .twin-stage,
+  .twin-stage__body,
+  .studio-main,
+  .studio-side,
+  .twin-inspector,
+  .records,
+  .narrative__split,
+  .twin-sheet,
+  .split {
+    display: block;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    position: static;
+    transform: none !important;
+    visibility: visible;
+    width: auto;
+    max-height: none;
+    border: 0;
+  }
+
+  .twin-inspector,
+  .studio-side,
+  .records__detail,
+  .narrative__inspector {
+    margin-top: 6mm;
+    padding-top: 4mm;
+    border-top: 1px solid #000;
+    position: static;
+  }
+
+  .twin-contextbar,
+  .twin-versionbar,
+  .studio-frame,
+  .studio-chips,
+  .studio-tabs,
+  .studio-footer {
+    border-color: #000;
+  }
+
+  /* Canvases expand to their content box; the layer keeps its inline width/height. */
+  .canvas {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    background-image: none;
+    cursor: default;
+    page-break-inside: avoid;
+  }
+
+  .canvas__layer {
+    position: relative;
+    transform: none !important;
+  }
+
+  .canvas__layer > .node,
+  .canvas__layer > .node-expand,
+  .canvas__layer > .band,
+  .canvas__layer > .lane {
+    position: absolute;
+  }
+
+  .node,
+  .node-chip,
+  .band,
+  .lane,
+  .lanes,
+  .zone,
+  .boundary,
+  .card,
+  .disclosure,
+  .tool-card,
+  .approval,
+  .evidence-item,
+  .notice,
+  .empty-state {
+    border-color: #000 !important;
+    page-break-inside: avoid;
+  }
+
+  .node.is-dimmed,
+  .edge--dimmed,
+  .band.is-dimmed {
+    opacity: 1;
+  }
+
+  .node.is-selected {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+  }
+
+  .node.is-related {
+    border-width: 2px;
+  }
+
+  .node--decision::before {
+    border-color: #000;
+    background: #fff !important;
+  }
+
+  .edge,
+  .edge--related,
+  .edge--selected,
+  .edge--group-line {
+    stroke: #000;
+  }
+
+  .edge-label {
+    fill: #000;
+    stroke: #fff;
+  }
+
+  .edge-marker,
+  .edge-marker--related,
+  .edge-marker--selected {
+    fill: #000;
+  }
+
+  .lane__label,
+  .band__label {
+    position: static;
+    border-color: #000;
+  }
+
+  /* Tables: full width, no card mode, no clipped actions. */
+  .table-wrap {
+    overflow: visible;
+    border-color: #000;
+  }
+
+  .table {
+    min-width: 100%;
+    font-size: 9.5pt;
+  }
+
+  .table th,
+  .table td {
+    border-bottom: 1px solid #000;
+    padding: 1.5mm 2mm;
+  }
+
+  .table thead th {
+    position: static;
+    border-bottom-width: 2px;
+  }
+
+  .table--cards thead {
+    position: static;
+    width: auto;
+    height: auto;
+    clip: auto;
+    clip-path: none;
+    overflow: visible;
+  }
+
+  .table--cards tbody,
+  .table--cards tbody tr {
+    display: table-row-group;
+    padding: 0;
+    border: 0;
+  }
+
+  .table--cards tbody tr {
+    display: table-row;
+  }
+
+  .table--cards tbody td,
+  .table--cards tbody th {
+    display: table-cell;
+  }
+
+  .table--cards tbody td::before,
+  .table--cards tbody th::before {
+    content: none;
+  }
+
+  /* Disclosures and inspector sections print expanded. */
+  .disclosure__content[hidden] {
+    display: block !important;
+  }
+
+  .studio-stream {
+    overflow: visible;
+    height: auto;
+  }
+
+  .turn,
+  .tool-card,
+  .approval {
+    max-width: none;
+  }
+
+  .artifact-preview {
+    max-height: none;
+    overflow: visible;
+    border-color: #000;
+  }
+
+  .narrative {
+    padding: 0;
+    max-width: none;
+  }
+
+  .narrative__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  .badge,
+  .chip,
+  .status-label {
+    border-color: #000 !important;
+  }
+
+  a[href]::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.85em;
+  }
+
+  .btn {
+    border: 1px solid #000;
+  }
+
+  .faint-meta,
+  .muted {
+    color: #333 !important;
+  }
+}

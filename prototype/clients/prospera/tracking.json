@@ -1,0 +1,239 @@
+{
+  "tracking": {
+    "processId": "PR-BOLETAS",
+    "incidentsTitle": "Incidencias de emisión de boletas",
+    "badge": "Registros ficticios para demostrar seguimiento",
+    "dateLabel": "Fecha de la demo: 06/10/2026",
+    "incidentFilters": [
+      { "id": "all", "label": "Todas" },
+      { "id": "open", "label": "Abiertas" },
+      { "id": "closed", "label": "Cerradas" },
+      { "id": "overdue", "label": "Vencidas" },
+      { "id": "dueSoon", "label": "Por vencer" }
+    ],
+    "incidentStatusLabels": {
+      "open": "Abierta",
+      "inProgress": "En atención",
+      "closed": "Cerrada"
+    },
+    "noticeLabels": {
+      "overdue": "Vencido",
+      "dueSoon": "Por vencer",
+      "onTime": "En plazo",
+      "closed": "Cerrada"
+    },
+    "incidentColumns": ["ID", "Asunto", "Proceso", "Responsable", "Estado", "Vencimiento", "Aviso"],
+    "responsibleOptions": ["RL-VENTAS", "RL-ADMIN", "RL-CONT", "A-AF"],
+    "incidentEditableStatuses": ["open", "inProgress"],
+    "incidentForm": {
+      "initialStatus": "open",
+      "fields": {
+        "subject": { "label": "Asunto", "min": 5, "max": 100, "required": true },
+        "description": { "label": "Descripción", "min": 10, "max": 500, "required": true },
+        "process": { "label": "Proceso", "fixed": true },
+        "responsible": { "label": "Responsable", "required": true },
+        "dueDate": { "label": "Fecha compromiso", "format": "YYYY-MM-DD", "required": true },
+        "status": { "label": "Estado" },
+        "resolution": { "label": "Resultado de atención", "min": 10, "max": 500, "required": true }
+      }
+    },
+    "incidents": [
+      {
+        "id": "INC-DEMO-01",
+        "subject": "Expediente sin convenio firmado",
+        "description": "Ejemplo ficticio de devolución por ausencia de la firma requerida en el convenio de separación",
+        "processId": "PR-BOLETAS",
+        "responsibleId": "RL-VENTAS",
+        "status": "open",
+        "createdAt": "2026-10-01",
+        "dueDate": "2026-10-04",
+        "closedAt": null,
+        "resolution": null,
+        "isDemo": true,
+        "sourceIds": ["S-DEMO"],
+        "gapIds": ["GAP-01"]
+      },
+      {
+        "id": "INC-DEMO-02",
+        "subject": "Solicitud enviada en un hilo distinto",
+        "description": "Ejemplo ficticio de seguimiento para mantener la solicitud y la boleta en el mismo hilo de correo",
+        "processId": "PR-BOLETAS",
+        "responsibleId": "RL-ADMIN",
+        "status": "inProgress",
+        "createdAt": "2026-10-02",
+        "dueDate": "2026-10-08",
+        "closedAt": null,
+        "resolution": null,
+        "isDemo": true,
+        "sourceIds": ["S-DEMO"],
+        "gapIds": ["GAP-03"]
+      },
+      {
+        "id": "INC-DEMO-03",
+        "subject": "Documento duplicado en carpeta",
+        "description": "Ejemplo ficticio de revisión de archivos duplicados en el expediente",
+        "processId": "PR-BOLETAS",
+        "responsibleId": "RL-VENTAS",
+        "status": "closed",
+        "createdAt": "2026-09-30",
+        "dueDate": "2026-10-05",
+        "closedAt": "2026-10-03",
+        "resolution": "Se identificó la versión que corresponde para este ejemplo",
+        "isDemo": true,
+        "sourceIds": ["S-DEMO"],
+        "gapIds": ["GAP-02"]
+      }
+    ],
+    "projectsTitle": "Proyectos de mejora",
+    "projectStatusLabels": {
+      "planned": "Planificado",
+      "inProgress": "En curso",
+      "concluded": "Concluido"
+    },
+    "projectResponsibleOptions": ["A-AF", "RL-ADMIN", "RL-VENTAS"],
+    "projectEditableStatuses": ["planned", "inProgress"],
+    "projectSections": [
+      "Motivo / brechas",
+      "Responsable",
+      "Fechas",
+      "Estado",
+      "Versión propuesta",
+      "Compromisos",
+      "Respaldo interno",
+      "Histórico de seguimiento"
+    ],
+    "projectForm": {
+      "initialStatus": "planned",
+      "fields": {
+        "name": { "label": "Nombre", "min": 5, "max": 100, "required": true },
+        "objective": { "label": "Objetivo", "min": 10, "max": 500, "required": true },
+        "process": { "label": "Proceso", "fixed": true },
+        "responsible": { "label": "Responsable", "required": true },
+        "dueDate": { "label": "Fecha compromiso", "format": "YYYY-MM-DD", "required": true },
+        "targetVersion": { "label": "Versión propuesta", "versionType": "TO-BE", "required": true },
+        "status": { "label": "Estado" },
+        "result": { "label": "Resultado", "min": 10, "max": 500, "required": true }
+      }
+    },
+    "projects": [
+      {
+        "id": "PM-01",
+        "name": "Control documental preventivo para emisión de boletas",
+        "objective": "Precisar los requisitos del expediente y revisar documentos y firmas antes de solicitar la emisión",
+        "processId": "PR-BOLETAS",
+        "gapIds": ["GAP-01", "GAP-02", "GAP-03", "GAP-04"],
+        "responsibleId": "A-AF",
+        "responsibleNote": "asignación ficticia de demo",
+        "startDate": "2026-10-01",
+        "dueDate": "2026-10-15",
+        "closedAt": null,
+        "status": "inProgress",
+        "targetVersionId": "V-TOBE-02",
+        "backingReference": null,
+        "result": null,
+        "isDemo": true,
+        "sourceIds": ["S-DEMO"],
+        "note": "Proyecto ficticio basado en el tema de mejora del caso",
+        "commitments": [
+          { "label": "Revisar requisitos documentales", "status": "Pendiente" },
+          { "label": "Confirmar viabilidad con SPERANT", "status": "Pendiente" },
+          { "label": "Registrar respaldo interno", "status": "Pendiente" }
+        ],
+        "followUp": []
+      }
+    ],
+    "prepareAsIsTarget": {
+      "tab": "desktop",
+      "desktop": { "workspaceId": "WS-BOLETAS", "scenarioId": "SCN-02" }
+    },
+    "texts": {
+      "newIncident": "Nueva incidencia",
+      "editIncident": "Editar",
+      "closeIncident": "Cerrar incidencia",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "trackingPermissionRequired": "Se requiere permiso de seguimiento del proceso",
+      "searchPlaceholder": "Buscar por asunto o ID",
+      "newProject": "Nuevo proyecto",
+      "editProject": "Editar seguimiento",
+      "closeProject": "Marcar concluido",
+      "startProject": "Iniciar",
+      "prepareAsIs": "Preparar nuevo AS-IS",
+      "simulateClose": "Simular cierre y preparar nuevo AS-IS",
+      "closeHint": "Concluye el proyecto y registra el respaldo interno antes de publicar",
+      "closeConfirm": "Registro de cierre ficticio para esta demo",
+      "backingNote": "El respaldo de demo es una referencia de texto y una declaración del analista, no correo enviado, firma electrónica ni aprobación en PRIMUS",
+      "publishNote": "La publicación final ocurre en escritorio y se confirma allí; nunca por solo cerrar el proyecto"
+    }
+  },
+  "security": {
+    "title": "Administración de acceso · simulada",
+    "intro": "Los perfiles seleccionables de la demo son previsualizaciones y no se crean como cuentas reales",
+    "note": "Estas cuentas ilustran la administración. Usa el selector de perfiles para explorar las vistas",
+    "credentialNote": "En el sistema real, el administrador establecerá las credenciales. Aquí solo se simulan los permisos",
+    "deleteConfirm": "¿Eliminar este usuario de prueba? La bitácora de esta sesión se conservará",
+    "deactivateConfirm": "¿Desactivar este usuario de prueba? La acción quedará registrada en la bitácora",
+    "restricted": "Esta vista requiere un perfil administrador",
+    "auditEmpty": "No hay acciones registradas en esta sesión",
+    "views": [
+      { "id": "accounts", "label": "Cuentas de prueba" },
+      { "id": "audit", "label": "Bitácora" }
+    ],
+    "form": {
+      "fields": {
+        "username": {
+          "label": "Nombre de acceso",
+          "min": 3,
+          "max": 40,
+          "rule": "3–40 caracteres: letras minúsculas, números, punto, guion o guion bajo",
+          "required": true
+        },
+        "role": { "label": "Rol", "required": true },
+        "position": { "label": "Puesto", "unassigned": "Sin asignar" }
+      }
+    },
+    "actions": {
+      "create": "Crear usuario",
+      "edit": "Editar acceso",
+      "deactivate": "Desactivar",
+      "delete": "Eliminar usuario de prueba"
+    },
+    "accountColumns": ["ID", "Usuario", "Rol", "Puesto", "Estado"],
+    "auditColumns": ["Secuencia", "Fecha", "Perfil", "Acción", "Resultado"],
+    "roleLabels": {
+      "admin": "Administrador",
+      "manager": "Gerencia (solo lectura)",
+      "employee": "Colaborador"
+    },
+    "statusLabels": {
+      "active": "Activo",
+      "inactive": "Desactivado"
+    },
+    "accounts": [
+      {
+        "id": "ACCOUNT-01",
+        "username": "demo.analista",
+        "role": "admin",
+        "positionId": "J-05",
+        "status": "active",
+        "isTest": true
+      },
+      {
+        "id": "ACCOUNT-02",
+        "username": "demo.gerencia",
+        "role": "manager",
+        "positionId": "J-01",
+        "status": "active",
+        "isTest": true
+      },
+      {
+        "id": "ACCOUNT-03",
+        "username": "demo.administracion",
+        "role": "employee",
+        "positionId": "J-03",
+        "status": "active",
+        "isTest": true
+      }
+    ]
+  }
+}

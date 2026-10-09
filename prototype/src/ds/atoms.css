@@ -1,0 +1,708 @@
+/* ds/atoms.css — button, badge, chip, card, field/input/select/textarea/checkbox,
+ * icon button, spinner, divider, kbd, provenance. Tokens only (ds/tokens.css +
+ * ds/extensions.css); dark surfaces throughout (design.md §2 dark input variants). */
+
+/* ── Button ──────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--control-height-md);
+  padding: var(--space-2) var(--space-4);
+  border: var(--control-border-width) solid transparent;
+  border-radius: var(--control-radius);
+  background: var(--color-dark-raised);
+  color: var(--text-on-dark);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--duration-fast) var(--easing-standard),
+    border-color var(--duration-fast) var(--easing-standard),
+    color var(--duration-fast) var(--easing-standard),
+    box-shadow var(--duration-fast) var(--easing-standard);
+}
+
+.btn__icon {
+  width: 1.25em;
+  height: 1.25em;
+  flex-shrink: 0;
+}
+
+.btn__label {
+  min-width: 0;
+}
+
+.btn--sm {
+  min-height: var(--control-height-sm);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.btn--lg {
+  min-height: var(--control-height-lg);
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-lg);
+}
+
+.btn--primary {
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+  color: var(--color-brand-contrast);
+}
+
+.btn--primary:hover {
+  background: var(--color-brand-hover);
+  border-color: var(--color-brand-hover);
+}
+
+.btn--primary:active {
+  background: var(--color-brand-active);
+  border-color: var(--color-brand-active);
+}
+
+.btn--secondary {
+  background: var(--color-dark-raised);
+  border-color: var(--control-border);
+  color: var(--text-on-dark);
+}
+
+.btn--secondary:hover {
+  border-color: var(--control-border-hover);
+  background: var(--color-neutral-800);
+}
+
+.btn--secondary:active {
+  background: var(--color-dark-surface);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-on-dark);
+}
+
+.btn--ghost:hover {
+  background: var(--tint-white-hover);
+}
+
+.btn--ghost:active {
+  background: var(--tint-white-active);
+}
+
+.btn--danger {
+  background: transparent;
+  border-color: var(--tint-danger-line);
+  color: var(--color-danger-dark);
+}
+
+.btn--danger:hover {
+  background: var(--tint-danger-faint);
+  border-color: var(--color-danger-dark);
+}
+
+.btn--danger:active {
+  background: var(--color-danger-dark);
+  color: var(--color-ink);
+}
+
+.btn--icon-only {
+  width: var(--control-height-md);
+  min-width: var(--control-height-md);
+  padding: 0;
+}
+
+.btn--icon-only.btn--sm {
+  width: var(--control-height-sm);
+  min-width: var(--control-height-sm);
+}
+
+.btn--icon-only.btn--lg {
+  width: var(--control-height-lg);
+  min-width: var(--control-height-lg);
+}
+
+.btn--icon-only .btn__icon {
+  width: 1.375em;
+  height: 1.375em;
+}
+
+/* Pressed toggles (aria-pressed) share one persistent shape: teal border + faint fill. */
+.btn.is-pressed,
+.btn[aria-pressed='true'] {
+  background: var(--tint-brand-faint);
+  border-color: var(--color-brand);
+  color: var(--color-teal-300);
+}
+
+.btn--primary.is-pressed,
+.btn--primary[aria-pressed='true'] {
+  background: var(--color-brand-active);
+  border-color: var(--color-teal-300);
+  color: var(--color-brand-contrast);
+}
+
+/* Disabled keeps focus (aria-disabled) and stays readable. */
+.btn.is-disabled,
+.btn[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn.is-disabled:hover,
+.btn[aria-disabled='true']:hover {
+  background: inherit;
+}
+
+.btn--primary.is-disabled:hover {
+  background: var(--color-brand);
+}
+
+.btn--secondary.is-disabled:hover {
+  background: var(--color-dark-raised);
+  border-color: var(--control-border);
+}
+
+.btn--ghost.is-disabled:hover {
+  background: transparent;
+}
+
+.btn.is-busy {
+  cursor: progress;
+}
+
+.btn__spinner {
+  animation: ds-spin 0.9s linear infinite;
+}
+
+.btn-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  max-width: 100%;
+}
+
+.btn__reason {
+  font-size: var(--text-sm);
+  color: var(--text-on-dark-muted);
+  line-height: var(--leading-snug);
+}
+
+/* ── Badge ───────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 1.75rem;
+  padding: 0.125rem var(--space-2);
+  border: 1px solid var(--color-neutral-500);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  vertical-align: middle;
+}
+
+.badge__icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
+.badge--brand {
+  border-color: var(--color-brand);
+  background: var(--tint-brand-faint);
+  color: var(--color-teal-300);
+}
+
+.badge--info {
+  border-color: var(--dark-border-teal);
+  color: var(--text-on-dark);
+}
+
+.badge--success {
+  border-color: var(--tint-success-line);
+  background: var(--tint-success-faint);
+  color: var(--color-success-dark);
+}
+
+.badge--warning {
+  border-color: var(--tint-warning-line);
+  background: var(--tint-warning-faint);
+  color: var(--color-warning-dark);
+}
+
+.badge--danger {
+  border-color: var(--tint-danger-line);
+  background: var(--tint-danger-faint);
+  color: var(--color-danger-dark);
+}
+
+/* Proposed: dashed teal, readable as a shape without colour. */
+.badge--proposed {
+  border-style: dashed;
+  border-color: var(--color-brand);
+  background: transparent;
+  color: var(--color-teal-300);
+}
+
+/* Demo example: warning tone plus the flag glyph. */
+.badge--demo {
+  border-style: dashed;
+  border-color: var(--tint-warning-line);
+  background: var(--tint-warning-faint);
+  color: var(--color-warning-dark);
+}
+
+/* ── Chip ────────────────────────────────────────────────────────────── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: var(--control-height-sm);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-md);
+  background: var(--color-dark-raised);
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  max-width: 100%;
+}
+
+.chip__main {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: calc(var(--control-height-sm) - 2px);
+  color: inherit;
+  text-align: left;
+}
+
+.chip__icon {
+  width: 1em;
+  height: 1em;
+  color: var(--text-on-dark-brand);
+}
+
+.chip__label {
+  overflow-wrap: anywhere;
+}
+
+.chip__label b,
+.chip__label strong {
+  color: var(--text-on-dark);
+  font-weight: var(--weight-medium);
+}
+
+.chip--interactive {
+  cursor: pointer;
+  color: var(--text-on-dark);
+}
+
+.chip--interactive:hover {
+  border-color: var(--control-border-hover);
+}
+
+.chip--removable {
+  padding-right: var(--space-1);
+}
+
+.chip.is-selected,
+.chip[aria-pressed='true'],
+.chip .chip__main[aria-pressed='true'] {
+  border-color: var(--color-brand);
+  background: var(--tint-brand-faint);
+  color: var(--color-teal-300);
+}
+
+.chip__remove {
+  margin-left: var(--space-1);
+}
+
+/* ── Card ────────────────────────────────────────────────────────────── */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-dark-surface);
+  min-width: 0;
+}
+
+.card--quiet {
+  background: transparent;
+  border-color: var(--color-dark-border);
+}
+
+.card--raised {
+  background: var(--color-dark-raised);
+  box-shadow: var(--shadow-md);
+}
+
+.card.is-selected {
+  outline: var(--graph-line-selected) solid var(--color-teal-400);
+  outline-offset: 0;
+}
+
+.card.is-selected:focus-visible {
+  outline-offset: 3px;
+}
+
+.card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.card__title {
+  font-size: 1.125rem;
+  line-height: var(--leading-snug);
+}
+
+.card__subtitle {
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-sm);
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.card__actions {
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+/* ── Field ───────────────────────────────────────────────────────────── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.field__label {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  color: var(--text-on-dark);
+}
+
+.field__required {
+  color: var(--color-danger-dark);
+}
+
+.field__hint {
+  font-size: var(--text-sm);
+  color: var(--text-on-dark-muted);
+}
+
+.field__control {
+  min-width: 0;
+}
+
+.field__error {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--color-danger-dark);
+  line-height: var(--leading-snug);
+}
+
+.field__error-icon {
+  flex-shrink: 0;
+  margin-top: 0.1em;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.field.is-invalid .input,
+.field.is-invalid .select,
+.field.is-invalid .textarea {
+  border-color: var(--color-danger-dark);
+}
+
+.field--inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+}
+
+/* ── Inputs (dark variant) ───────────────────────────────────────────── */
+.input,
+.select,
+.textarea {
+  display: block;
+  width: 100%;
+  min-height: var(--control-height-md);
+  padding: var(--space-2) var(--space-3);
+  border: var(--control-border-width) solid var(--control-border);
+  border-radius: var(--control-radius);
+  background: var(--control-surface);
+  color: var(--text-on-dark);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color-scheme: dark;
+  transition: border-color var(--duration-fast) var(--easing-standard),
+    background-color var(--duration-fast) var(--easing-standard);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--control-placeholder);
+  opacity: 1;
+}
+
+.input:hover,
+.select:hover,
+.textarea:hover {
+  border-color: var(--control-border-hover);
+}
+
+.input:focus-visible,
+.select:focus-visible,
+.textarea:focus-visible {
+  border-color: var(--color-brand);
+}
+
+.input[aria-invalid='true'],
+.select[aria-invalid='true'],
+.textarea[aria-invalid='true'] {
+  border-color: var(--color-danger-dark);
+}
+
+.input:disabled,
+.select:disabled,
+.textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.input:read-only:not(:disabled),
+.textarea:read-only:not(:disabled) {
+  background: var(--color-dark-bg);
+  border-style: dashed;
+}
+
+.input--sm,
+.select--sm {
+  min-height: var(--control-height-sm);
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.input[type='search']::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.select {
+  cursor: pointer;
+  padding-right: var(--space-5);
+}
+
+.select option {
+  background: var(--color-dark-surface);
+  color: var(--text-on-dark);
+}
+
+.textarea {
+  min-height: calc(var(--control-height-md) * 2);
+  resize: vertical;
+}
+
+.textarea.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+/* ── Checkbox ────────────────────────────────────────────────────────── */
+.checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-height: var(--control-min-target);
+  padding: var(--space-2) 0;
+  cursor: pointer;
+  line-height: var(--leading-snug);
+}
+
+.checkbox__input {
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: var(--space-2) 0 0;
+  opacity: 0;
+}
+
+.checkbox__box {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.125rem;
+  border: var(--control-border-width) solid var(--control-border);
+  border-radius: var(--radius-sm);
+  background: var(--control-surface);
+  color: var(--color-brand-contrast);
+  transition: background-color var(--duration-fast) var(--easing-standard),
+    border-color var(--duration-fast) var(--easing-standard);
+}
+
+.checkbox__check {
+  width: 0.9rem;
+  height: 0.9rem;
+  opacity: 0;
+}
+
+.checkbox__input:checked + .checkbox__box {
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+}
+
+.checkbox__input:checked + .checkbox__box .checkbox__check {
+  opacity: 1;
+}
+
+.checkbox__input:focus-visible + .checkbox__box {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.checkbox__input[aria-invalid='true'] + .checkbox__box {
+  border-color: var(--color-danger-dark);
+}
+
+.checkbox__input:disabled ~ * {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.checkbox__label {
+  color: var(--text-on-dark);
+}
+
+/* ── Spinner ─────────────────────────────────────────────────────────── */
+.spinner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-sm);
+}
+
+.spinner__icon {
+  width: 1.25em;
+  height: 1.25em;
+  color: var(--text-on-dark-brand);
+  animation: ds-spin 0.9s linear infinite;
+}
+
+@keyframes ds-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Divider / kbd ───────────────────────────────────────────────────── */
+.divider {
+  border: 0;
+  border-top: 1px solid var(--color-dark-border);
+  margin: var(--space-4) 0;
+}
+
+.kbd {
+  display: inline-block;
+  padding: 0 var(--space-1);
+  border: 1px solid var(--color-neutral-600);
+  border-bottom-width: 2px;
+  border-radius: var(--radius-sm);
+  background: var(--color-dark-raised);
+  color: var(--text-on-dark);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.6;
+}
+
+/* ── Provenance ──────────────────────────────────────────────────────── */
+.provenance {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.provenance__sources {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-on-dark-muted);
+}
+
+.provenance__sources-label {
+  font-weight: var(--weight-medium);
+  color: var(--text-on-dark);
+}
+
+.provenance__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+}
+
+.provenance__source {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-on-dark-muted);
+  overflow-wrap: anywhere;
+}
+
+.provenance--inferred .provenance__sources-label::after,
+.provenance--state-proposed .provenance__sources-label::after {
+  content: '';
+}
+
+/* ── Icon sizing helpers ─────────────────────────────────────────────── */
+.icon--sm {
+  width: 1em;
+  height: 1em;
+}
+
+.icon--lg {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.icon--xl {
+  width: 2em;
+  height: 2em;
+}

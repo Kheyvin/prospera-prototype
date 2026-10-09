@@ -1,0 +1,233 @@
+/* ds/extensions.css — prototype-only tokens (design.md §2 "Proposed prototype extensions").
+ * These are new design decisions for the PRIMUS portable prototype, not PRENTER source
+ * tokens. Every value either is a layout/geometry constant or derives from a PRENTER
+ * token defined in ds/tokens.css. Register new families here and show them in the
+ * catalog (src/ds/catalog.html); never define raw colours inside components. */
+
+:root {
+  /* ── Layout regions (spec §13: header 72, rail 224, inspector 360 as desktop maxima) ── */
+  --layout-header: 72px;
+  --layout-tabs: 48px;
+  --layout-contextbar: 56px;
+  --layout-rail: 224px;
+  --layout-inspector: 360px;
+  --layout-inspector-min: 320px;
+  --layout-inspector-max: 420px;
+  --layout-roster: 260px;
+  --layout-side: 380px;
+  --layout-sheet-max: 85vh;
+  --layout-gutter: var(--space-4);
+  --layout-gutter-wide: var(--space-5);
+
+  /* ── Controls (spec §13: 44 px touch targets; design.md button heights 36/44/52) ── */
+  --control-min-target: 44px;
+  --control-height-sm: 36px;
+  --control-height-md: 44px;
+  --control-height-lg: 52px;
+  --control-border-width: 1px;
+  --control-radius: var(--radius-md);
+
+  /* ── Motion (design.md §5: short transitions; reduced motion → immediate) ── */
+  --duration-fast: 120ms;
+  --duration-normal: 180ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ── Stacking order (focus rings and tooltips must never be clipped) ── */
+  --z-base: 0;
+  --z-sticky: 10;
+  --z-inspector: 20;
+  --z-dialog: 30;
+  --z-toast: 40;
+
+  /* ── Graph geometry (mirrored in components/twin/canvas.js GEOMETRY) ── */
+  --graph-node-min-width: 176px;
+  --graph-node-max-width: 240px;
+  --graph-node-min-height: 56px;
+  --graph-node-gap: 24px;
+  --graph-node-padding-y: var(--space-2);
+  --graph-node-padding-x: var(--space-3);
+  --graph-line-default: 1px;
+  --graph-line-selected: 2px;
+  --graph-decision-size: 112px;
+  --graph-event-size: 56px;
+  --graph-chip-height: 28px;
+  --lane-height: 168px;
+  --lane-label-width: 144px;
+  --band-min-height: 120px;
+  --band-label-width: 160px;
+
+  /* ── Derived tints (alpha variants of PRENTER colours; never new hues) ──
+   * brand   = teal-500 #00b7aa      warning = --color-warning-dark #e0ad4e
+   * danger  = --color-danger-dark #e2766b   success = --color-success-dark #5cc99a */
+  --tint-brand-faint: rgba(0, 183, 170, 0.12);
+  --tint-brand-soft: rgba(0, 183, 170, 0.22);
+  --tint-warning-faint: rgba(224, 173, 78, 0.12);
+  --tint-warning-line: rgba(224, 173, 78, 0.45);
+  --tint-danger-faint: rgba(226, 118, 107, 0.12);
+  --tint-danger-line: rgba(226, 118, 107, 0.45);
+  --tint-success-faint: rgba(92, 201, 154, 0.12);
+  --tint-success-line: rgba(92, 201, 154, 0.45);
+  --tint-white-hover: rgba(255, 255, 255, 0.06);
+  --tint-white-active: rgba(255, 255, 255, 0.1);
+  --tint-backdrop: rgba(0, 0, 0, 0.7);
+
+  /* ── Control surfaces (dark input variant, design.md §2) ── */
+  --control-surface: var(--color-dark-surface);
+  --control-surface-raised: var(--color-dark-raised);
+  --control-border: var(--color-neutral-500);
+  --control-border-hover: var(--color-neutral-400);
+  --control-placeholder: var(--text-on-dark-muted);
+
+  /* ── Materials per entity type (design.md §4). Only PRENTER tokens; the layer is
+   * expressed through border style + shape + glyph, never through colour alone.
+   *   structure  : organization, area, position, person, external
+   *   business   : macroprocess, process, activity, decision, event, role
+   *   application: system
+   *   implement. : document
+   *   motivation : objective, indicator, policy, gap
+   *   tracking   : incident, project, version
+   *   proposed   : any entity in a proposed state (dashed teal) ── */
+  --material-organization-surface: var(--color-dark-raised);
+  --material-organization-border: var(--color-teal-600);
+  --material-organization-style: solid;
+  --material-organization-radius: var(--radius-md);
+  --material-organization-glyph: var(--color-teal-400);
+
+  --material-area-surface: var(--color-dark-raised);
+  --material-area-border: var(--color-neutral-400);
+  --material-area-style: solid;
+  --material-area-radius: var(--radius-md);
+  --material-area-glyph: var(--text-on-dark);
+
+  --material-position-surface: var(--color-dark-surface);
+  --material-position-border: var(--color-neutral-500);
+  --material-position-style: solid;
+  --material-position-radius: var(--radius-sm);
+  --material-position-glyph: var(--text-on-dark-muted);
+
+  --material-person-surface: var(--color-dark-surface);
+  --material-person-border: var(--color-neutral-500);
+  --material-person-style: solid;
+  --material-person-radius: var(--radius-xl);
+  --material-person-glyph: var(--text-on-dark-muted);
+
+  --material-external-surface: var(--color-dark-bg);
+  --material-external-border: var(--color-neutral-400);
+  --material-external-style: dashed;
+  --material-external-radius: var(--radius-xl);
+  --material-external-glyph: var(--text-on-dark-muted);
+
+  --material-macroprocess-surface: var(--color-dark-bg);
+  --material-macroprocess-border: var(--color-neutral-400);
+  --material-macroprocess-style: double;
+  --material-macroprocess-radius: var(--radius-lg);
+  --material-macroprocess-glyph: var(--text-on-dark);
+
+  --material-process-surface: var(--color-dark-raised);
+  --material-process-border: var(--color-neutral-300);
+  --material-process-style: solid;
+  --material-process-radius: var(--radius-lg);
+  --material-process-glyph: var(--color-teal-400);
+
+  --material-activity-surface: var(--color-dark-raised);
+  --material-activity-border: var(--color-neutral-400);
+  --material-activity-style: solid;
+  --material-activity-radius: var(--radius-md);
+  --material-activity-glyph: var(--text-on-dark);
+
+  --material-decision-surface: var(--color-dark-raised);
+  --material-decision-border: var(--color-neutral-300);
+  --material-decision-style: solid;
+  --material-decision-radius: var(--radius-sm);
+  --material-decision-glyph: var(--text-on-dark);
+
+  --material-event-surface: var(--color-dark-bg);
+  --material-event-border: var(--color-neutral-300);
+  --material-event-style: solid;
+  --material-event-radius: var(--radius-pill);
+  --material-event-glyph: var(--text-on-dark);
+
+  --material-role-surface: var(--color-dark-surface);
+  --material-role-border: var(--color-neutral-400);
+  --material-role-style: solid;
+  --material-role-radius: var(--radius-sm);
+  --material-role-glyph: var(--color-teal-400);
+
+  --material-system-surface: var(--color-dark-surface);
+  --material-system-border: var(--color-teal-700);
+  --material-system-style: dotted;
+  --material-system-radius: var(--radius-sm);
+  --material-system-glyph: var(--color-teal-400);
+
+  --material-document-surface: var(--color-dark-surface);
+  --material-document-border: var(--color-neutral-500);
+  --material-document-style: solid;
+  --material-document-radius: var(--radius-sm);
+  --material-document-glyph: var(--text-on-dark-muted);
+
+  --material-policy-surface: var(--color-dark-surface);
+  --material-policy-border: var(--color-neutral-400);
+  --material-policy-style: double;
+  --material-policy-radius: var(--radius-md);
+  --material-policy-glyph: var(--text-on-dark);
+
+  --material-objective-surface: var(--color-dark-bg);
+  --material-objective-border: var(--color-teal-600);
+  --material-objective-style: double;
+  --material-objective-radius: var(--radius-xl);
+  --material-objective-glyph: var(--color-teal-400);
+
+  --material-indicator-surface: var(--color-dark-surface);
+  --material-indicator-border: var(--color-neutral-400);
+  --material-indicator-style: dotted;
+  --material-indicator-radius: var(--radius-md);
+  --material-indicator-glyph: var(--text-on-dark);
+
+  --material-gap-surface: var(--color-dark-surface);
+  --material-gap-border: var(--color-warning-dark);
+  --material-gap-style: solid;
+  --material-gap-radius: var(--radius-md);
+  --material-gap-glyph: var(--color-warning-dark);
+
+  --material-incident-surface: var(--color-dark-surface);
+  --material-incident-border: var(--color-neutral-400);
+  --material-incident-style: solid;
+  --material-incident-radius: var(--radius-md);
+  --material-incident-glyph: var(--color-warning-dark);
+
+  --material-project-surface: var(--color-dark-surface);
+  --material-project-border: var(--color-neutral-400);
+  --material-project-style: solid;
+  --material-project-radius: var(--radius-md);
+  --material-project-glyph: var(--text-on-dark);
+
+  --material-version-surface: var(--color-dark-surface);
+  --material-version-border: var(--color-neutral-500);
+  --material-version-style: solid;
+  --material-version-radius: var(--radius-sm);
+  --material-version-glyph: var(--text-on-dark-muted);
+
+  --material-proposed-surface: var(--color-dark-bg);
+  --material-proposed-border: var(--color-teal-500);
+  --material-proposed-style: dashed;
+  --material-proposed-glyph: var(--color-teal-400);
+
+  /* ── Edge / lane / band materials ── */
+  --edge-default: var(--color-neutral-400);
+  --edge-related: var(--color-teal-400);
+  --edge-selected: var(--color-teal-300);
+  --edge-label-surface: var(--color-dark-surface);
+  --lane-surface: var(--color-dark-surface);
+  --lane-surface-alt: var(--color-dark-bg);
+  --lane-border: var(--color-dark-border);
+  --band-surface: var(--color-dark-surface);
+  --band-border: var(--color-dark-border);
+}
+
+/* Reduced motion: every nonessential transition becomes immediate (spec §15). */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+  }
+}

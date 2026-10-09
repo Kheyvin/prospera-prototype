@@ -1,0 +1,198 @@
+{
+  "desktop": {
+    "title": "Estudio del analista",
+    "intro": "Transforma fuentes en una propuesta revisable y publícala como una nueva versión",
+    "disclaimer": "Claude Code · Simulado. Esta demostración no ejecuta IA ni accede a tus archivos",
+    "chips": { "client": "Próspera" },
+    "modes": [
+      { "id": "chat", "label": "Conversación" },
+      { "id": "ops", "label": "Operaciones" }
+    ],
+    "regions": {
+      "workspaces": "Espacios y sesiones",
+      "context": "Cliente, proceso y versión",
+      "conversation": "Conversación",
+      "panel": "Evidencia, artefacto y revisión",
+      "footer": "Estado de la sesión"
+    },
+    "composer": {
+      "label": "Solicitud del analista",
+      "placeholder": "Elige un escenario o escribe una nota",
+      "submit": "Enviar"
+    },
+    "unsupported": "Esta demo tiene respuestas preparadas. Elige “Revisar propuesta de boletas” o “Preparar nuevo AS-IS”. Tu texto se conserva como borrador",
+    "readOnlyMessage": "Para preparar y publicar cambios en esta demostración, usa el perfil de analista",
+    "employeeToBeMessage": "Tu perfil de demostración no tiene acceso a las fuentes TO-BE. Se muestra el resumen AS-IS permitido",
+    "footer": {
+      "sessionOnly": "Cambios solo en esta sesión",
+      "pendingReview": "Revisión pendiente del analista"
+    },
+    "operationsColumns": ["Secuencia", "Operación", "Estado", "Fuente"],
+    "workspaces": [
+      {
+        "id": "WS-BOLETAS",
+        "label": "Emisión de boletas",
+        "sessionId": "SES-BOLETAS",
+        "statusLabel": "Listo para revisar",
+        "processId": "PR-BOLETAS",
+        "evidenceIds": ["EV-CASE", "EV-ASIS", "EV-TOBE1", "EV-TOBE2", "EV-ORG"],
+        "scenarioIds": ["SCN-01", "SCN-02"],
+        "chips": ["Próspera", "Emisión de boletas", "5 fuentes disponibles", "TO-BE 2 · Propuesto"],
+        "welcome": null,
+        "welcomeActions": []
+      },
+      {
+        "id": "WS-ORG",
+        "label": "Estructura organizacional",
+        "sessionId": "SES-ORG",
+        "statusLabel": "Consulta de evidencia",
+        "processId": null,
+        "evidenceIds": ["EV-ORG", "EV-POL"],
+        "scenarioIds": [],
+        "chips": ["Próspera", "Estructura organizacional", "2 fuentes disponibles"],
+        "welcome": "Aquí puedes revisar el organigrama entregado y la política de calidad. Esta demo no incluye un escenario de modificación de la estructura organizacional",
+        "welcomeActions": [
+          {
+            "label": "Ver organigrama",
+            "target": { "tab": "web", "web": { "level": "strategic", "representation": "orgchart" } }
+          },
+          {
+            "label": "Ver política",
+            "target": {
+              "tab": "web",
+              "web": {
+                "level": "operational",
+                "processId": "PR-BOLETAS",
+                "processView": "sheet",
+                "overlay": { "kind": "policy", "entityId": "POL-01" }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "sessions": [
+      { "id": "SES-BOLETAS", "workspaceId": "WS-BOLETAS" },
+      { "id": "SES-ORG", "workspaceId": "WS-ORG" }
+    ],
+    "evidencePicker": { "label": "Elegir evidencia de ejemplo" },
+    "evidence": [
+      {
+        "id": "EV-CASE",
+        "sourceId": "S-CASE",
+        "label": "Caso de mejora de emisión de boletas",
+        "referenceLabel": "Caso de mejora de proceso: emisión de boletas · Láminas 1–4",
+        "stateLabel": "Fuente del cliente",
+        "restrictedTo": null,
+        "summary": [
+          "Dueño: Administración y Finanzas",
+          "Alcance: Emisión y envío de boletas por pagos de departamentos, cocheras o almacenes. El caso comprende la recepción de información y documentación del pago, la revisión administrativa, la emisión y el envío al cliente",
+          "Inicio: Pago y documentación recibidos · Fin: Boleta emitida y enviada",
+          "GAP-01 · Expedientes incompletos o sin firmas",
+          "GAP-02 · Documentación duplicada o sin nombres consistentes",
+          "GAP-03 · Información dispersa entre WhatsApp, Drive y correo",
+          "GAP-04 · Devoluciones y revisiones repetidas"
+        ],
+        "entityIds": ["PR-BOLETAS", "A-AF", "GAP-01", "GAP-02", "GAP-03", "GAP-04"]
+      },
+      {
+        "id": "EV-ASIS",
+        "sourceId": "S-ASIS",
+        "versionId": "V-ASIS-01",
+        "label": "Modelo AS-IS",
+        "referenceLabel": "Modelo AS IS · Diagrama de proceso · caso de emisión de boletas",
+        "stateLabel": "Fuente del cliente",
+        "restrictedTo": null,
+        "summary": [
+          "Variante documentada: Separación (inicial)",
+          "Variante documentada: Cuota inicial",
+          "GAP-01 · Expedientes incompletos o sin firmas",
+          "GAP-02 · Documentación duplicada o sin nombres consistentes",
+          "GAP-03 · Información dispersa entre WhatsApp, Drive y correo",
+          "GAP-04 · Devoluciones y revisiones repetidas"
+        ],
+        "entityIds": ["PR-BOLETAS", "RL-VENTAS", "RL-ADMIN", "RL-CONT", "GAP-01", "GAP-02", "GAP-03", "GAP-04"]
+      },
+      {
+        "id": "EV-TOBE1",
+        "sourceId": "S-TOBE1",
+        "versionId": "V-TOBE-01",
+        "label": "Modelo TO-BE",
+        "referenceLabel": "Modelo TO BE · Diagrama de proceso · caso de emisión de boletas",
+        "stateLabel": "Fuente del cliente",
+        "restrictedTo": "TO-BE",
+        "summary": [
+          "Borrador incompleto · Este modelo contiene tareas sin definir y conexiones incompletas. Se conserva como antecedente y no se utiliza como propuesta publicable en la demo",
+          "Tarea 1",
+          "Tarea 2",
+          "Subprocesos sin detalle"
+        ],
+        "entityIds": ["PR-BOLETAS"]
+      },
+      {
+        "id": "EV-TOBE2",
+        "sourceId": "S-TOBE2",
+        "versionId": "V-TOBE-02",
+        "label": "Modelo TO-BE 2",
+        "referenceLabel": "Modelo TO BE - 2 · Diagrama de proceso · caso de emisión de boletas",
+        "stateLabel": "Fuente del cliente",
+        "restrictedTo": "TO-BE",
+        "summary": [
+          "T-01 · Identificar pago y preparar expediente",
+          "T-02 · Revisar documentos, firmas y nombres",
+          "T-03 · Solicitar y atender subsanación",
+          "T-04 · Cargar expediente y registrar solicitud",
+          "T-05 · Revisar expediente para emisión",
+          "T-06 · Registrar y atender observaciones",
+          "T-07 · Autorizar y solicitar la boleta",
+          "T-08 · Emitir y enviar la boleta",
+          "Dependencia SPERANT · SPERANT CRM — centralización propuesta de datos y expedientes · Propuesto en TO-BE; sin conexión · El cambio automático de estado requiere validación con el proveedor"
+        ],
+        "entityIds": ["PR-BOLETAS", "T-01", "T-02", "T-03", "T-04", "T-05", "T-06", "T-07", "T-08", "SYS-SPERANT"]
+      },
+      {
+        "id": "EV-ORG",
+        "sourceId": "S-ORG",
+        "label": "Organigrama · septiembre 2026",
+        "referenceLabel": "Organigrama septiembre 2026",
+        "stateLabel": "Fuente del cliente",
+        "restrictedTo": null,
+        "summary": [
+          "A-AF · Administración y Finanzas",
+          "A-COM · Comercial",
+          "J-03 · Asistente administrativa · P-03 Xyomara Vanessa Medina Huaraya",
+          "J-04 · Asistente contable · P-04 Renzo Edher Vera Ramos",
+          "J-08 · Ejecutivos de Ventas · P-08 Giuliana Francesca Franco Rivarola; P-09 Lady Isabel Elias Urrutia; P-10 María Liliana Ykira Herrera; P-11 Diego Alonso Arce Benites"
+        ],
+        "entityIds": ["A-AF", "A-COM", "J-03", "J-04", "J-08", "P-03", "P-04", "P-08", "P-09", "P-10", "P-11"]
+      },
+      {
+        "id": "EV-POL",
+        "sourceId": "S-POL",
+        "label": "Política de Gestión de Calidad",
+        "referenceLabel": "Política de calidad · 24/08/2026",
+        "stateLabel": "Fuente del cliente",
+        "restrictedTo": null,
+        "summary": [
+          "1. Comprender y atender las necesidades y expectativas de nuestros clientes",
+          "2. Cumplir los requisitos legales, reglamentarios, contractuales y demás compromisos aplicables",
+          "3. Gestionar nuestros procesos de manera ordenada, coordinada y controlada",
+          "4. Asegurar que nuestros proveedores y contratistas cumplan con los requisitos, especificaciones y condiciones establecidos",
+          "5. Fortalecer las competencias y la participación de nuestros colaboradores",
+          "6. Promover una cultura de integridad, ética, responsabilidad y transparencia",
+          "7. Establecer y revisar objetivos de calidad",
+          "8. Fortalecer relaciones de confianza con nuestros inversionistas, fondos de inversión y entidades financieras",
+          "Fecha: 24 de agosto de 2026 · Firma textual: Gustavo Yurivilca · Gerente General"
+        ],
+        "entityIds": ["POL-01", "ORG-01"]
+      }
+    ],
+    "errorMenu": {
+      "label": "Probar recuperación",
+      "retry": "Reintentar",
+      "stop": "Detener",
+      "restart": "Reiniciar escenario",
+      "restartConfirm": "¿Reiniciar el escenario? Se descartará la propuesta en preparación"
+    }
+  }
+}

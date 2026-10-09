@@ -1,0 +1,164 @@
+{
+  "sources": [
+    {
+      "id": "S-REQ",
+      "title": "Instrucción del propietario de esta tarea",
+      "kind": "instruction",
+      "section": null,
+      "date": null,
+      "modelModifiedAt": null,
+      "clientVisible": false,
+      "note": "Cinco pestañas, VPS, Neo4j, roles, HTML portátil"
+    },
+    {
+      "id": "S-PROP",
+      "title": "Propuesta",
+      "kind": "proposal",
+      "section": "§§1–14 y sección ROI",
+      "date": null,
+      "modelModifiedAt": null,
+      "clientVisible": true,
+      "note": "Alcance base; ROI no es dato operativo"
+    },
+    {
+      "id": "S-MAIL",
+      "title": "Respuestas de alcance",
+      "kind": "email",
+      "section": "preguntas 1–16",
+      "date": null,
+      "modelModifiedAt": null,
+      "clientVisible": true,
+      "note": "Incidencias/proyectos/versiones; sin aprobaciones ni notificaciones generales"
+    },
+    {
+      "id": "S-ORG",
+      "title": "Organigrama septiembre 2026",
+      "kind": "orgchart",
+      "section": "Septiembre de 2026",
+      "date": null,
+      "modelModifiedAt": null,
+      "clientVisible": true,
+      "note": "Nombres, puestos, seis áreas y servicios externos"
+    },
+    {
+      "id": "S-CASE",
+      "title": "Caso de mejora de proceso: emisión de boletas",
+      "kind": "case",
+      "section": "Láminas 1–4",
+      "date": null,
+      "modelModifiedAt": null,
+      "clientVisible": true,
+      "note": "Dueño, límites y problemas; diagramas AS-IS y TO-BE"
+    },
+    {
+      "id": "S-ASIS",
+      "title": "Modelo AS IS",
+      "kind": "model",
+      "section": "Diagrama de proceso · caso de emisión de boletas",
+      "date": null,
+      "modelModifiedAt": "2026-09-01T19:24:11.1832766-05:00",
+      "clientVisible": true,
+      "note": "Secuencias y carriles actuales documentados"
+    },
+    {
+      "id": "S-TOBE1",
+      "title": "Modelo TO BE",
+      "kind": "model",
+      "section": "Diagrama de proceso · caso de emisión de boletas",
+      "date": null,
+      "modelModifiedAt": "2026-09-01T19:24:11.2101389-05:00",
+      "clientVisible": true,
+      "note": "Alternativa incompleta; no base de publicación"
+    },
+    {
+      "id": "S-TOBE2",
+      "title": "Modelo TO BE - 2",
+      "kind": "model",
+      "section": "Diagrama de proceso · caso de emisión de boletas",
+      "date": null,
+      "modelModifiedAt": "2026-09-01T19:24:11.2303614-05:00",
+      "clientVisible": true,
+      "note": "Base de comparación propuesta, control preventivo"
+    },
+    {
+      "id": "S-META",
+      "title": "Metadatos de los modelos de proceso",
+      "kind": "metadata",
+      "section": "ModelInfo.xml, Participants.xml, Preferences.bpp y cuatro XML auxiliares dentro de cada .diag",
+      "date": null,
+      "modelModifiedAt": null,
+      "clientVisible": true,
+      "note": "Metadatos y ausencia de mediciones; inventario en anexo A"
+    },
+    {
+      "id": "S-PORT",
+      "title": "Alcance organizacional",
+      "kind": "scope-deck",
+      "section": "lámina 1",
+      "date": null,
+      "modelModifiedAt": null,
+      "clientVisible": true,
+      "note": "Diez procesos de negocio, Legal transversal; no alcance de software"
+    },
+    {
+      "id": "S-POL",
+      "title": "Política de calidad",
+      "kind": "policy",
+      "section": null,
+      "date": "2026-08-24",
+      "modelModifiedAt": null,
+      "clientVisible": true,
+      "note": "Ocho compromisos, firma textual, 24/08/2026"
+    },
+    {
+      "id": "S-DEMO",
+      "title": "Diseño de escenarios de esta especificación",
+      "kind": "demo",
+      "section": null,
+      "date": "2026-10-06",
+      "modelModifiedAt": null,
+      "clientVisible": true,
+      "note": "Datos ficticios, resúmenes y decisiones de presentación claramente marcados"
+    },
+    {
+      "id": "S-VISION",
+      "title": "Visión",
+      "kind": "vision",
+      "section": null,
+      "date": null,
+      "modelModifiedAt": null,
+      "clientVisible": false,
+      "note": "Ambición futura; no aumenta el contrato"
+    },
+    {
+      "id": "S-UX",
+      "title": "Guía de experiencia de usuario (ux.md)",
+      "kind": "contract",
+      "section": null,
+      "date": null,
+      "modelModifiedAt": null,
+      "clientVisible": false,
+      "note": "Contratos del prototipo"
+    },
+    {
+      "id": "S-DS",
+      "title": "Guía de diseño (design.md)",
+      "kind": "contract",
+      "section": null,
+      "date": null,
+      "modelModifiedAt": null,
+      "clientVisible": false,
+      "note": "Contratos del prototipo"
+    },
+    {
+      "id": "S-ARCH",
+      "title": "Arquitectura del HTML (arch.md)",
+      "kind": "contract",
+      "section": null,
+      "date": null,
+      "modelModifiedAt": null,
+      "clientVisible": false,
+      "note": "Contratos del prototipo"
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "solution": {
+    "title": "Así funcionará PRIMUS en Próspera",
+    "intro": "Un espacio web para consultar la organización y una aplicación de escritorio para mantener su información. Ambos trabajan con el mismo conocimiento organizacional y con permisos definidos por Próspera",
+    "caption": "Arquitectura propuesta del sistema a implementar. Este archivo solo simula sus pantallas",
+    "emptyInspector": "Selecciona una parte para conocer su función",
+    "stateLabel": "Propuesto",
+    "analystNote": "El analista necesita permiso admin para publicar; la persona puede tener más de una función organizacional sin duplicar cuenta",
+    "locationNote": "El portal web se sirve desde el VPS y se ejecuta en el navegador",
+    "labels": {
+      "viewConnections": "Ver conexiones",
+      "listView": "Ver como lista",
+      "responsibility": "Responsabilidad",
+      "location": "Ubicación",
+      "state": "Estado",
+      "decision": "Detalle adicional",
+      "inputs": "Entradas",
+      "outputs": "Salidas",
+      "connections": "Conexiones",
+      "actors": "Actores",
+      "zones": "Ubicación",
+      "system": "PRIMUS",
+      "outsideSystem": "Fuera de PRIMUS",
+      "legend": "Leyenda",
+      "noInputs": "Sin conexiones entrantes",
+      "noOutputs": "Sin conexiones salientes · las respuestas regresan por la misma flecha",
+      "listColumns": ["Parte", "Ubicación", "Estado", "Detalle adicional", "Responsabilidad", "Entradas", "Salidas"]
+    },
+    "zones": [
+      { "id": "Z-USER", "label": "Equipo del usuario", "kind": "user-device", "note": null },
+      { "id": "Z-VPS", "label": "VPS de Próspera · servidor privado en internet", "kind": "vps", "note": "Responsable de pago y primer año de hosting: por confirmar" },
+      { "id": "Z-AI", "label": "Servicio de IA", "kind": "external", "note": "Suscripción de IA a cargo de Próspera; plan y consumo por definir" }
+    ],
+    "systemBoundary": {
+      "label": "PRIMUS",
+      "nodeIds": ["C-WEB", "C-API", "C-GRAPH", "C-SEC", "C-FILES", "C-DESK"]
+    },
+    "actors": [
+      { "id": "ACT-ADMIN", "label": "Administrador", "targetNodeIds": ["C-WEB"] },
+      { "id": "ACT-MGMT", "label": "Gerencia", "targetNodeIds": ["C-WEB"] },
+      { "id": "ACT-EMP", "label": "Colaborador", "targetNodeIds": ["C-WEB"] },
+      { "id": "ACT-ANALYST", "label": "Analista de Procesos / Calidad", "targetNodeIds": ["C-DESK"] }
+    ],
+    "nodes": [
+      {
+        "id": "C-WEB",
+        "name": "Portal web",
+        "subtitle": "Aplicación web",
+        "kind": "application",
+        "zoneId": "Z-USER",
+        "locationLabel": "Navegador",
+        "locationNote": "El portal web se sirve desde el VPS y se ejecuta en el navegador",
+        "icon": "monitor",
+        "secondaryIcon": null,
+        "state": "proposed",
+        "stateLabel": "Propuesto",
+        "decision": "defined",
+        "decisionLabel": "Decisión definida para esta propuesta",
+        "decisionNote": null,
+        "description": "Permite consultar áreas, procesos, puestos, personas, documentos y cambios. Cada usuario ve la información permitida para su función. El administrador gestiona las cuentas desde aquí",
+        "inputs": [
+          "Administrador → Portal web",
+          "Gerencia → Portal web",
+          "Colaborador → Portal web"
+        ],
+        "outputs": [
+          "Consulta y acciones autorizadas · HTTPS → Servicio central"
+        ]
+      },
+      {
+        "id": "C-API",
+        "name": "Servicio central",
+        "subtitle": "API de aplicación",
+        "kind": "application",
+        "zoneId": "Z-VPS",
+        "locationLabel": "VPS",
+        "locationNote": null,
+        "icon": "gear",
+        "secondaryIcon": null,
+        "state": "proposed",
+        "stateLabel": "Propuesto",
+        "decision": "pending",
+        "decisionLabel": "Detalle por definir",
+        "decisionNote": null,
+        "description": "Comprueba los permisos, entrega la información a las aplicaciones y registra los cambios. Recibe las publicaciones del analista y mantiene sus versiones",
+        "inputs": [
+          "Portal web → Consulta y acciones autorizadas · HTTPS",
+          "Estudio del analista → Consulta y publicación revisada · HTTPS"
+        ],
+        "outputs": [
+          "Verifica acceso y registra acciones → Usuarios, permisos y registro de acciones",
+          "Consulta y actualiza el modelo → Conocimiento organizacional",
+          "Guarda documentos y versiones → Documentos y versiones de intercambio"
+        ]
+      },
+      {
+        "id": "C-GRAPH",
+        "name": "Conocimiento organizacional",
+        "subtitle": "Neo4j",
+        "kind": "store",
+        "zoneId": "Z-VPS",
+        "locationLabel": "VPS",
+        "locationNote": null,
+        "icon": "graph",
+        "secondaryIcon": "database",
+        "state": "proposed",
+        "stateLabel": "Propuesto",
+        "decision": "defined",
+        "decisionLabel": "Decisión definida para esta propuesta",
+        "decisionNote": null,
+        "description": "Guarda las áreas, procesos, roles, personas y sus relaciones. Permite recorrer cómo se conecta el trabajo de la organización",
+        "inputs": [
+          "Servicio central → Consulta y actualiza el modelo"
+        ],
+        "outputs": []
+      },
+      {
+        "id": "C-SEC",
+        "name": "Usuarios, permisos y registro de acciones",
+        "subtitle": "Almacén de seguridad; tecnología por definir",
+        "kind": "store",
+        "zoneId": "Z-VPS",
+        "locationLabel": "VPS",
+        "locationNote": null,
+        "icon": "shield",
+        "secondaryIcon": "database",
+        "state": "proposed",
+        "stateLabel": "Propuesto",
+        "decision": "pending",
+        "decisionLabel": "Detalle por definir",
+        "decisionNote": "Roles de acceso: decisión definida para esta propuesta",
+        "description": "Guarda las cuentas y sus permisos. Vincula cada cuenta con el puesto que ocupa y registra los accesos y cambios realizados",
+        "inputs": [
+          "Servicio central → Verifica acceso y registra acciones"
+        ],
+        "outputs": []
+      },
+      {
+        "id": "C-FILES",
+        "name": "Documentos y versiones de intercambio",
+        "subtitle": "Almacén de archivos administrado",
+        "kind": "store",
+        "zoneId": "Z-VPS",
+        "locationLabel": "VPS",
+        "locationNote": null,
+        "icon": "folder",
+        "secondaryIcon": null,
+        "state": "proposed",
+        "stateLabel": "Propuesto",
+        "decision": "pending",
+        "decisionLabel": "Detalle por definir",
+        "decisionNote": null,
+        "description": "Conserva los documentos asociados y las representaciones estructuradas de cada publicación. El modelo publicado se consulta desde Neo4j; los archivos no se editan por un segundo camino sin revisión",
+        "inputs": [
+          "Servicio central → Guarda documentos y versiones"
+        ],
+        "outputs": []
+      },
+      {
+        "id": "C-DESK",
+        "name": "Estudio del analista",
+        "subtitle": "Aplicación de escritorio portátil",
+        "kind": "application",
+        "zoneId": "Z-USER",
+        "locationLabel": "Equipo del analista",
+        "locationNote": null,
+        "icon": "window",
+        "secondaryIcon": null,
+        "state": "proposed",
+        "stateLabel": "Propuesto",
+        "decision": "defined",
+        "decisionLabel": "Decisión definida para esta propuesta",
+        "decisionNote": "Plataforma de escritorio por definir",
+        "description": "Ayuda a organizar las fuentes, preparar procesos y revisar cambios antes de publicarlos. Requiere una cuenta autorizada y Claude Code configurado en el equipo",
+        "inputs": [
+          "Analista de Procesos / Calidad → Estudio del analista",
+          "Claude Code → Devuelve una propuesta para revisar"
+        ],
+        "outputs": [
+          "Consulta y publicación revisada · HTTPS → Servicio central",
+          "Solicita ayuda con fuentes seleccionadas → Claude Code"
+        ]
+      },
+      {
+        "id": "X-CLAUDE",
+        "name": "Claude Code",
+        "subtitle": "Herramienta local requerida",
+        "kind": "external",
+        "zoneId": "Z-USER",
+        "locationLabel": "Equipo del analista, fuera de PRIMUS",
+        "locationNote": null,
+        "icon": "terminal",
+        "secondaryIcon": null,
+        "state": "proposed",
+        "stateLabel": "Propuesto",
+        "decision": "defined",
+        "decisionLabel": "Decisión definida para esta propuesta",
+        "decisionNote": null,
+        "description": "Procesa las solicitudes del analista con ayuda de un servicio de IA. Su instalación y suscripción son necesarias para la solución futura; en esta demo las respuestas están preparadas",
+        "inputs": [
+          "Estudio del analista → Solicita ayuda con fuentes seleccionadas"
+        ],
+        "outputs": [
+          "Solicita análisis de IA → Servicio de IA",
+          "Devuelve una propuesta para revisar → Estudio del analista"
+        ]
+      },
+      {
+        "id": "X-AI",
+        "name": "Servicio de IA",
+        "subtitle": "Servicio externo",
+        "kind": "external",
+        "zoneId": "Z-AI",
+        "locationLabel": "Fuera del VPS",
+        "locationNote": null,
+        "icon": "cloud",
+        "secondaryIcon": null,
+        "state": "proposed",
+        "stateLabel": "Propuesto",
+        "decision": "pending",
+        "decisionLabel": "Detalle por definir",
+        "decisionNote": "Suscripción de IA a cargo de Próspera; plan y consumo por definir",
+        "description": "Aporta la capacidad de análisis de IA utilizada por Claude Code. Próspera define qué información puede utilizarse con este servicio",
+        "inputs": [
+          "Claude Code → Solicita análisis de IA"
+        ],
+        "outputs": []
+      }
+    ],
+    "edges": [
+      { "id": "E-C01", "from": "C-WEB", "to": "C-API", "label": "Consulta y acciones autorizadas · HTTPS" },
+      { "id": "E-C02", "from": "C-DESK", "to": "C-API", "label": "Consulta y publicación revisada · HTTPS" },
+      { "id": "E-C03", "from": "C-API", "to": "C-SEC", "label": "Verifica acceso y registra acciones" },
+      { "id": "E-C04", "from": "C-API", "to": "C-GRAPH", "label": "Consulta y actualiza el modelo" },
+      { "id": "E-C05", "from": "C-API", "to": "C-FILES", "label": "Guarda documentos y versiones" },
+      { "id": "E-C06", "from": "C-DESK", "to": "X-CLAUDE", "label": "Solicita ayuda con fuentes seleccionadas" },
+      { "id": "E-C07", "from": "X-CLAUDE", "to": "X-AI", "label": "Solicita análisis de IA" },
+      { "id": "E-C08", "from": "X-CLAUDE", "to": "C-DESK", "label": "Devuelve una propuesta para revisar" }
+    ],
+    "legend": [
+      "Cada flecha indica quién inicia la comunicación. Las respuestas a las consultas regresan por la misma flecha; no se dibujan flechas de retorno",
+      "El navegador, el escritorio y el servicio de IA nunca se conectan directamente a Neo4j ni al almacén de seguridad: todo pasa por el Servicio central",
+      "Las etiquetas de ubicación orientan sobre dónde residirá cada parte; no son un diseño detallado de despliegue",
+      "Todas las partes llevan el distintivo «Propuesto»; no se muestran estados operativos ni luces de disponibilidad"
+    ],
+    "notes": [
+      "El analista necesita permiso admin para publicar; la persona puede tener más de una función organizacional sin duplicar cuenta",
+      "El portal web se sirve desde el VPS y se ejecuta en el navegador",
+      "Responsable de pago y primer año de hosting: por confirmar",
+      "Suscripción de IA a cargo de Próspera; plan y consumo por definir"
+    ],
+    "lifecycle": {
+      "title": "Cómo se mantiene una única versión",
+      "steps": [
+        "1. El analista prepara un borrador.",
+        "2. Revisa fuentes y cambios.",
+        "3. Publica con su cuenta autorizada.",
+        "4. El servicio central registra una nueva versión y actualiza el modelo consultable.",
+        "5. La web muestra esa versión según los permisos"
+      ],
+      "note": "Las aprobaciones internas de los responsables se realizan fuera de PRIMUS en esta primera versión"
+    },
+    "ctas": [
+      { "id": "scope", "label": "Explorar alcance", "target": { "tab": "scope" } },
+      { "id": "web", "label": "Ver prototipo web", "target": { "tab": "web" } }
+    ]
+  }
+}

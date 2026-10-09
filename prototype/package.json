@@ -1,0 +1,20 @@
+{
+  "name": "primus-prospera-prototype",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PRIMUS para Próspera — portable single-file prototype (vanilla JS, no runtime dependencies)",
+  "scripts": {
+    "validate": "node build/validate-pack.mjs --client prospera",
+    "build": "node build/build.mjs --client prospera",
+    "build:dev": "node build/build.mjs --client prospera --dev",
+    "test": "node --test \"tests/contracts/*.test.js\" \"tests/interactions/*.test.js\" \"tests/delivery/*.test.js\"",
+    "test:contracts": "node --test \"tests/contracts/*.test.js\"",
+    "test:interactions": "node --test \"tests/interactions/*.test.js\"",
+    "test:delivery": "node --test \"tests/delivery/*.test.js\"",
+    "test:browser": "node --test \"tests/browser/*.test.js\"",
+    "test:all": "node --test \"tests/**/*.test.js\""
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

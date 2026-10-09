@@ -1,0 +1,784 @@
+- generic [active] [ref=e1]:
+  - link "Ir al contenido principal" [ref=e2] [cursor=pointer]:
+    - /url: "#catalog-main"
+  - generic [ref=e3]:
+    - navigation "Secciones del catálogo" [ref=e4]:
+      - paragraph [ref=e5]: PRENTER · catálogo
+      - link "Tokens" [ref=e6] [cursor=pointer]:
+        - /url: "#tokens"
+      - link "Extensiones" [ref=e7] [cursor=pointer]:
+        - /url: "#extensions"
+      - link "Tipografía" [ref=e8] [cursor=pointer]:
+        - /url: "#typography"
+      - link "Iconos" [ref=e9] [cursor=pointer]:
+        - /url: "#icons"
+      - link "Botones" [ref=e10] [cursor=pointer]:
+        - /url: "#buttons"
+      - link "Badges y estados" [ref=e11] [cursor=pointer]:
+        - /url: "#badges"
+      - link "Chips" [ref=e12] [cursor=pointer]:
+        - /url: "#chips"
+      - link "Fichas (cards)" [ref=e13] [cursor=pointer]:
+        - /url: "#cards"
+      - link "Formularios" [ref=e14] [cursor=pointer]:
+        - /url: "#fields"
+      - link "Tabs y breadcrumbs" [ref=e15] [cursor=pointer]:
+        - /url: "#tabs"
+      - link "Enlaces de entidad" [ref=e16] [cursor=pointer]:
+        - /url: "#links"
+      - link "Métricas y clave-valor" [ref=e17] [cursor=pointer]:
+        - /url: "#metrics"
+      - link "Tablas" [ref=e18] [cursor=pointer]:
+        - /url: "#tables"
+      - link "Disclosure y modales" [ref=e19] [cursor=pointer]:
+        - /url: "#disclosure"
+      - link "Avisos, toasts y vacíos" [ref=e20] [cursor=pointer]:
+        - /url: "#feedback"
+      - link "Proveniencia" [ref=e21] [cursor=pointer]:
+        - /url: "#provenance"
+      - link "Nodos y materiales" [ref=e22] [cursor=pointer]:
+        - /url: "#nodes"
+      - link "Lienzo, carriles y bandas" [ref=e23] [cursor=pointer]:
+        - /url: "#canvas"
+      - link "Inspector" [ref=e24] [cursor=pointer]:
+        - /url: "#inspector"
+      - 'link "Composición: gemelo" [ref=e25] [cursor=pointer]':
+        - /url: "#twin"
+      - 'link "Composición: estudio" [ref=e26] [cursor=pointer]':
+        - /url: "#studio"
+      - link "Vista estrecha" [ref=e27] [cursor=pointer]:
+        - /url: "#narrow"
+    - main [ref=e28]:
+      - generic [ref=e29]:
+        - paragraph [ref=e30]: Página de desarrollo · no se distribuye
+        - heading "Catálogo PRENTER para PRIMUS" [level=1] [ref=e31]
+        - paragraph [ref=e32]:
+          - text: Tokens, átomos, moléculas, materiales y composiciones de layout del prototipo portable. Cada ejemplo se construye con las mismas fábricas (
+          - code [ref=e33]: ds/atoms
+          - text: ","
+          - code [ref=e34]: ds/molecules
+          - text: ) que usan las cinco pestañas.
+      - generic [ref=e35]:
+        - region [ref=e36]:
+          - heading "Tokens PRENTER" [level=2] [ref=e37]
+          - paragraph [ref=e38]: Copia literal de references/prenter/tokens.css (revisión 2c6feb6). Solo se consumen por var().
+          - generic [ref=e39]:
+            - generic [ref=e40]: Teal (marca única)
+            - generic [ref=e41]:
+              - generic [ref=e42]:
+                - generic [ref=e44]: "--color-teal-50"
+                - generic [ref=e45]: "#e6f8f6"
+              - generic [ref=e46]:
+                - generic [ref=e48]: "--color-teal-100"
+                - generic [ref=e49]: "#c2efea"
+              - generic [ref=e50]:
+                - generic [ref=e52]: "--color-teal-200"
+                - generic [ref=e53]: "#8fe3da"
+              - generic [ref=e54]:
+                - generic [ref=e56]: "--color-teal-300"
+                - generic [ref=e57]: "#54d4c8"
+              - generic [ref=e58]:
+                - generic [ref=e60]: "--color-teal-400"
+                - generic [ref=e61]: "#1fc6b8"
+              - generic [ref=e62]:
+                - generic [ref=e64]: "--color-teal-500"
+                - generic [ref=e65]: "#00b7aa"
+              - generic [ref=e66]:
+                - generic [ref=e68]: "--color-teal-600"
+                - generic [ref=e69]: "#009d92"
+              - generic [ref=e70]:
+                - generic [ref=e72]: "--color-teal-700"
+                - generic [ref=e73]: "#007f76"
+              - generic [ref=e74]:
+                - generic [ref=e76]: "--color-teal-800"
+                - generic [ref=e77]: "#0a605a"
+              - generic [ref=e78]:
+                - generic [ref=e80]: "--color-teal-900"
+                - generic [ref=e81]: "#0d4944"
+          - generic [ref=e82]:
+            - generic [ref=e83]: Neutros
+            - generic [ref=e84]:
+              - generic [ref=e85]:
+                - generic [ref=e87]: "--color-neutral-50"
+                - generic [ref=e88]: "#f6f8f8"
+              - generic [ref=e89]:
+                - generic [ref=e91]: "--color-neutral-100"
+                - generic [ref=e92]: "#eef1f1"
+              - generic [ref=e93]:
+                - generic [ref=e95]: "--color-neutral-200"
+                - generic [ref=e96]: "#e1e6e6"
+              - generic [ref=e97]:
+                - generic [ref=e99]: "--color-neutral-300"
+                - generic [ref=e100]: "#c9d1d1"
+              - generic [ref=e101]:
+                - generic [ref=e103]: "--color-neutral-400"
+                - generic [ref=e104]: "#98a3a3"
+              - generic [ref=e105]:
+                - generic [ref=e107]: "--color-neutral-500"
+                - generic [ref=e108]: "#6b7676"
+              - generic [ref=e109]:
+                - generic [ref=e111]: "--color-neutral-600"
+                - generic [ref=e112]: "#4d5757"
+              - generic [ref=e113]:
+                - generic [ref=e115]: "--color-neutral-700"
+                - generic [ref=e116]: "#353d3d"
+              - generic [ref=e117]:
+                - generic [ref=e119]: "--color-neutral-800"
+                - generic [ref=e120]: "#1a201f"
+              - generic [ref=e121]:
+                - generic [ref=e123]: "--color-neutral-900"
+                - generic [ref=e124]: "#0e1312"
+          - generic [ref=e125]:
+            - generic [ref=e126]: Superficies oscuras y estados sobre oscuro
+            - generic [ref=e127]:
+              - generic [ref=e128]:
+                - generic [ref=e130]: "--color-dark-bg"
+                - generic [ref=e131]: "#000000"
+              - generic [ref=e132]:
+                - generic [ref=e134]: "--color-dark-surface"
+                - generic [ref=e135]: "#0c1110"
+              - generic [ref=e136]:
+                - generic [ref=e138]: "--color-dark-raised"
+                - generic [ref=e139]: "#141a19"
+              - generic [ref=e140]:
+                - generic [ref=e142]: "--color-dark-border"
+                - generic [ref=e143]: "#1f2826"
+              - generic [ref=e144]:
+                - generic [ref=e146]: "--color-brand"
+                - generic [ref=e147]: "#00b7aa"
+              - generic [ref=e148]:
+                - generic [ref=e150]: "--color-brand-hover"
+                - generic [ref=e151]: "#1fc6b8"
+              - generic [ref=e152]:
+                - generic [ref=e154]: "--color-brand-active"
+                - generic [ref=e155]: "#009d92"
+              - generic [ref=e156]:
+                - generic [ref=e158]: "--color-focus-ring"
+                - generic [ref=e159]: "#1fc6b8"
+              - generic [ref=e160]:
+                - generic [ref=e162]: "--color-success-dark"
+                - generic [ref=e163]: "#5cc99a"
+              - generic [ref=e164]:
+                - generic [ref=e166]: "--color-warning-dark"
+                - generic [ref=e167]: "#e0ad4e"
+              - generic [ref=e168]:
+                - generic [ref=e170]: "--color-danger-dark"
+                - generic [ref=e171]: "#e2766b"
+          - generic [ref=e172]:
+            - generic [ref=e173]: Texto sobre oscuro
+            - paragraph [ref=e174]: Texto principal --text-on-dark
+            - paragraph [ref=e175]: Texto secundario --text-on-dark-muted
+            - paragraph [ref=e176]: Metadata decorativa --text-on-dark-faint (nunca para instrucciones esenciales)
+            - paragraph [ref=e177]: Énfasis de marca --text-on-dark-brand
+          - generic [ref=e178]:
+            - generic [ref=e179]: Espaciado (grid 4 px)
+            - generic [ref=e180]:
+              - generic [ref=e181]: "--space-1 = 4px"
+              - generic [ref=e184]: "--space-2 = 8px"
+              - generic [ref=e187]: "--space-3 = 12px"
+              - generic [ref=e190]: "--space-4 = 16px"
+              - generic [ref=e193]: "--space-5 = 24px"
+              - generic [ref=e196]: "--space-6 = 32px"
+              - generic [ref=e199]: "--space-7 = 48px"
+              - generic [ref=e202]: "--space-8 = 64px"
+              - generic [ref=e205]: "--space-9 = 96px"
+              - generic [ref=e208]: "--space-10 = 128px"
+          - generic [ref=e211]:
+            - generic [ref=e212]: Radios y sombras
+            - generic [ref=e213]:
+              - generic [ref=e214]: "--radius-sm"
+              - generic [ref=e217]: "--radius-md"
+              - generic [ref=e220]: "--radius-lg"
+              - generic [ref=e223]: "--radius-xl"
+              - generic [ref=e226]: "--radius-pill"
+        - region [ref=e229]:
+          - heading "Extensiones del prototipo" [level=2] [ref=e230]
+          - paragraph [ref=e231]: "Tokens nuevos de design.md §2, registrados en ds/extensions.css: layout, controles, duración, z, geometría de grafo, tintes y materiales por tipo de entidad."
+          - generic [ref=e232]:
+            - generic [ref=e233]:
+              - generic [ref=e234]: Layout
+              - generic [ref=e235]:
+                - generic [ref=e236]:
+                  - term [ref=e237]: "--layout-header"
+                  - definition [ref=e238]: 72px
+                - generic [ref=e239]:
+                  - term [ref=e240]: "--layout-tabs"
+                  - definition [ref=e241]: 48px
+                - generic [ref=e242]:
+                  - term [ref=e243]: "--layout-contextbar"
+                  - definition [ref=e244]: 56px
+                - generic [ref=e245]:
+                  - term [ref=e246]: "--layout-rail"
+                  - definition [ref=e247]: 224px
+                - generic [ref=e248]:
+                  - term [ref=e249]: "--layout-inspector"
+                  - definition [ref=e250]: 360px
+                - generic [ref=e251]:
+                  - term [ref=e252]: "--layout-inspector-min"
+                  - definition [ref=e253]: 320px
+                - generic [ref=e254]:
+                  - term [ref=e255]: "--layout-inspector-max"
+                  - definition [ref=e256]: 420px
+                - generic [ref=e257]:
+                  - term [ref=e258]: "--layout-roster"
+                  - definition [ref=e259]: 260px
+                - generic [ref=e260]:
+                  - term [ref=e261]: "--layout-side"
+                  - definition [ref=e262]: 380px
+                - generic [ref=e263]:
+                  - term [ref=e264]: "--layout-sheet-max"
+                  - definition [ref=e265]: 85vh
+            - generic [ref=e266]:
+              - generic [ref=e267]: Controles y movimiento
+              - generic [ref=e268]:
+                - generic [ref=e269]:
+                  - term [ref=e270]: "--control-min-target"
+                  - definition [ref=e271]: 44px
+                - generic [ref=e272]:
+                  - term [ref=e273]: "--control-height-sm"
+                  - definition [ref=e274]: 36px
+                - generic [ref=e275]:
+                  - term [ref=e276]: "--control-height-md"
+                  - definition [ref=e277]: 44px
+                - generic [ref=e278]:
+                  - term [ref=e279]: "--control-height-lg"
+                  - definition [ref=e280]: 52px
+                - generic [ref=e281]:
+                  - term [ref=e282]: "--control-radius"
+                  - definition [ref=e283]: 8px
+                - generic [ref=e284]:
+                  - term [ref=e285]: "--duration-fast"
+                  - definition [ref=e286]: 120ms
+                - generic [ref=e287]:
+                  - term [ref=e288]: "--duration-normal"
+                  - definition [ref=e289]: 180ms
+                - generic [ref=e290]:
+                  - term [ref=e291]: "--easing-standard"
+                  - definition [ref=e292]: cubic-bezier(0.2, 0, 0, 1)
+            - generic [ref=e293]:
+              - generic [ref=e294]: Apilado
+              - generic [ref=e295]:
+                - generic [ref=e296]:
+                  - term [ref=e297]: "--z-base"
+                  - definition [ref=e298]: "0"
+                - generic [ref=e299]:
+                  - term [ref=e300]: "--z-sticky"
+                  - definition [ref=e301]: "10"
+                - generic [ref=e302]:
+                  - term [ref=e303]: "--z-inspector"
+                  - definition [ref=e304]: "20"
+                - generic [ref=e305]:
+                  - term [ref=e306]: "--z-dialog"
+                  - definition [ref=e307]: "30"
+                - generic [ref=e308]:
+                  - term [ref=e309]: "--z-toast"
+                  - definition [ref=e310]: "40"
+            - generic [ref=e311]:
+              - generic [ref=e312]: Grafo
+              - generic [ref=e313]:
+                - generic [ref=e314]:
+                  - term [ref=e315]: "--graph-node-min-width"
+                  - definition [ref=e316]: 176px
+                - generic [ref=e317]:
+                  - term [ref=e318]: "--graph-node-max-width"
+                  - definition [ref=e319]: 240px
+                - generic [ref=e320]:
+                  - term [ref=e321]: "--graph-node-min-height"
+                  - definition [ref=e322]: 56px
+                - generic [ref=e323]:
+                  - term [ref=e324]: "--graph-node-gap"
+                  - definition [ref=e325]: 24px
+                - generic [ref=e326]:
+                  - term [ref=e327]: "--graph-line-default"
+                  - definition [ref=e328]: 1px
+                - generic [ref=e329]:
+                  - term [ref=e330]: "--graph-line-selected"
+                  - definition [ref=e331]: 2px
+                - generic [ref=e332]:
+                  - term [ref=e333]: "--graph-decision-size"
+                  - definition [ref=e334]: 112px
+                - generic [ref=e335]:
+                  - term [ref=e336]: "--graph-event-size"
+                  - definition [ref=e337]: 56px
+                - generic [ref=e338]:
+                  - term [ref=e339]: "--lane-height"
+                  - definition [ref=e340]: 168px
+                - generic [ref=e341]:
+                  - term [ref=e342]: "--lane-label-width"
+                  - definition [ref=e343]: 144px
+                - generic [ref=e344]:
+                  - term [ref=e345]: "--band-min-height"
+                  - definition [ref=e346]: 120px
+                - generic [ref=e347]:
+                  - term [ref=e348]: "--band-label-width"
+                  - definition [ref=e349]: 160px
+          - generic [ref=e350]:
+            - generic [ref=e351]: Tintes derivados (alfa de tokens PRENTER, sin tonos nuevos)
+            - generic [ref=e352]:
+              - generic [ref=e353]:
+                - generic [ref=e355]: "--tint-brand-faint"
+                - generic [ref=e356]: rgba(0, 183, 170, 0.12)
+              - generic [ref=e357]:
+                - generic [ref=e359]: "--tint-brand-soft"
+                - generic [ref=e360]: rgba(0, 183, 170, 0.22)
+              - generic [ref=e361]:
+                - generic [ref=e363]: "--tint-warning-faint"
+                - generic [ref=e364]: rgba(224, 173, 78, 0.12)
+              - generic [ref=e365]:
+                - generic [ref=e367]: "--tint-danger-faint"
+                - generic [ref=e368]: rgba(226, 118, 107, 0.12)
+              - generic [ref=e369]:
+                - generic [ref=e371]: "--tint-success-faint"
+                - generic [ref=e372]: rgba(92, 201, 154, 0.12)
+              - generic [ref=e373]:
+                - generic [ref=e375]: "--tint-white-hover"
+                - generic [ref=e376]: rgba(255, 255, 255, 0.06)
+              - generic [ref=e377]:
+                - generic [ref=e379]: "--tint-white-active"
+                - generic [ref=e380]: rgba(255, 255, 255, 0.1)
+              - generic [ref=e381]:
+                - generic [ref=e383]: "--tint-backdrop"
+                - generic [ref=e384]: rgba(0, 0, 0, 0.7)
+        - region [ref=e385]:
+          - heading "Tipografía" [level=2] [ref=e386]
+          - paragraph [ref=e387]: Display para títulos (narrativa 36–48 px, web 22–28 px), cuerpo 16 px/1.5, mono para IDs, valores y terminal. Fuentes locales con fallback de sistema; sin descargas.
+          - generic [ref=e388]:
+            - generic [ref=e389]: Escala
+            - generic [ref=e390]:
+              - heading "Título de narrativa (h1)" [level=1] [ref=e391]
+              - heading "Sección de narrativa (h2)" [level=2] [ref=e392]
+              - heading "Título web / inspector (h3)" [level=3] [ref=e393]
+              - heading "Subtítulo (h4, cuerpo)" [level=4] [ref=e394]
+              - paragraph [ref=e395]: Cuerpo 16 px / 1.5. La prosa se limita a 760 px (.text-narrow) y las páginas a 1200 px (.container).
+              - paragraph [ref=e396]: Pequeño 14 px para notas y metadatos.
+              - paragraph [ref=e397]: Eyebrow mono · firma PRENTER
+              - paragraph [ref=e398]: PR-BOLETAS · V-ASIS-01 · 06/10/2026 10:00:03
+              - paragraph [ref=e399]:
+                - text: "Teclas:"
+                - generic [ref=e400]: Esc
+                - generic [ref=e401]: Tab
+                - generic [ref=e402]: ↑
+                - generic [ref=e403]: ↓
+        - region [ref=e404]:
+          - heading "Iconos" [level=2] [ref=e405]
+          - paragraph [ref=e406]: SVG inline 24×24, trazo 1.5 px, currentColor. Decorativos con aria-hidden; con label → role="img" y <title>. Nunca sustituyen al nombre.
+          - generic [ref=e407]:
+            - generic [ref=e408]:
+              - img "organization" [ref=e409]
+              - generic [ref=e411]: organization
+            - generic [ref=e412]:
+              - img "building" [ref=e413]
+              - generic [ref=e415]: building
+            - generic [ref=e416]:
+              - img "area" [ref=e417]
+              - generic [ref=e419]: area
+            - generic [ref=e420]:
+              - img "macroprocess" [ref=e421]
+              - generic [ref=e423]: macroprocess
+            - generic [ref=e424]:
+              - img "process" [ref=e425]
+              - generic [ref=e427]: process
+            - generic [ref=e428]:
+              - img "activity" [ref=e429]
+              - generic [ref=e431]: activity
+            - generic [ref=e432]:
+              - img "role" [ref=e433]
+              - generic [ref=e435]: role
+            - generic [ref=e436]:
+              - img "position" [ref=e437]
+              - generic [ref=e439]: position
+            - generic [ref=e440]:
+              - img "person" [ref=e441]
+              - generic [ref=e443]: person
+            - generic [ref=e444]:
+              - img "user" [ref=e445]
+              - generic [ref=e447]: user
+            - generic [ref=e448]:
+              - img "external" [ref=e449]
+              - generic [ref=e451]: external
+            - generic [ref=e452]:
+              - img "externalProvider" [ref=e453]
+              - generic [ref=e455]: externalProvider
+            - generic [ref=e456]:
+              - img "externalActor" [ref=e457]
+              - generic [ref=e459]: externalActor
+            - generic [ref=e460]:
+              - img "system" [ref=e461]
+              - generic [ref=e463]: system
+            - generic [ref=e464]:
+              - img "monitor" [ref=e465]
+              - generic [ref=e467]: monitor
+            - generic [ref=e468]:
+              - img "document" [ref=e469]
+              - generic [ref=e471]: document
+            - generic [ref=e472]:
+              - img "policy" [ref=e473]
+              - generic [ref=e475]: policy
+            - generic [ref=e476]:
+              - img "shield" [ref=e477]
+              - generic [ref=e479]: shield
+            - generic [ref=e480]:
+              - img "objective" [ref=e481]
+              - generic [ref=e483]: objective
+            - generic [ref=e484]:
+              - img "indicator" [ref=e485]
+              - generic [ref=e487]: indicator
+            - generic [ref=e488]:
+              - img "gap" [ref=e489]
+              - generic [ref=e491]: gap
+            - generic [ref=e492]:
+              - img "warning" [ref=e493]
+              - generic [ref=e495]: warning
+            - generic [ref=e496]:
+              - img "incident" [ref=e497]
+              - generic [ref=e499]: incident
+            - generic [ref=e500]:
+              - img "flag" [ref=e501]
+              - generic [ref=e503]: flag
+            - generic [ref=e504]:
+              - img "project" [ref=e505]
+              - generic [ref=e507]: project
+            - generic [ref=e508]:
+              - img "folder" [ref=e509]
+              - generic [ref=e511]: folder
+            - generic [ref=e512]:
+              - img "version" [ref=e513]
+              - generic [ref=e515]: version
+            - generic [ref=e516]:
+              - img "decision" [ref=e517]
+              - generic [ref=e519]: decision
+            - generic [ref=e520]:
+              - img "event" [ref=e521]
+              - generic [ref=e523]: event
+            - generic [ref=e524]:
+              - img "start" [ref=e525]
+              - generic [ref=e527]: start
+            - generic [ref=e528]:
+              - img "end" [ref=e529]
+              - generic [ref=e532]: end
+            - generic [ref=e533]:
+              - img "close" [ref=e534]
+              - generic [ref=e536]: close
+            - generic [ref=e537]:
+              - img "back" [ref=e538]
+              - generic [ref=e540]: back
+            - generic [ref=e541]:
+              - img "forward" [ref=e542]
+              - generic [ref=e544]: forward
+            - generic [ref=e545]:
+              - img "arrowUp" [ref=e546]
+              - generic [ref=e548]: arrowUp
+            - generic [ref=e549]:
+              - img "arrowDown" [ref=e550]
+              - generic [ref=e552]: arrowDown
+            - generic [ref=e553]:
+              - img "search" [ref=e554]
+              - generic [ref=e556]: search
+            - generic [ref=e557]:
+              - img "zoomIn" [ref=e558]
+              - generic [ref=e560]: zoomIn
+            - generic [ref=e561]:
+              - img "zoomOut" [ref=e562]
+              - generic [ref=e564]: zoomOut
+            - generic [ref=e565]:
+              - img "fit" [ref=e566]
+              - generic [ref=e568]: fit
+            - generic [ref=e569]:
+              - img "reset" [ref=e570]
+              - generic [ref=e572]: reset
+            - generic [ref=e573]:
+              - img "chevronDown" [ref=e574]
+              - generic [ref=e576]: chevronDown
+            - generic [ref=e577]:
+              - img "chevronRight" [ref=e578]
+              - generic [ref=e580]: chevronRight
+            - generic [ref=e581]:
+              - img "chevronUp" [ref=e582]
+              - generic [ref=e584]: chevronUp
+            - generic [ref=e585]:
+              - img "chevronLeft" [ref=e586]
+              - generic [ref=e588]: chevronLeft
+            - generic [ref=e589]:
+              - img "check" [ref=e590]
+              - generic [ref=e592]: check
+            - generic [ref=e593]:
+              - img "error" [ref=e594]
+              - generic [ref=e596]: error
+            - generic [ref=e597]:
+              - img "info" [ref=e598]
+              - generic [ref=e600]: info
+            - generic [ref=e601]:
+              - img "list" [ref=e602]
+              - generic [ref=e604]: list
+            - generic [ref=e605]:
+              - img "map" [ref=e606]
+              - generic [ref=e608]: map
+            - generic [ref=e609]:
+              - img "menu" [ref=e610]
+              - generic [ref=e612]: menu
+            - generic [ref=e613]:
+              - img "externalLink" [ref=e614]
+              - generic [ref=e616]: externalLink
+            - generic [ref=e617]:
+              - img "play" [ref=e618]
+              - generic [ref=e620]: play
+            - generic [ref=e621]:
+              - img "pause" [ref=e622]
+              - generic [ref=e624]: pause
+            - generic [ref=e625]:
+              - img "stop" [ref=e626]
+              - generic [ref=e628]: stop
+            - generic [ref=e629]:
+              - img "retry" [ref=e630]
+              - generic [ref=e632]: retry
+            - generic [ref=e633]:
+              - img "plus" [ref=e634]
+              - generic [ref=e636]: plus
+            - generic [ref=e637]:
+              - img "minus" [ref=e638]
+              - generic [ref=e639]: minus
+            - generic [ref=e640]:
+              - img "edit" [ref=e641]
+              - generic [ref=e643]: edit
+            - generic [ref=e644]:
+              - img "trash" [ref=e645]
+              - generic [ref=e647]: trash
+            - generic [ref=e648]:
+              - img "lock" [ref=e649]
+              - generic [ref=e651]: lock
+            - generic [ref=e652]:
+              - img "gear" [ref=e653]
+              - generic [ref=e655]: gear
+            - generic [ref=e656]:
+              - img "database" [ref=e657]
+              - generic [ref=e659]: database
+            - generic [ref=e660]:
+              - img "window" [ref=e661]
+              - generic [ref=e663]: window
+            - generic [ref=e664]:
+              - img "terminal" [ref=e665]
+              - generic [ref=e667]: terminal
+            - generic [ref=e668]:
+              - img "cloud" [ref=e669]
+              - generic [ref=e671]: cloud
+            - generic [ref=e672]:
+              - img "graph" [ref=e673]
+              - generic [ref=e675]: graph
+            - generic [ref=e676]:
+              - img "history" [ref=e677]
+              - generic [ref=e679]: history
+            - generic [ref=e680]:
+              - img "link" [ref=e681]
+              - generic [ref=e683]: link
+            - generic [ref=e684]:
+              - img "send" [ref=e685]
+              - generic [ref=e687]: send
+            - generic [ref=e688]:
+              - img "clock" [ref=e689]
+              - generic [ref=e691]: clock
+            - generic [ref=e692]:
+              - img "calendar" [ref=e693]
+              - generic [ref=e695]: calendar
+            - generic [ref=e696]:
+              - img "filter" [ref=e697]
+              - generic [ref=e699]: filter
+            - generic [ref=e700]:
+              - img "layers" [ref=e701]
+              - generic [ref=e703]: layers
+            - generic [ref=e704]:
+              - img "compare" [ref=e705]
+              - generic [ref=e707]: compare
+            - generic [ref=e708]:
+              - img "table" [ref=e709]
+              - generic [ref=e711]: table
+            - generic [ref=e712]:
+              - img "sort" [ref=e713]
+              - generic [ref=e715]: sort
+            - generic [ref=e716]:
+              - img "sortAsc" [ref=e717]
+              - generic [ref=e719]: sortAsc
+            - generic [ref=e720]:
+              - img "sortDesc" [ref=e721]
+              - generic [ref=e723]: sortDesc
+            - generic [ref=e724]:
+              - img "home" [ref=e725]
+              - generic [ref=e727]: home
+            - generic [ref=e728]:
+              - img "eye" [ref=e729]
+              - generic [ref=e731]: eye
+            - generic [ref=e732]:
+              - img "circle" [ref=e733]
+              - generic [ref=e735]: circle
+            - generic [ref=e736]:
+              - img "dot" [ref=e737]
+              - generic [ref=e739]: dot
+            - generic [ref=e740]:
+              - img "spinner" [ref=e741]
+              - generic [ref=e743]: spinner
+          - generic [ref=e744]:
+            - generic [ref=e745]: Nombre desconocido (fallback marcado con data-icon-missing)
+            - generic [ref=e746]:
+              - img "no-existe" [ref=e747]
+              - generic [ref=e749]: icon("no-existe")
+        - region [ref=e750]:
+          - heading "Botones" [level=2] [ref=e751]
+          - paragraph [ref=e752]: <button> nativo; alturas 36/44/52; primario, secundario, fantasma y peligro. Deshabilitado conserva el foco (aria-disabled) y muestra el motivo adyacente (.btn__reason). Ocupado mantiene el texto visible y bloquea comandos duplicados.
+          - generic [ref=e753]:
+            - generic [ref=e754]:
+              - generic [ref=e755]: primary
+              - generic [ref=e756]:
+                - button "Pequeño" [ref=e757] [cursor=pointer]
+                - button "Mediano" [ref=e759] [cursor=pointer]
+                - button "Grande" [ref=e761] [cursor=pointer]
+              - generic [ref=e763]:
+                - button "Con icono" [ref=e764] [cursor=pointer]
+                - button "Pulsado" [pressed] [ref=e768] [cursor=pointer]
+                - button "Deshabilitado" [disabled] [ref=e770]
+              - generic [ref=e772]:
+                - button "Ocupado" [disabled] [ref=e773]
+                - generic [ref=e777]:
+                  - button "Deshabilitado con motivo" [disabled] [ref=e778]
+                  - generic [ref=e780]: Esta vista requiere un perfil administrador
+              - button "Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado" [ref=e782] [cursor=pointer]
+            - generic [ref=e784]:
+              - generic [ref=e785]: secondary
+              - generic [ref=e786]:
+                - button "Pequeño" [ref=e787] [cursor=pointer]
+                - button "Mediano" [ref=e789] [cursor=pointer]
+                - button "Grande" [ref=e791] [cursor=pointer]
+              - generic [ref=e793]:
+                - button "Con icono" [ref=e794] [cursor=pointer]
+                - button "Pulsado" [pressed] [ref=e798] [cursor=pointer]
+                - button "Deshabilitado" [disabled] [ref=e800]
+              - generic [ref=e802]:
+                - button "Ocupado" [disabled] [ref=e803]
+                - generic [ref=e807]:
+                  - button "Deshabilitado con motivo" [disabled] [ref=e808]
+                  - generic [ref=e810]: Esta vista requiere un perfil administrador
+              - button "Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado" [ref=e812] [cursor=pointer]
+            - generic [ref=e814]:
+              - generic [ref=e815]: ghost
+              - generic [ref=e816]:
+                - button "Pequeño" [ref=e817] [cursor=pointer]
+                - button "Mediano" [ref=e819] [cursor=pointer]
+                - button "Grande" [ref=e821] [cursor=pointer]
+              - generic [ref=e823]:
+                - button "Con icono" [ref=e824] [cursor=pointer]
+                - button "Pulsado" [pressed] [ref=e828] [cursor=pointer]
+                - button "Deshabilitado" [disabled] [ref=e830]
+              - generic [ref=e832]:
+                - button "Ocupado" [disabled] [ref=e833]
+                - generic [ref=e837]:
+                  - button "Deshabilitado con motivo" [disabled] [ref=e838]
+                  - generic [ref=e840]: Esta vista requiere un perfil administrador
+              - button "Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado" [ref=e842] [cursor=pointer]
+            - generic [ref=e844]:
+              - generic [ref=e845]: danger
+              - generic [ref=e846]:
+                - button "Pequeño" [ref=e847] [cursor=pointer]
+                - button "Mediano" [ref=e849] [cursor=pointer]
+                - button "Grande" [ref=e851] [cursor=pointer]
+              - generic [ref=e853]:
+                - button "Con icono" [ref=e854] [cursor=pointer]
+                - button "Pulsado" [pressed] [ref=e858] [cursor=pointer]
+                - button "Deshabilitado" [disabled] [ref=e860]
+              - generic [ref=e862]:
+                - button "Ocupado" [disabled] [ref=e863]
+                - generic [ref=e867]:
+                  - button "Deshabilitado con motivo" [disabled] [ref=e868]
+                  - generic [ref=e870]: Esta vista requiere un perfil administrador
+              - button "Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado" [ref=e872] [cursor=pointer]
+          - generic [ref=e874]:
+            - generic [ref=e875]: Solo icono (siempre con ariaLabel) y foco
+            - generic [ref=e876]:
+              - button "Cerrar" [ref=e877] [cursor=pointer]
+              - button "Acercar" [ref=e880] [cursor=pointer]
+              - button "Ver como mapa" [pressed] [ref=e883] [cursor=pointer]
+              - button "Navegación del módulo" [ref=e886] [cursor=pointer]
+              - button "Mostrar anillo de foco" [ref=e889] [cursor=pointer]
+              - button "Objetivo del foco (anillo exterior teal)" [ref=e891] [cursor=pointer]
+        - region [ref=e893]:
+          - heading "Badges y etiquetas de estado" [level=2] [ref=e894]
+          - paragraph [ref=e895]: "Texto + forma, nunca solo color: éxito/aviso/error llevan glifo, propuesto usa borde discontinuo teal, demo usa tono aviso con bandera."
+          - generic [ref=e896]:
+            - generic [ref=e897]: Badge por tono
+            - generic [ref=e898]:
+              - generic [ref=e899]: neutral
+              - generic [ref=e901]: brand
+              - generic [ref=e903]: success
+              - generic [ref=e907]: warning
+              - generic [ref=e911]: danger
+              - generic [ref=e915]: proposed
+              - generic [ref=e919]: demo
+              - generic [ref=e923]: info
+          - generic [ref=e927]:
+            - generic [ref=e928]: Etiquetas exactas de proveniencia (spec §13)
+            - generic [ref=e929]:
+              - generic [ref=e930]: Fuente del cliente
+              - generic [ref=e932]: Síntesis de las fuentes
+              - generic [ref=e934]: Relación por validar
+              - generic [ref=e938]: Propuesto · por validar
+              - generic [ref=e942]: Ejemplo de demostración
+              - generic [ref=e946]: Sin dato proporcionado
+              - generic [ref=e948]: Prototipo · Interacciones simuladas
+              - generic [ref=e950]: Confidencial · Uso exclusivo de Próspera
+          - generic [ref=e954]:
+            - generic [ref=e955]: Status label (en línea, con marca de forma)
+            - generic [ref=e956]:
+              - generic [ref=e957]: neutral
+              - generic [ref=e960]: brand
+              - generic [ref=e963]: success
+              - generic [ref=e966]: warning
+              - generic [ref=e969]: danger
+              - generic [ref=e972]: proposed
+              - generic [ref=e975]: demo
+              - generic [ref=e978]: info
+            - generic [ref=e981]:
+              - generic [ref=e982]: Completado
+              - generic [ref=e986]: En curso
+              - generic [ref=e990]: Vencido
+              - generic [ref=e994]: Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado
+        - region [ref=e997]:
+          - heading "Chips" [level=2] [ref=e998]
+          - paragraph [ref=e999]: Informativos (span), interactivos (button con aria-pressed) y removibles (botón adyacente, nunca anidado).
+          - generic [ref=e1000]:
+            - generic [ref=e1001]: Variantes
+            - generic [ref=e1002]:
+              - generic [ref=e1003]: Próspera
+              - generic [ref=e1008]: Emisión de boletas
+              - generic [ref=e1011]: 5 fuentes disponibles
+              - generic [ref=e1014]: TO-BE 2 · Propuesto
+              - button "Filtro activo" [pressed] [ref=e1017] [cursor=pointer]
+              - button "Filtro inactivo" [ref=e1019] [cursor=pointer]
+              - generic [ref=e1021]:
+                - generic [ref=e1022]: Administración y Finanzas
+                - button "Quitar Administración y Finanzas" [ref=e1024] [cursor=pointer]
+              - generic [ref=e1027] [cursor=pointer]:
+                - button "Con ambos" [pressed] [ref=e1028]
+                - button "Quitar Con ambos" [ref=e1030]
+        - region [ref=e1033]:
+          - heading "Fichas (cards)" [level=2] [ref=e1034]
+          - paragraph [ref=e1035]: Contenedor sin rol de botón; la acción real va dentro. Seleccionada = contorno persistente.
+          - generic [ref=e1036]:
+            - region [ref=e1037]:
+              - generic [ref=e1038]:
+                - heading "Ficha estándar" [level=3] [ref=e1039]
+                - paragraph [ref=e1040]: Subtítulo breve
+              - paragraph [ref=e1042]: Cuerpo de la ficha con texto explicativo.
+              - button "Ver en la demo" [ref=e1044] [cursor=pointer]
+            - region [ref=e1046]:
+              - heading "Ficha silenciosa" [level=3] [ref=e1048]
+              - paragraph [ref=e1050]: Fondo transparente para agrupar sin peso visual.
+            - region [ref=e1051]:
+              - heading "Ficha elevada" [level=3] [ref=e1053]
+              - paragraph [ref=e1055]: Superficie elevada con sombra media.
+            - region [ref=e1056]:
+              - generic [ref=e1057]:
+                - generic [ref=e1058]: SC-01
+                - heading "Ficha seleccionada" [level=3] [ref=e1059]
+              - paragraph [ref=e1061]: Contorno de selección de 2 px.
+            - region [ref=e1062]:
+              - heading "Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado" [level=3] [ref=e1064]
+              - paragraph [ref=e1066]: Título largo que envuelve sin cortar.
+            - paragraph [ref=e1069]: Ficha sin título (sin aria-labelledby).
+    - generic "Avisos"

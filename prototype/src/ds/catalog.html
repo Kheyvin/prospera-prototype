@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo PRENTER · desarrollo (no se distribuye)</title>
+  <!-- Development catalog: loads the source files directly. Never part of dist/ (spec §17). -->
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="extensions.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="atoms.css">
+  <link rel="stylesheet" href="molecules.css">
+  <link rel="stylesheet" href="../styles/layout.css">
+  <link rel="stylesheet" href="../styles/visualization.css">
+  <link rel="stylesheet" href="../styles/responsive.css">
+  <link rel="stylesheet" href="../styles/print.css">
+  <style>
+    /* Catalog-only chrome (not part of the bank). */
+    .catalog { display: grid; grid-template-columns: 14rem minmax(0, 1fr); min-height: 100vh; }
+    .catalog__nav { position: sticky; top: 0; align-self: start; max-height: 100vh; overflow-y: auto; padding: var(--space-4); border-right: 1px solid var(--color-dark-border); background: var(--color-dark-surface); }
+    .catalog__nav a { display: block; padding: var(--space-1) 0; color: var(--text-on-dark-muted); text-decoration: none; font-size: var(--text-sm); }
+    .catalog__nav a:hover { color: var(--text-on-dark); }
+    .catalog__main { padding: var(--space-6) var(--space-6) var(--space-10); display: flex; flex-direction: column; gap: var(--space-8); max-width: 1400px; }
+    .catalog__section { display: flex; flex-direction: column; gap: var(--space-4); scroll-margin-top: var(--space-4); }
+    .catalog__section > h2 { font-size: 1.75rem; }
+    .catalog__desc { color: var(--text-on-dark-muted); max-width: var(--container-narrow); }
+    .catalog__row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--space-3); }
+    .catalog__row--center { align-items: center; }
+    .catalog__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: var(--space-4); }
+    .catalog__demo { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); min-width: 0; }
+    .catalog__demo > .eyebrow { color: var(--text-on-dark-muted); }
+    .catalog__swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: var(--space-2); }
+    .catalog__swatch { display: flex; flex-direction: column; gap: var(--space-1); padding: var(--space-2); border: 1px solid var(--color-dark-border); border-radius: var(--radius-md); font-family: var(--font-mono); font-size: var(--text-xs); }
+    .catalog__swatch-color { height: 2.5rem; border-radius: var(--radius-sm); border: 1px solid var(--color-dark-border); }
+    .catalog__icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr)); gap: var(--space-2); }
+    .catalog__icon { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); padding: var(--space-2); border: 1px solid var(--color-dark-border); border-radius: var(--radius-md); font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-on-dark-muted); }
+    .catalog__icon .icon { width: 1.5rem; height: 1.5rem; color: var(--text-on-dark); }
+    .catalog__frame { height: 34rem; border: 1px solid var(--color-dark-border); border-radius: var(--radius-lg); overflow: hidden; }
+    .catalog__space { height: 1rem; background: var(--color-brand); border-radius: 2px; }
+    .catalog__type-sample { display: flex; flex-direction: column; gap: var(--space-2); }
+    .catalog__canvas { height: 22rem; }
+    .catalog__narrow { width: 24rem; max-width: 100%; }
+    @media (max-width: 1279px) { .catalog { grid-template-columns: minmax(0, 1fr); } .catalog__nav { position: static; max-height: none; border-right: 0; border-bottom: 1px solid var(--color-dark-border); } }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#catalog-main">Ir al contenido principal</a>
+<div id="primus-app" class="catalog">
+  <nav class="catalog__nav" aria-label="Secciones del catálogo">
+    <p class="eyebrow">PRENTER · catálogo</p>
+    <a href="#tokens">Tokens</a>
+    <a href="#extensions">Extensiones</a>
+    <a href="#typography">Tipografía</a>
+    <a href="#icons">Iconos</a>
+    <a href="#buttons">Botones</a>
+    <a href="#badges">Badges y estados</a>
+    <a href="#chips">Chips</a>
+    <a href="#cards">Fichas (cards)</a>
+    <a href="#fields">Formularios</a>
+    <a href="#tabs">Tabs y breadcrumbs</a>
+    <a href="#links">Enlaces de entidad</a>
+    <a href="#metrics">Métricas y clave-valor</a>
+    <a href="#tables">Tablas</a>
+    <a href="#disclosure">Disclosure y modales</a>
+    <a href="#feedback">Avisos, toasts y vacíos</a>
+    <a href="#provenance">Proveniencia</a>
+    <a href="#nodes">Nodos y materiales</a>
+    <a href="#canvas">Lienzo, carriles y bandas</a>
+    <a href="#inspector">Inspector</a>
+    <a href="#twin">Composición: gemelo</a>
+    <a href="#studio">Composición: estudio</a>
+    <a href="#narrow">Vista estrecha</a>
+  </nav>
+  <main class="catalog__main" id="catalog-main">
+    <header class="narrative__header">
+      <p class="eyebrow">Página de desarrollo · no se distribuye</p>
+      <h1 class="narrative__title">Catálogo PRENTER para PRIMUS</h1>
+      <p class="narrative__intro">Tokens, átomos, moléculas, materiales y composiciones de layout del prototipo portable. Cada ejemplo se construye con las mismas fábricas (<code>ds/atoms</code>, <code>ds/molecules</code>) que usan las cinco pestañas.</p>
+    </header>
+    <div id="catalog-sections"></div>
+  </main>
+  <div id="primus-overlays"></div>
+  <div id="primus-toasts" class="toasts" aria-label="Avisos"></div>
+  <div id="primus-live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+</div>
+
+<script src="../prelude.js"></script>
+<script src="../core/dom.js"></script>
+<script src="icons.js"></script>
+<script src="atoms.js"></script>
+<script src="molecules.js"></script>
+<script>
+(function () {
+  'use strict';
+  var dom = Primus.require('core/dom');
+  var icons = Primus.require('ds/icons');
+  var atoms = Primus.require('ds/atoms');
+  var mol = Primus.require('ds/molecules');
+  var h = dom.h;
+  var svg = dom.svg;
+  var root = document.getElementById('catalog-sections');
+  var MISSING = 'Sin dato proporcionado';
+  var LONG = 'Verificar abono y documentos del expediente de separación con convenio firmado y comprobante de pago validado';
+
+  function section(id, title, desc) {
+    var children = Array.prototype.slice.call(arguments, 3);
+    var el = h.apply(null, ['section', { class: 'catalog__section', id: id, 'aria-labelledby': id + '-title' },
+      h('h2', { id: id + '-title' }, title),
+      desc ? h('p', { class: 'catalog__desc' }, desc) : null].concat(children));
+    root.appendChild(el);
+    return el;
+  }
+  function demo(label) {
+    var children = Array.prototype.slice.call(arguments, 1);
+    return h.apply(null, ['div', { class: 'catalog__demo' }, h('span', { class: 'eyebrow' }, label)].concat(children));
+  }
+  function row() { return h.apply(null, ['div', { class: 'catalog__row catalog__row--center' }].concat(Array.prototype.slice.call(arguments))); }
+  function grid() { return h.apply(null, ['div', { class: 'catalog__grid' }].concat(Array.prototype.slice.call(arguments))); }
+  function noop() {}
+  function toast(text, tone) {
+    var list = document.getElementById('primus-toasts');
+    var current = Array.prototype.map.call(list.querySelectorAll('.toast'), function (t) { return { id: t.getAttribute('data-toast-id'), text: t.querySelector('.toast__text').textContent, tone: t.className.replace(/.*toast--(\w+).*/, '$1') }; });
+    current.push({ id: 't' + Date.now(), text: text, tone: tone || 'info' });
+    dom.replace(list, mol.toasts({ toasts: current, onDismiss: function (id) {
+      dom.replace(list, mol.toasts({ toasts: current.filter(function (t) { return t.id !== id; }), onDismiss: noop }));
+    } }));
+  }
+  function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+  function swatch(name) {
+    var box = h('div', { class: 'catalog__swatch-color' });
+    box.style.background = 'var(' + name + ')';
+    return h('div', { class: 'catalog__swatch' }, box, h('span', null, name), h('span', { class: 'muted' }, cssVar(name)));
+  }
+  function swatches(names) { return h.apply(null, ['div', { class: 'catalog__swatches' }].concat(names.map(swatch))); }
+  function tokenList(names) {
+    return mol.keyValue({ rows: names.map(function (n) { return { label: n, value: cssVar(n) || MISSING, mono: true }; }), missingText: MISSING });
+  }
+
+  /* ── Tokens ── */
+  section('tokens', 'Tokens PRENTER', 'Copia literal de references/prenter/tokens.css (revisión 2c6feb6). Solo se consumen por var().',
+    demo('Teal (marca única)', swatches(['--color-teal-50', '--color-teal-100', '--color-teal-200', '--color-teal-300', '--color-teal-400', '--color-teal-500', '--color-teal-600', '--color-teal-700', '--color-teal-800', '--color-teal-900'])),
+    demo('Neutros', swatches(['--color-neutral-50', '--color-neutral-100', '--color-neutral-200', '--color-neutral-300', '--color-neutral-400', '--color-neutral-500', '--color-neutral-600', '--color-neutral-700', '--color-neutral-800', '--color-neutral-900'])),
+    demo('Superficies oscuras y estados sobre oscuro', swatches(['--color-dark-bg', '--color-dark-surface', '--color-dark-raised', '--color-dark-border', '--color-brand', '--color-brand-hover', '--color-brand-active', '--color-focus-ring', '--color-success-dark', '--color-warning-dark', '--color-danger-dark'])),
+    demo('Texto sobre oscuro', h('p', null, 'Texto principal --text-on-dark'), h('p', { class: 'muted' }, 'Texto secundario --text-on-dark-muted'), h('p', { class: 'faint-meta' }, 'Metadata decorativa --text-on-dark-faint (nunca para instrucciones esenciales)'), h('p', { class: 'brand-text' }, 'Énfasis de marca --text-on-dark-brand')),
+    demo('Espaciado (grid 4 px)', h.apply(null, ['div', { class: 'stack stack--sm' }].concat([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function (n) {
+      var bar = h('div', { class: 'catalog__space' }); bar.style.width = 'var(--space-' + n + ')';
+      return h('div', { class: 'cluster' }, h('span', { class: 'mono text-xs' }, '--space-' + n + ' = ' + cssVar('--space-' + n)), bar);
+    })))),
+    demo('Radios y sombras', row.apply(null, ['sm', 'md', 'lg', 'xl', 'pill'].map(function (r) {
+      var box = h('div', { class: 'catalog__swatch-color' }); box.style.width = '4rem'; box.style.borderRadius = 'var(--radius-' + r + ')'; box.style.background = 'var(--color-dark-raised)'; box.style.boxShadow = 'var(--shadow-md)';
+      return h('div', { class: 'catalog__type-sample' }, box, h('span', { class: 'mono text-xs' }, '--radius-' + r));
+    })))
+  );
+
+  section('extensions', 'Extensiones del prototipo', 'Tokens nuevos de design.md §2, registrados en ds/extensions.css: layout, controles, duración, z, geometría de grafo, tintes y materiales por tipo de entidad.',
+    grid(
+      demo('Layout', tokenList(['--layout-header', '--layout-tabs', '--layout-contextbar', '--layout-rail', '--layout-inspector', '--layout-inspector-min', '--layout-inspector-max', '--layout-roster', '--layout-side', '--layout-sheet-max'])),
+      demo('Controles y movimiento', tokenList(['--control-min-target', '--control-height-sm', '--control-height-md', '--control-height-lg', '--control-radius', '--duration-fast', '--duration-normal', '--easing-standard'])),
+      demo('Apilado', tokenList(['--z-base', '--z-sticky', '--z-inspector', '--z-dialog', '--z-toast'])),
+      demo('Grafo', tokenList(['--graph-node-min-width', '--graph-node-max-width', '--graph-node-min-height', '--graph-node-gap', '--graph-line-default', '--graph-line-selected', '--graph-decision-size', '--graph-event-size', '--lane-height', '--lane-label-width', '--band-min-height', '--band-label-width']))
+    ),
+    demo('Tintes derivados (alfa de tokens PRENTER, sin tonos nuevos)', swatches(['--tint-brand-faint', '--tint-brand-soft', '--tint-warning-faint', '--tint-danger-faint', '--tint-success-faint', '--tint-white-hover', '--tint-white-active', '--tint-backdrop']))
+  );
+
+  section('typography', 'Tipografía', 'Display para títulos (narrativa 36–48 px, web 22–28 px), cuerpo 16 px/1.5, mono para IDs, valores y terminal. Fuentes locales con fallback de sistema; sin descargas.',
+    demo('Escala', h('div', { class: 'catalog__type-sample' },
+      h('h1', null, 'Título de narrativa (h1)'), h('h2', null, 'Sección de narrativa (h2)'), h('h3', null, 'Título web / inspector (h3)'), h('h4', null, 'Subtítulo (h4, cuerpo)'),
+      h('p', null, 'Cuerpo 16 px / 1.5. La prosa se limita a 760 px (.text-narrow) y las páginas a 1200 px (.container).'),
+      h('p', { class: 'text-sm muted' }, 'Pequeño 14 px para notas y metadatos.'),
+      h('p', { class: 'eyebrow' }, 'Eyebrow mono · firma PRENTER'),
+      h('p', { class: 'mono' }, 'PR-BOLETAS · V-ASIS-01 · 06/10/2026 10:00:03'),
+      h('p', null, 'Teclas: ', atoms.kbd('Esc'), ' ', atoms.kbd('Tab'), ' ', atoms.kbd('↑'), ' ', atoms.kbd('↓'))))
+  );
+
+  /* ── Icons ── */
+  section('icons', 'Iconos', 'SVG inline 24×24, trazo 1.5 px, currentColor. Decorativos con aria-hidden; con label → role="img" y <title>. Nunca sustituyen al nombre.',
+    h.apply(null, ['div', { class: 'catalog__icons' }].concat(icons.names().map(function (name) {
+      return h('div', { class: 'catalog__icon' }, icons.icon(name, { label: name }), h('span', null, name));
+    }))),
+    demo('Nombre desconocido (fallback marcado con data-icon-missing)', row(icons.icon('no-existe', { label: 'no-existe' }), h('span', { class: 'mono text-xs' }, 'icon("no-existe")')))
+  );
+
+  /* ── Buttons ── */
+  function btnSet(variant) {
+    return demo(variant,
+      row(atoms.button({ label: 'Pequeño', variant: variant, size: 'sm', onClick: noop }), atoms.button({ label: 'Mediano', variant: variant, onClick: noop }), atoms.button({ label: 'Grande', variant: variant, size: 'lg', onClick: noop })),
+      row(atoms.button({ label: 'Con icono', variant: variant, icon: 'play', onClick: noop }), atoms.button({ label: 'Pulsado', variant: variant, pressed: true, onClick: noop }), atoms.button({ label: 'Deshabilitado', variant: variant, disabled: true, onClick: noop })),
+      row(atoms.button({ label: 'Ocupado', variant: variant, busy: true, onClick: noop }), atoms.button({ label: 'Deshabilitado con motivo', variant: variant, disabled: true, disabledReason: 'Esta vista requiere un perfil administrador', onClick: noop })),
+      row(atoms.button({ label: LONG, variant: variant, onClick: noop })));
+  }
+  section('buttons', 'Botones', '<button> nativo; alturas 36/44/52; primario, secundario, fantasma y peligro. Deshabilitado conserva el foco (aria-disabled) y muestra el motivo adyacente (.btn__reason). Ocupado mantiene el texto visible y bloquea comandos duplicados.',
+    grid(btnSet('primary'), btnSet('secondary'), btnSet('ghost'), btnSet('danger')),
+    demo('Solo icono (siempre con ariaLabel) y foco', row(
+      atoms.iconButton({ icon: 'close', ariaLabel: 'Cerrar', onClick: noop }),
+      atoms.iconButton({ icon: 'zoomIn', ariaLabel: 'Acercar', size: 'sm', onClick: noop }),
+      atoms.iconButton({ icon: 'map', ariaLabel: 'Ver como mapa', pressed: true, onClick: noop }),
+      atoms.iconButton({ icon: 'menu', ariaLabel: 'Navegación del módulo', variant: 'secondary', onClick: noop }),
+      atoms.button({ label: 'Mostrar anillo de foco', variant: 'secondary', onClick: function () { var t = document.getElementById('focus-target'); t.focus(); } }),
+      atoms.button({ id: 'focus-target', label: 'Objetivo del foco (anillo exterior teal)', variant: 'ghost', onClick: noop })
+    ))
+  );
+
+  /* ── Badges, status ── */
+  section('badges', 'Badges y etiquetas de estado', 'Texto + forma, nunca solo color: éxito/aviso/error llevan glifo, propuesto usa borde discontinuo teal, demo usa tono aviso con bandera.',
+    demo('Badge por tono', row.apply(null, atoms.TONES.map(function (tone) { return atoms.badge({ label: tone, tone: tone }); }))),
+    demo('Etiquetas exactas de proveniencia (spec §13)', row(
+      atoms.badge({ label: 'Fuente del cliente', tone: 'brand' }), atoms.badge({ label: 'Síntesis de las fuentes', tone: 'neutral' }), atoms.badge({ label: 'Relación por validar', tone: 'warning' }),
+      atoms.badge({ label: 'Propuesto · por validar', tone: 'proposed' }), atoms.badge({ label: 'Ejemplo de demostración', tone: 'demo' }), atoms.badge({ label: 'Sin dato proporcionado', tone: 'neutral' }),
+      atoms.badge({ label: 'Prototipo · Interacciones simuladas', tone: 'neutral', icon: false }), atoms.badge({ label: 'Confidencial · Uso exclusivo de Próspera', tone: 'neutral', icon: 'lock' }))),
+    demo('Status label (en línea, con marca de forma)', row.apply(null, atoms.TONES.map(function (tone) { return mol.statusLabel({ label: tone, tone: tone }); })),
+      row(mol.statusLabel({ label: 'Completado', tone: 'success', icon: 'check' }), mol.statusLabel({ label: 'En curso', tone: 'brand', icon: 'play' }), mol.statusLabel({ label: 'Vencido', tone: 'danger', icon: 'warning' }), mol.statusLabel({ label: LONG, tone: 'warning' })))
+  );
+
+  /* ── Chips ── */
+  section('chips', 'Chips', 'Informativos (span), interactivos (button con aria-pressed) y removibles (botón adyacente, nunca anidado).',
+    demo('Variantes', row(
+      atoms.chip({ label: 'Próspera', icon: 'organization' }), atoms.chip({ label: 'Emisión de boletas' }), atoms.chip({ label: '5 fuentes disponibles' }), atoms.chip({ label: 'TO-BE 2 · Propuesto', selected: true }),
+      atoms.chip({ label: 'Filtro activo', onClick: noop, selected: true }), atoms.chip({ label: 'Filtro inactivo', onClick: noop }),
+      atoms.chip({ label: 'Administración y Finanzas', onRemove: noop }), atoms.chip({ label: 'Con ambos', onClick: noop, onRemove: noop, selected: true })))
+  );
+
+  /* ── Cards ── */
+  section('cards', 'Fichas (cards)', 'Contenedor sin rol de botón; la acción real va dentro. Seleccionada = contorno persistente.',
+    grid(
+      atoms.card({ title: 'Ficha estándar', subtitle: 'Subtítulo breve', children: h('p', null, 'Cuerpo de la ficha con texto explicativo.'), actions: [atoms.button({ label: 'Ver en la demo', variant: 'secondary', size: 'sm', onClick: noop })] }),
+      atoms.card({ title: 'Ficha silenciosa', quiet: true, children: h('p', { class: 'muted' }, 'Fondo transparente para agrupar sin peso visual.') }),
+      atoms.card({ title: 'Ficha elevada', raised: true, children: h('p', null, 'Superficie elevada con sombra media.') }),
+      atoms.card({ title: 'Ficha seleccionada', selected: true, eyebrow: 'SC-01', children: h('p', null, 'Contorno de selección de 2 px.') }),
+      atoms.card({ title: LONG, children: h('p', null, 'Título largo que envuelve sin cortar.') }),
+      atoms.card({ children: h('p', null, 'Ficha sin título (sin aria-labelledby).') })
+    )
+  );
+
+  /* ── Fields ── */
+  section('fields', 'Formularios (variante oscura)', 'Label visible, hint y error asociados por aria-describedby, aria-invalid en error; el primer error recibe el foco al guardar. Controles con color-scheme: dark.',
+    grid(
+      demo('Input válido con hint', atoms.field({ id: 'f-subject', label: 'Asunto', hint: 'Entre 5 y 120 caracteres', required: true, control: atoms.input({ id: 'f-subject', value: 'Expediente sin convenio firmado', onInput: noop, maxlength: 120 }) })),
+      demo('Input con error', atoms.field({ id: 'f-date', label: 'Fecha límite', error: 'Ingresa una fecha válida (AAAA-MM-DD)', control: atoms.input({ id: 'f-date', type: 'date', value: '', onInput: noop }) })),
+      demo('Deshabilitado y solo lectura', atoms.field({ id: 'f-dis', label: 'Usuario', control: atoms.input({ id: 'f-dis', value: 'demo.analista', disabled: true, onInput: noop }) }), atoms.field({ id: 'f-ro', label: 'Creado', control: atoms.input({ id: 'f-ro', value: '01/10/2026', readOnly: true, onInput: noop }) })),
+      demo('Select', atoms.field({ id: 'f-role', label: 'Responsable', control: atoms.select({ id: 'f-role', value: 'RL-ADMIN', onChange: noop, options: [{ value: 'RL-VENTAS', label: 'Ventas' }, { value: 'RL-ADMIN', label: 'Administración' }, { value: 'RL-CONT', label: 'Contabilidad' }, { value: 'A-AF', label: 'Administración y Finanzas', disabled: true }] }) })),
+      demo('Textarea con contador', atoms.field({ id: 'f-note', label: 'Nota de revisión', hint: 'Máximo 300 caracteres', optional: true, control: atoms.textarea({ id: 'f-note', value: '', rows: 3, maxlength: 300, onInput: noop }) }), h('p', { class: 'form__counter' }, '0 / 300')),
+      demo('Checkbox', atoms.checkbox({ id: 'f-confirm', label: 'Confirmo el cierre ficticio para esta demo', checked: false, onChange: noop }), atoms.checkbox({ id: 'f-confirm2', label: 'Marcado', checked: true, onChange: noop }), atoms.checkbox({ id: 'f-confirm3', label: 'Deshabilitado', checked: false, disabled: true, onChange: noop })),
+      demo('Campo de búsqueda', mol.searchField({ id: 'f-search', label: 'Buscar', value: 'boletas', placeholder: 'Buscar por nombre, tipo o ID', onInput: noop, onClear: noop, resultsText: '3 resultados' }), mol.searchField({ id: 'f-search2', label: 'Buscar', labelVisible: true, value: '', placeholder: 'Buscar por nombre, tipo o ID', onInput: noop, onClear: noop })),
+      demo('Formulario compuesto', h('form', { class: 'form', on: { submit: function (e) { e.preventDefault(); } } },
+        h('div', { class: 'form__row' },
+          atoms.field({ id: 'f-a', label: 'Nombre', required: true, control: atoms.input({ id: 'f-a', value: '', onInput: noop }) }),
+          atoms.field({ id: 'f-b', label: 'Estado', control: atoms.select({ id: 'f-b', value: 'open', onChange: noop, options: [{ value: 'open', label: 'Abierta' }, { value: 'inProgress', label: 'En atención' }] }) })),
+        h('div', { class: 'form__actions' }, atoms.button({ label: 'Cancelar', variant: 'ghost', onClick: noop }), atoms.button({ label: 'Guardar', variant: 'primary', type: 'submit', onClick: noop }))))
+    )
+  );
+
+  /* ── Tabs & breadcrumbs ── */
+  var tabState = { presentation: 'web', local: 'chat' };
+  function renderTabs(host, mode, ids) {
+    var t = mol.tabs({ id: 'cat-' + mode, mode: mode, selectedId: tabState[mode], onSelect: function (id) { tabState[mode] = id; dom.replace(host, renderTabs(host, mode, ids)); },
+      tabs: ids.map(function (x) { return { id: x.id, label: x.label }; }) });
+    var panel = h('div', mol.tabs({ id: 'cat-' + mode, tabs: [] }).panelAttrs(tabState[mode]), h('p', { class: 'muted text-sm' }, 'Panel de ' + tabState[mode] + ' (role=tabpanel enlazado).'));
+    return [t.el, panel];
+  }
+  var tabsHost1 = h('div', { class: 'stack stack--sm' });
+  var tabsHost2 = h('div', { class: 'stack stack--sm' });
+  dom.replace(tabsHost1, renderTabs(tabsHost1, 'presentation', [{ id: 'architecture', label: 'Arquitectura de la solución' }, { id: 'scope', label: 'Alcance del proyecto' }, { id: 'methodologies', label: 'Metodologías aplicadas' }, { id: 'web', label: 'Prototipo web' }, { id: 'desktop', label: 'Prototipo de escritorio' }]));
+  dom.replace(tabsHost2, renderTabs(tabsHost2, 'local', [{ id: 'chat', label: 'Conversación' }, { id: 'ops', label: 'Operaciones' }]));
+  var vtabs = mol.tabs({ id: 'cat-v', mode: 'presentation', orientation: 'vertical', selectedId: 'sheet', onSelect: noop, tabs: [{ id: 'sheet', label: 'Ficha' }, { id: 'flow', label: 'Flujo' }, { id: 'compare', label: 'Comparar' }] });
+  section('tabs', 'Tabs y breadcrumbs', 'Activación manual: flechas mueven el foco, Home/End a los extremos, Enter/Espacio activa, Tab sale. Un solo tab stop.',
+    demo('Modo presentación (shell; en estrecho se desplaza horizontalmente)', tabsHost1),
+    demo('Modo local (pestañas del proceso / estudio)', tabsHost2),
+    demo('Vertical', vtabs.el),
+    demo('Breadcrumbs', mol.breadcrumbs({ items: [{ label: 'Próspera Grupo Inmobiliario', onClick: noop }, { label: 'Administración y Finanzas', onClick: noop }, { label: 'Emisión y envío de boletas', onClick: noop }, { label: 'A-03 · Verificar abono y documentos' }] }))
+  );
+
+  /* ── Entity links ── */
+  var TYPES = [['organization', 'Organización', 'Próspera Grupo Inmobiliario'], ['area', 'Área', 'Administración y Finanzas'], ['macroprocess', 'Macroproceso', 'Administración y Finanzas (MP-AF)'], ['process', 'Proceso', 'Emisión y envío de boletas'], ['activity', 'Actividad', 'A-03 · Verificar abono y documentos'], ['role', 'Rol', 'ASISTENTE ADMINISTRATIVO'], ['position', 'Puesto', 'Asistente administrativa'], ['person', 'Persona', MISSING], ['external', 'Servicio externo', 'Servicio externo'], ['system', 'Sistema', 'SPERANT'], ['document', 'Documento', 'Boleta'], ['policy', 'Política', 'Política de calidad'], ['objective', 'Objetivo', 'OBJ-01'], ['indicator', 'Indicador', 'KPI-01'], ['gap', 'Brecha', 'GAP-01'], ['incident', 'Incidencia', 'INC-DEMO-01'], ['project', 'Proyecto', 'PM-01'], ['version', 'Versión', 'V-TOBE-02']];
+  section('links', 'Enlaces de entidad', 'Botón con icono de tipo (role=img con el tipo como nombre), nombre, relación opcional y badge opcional. Abre el inspector.',
+    grid(
+      demo('Por tipo', h.apply(null, ['div', { class: 'inspector__links' }].concat(TYPES.map(function (t) { return mol.entityLink({ entity: { id: t[0].toUpperCase(), name: t[2] }, typeLabel: t[1], icon: t[0], onOpen: noop }); })))),
+      demo('Con relación, badge, tipo visible, seleccionado y nombre largo', h('div', { class: 'inspector__links' },
+        mol.entityLink({ entity: { id: 'A-AF', name: 'Administración y Finanzas' }, typeLabel: 'Área', icon: 'area', relationLabel: 'pertenece a', onOpen: noop }),
+        mol.entityLink({ entity: { id: 'OBJ-01', name: 'Objetivo propuesto' }, typeLabel: 'Objetivo', icon: 'objective', badge: { label: 'Propuesto · por validar', tone: 'proposed' }, onOpen: noop }),
+        mol.entityLink({ entity: { id: 'R-X', name: 'Relación inferida' }, typeLabel: 'Rol', icon: 'role', relationLabel: 'ejecuta', badge: { label: 'Relación propuesta', tone: 'proposed' }, showType: true, onOpen: noop }),
+        mol.entityLink({ entity: { id: 'SEL', name: 'Seleccionado' }, typeLabel: 'Sistema', icon: 'system', selected: true, onOpen: noop }),
+        mol.entityLink({ entity: { id: 'LONG', name: LONG }, typeLabel: 'Actividad', icon: 'activity', relationLabel: 'usa · SYS-DRIVE', onOpen: noop }),
+        row(mol.entityLink({ entity: { id: 'C1', name: 'Compacto' }, typeLabel: 'Área', icon: 'area', compact: true, onOpen: noop }), mol.entityLink({ entity: { id: 'C2', name: 'Otro compacto' }, typeLabel: 'Rol', icon: 'role', compact: true, onOpen: noop }))))
+    )
+  );
+
+  /* ── Metrics, key-value ── */
+  section('metrics', 'Métricas y clave-valor', 'Valor, unidad, fecha y meta separados; null muestra «Sin dato proporcionado», nunca 0.',
+    grid(
+      demo('Conocido', mol.metric({ label: 'Boletas emitidas', value: '128', unit: 'boletas', date: '06/10/2026', target: 'Meta: 150', missingText: MISSING })),
+      demo('Sin dato', mol.metric({ label: 'KPI-01 · Tiempo de emisión', value: null, target: 'Meta por definir', missingText: MISSING })),
+      demo('Propuesto', mol.metric({ label: 'Indicador propuesto', value: '—', proposed: true, missingText: MISSING })),
+      demo('Clave-valor con faltantes', mol.keyValue({ rows: [{ label: 'Dueño', value: 'Administración y Finanzas' }, { label: 'Tiempo', value: null }, { label: 'ID', value: 'PR-BOLETAS', mono: true }, { label: 'Nota', value: LONG }], missingText: MISSING }))
+    )
+  );
+
+  /* ── Tables ── */
+  var tableSort = { column: 'subject', direction: 'asc' };
+  var tableHost = h('div');
+  var ROWS = [
+    { key: 'INC-DEMO-01', subject: 'Expediente sin convenio firmado', status: 'Abierta', due: '04/10/2026', notice: 'Vencido', tone: 'danger', selected: true, isDemo: true },
+    { key: 'INC-DEMO-02', subject: 'Comprobante ilegible', status: 'En atención', due: '08/10/2026', notice: 'Por vencer', tone: 'warning', isDemo: true },
+    { key: 'INC-DEMO-03', subject: LONG, status: 'Cerrada', due: null, notice: 'Cerrada', tone: 'neutral', isDemo: true }
+  ];
+  function renderTable(cardMode, dense) {
+    var rows = ROWS.slice().sort(function (a, b) { var k = tableSort.column; var va = a[k] || '', vb = b[k] || ''; var r = va < vb ? -1 : va > vb ? 1 : 0; return tableSort.direction === 'desc' ? -r : r; });
+    return mol.table({ id: 'cat-table' + (cardMode ? '-cards' : '') + (dense ? '-dense' : ''), caption: 'Incidencias de emisión de boletas', cardMode: cardMode, dense: dense, sort: tableSort,
+      onSort: function (col, dir) { tableSort = { column: col, direction: dir }; dom.replace(tableHost, renderTable(false, false)); },
+      columns: [{ id: 'subject', label: 'Asunto', sortable: true }, { id: 'status', label: 'Estado', sortable: true }, { id: 'due', label: 'Fecha límite', sortable: true }, { id: 'notice', label: 'Aviso' }],
+      rows: rows.map(function (r) { return { key: r.key, selected: r.selected, isDemo: r.isDemo, testid: 'incident-' + r.key, onSelect: noop, cells: [{ text: r.subject }, { text: r.status }, { text: r.due === null ? MISSING : r.due, mono: true }, { node: mol.statusLabel({ label: r.notice, tone: r.tone }) }] }; }),
+      actionsColumn: { label: 'Acciones', render: function () { return h('div', { class: 'cluster cluster--sm' }, atoms.button({ label: 'Editar', variant: 'ghost', size: 'sm', icon: 'edit', onClick: noop }), atoms.button({ label: 'Cerrar', variant: 'ghost', size: 'sm', onClick: noop })); } },
+      emptyText: 'No hay elementos con este filtro' });
+  }
+  dom.replace(tableHost, renderTable(false, false));
+  section('tables', 'Tablas', '<table> con <caption>, región desplazable rotulada, cabeceras ordenables como botones con aria-sort, selección por botón en la primera celda (nunca click en <tr>). .table--cards se vuelve tarjetas por debajo de 768 px con el mismo DOM.',
+    demo('Ordenable con selección y acciones', tableHost),
+    demo('Modo tarjetas (reduce la ventana a <768 px)', renderTable(true, false)),
+    demo('Densa', renderTable(false, true)),
+    demo('Vacía', mol.table({ id: 'cat-empty', caption: 'Bitácora de la sesión', columns: [{ id: 'a', label: 'Fecha' }, { id: 'b', label: 'Acción' }], rows: [], emptyText: 'No hay acciones registradas en esta sesión' }))
+  );
+
+  /* ── Disclosure & modal ── */
+  var ctl = h('div', { class: 'stack stack--sm' });
+  var ctlOpen = false;
+  function renderCtl() { dom.replace(ctl, mol.disclosure({ id: 'cat-ctl', summary: 'Controlado por estado (onToggle)', open: ctlOpen, onToggle: function (next) { ctlOpen = next; renderCtl(); }, content: h('p', null, 'El estado vive fuera; el padre vuelve a renderizar.') })); }
+  renderCtl();
+  section('disclosure', 'Disclosure y modales', 'Disclosure: <button aria-expanded aria-controls>. Modal: role=dialog + aria-modal, en #primus-overlays, fondo inert, trampa de foco, Escape cierra y el foco vuelve al origen.',
+    grid(
+      demo('No controlado', mol.disclosure({ id: 'cat-dis1', summary: 'Entrada y resultado de la herramienta', content: h('pre', { class: 'mono text-sm' }, 'READ_EVIDENCE · 5 fuentes\nCompletado') }), mol.disclosure({ id: 'cat-dis2', summary: 'Abierto por defecto', open: true, meta: 'Completado', content: h('p', null, 'Contenido visible al cargar.') })),
+      demo('Controlado', ctl),
+      demo('Modales', row(
+        atoms.button({ label: 'Abrir modal', variant: 'secondary', onClick: function () {
+          var m = mol.modal({ id: 'cat-modal', title: 'Acerca de esta demo', body: [h('p', null, 'Este prototipo simula las pantallas de PRIMUS. Los datos de demostración se identifican como tales.'), atoms.field({ id: 'm-f', label: 'Campo dentro del modal', control: atoms.input({ id: 'm-f', value: '', onInput: noop }) })],
+            actions: [{ label: 'Entendido', variant: 'primary', onClick: function (e, api) { api.close(); } }], onClose: function (reason) { toast('Modal cerrado: ' + reason, 'info'); } });
+          m.open();
+        } }),
+        atoms.button({ label: 'Confirmación', variant: 'secondary', onClick: function () {
+          mol.confirm({ title: '¿Descartar los cambios sin guardar?', text: 'Se perderán los cambios de este formulario.', cancelLabel: 'Seguir editando', confirmLabel: 'Descartar', danger: true, onConfirm: function () { toast('Descartado', 'warning'); }, onCancel: function () { toast('Sigues editando', 'info'); } });
+        } }),
+        atoms.button({ label: 'Reinicio (peligro)', variant: 'danger', onClick: function () {
+          mol.confirm({ title: '¿Reiniciar la demostración? Se perderán los cambios, las versiones de prueba y los borradores de esta sesión', text: 'Esta acción no se puede deshacer en la sesión actual.', cancelLabel: 'Cancelar', confirmLabel: 'Reiniciar', danger: true, onConfirm: function () { toast('Demo reiniciada', 'success'); } });
+        } }),
+        atoms.button({ label: 'Sheet (inferior)', variant: 'secondary', onClick: function () {
+          var m = mol.modal({ id: 'cat-sheet', size: 'sheet', title: 'Ficha en hoja inferior', body: h('p', null, 'Variante sheet para pantallas estrechas.'), actions: [{ label: 'Cerrar', onClick: function (e, api) { api.close(); } }] });
+          m.open();
+        } })))
+    )
+  );
+
+  /* ── Feedback ── */
+  section('feedback', 'Avisos, toasts y estados vacíos', 'Toasts con role=status (5 s, gestionados por el shell) y botón de cierre; los errores de formulario no desaparecen solos. Avisos con acción y cierre.',
+    grid(
+      demo('Avisos por tono', mol.notice({ text: 'La vista se ajustó al perfil seleccionado', tone: 'info', onDismiss: noop }), mol.notice({ text: 'Hay una nueva versión de demostración', tone: 'brand', action: { label: 'Ver versión', onClick: noop } }), mol.notice({ text: 'Versión TO-BE 3 creada en esta sesión', tone: 'success' }), mol.notice({ text: 'Versión histórica · solo lectura', tone: 'warning' }), mol.notice({ text: 'La propuesta contiene una referencia no válida y no puede publicarse', tone: 'danger', action: { label: 'Reintentar', onClick: noop } }), mol.notice({ text: 'Registros ficticios para demostrar seguimiento', tone: 'demo' })),
+      demo('Toasts', row(atoms.button({ label: 'Toast info', variant: 'secondary', onClick: function () { toast('Demo reiniciada', 'info'); } }), atoms.button({ label: 'Toast éxito', variant: 'secondary', onClick: function () { toast('Incidencia creada', 'success'); } }), atoms.button({ label: 'Toast error', variant: 'secondary', onClick: function () { toast('No se pudo completar la lectura simulada. Las fuentes permanecen disponibles', 'danger'); } })), h('div', { class: 'catalog__narrow' }, mol.toasts({ toasts: [{ id: 'a', text: 'Ejemplo estático', tone: 'info' }, { id: 'b', text: 'Con aviso', tone: 'warning' }], onDismiss: noop }))),
+      demo('Estados vacíos', mol.emptyState({ text: 'No hay elementos con este filtro', action: { label: 'Mostrar todo', onClick: noop } }), mol.emptyState({ text: 'Selecciona un elemento para ver su ficha', icon: 'info', compact: true })),
+      demo('Spinner y lista', atoms.spinner({ label: 'Procesando paso de demostración' }), atoms.divider(), mol.list({ ariaLabel: 'Pendientes', items: [{ key: 1, node: 'Confirmar cuota normal o complementaria' }, { key: 2, node: 'Validar automatización de SPERANT' }, { key: 3, node: 'Confirmar emisión por variante de pago' }] }))
+    )
+  );
+
+  /* ── Provenance ── */
+  var SOURCES = new Map([['S-ORG', { id: 'S-ORG', title: 'Organigrama de Próspera', section: 'septiembre de 2026' }], ['S-CASE', { id: 'S-CASE', title: 'Caso de mejora de proceso: emisión de boletas', section: 'Láminas 1–4' }], ['S-DEMO', { id: 'S-DEMO', title: 'Datos ficticios de demostración', section: null }]]);
+  section('provenance', 'Proveniencia', 'Badges con las etiquetas exactas + «Fuentes: S-ORG · título (sección)». Botón opcional para abrir el overlay de fuentes.',
+    grid(
+      demo('Fuente del cliente', atoms.provenance({ labels: ['Fuente del cliente'], confidence: 'confirmed', sourceIds: ['S-ORG'], sources: SOURCES })),
+      demo('Síntesis con botón', atoms.provenance({ labels: ['Síntesis de las fuentes', 'Relación por validar'], confidence: 'inferred', sourceIds: ['S-CASE', 'S-ORG'], sources: SOURCES, onOpenSources: noop })),
+      demo('Propuesto y demo', atoms.provenance({ labels: ['Propuesto · por validar', 'Ejemplo de demostración'], confidence: 'inferred', sourceIds: ['S-DEMO'], sources: SOURCES })),
+      demo('Sin fuente conocida', atoms.provenance({ labels: ['Sin dato proporcionado'], sourceIds: ['S-X'], sources: SOURCES }))
+    )
+  );
+
+  /* ── Nodes & materials ── */
+  function node(type, name, meta, extra) {
+    var cls = ['node', 'node--' + type].concat(extra || []);
+    var kids = [h('span', { class: 'node__head' }, icons.icon(type === 'start' || type === 'end' ? type : (type === 'event' ? 'event' : type), { extraClass: 'node__icon' }), h('span', { class: 'node__name' }, name))];
+    if (meta) kids.push(h('span', { class: 'node__meta' }, meta));
+    return h.apply(null, ['button', { type: 'button', class: cls, 'data-entity-id': name }].concat(kids));
+  }
+  section('nodes', 'Nodos y materiales por tipo', 'Material = superficie + borde + textura + glifo (solo tokens PRENTER). Externo discontinuo; decisión rombo con etiqueta sin rotar; evento círculo con etiqueta debajo; propuesto discontinuo teal.',
+    demo('Estructura y negocio', row(node('organization', 'Próspera Grupo Inmobiliario', 'Organización'), node('area', 'Administración y Finanzas', '3 puestos'), node('position', 'Asistente administrativa', 'Puesto'), node('person', MISSING, 'Ocupante'), node('external', 'Servicio externo', 'Proveedor'), node('macroprocess', 'Administración y Finanzas', 'Macroproceso propuesto'), node('process', 'Emisión y envío de boletas', '1 proceso con detalle'), node('activity', 'A-03 · Verificar abono y documentos', 'Administración'), node('role', 'ASISTENTE ADMINISTRATIVO', 'Rol en el proceso'))),
+    demo('Aplicación, implementación, motivación y seguimiento', row(node('system', 'SPERANT', 'Sistema actual'), node('document', 'Boleta', 'Documento'), node('policy', 'Política de calidad', 'Política'), node('objective', 'OBJ-01', 'Propuesto · por validar'), node('indicator', 'KPI-01', 'Meta por definir'), node('gap', 'GAP-01', 'Brecha'), node('incident', 'INC-DEMO-01', 'Incidencia'), node('project', 'PM-01', 'Proyecto'), node('version', 'V-TOBE-02', 'TO-BE propuesto'))),
+    demo('Formas de flujo y C4', row(node('start', 'Pago y documentación recibidos'), node('decision', '¿Solicitud conforme?'), node('event', 'Evento intermedio'), node('end', 'Boleta enviada'), h('span', { class: 'node-chip' }, icons.icon('system'), 'Cambio de estado propuesto'), node('component', 'Portal web', 'Aplicación web'), node('store', 'Base de conocimiento', 'Neo4j · conocimiento conectado'), node('actor', 'Administrador', 'Actor'), node('component', 'Detalle por definir', 'Decisión pendiente', ['node--pending']))),
+    demo('Estados', row(node('area', 'Seleccionado', 'is-selected', ['is-selected']), node('area', 'Relacionado', 'is-related', ['is-related']), node('area', 'Atenuado (≥ 3:1)', 'is-dimmed', ['is-dimmed']), node('area', 'Raíz del recorrido', 'is-root', ['is-root']), node('area', 'Propuesto', 'node--proposed', ['node--proposed']), node('activity', 'No disponible', 'is-unavailable', ['is-unavailable']), node('process', 'Demo', 'is-demo', ['is-demo']), node('decision', 'Rombo seleccionado', null, ['is-selected']), node('end', 'Fin seleccionado', null, ['is-selected']), node('position', LONG, 'Nombre largo: el nodo crece, no se recorta'))),
+    demo('Leyenda', h('div', { class: 'legend' }, h('span', { class: 'legend__title' }, 'Leyenda'),
+      h('span', { class: 'legend__item' }, h('span', { class: 'legend__swatch' }), 'Entidad'), h('span', { class: 'legend__item' }, h('span', { class: 'legend__swatch legend__swatch--external' }), 'Servicio externo'), h('span', { class: 'legend__item' }, h('span', { class: 'legend__swatch legend__swatch--proposed' }), 'Propuesto · por validar'),
+      h('span', { class: 'legend__item' }, h('span', { class: 'legend__swatch legend__swatch--selected' }), 'Seleccionado'), h('span', { class: 'legend__item' }, h('span', { class: 'legend__swatch legend__swatch--default-line' }), 'Secuencia'), h('span', { class: 'legend__item' }, h('span', { class: 'legend__swatch legend__swatch--related' }), 'Relación resaltada'), h('span', { class: 'legend__item' }, h('span', { class: 'legend__swatch legend__swatch--loop' }), 'Retorno'),
+      h('span', { class: 'legend__item' }, h('span', { class: 'legend__swatch legend__swatch--decision' }), 'Decisión'), h('span', { class: 'legend__item' }, h('span', { class: 'legend__swatch legend__swatch--event' }), 'Evento'), h('span', { class: 'legend__item' }, h('span', { class: 'legend__swatch legend__swatch--demo' }), 'Ejemplo de demostración')))
+  );
+
+  /* ── Canvas, lanes, bands ── */
+  function placed(el, x, y) { el.style.left = x + 'px'; el.style.top = y + 'px'; return el; }
+  function edge(d, cls) { return svg('path', { class: ['edge', cls || null], d: d, 'marker-end': 'url(#cat-arrow)' }); }
+  var scale = 1;
+  var layer = h('div', { class: 'canvas__layer' });
+  layer.style.width = '900px'; layer.style.height = '320px';
+  var edges = svg('svg', { class: 'canvas__edges', width: 900, height: 320 },
+    svg('defs', null, svg('marker', { id: 'cat-arrow', viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 8, markerHeight: 8, orient: 'auto-start-reverse' }, svg('path', { class: 'edge-marker', d: 'M0 0L10 5 0 10z' })),
+      svg('marker', { id: 'cat-arrow-related', viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 8, markerHeight: 8, orient: 'auto-start-reverse' }, svg('path', { class: 'edge-marker edge-marker--related', d: 'M0 0L10 5 0 10z' }))),
+    edge('M200 60 L240 60 L240 140 L280 140'), svg('path', { class: 'edge edge--related', d: 'M200 60 L240 60 L240 230 L280 230', 'marker-end': 'url(#cat-arrow-related)' }), edge('M460 140 L520 140', 'edge--loop'),
+    svg('text', { class: 'edge-label', x: 470, y: 130 }, 'Sí'), svg('text', { class: 'edge-label edge-label--muted', x: 245, y: 110 }, 'No'));
+  layer.appendChild(edges);
+  layer.appendChild(placed(node('organization', 'Próspera Grupo Inmobiliario', 'ORG-01', ['is-root']), 24, 30));
+  layer.appendChild(placed(node('area', 'Administración y Finanzas', '3 puestos'), 280, 110));
+  layer.appendChild(placed(node('area', 'Comercial', '2 puestos', ['is-related']), 280, 200));
+  layer.appendChild(placed(node('decision', '¿Solicitud conforme?'), 360, 20));
+  layer.appendChild(placed(node('activity', 'A-03 · Verificar abono y documentos', 'Administración', ['is-selected']), 520, 110));
+  var expandBtn = h('button', { type: 'button', class: 'node-expand', 'aria-expanded': 'false', 'aria-label': 'Expandir Administración y Finanzas', on: { click: function () { this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); } } }, icons.icon('chevronRight'));
+  layer.appendChild(placed(expandBtn, 440, 120));
+  var zoomLabel = h('span', { class: 'canvas__toolbar-zoom', 'aria-live': 'polite' }, '100 %');
+  function setScale(s) { scale = Math.min(2, Math.max(0.5, Math.round(s * 10) / 10)); layer.style.transform = 'translate(0px, 0px) scale(' + scale + ')'; zoomLabel.textContent = Math.round(scale * 100) + ' %'; }
+  var canvas = h('div', { class: 'canvas catalog__canvas', tabindex: '0', role: 'group', 'aria-label': 'Lienzo de ejemplo' }, layer,
+    h('div', { class: 'canvas__toolbar', role: 'group', 'aria-label': 'Controles de cámara' },
+      atoms.iconButton({ icon: 'zoomOut', ariaLabel: 'Alejar', size: 'sm', onClick: function () { setScale(scale - 0.1); } }), zoomLabel,
+      atoms.iconButton({ icon: 'zoomIn', ariaLabel: 'Acercar', size: 'sm', onClick: function () { setScale(scale + 0.1); } }),
+      atoms.iconButton({ icon: 'fit', ariaLabel: 'Ajustar vista', size: 'sm', onClick: function () { setScale(0.8); } }),
+      atoms.iconButton({ icon: 'reset', ariaLabel: 'Restablecer cámara', size: 'sm', onClick: function () { setScale(1); } })));
+  var lanes = h('div', { class: 'lanes lanes--scroll' },
+    h('div', { class: 'lane' }, h('div', { class: 'lane__label' }, 'Ventas', h('span', { class: 'lane__label-role' }, 'ASISTENTE VENTAS')), h('div', { class: 'lane__body cluster' }, node('start', 'Pago y documentación recibidos'), node('activity', 'A-01 · Recibir comprobante'), node('end', 'Boleta enviada'))),
+    h('div', { class: 'lane lane--highlight' }, h('div', { class: 'lane__label' }, 'Administración'), h('div', { class: 'lane__body cluster' }, node('decision', '¿Solicitud conforme?'), node('activity', 'A-03 · Verificar abono y documentos', null, ['is-selected']), h('span', { class: 'node-chip' }, icons.icon('system'), 'Cambio de estado propuesto'))),
+    h('div', { class: 'lane' }, h('div', { class: 'lane__label' }, 'Contabilidad'), h('div', { class: 'lane__body cluster' }, node('activity', 'A-07 · Emitir boleta'))),
+    h('div', { class: 'lane lane--external' }, h('div', { class: 'lane__label' }, 'Cliente', h('span', { class: 'lane__label-role' }, 'Actor externo')), h('div', { class: 'lane__body cluster' }, node('external', 'Cliente', 'Comprobante y datos del bien'))));
+  var bands = h('div', { class: 'bands' },
+    h('div', { class: 'band band--objective' }, h('div', { class: 'band__label' }, h('span', { class: 'band__title' }, 'Objetivo propuesto')), h('div', { class: 'band__body' }, node('objective', 'OBJ-01', 'Propuesto · por validar', ['node--proposed']))),
+    h('div', { class: 'band band--direction' }, h('div', { class: 'band__label' }, h('span', { class: 'band__title' }, 'Dirección')), h('div', { class: 'band__body' }, h('p', { class: 'band__message' }, 'No se proporcionó un mapa de procesos estratégicos'))),
+    h('div', { class: 'band band--business' }, h('div', { class: 'band__label' }, h('span', { class: 'band__title' }, 'Procesos del negocio proporcionados'), h('span', { class: 'band__subtitle' }, 'Cadena de valor')), h('div', { class: 'band__body band__chain' }, node('process', 'PR-01', 'Resumen'), icons.icon('chevronRight', { extraClass: 'band__chain-arrow' }), node('process', 'PR-02', 'Resumen'), icons.icon('chevronRight', { extraClass: 'band__chain-arrow' }), node('process', 'PR-03', 'Resumen'))),
+    h('div', { class: 'band band--support' }, h('div', { class: 'band__label' }, h('span', { class: 'band__title' }, 'Soporte')), h('div', { class: 'band__body' }, node('macroprocess', 'Administración y Finanzas', 'MP-AF'), node('process', 'Emisión y envío de boletas', '1 proceso con detalle'))),
+    h('div', { class: 'band band--people' }, h('div', { class: 'band__label' }, h('span', { class: 'band__title' }, 'Personas y roles del caso')), h('div', { class: 'band__body' }, node('role', 'VENTAS', null, ['node--compact']), node('role', 'ADMINISTRACIÓN', null, ['node--compact', 'is-related']), node('role', 'CONTABILIDAD', null, ['node--compact']))),
+    h('div', { class: 'band band--systems' }, h('div', { class: 'band__label' }, h('span', { class: 'band__title' }, 'Sistemas del caso')), h('div', { class: 'band__body' }, node('system', 'WhatsApp', null, ['node--compact']), node('system', 'Drive', null, ['node--compact']), node('system', 'SPERANT', null, ['node--compact']))));
+  section('canvas', 'Lienzo, carriles y bandas', 'Lienzo: viewport con foco, capa transformada, aristas SVG debajo, barra de cámara. Carriles con etiqueta sticky (modo scroll). Bandas del mapa con mensaje explícito cuando falta la banda.',
+    demo('Lienzo con cámara (± / ajustar / reiniciar)', canvas), demo('Carriles', lanes), demo('Bandas del mapa', bands),
+    demo('Zonas C4', h('div', { class: 'arch-grid' },
+      h('div', { class: 'zone' }, h('span', { class: 'zone__label' }, icons.icon('monitor'), 'Equipo del usuario'), h('div', { class: 'zone__body' }, node('component', 'Portal web', 'Navegador'), node('component', 'Estudio de escritorio', 'Aplicación de escritorio'))),
+      h('div', { class: 'zone zone--vps' }, h('span', { class: 'zone__label' }, icons.icon('cloud'), 'VPS de Próspera · servidor privado en internet'), h('div', { class: 'boundary' }, h('div', { class: 'boundary__label' }, 'PRIMUS'), h('div', { class: 'zone__body' }, node('component', 'API', 'Servicio'), node('store', 'Base de conocimiento', 'Neo4j · conocimiento conectado'), node('store', 'Archivos', 'Almacén')))),
+      h('div', { class: 'zone zone--external' }, h('span', { class: 'zone__label' }, icons.icon('externalLink'), 'Servicio de IA'), h('div', { class: 'zone__body' }, node('component', 'Modelo de IA', 'Servicio externo', ['node--pending'])))))
+  );
+
+  /* ── Inspector ── */
+  function inspectorBlock() {
+    return h('div', { class: 'inspector' },
+      h('div', { class: 'inspector__header' },
+        h('div', { class: 'inspector__nav' }, atoms.button({ label: 'Ficha anterior', variant: 'ghost', size: 'sm', icon: 'back', onClick: noop }), atoms.iconButton({ icon: 'close', ariaLabel: 'Cerrar ficha', onClick: noop })),
+        h('span', { class: 'eyebrow inspector__eyebrow' }, icons.icon('area'), 'Área'),
+        h('h3', { class: 'inspector__title', tabindex: '-1' }, 'Administración y Finanzas'),
+        h('p', { class: 'inspector__subtitle' }, 'Dueño documentado de Emisión y envío de boletas'),
+        atoms.provenance({ labels: ['Fuente del cliente'], sourceIds: ['S-ORG'], sources: SOURCES })),
+      h('section', { class: 'inspector__section' }, h('h4', { class: 'inspector__section-title' }, 'Datos'), mol.keyValue({ rows: [{ label: 'Puestos', value: '3' }, { label: 'Personas', value: '2' }, { label: 'Soporte', value: null }], missingText: MISSING })),
+      h('section', { class: 'inspector__section' }, h('h4', { class: 'inspector__section-title' }, 'Procesos conocidos'), h('div', { class: 'inspector__links' }, mol.entityLink({ entity: { id: 'PR-BOLETAS', name: 'Emisión y envío de boletas' }, typeLabel: 'Proceso', icon: 'process', relationLabel: 'dueño documentado', onOpen: noop }))),
+      h('section', { class: 'inspector__section' }, h('h4', { class: 'inspector__section-title' }, 'Puestos'), h('div', { class: 'inspector__links' }, mol.entityLink({ entity: { id: 'J-02', name: 'Jefa de Administración y Finanzas' }, typeLabel: 'Puesto', icon: 'position', onOpen: noop }), mol.entityLink({ entity: { id: 'J-03', name: 'Asistente administrativa' }, typeLabel: 'Puesto', icon: 'position', onOpen: noop }))),
+      h('div', { class: 'inspector__actions' }, atoms.button({ label: 'Enfocar esta área', variant: 'secondary', size: 'sm', onClick: noop }), atoms.button({ label: 'Abrir espacio del área', variant: 'secondary', size: 'sm', onClick: noop }), atoms.button({ label: 'Histórico', variant: 'ghost', size: 'sm', icon: 'history', onClick: noop })));
+  }
+  section('inspector', 'Inspector', 'Mismo orden para todo tipo: tipo/nombre, cerrar/volver, hechos, relaciones, evidencia, acciones. Complementary en escritorio; sheet modal en estrecho.',
+    grid(demo('Entidad seleccionada', inspectorBlock()), demo('Vacío', h('div', { class: 'inspector' }, h('p', { class: 'inspector__empty' }, 'Selecciona un elemento para ver su ficha'))))
+  );
+
+  /* ── Twin composition ── */
+  var railOpen = false, inspOpen = true;
+  var twin = h('div', { class: ['twin', inspOpen ? 'is-inspector-open' : null] });
+  function renderTwin() {
+    twin.className = 'twin' + (railOpen ? ' is-rail-open' : '') + (inspOpen ? ' is-inspector-open' : '');
+    dom.replace(twin,
+      h('button', { type: 'button', class: 'twin-rail__backdrop', 'aria-label': 'Cerrar navegación', on: { click: function () { railOpen = false; renderTwin(); } } }),
+      h('aside', { class: 'twin-rail', 'aria-label': 'Navegación del módulo' },
+        atoms.iconButton({ icon: 'close', ariaLabel: 'Cerrar navegación', extraClass: 'twin-rail__close', onClick: function () { railOpen = false; renderTwin(); } }),
+        h('div', { class: 'twin-rail__group' }, h('span', { class: 'twin-rail__title' }, 'Nivel'), h('div', { class: 'twin-rail__options' }, atoms.button({ label: 'Estratégico', variant: 'ghost', pressed: true, icon: 'organization', extraClass: 'twin-rail__option', onClick: noop }), atoms.button({ label: 'Táctico', variant: 'ghost', pressed: false, icon: 'area', extraClass: 'twin-rail__option', onClick: noop }), atoms.button({ label: 'Operativo', variant: 'ghost', pressed: false, icon: 'process', extraClass: 'twin-rail__option', onClick: noop }))),
+        h('div', { class: 'twin-rail__group' }, h('span', { class: 'twin-rail__title' }, 'Representación'), h('div', { class: 'twin-rail__options' }, atoms.button({ label: 'Organigrama', variant: 'ghost', pressed: true, extraClass: 'twin-rail__option', onClick: noop }), atoms.button({ label: 'Mapa de procesos', variant: 'ghost', pressed: false, extraClass: 'twin-rail__option', onClick: noop }), atoms.button({ label: 'Relaciones', variant: 'ghost', pressed: false, extraClass: 'twin-rail__option', onClick: noop }))),
+        h('div', { class: 'twin-rail__group' }, h('span', { class: 'twin-rail__title' }, 'Capas'), h('div', { class: 'twin-rail__options' }, atoms.checkbox({ id: 'tw-l1', label: 'Personas y roles', checked: true, onChange: noop }), atoms.checkbox({ id: 'tw-l2', label: 'Sistemas', checked: true, onChange: noop }), atoms.checkbox({ id: 'tw-l3', label: 'Documentos', checked: false, onChange: noop }))),
+        h('div', { class: 'twin-rail__footer' }, atoms.button({ label: 'Usuarios y accesos', variant: 'ghost', icon: 'shield', extraClass: 'twin-rail__option', onClick: noop }))),
+      h('div', { class: 'twin-contextbar' },
+        h('div', { class: 'twin-contextbar__nav' }, atoms.iconButton({ icon: 'menu', ariaLabel: 'Navegación del módulo', variant: 'secondary', extraClass: 'twin-rail__toggle', expanded: railOpen, onClick: function () { railOpen = !railOpen; renderTwin(); } }), atoms.iconButton({ icon: 'back', ariaLabel: 'Volver', onClick: noop }),
+          h('div', { class: 'twin-contextbar__crumbs' }, mol.breadcrumbs({ items: [{ label: 'Próspera Grupo Inmobiliario', onClick: noop }, { label: 'Administración y Finanzas' }] }))),
+        h('div', { class: 'twin-contextbar__profile' }, h('label', { class: 'text-sm muted', for: 'tw-profile' }, 'Simular acceso como'), atoms.select({ id: 'tw-profile', value: 'U-MANAGER', onChange: noop, options: [{ value: 'U-MANAGER', label: 'Gerencia General · Solo lectura' }, { value: 'U-EMPLOYEE', label: 'Asistente administrativa · Consulta de mi trabajo' }] })),
+        h('div', { class: 'twin-contextbar__search' }, mol.searchField({ id: 'tw-search', label: 'Buscar', value: '', placeholder: 'Buscar por nombre, tipo o ID', onInput: noop, onClear: noop })),
+        h('div', { class: 'twin-contextbar__tools' }, atoms.iconButton({ icon: 'list', ariaLabel: 'Ver como lista', pressed: false, onClick: noop }), atoms.iconButton({ icon: 'info', ariaLabel: 'Abrir ficha', onClick: function () { inspOpen = !inspOpen; renderTwin(); } }))),
+      h('div', { class: 'twin-stage' },
+        h('div', { class: 'twin-notices' }, mol.notice({ text: 'La vista se ajustó al perfil seleccionado', tone: 'info', onDismiss: noop })),
+        h('div', { class: 'twin-stage__header' }, h('div', { class: 'twin-stage__heading' }, h('h3', { class: 'twin-stage__title' }, 'Próspera Grupo Inmobiliario'), h('p', { class: 'twin-stage__note' }, 'Datos del organigrama de septiembre de 2026. El detalle de procesos se limita al caso de boletas')), h('div', { class: 'twin-stage__controls' }, mol.tabs({ id: 'tw-depth', mode: 'local', selectedId: 'positions', onSelect: noop, tabs: [{ id: 'areas', label: 'Solo áreas' }, { id: 'positions', label: 'Áreas y puestos' }, { id: 'people', label: 'Mostrar ocupantes' }] }).el)),
+        h('div', { class: 'twin-stage__body twin-stage__body--canvas' }, canvas.cloneNode(true)),
+        h('div', { class: 'twin-stage__footer' }, h('span', null, 'Agrupado por área; las líneas entre puestos no representan dependencias de mando'), h('span', { class: 'counts' }, h('span', { class: 'counts__item' }, h('span', { class: 'counts__value' }, '6'), 'áreas'), h('span', { class: 'counts__item' }, h('span', { class: 'counts__value' }, '14'), 'puestos')))),
+      h('button', { type: 'button', class: 'twin-inspector__backdrop', 'aria-label': 'Cerrar ficha', on: { click: function () { inspOpen = false; renderTwin(); } } }),
+      h('aside', { class: 'twin-inspector', 'aria-label': 'Inspector' }, h('span', { class: 'twin-inspector__sheet-handle', 'aria-hidden': 'true' }), h('div', { class: 'twin-inspector__inner' }, inspectorBlock())));
+  }
+  renderTwin();
+  section('twin', 'Composición: gemelo (tab 4)', 'rail 224 | stage | inspector 360 (≥1280); 768–1279 rail colapsable tras «Navegación del módulo» e inspector superpuesto; <768 lista por defecto y ficha en hoja. Reduce la ventana para ver cada modo.',
+    h('div', { class: 'catalog__frame' }, twin)
+  );
+
+  /* ── Studio composition ── */
+  var studio = h('div', { class: 'studio' },
+    h('div', { class: 'studio-frame' }, h('span', { class: 'studio-frame__title' }, icons.icon('window'), 'Estudio del analista'), h('span', { class: 'studio-frame__spacer' }), h('span', { class: 'studio-frame__disclaimer' }, icons.icon('flag'), 'Claude Code · Simulado. Esta demostración no ejecuta IA ni accede a tus archivos')),
+    h('aside', { class: 'studio-roster', 'aria-label': 'Espacios de trabajo' }, h('span', { class: 'studio-roster__title' }, 'Espacios'), h('div', { class: 'studio-roster__list' },
+      h('button', { type: 'button', class: 'workspace-row is-selected', 'aria-current': 'true' }, h('span', { class: 'workspace-row__icon' }, icons.icon('process')), h('span', { class: 'workspace-row__name' }, 'Emisión de boletas'), h('span', { class: 'workspace-row__status' }, 'Listo para revisar')),
+      h('button', { type: 'button', class: 'workspace-row' }, h('span', { class: 'workspace-row__icon' }, icons.icon('organization')), h('span', { class: 'workspace-row__name' }, 'Estructura organizacional'), h('span', { class: 'workspace-row__status' }, 'Consulta de evidencia'), h('span', { class: 'workspace-row__unread' }, '2')))),
+    h('div', { class: 'studio-main' },
+      h('div', { class: 'studio-chips' }, atoms.chip({ label: 'Próspera', icon: 'organization' }), atoms.chip({ label: 'Emisión de boletas' }), atoms.chip({ label: '5 fuentes disponibles' }), atoms.chip({ label: 'TO-BE 2 · Propuesto', selected: true })),
+      h('div', { class: 'studio-tabs' }, mol.tabs({ id: 'st-mode', mode: 'local', selectedId: 'chat', onSelect: noop, tabs: [{ id: 'chat', label: 'Conversación' }, { id: 'ops', label: 'Operaciones' }] }).el, atoms.button({ label: 'Reiniciar escenario', variant: 'ghost', size: 'sm', icon: 'retry', onClick: noop })),
+      h('div', { class: 'studio-stream' },
+        h('div', { class: 'turn turn--analyst' }, h('span', { class: 'turn__who' }, h('span', { class: 'turn__who-name' }, 'Analista'), h('span', { class: 'turn__time' }, '10:00:01')), h('p', { class: 'turn__body' }, 'Revisa el AS-IS y el TO-BE de boletas y prepara una mejora documental con sus fuentes')),
+        h('div', { class: 'turn turn--assistant' }, h('span', { class: 'turn__who' }, h('span', { class: 'turn__who-name' }, 'Asistente'), h('span', { class: 'turn__time' }, '10:00:02')), h('p', { class: 'turn__body' }, 'Voy a revisar las cinco fuentes disponibles antes de proponer cambios.')),
+        h('div', { class: 'tool-card tool-card--running' }, h('div', { class: 'tool-card__header' }, h('button', { type: 'button', class: 'tool-card__summary', 'aria-expanded': 'true' }, icons.icon('chevronDown', { extraClass: 'tool-card__icon' }), h('span', { class: 'tool-card__label' }, 'Revisar fuentes del proceso'), h('span', { class: 'tool-card__status' }, mol.statusLabel({ label: 'En curso', tone: 'brand', icon: 'play' })))), h('div', { class: 'tool-card__body' }, 'READ_EVIDENCE · EV-CASE, EV-ASIS, EV-TOBE1, EV-TOBE2, EV-ORG')),
+        h('div', { class: 'tool-card' }, h('div', { class: 'tool-card__header' }, h('button', { type: 'button', class: 'tool-card__summary', 'aria-expanded': 'false' }, icons.icon('chevronRight', { extraClass: 'tool-card__icon' }), h('span', { class: 'tool-card__label' }, 'Comprobar consistencia y pendientes'), h('span', { class: 'tool-card__status' }, mol.statusLabel({ label: 'Completado', tone: 'success', icon: 'check' }))))),
+        h('div', { class: 'approval' }, h('span', { class: 'approval__title' }, icons.icon('warning'), 'Aprobación requerida'), h('p', { class: 'approval__text' }, 'Publicar TO-BE 3 en la demo. No cambia el AS-IS.'), h('div', { class: 'approval__actions' }, atoms.button({ label: 'Publicar en la demo', variant: 'primary', onClick: noop }), atoms.button({ label: 'Rechazar con motivo', variant: 'danger', onClick: noop }), atoms.button({ label: 'Cancelar revisión', variant: 'ghost', onClick: noop }))),
+        h('div', { class: 'studio-stream__status' }, atoms.spinner({ label: 'Procesando paso de demostración' })),
+        atoms.button({ label: 'Ir al último mensaje', variant: 'secondary', size: 'sm', icon: 'arrowDown', extraClass: 'studio-stream__jump', onClick: noop })),
+      h('div', { class: 'studio-composer' }, h('div', { class: 'studio-composer__scenarios' }, atoms.button({ label: 'Revisar propuesta de boletas', variant: 'secondary', size: 'sm', icon: 'play', onClick: noop }), atoms.button({ label: 'Preparar nuevo AS-IS', variant: 'secondary', size: 'sm', icon: 'play', disabled: true, disabledReason: 'Este escenario ya se aplicó. Consulta el resultado o reinicia la demo', onClick: noop })),
+        h('div', { class: 'studio-composer__row' }, atoms.field({ id: 'st-composer', label: 'Solicitud del analista', extraClass: 'studio-composer__field', control: atoms.textarea({ id: 'st-composer', value: '', rows: 2, placeholder: 'Elige un escenario o escribe una nota', onInput: noop }) }), atoms.button({ label: 'Enviar', variant: 'primary', icon: 'send', onClick: noop }))),
+      h('div', { class: 'studio-footer' }, h('span', { class: 'studio-footer__item' }, icons.icon('lock'), 'Cambios solo en esta sesión'), h('span', { class: 'studio-footer__sep' }, '·'), h('span', { class: 'studio-footer__item is-pending' }, icons.icon('warning'), 'Revisión pendiente del analista'))),
+    h('aside', { class: 'studio-side', 'aria-label': 'Evidencia y revisión' },
+      h('div', { class: 'studio-side__section' }, h('h3', { class: 'studio-side__title' }, 'Evidencia'), h('div', { class: 'evidence-item' }, h('span', { class: 'evidence-item__label' }, 'Caso de mejora de emisión de boletas'), h('span', { class: 'evidence-item__summary' }, 'Dueño, límites y problemas; diagramas AS-IS y TO-BE'), atoms.badge({ label: 'Fuente del cliente', tone: 'brand' }))),
+      h('div', { class: 'review' }, h('div', { class: 'review__header' }, h('h3', { class: 'review__title' }, 'Propuesta de actualización documental · TO-BE 3'), h('p', { class: 'muted text-sm' }, 'Nueva versión TO-BE; no cambia el AS-IS')),
+        h('div', { class: 'review__diff' }, h('div', { class: 'review__diff-cell' }, h('span', { class: 'review__diff-label' }, 'Antes'), 'Revisar documentos'), h('div', { class: 'review__diff-cell review__diff-cell--after' }, h('span', { class: 'review__diff-label' }, 'Después'), 'Comparar los documentos recibidos…')),
+        atoms.field({ id: 'st-instr', label: 'Instrucción propuesta', hint: 'Entre 20 y 600 caracteres', control: atoms.textarea({ id: 'st-instr', value: 'Comparar los documentos recibidos…', rows: 3, onInput: noop }) }),
+        h('div', { class: 'review__actions' }, atoms.button({ label: 'Restaurar texto propuesto', variant: 'ghost', size: 'sm', onClick: noop }))),
+      h('div', { class: 'studio-side__section' }, h('h3', { class: 'studio-side__title' }, 'Artefacto'), h('div', { class: 'artifact-preview' }, h('div', { class: 'artifact-preview__title' }, 'proceso-boletas.yml · representación de ejemplo'), 'version: V-TOBE-03\nestado: propuesta-en-demo'))));
+  section('studio', 'Composición: estudio del analista (tab 5)', 'roster 260 | main (chips, tabs locales, conversación, compositor, pie) | panel lateral 380 (≥1280). Por debajo, el panel lateral se apila bajo la conversación; en estrecho el roster es una franja horizontal siempre visible.',
+    h('div', { class: 'catalog__frame' }, studio)
+  );
+
+  section('narrow', 'Vista estrecha y zoom de texto', 'Los puntos de corte responden al ancho disponible (no al user-agent). Abre esta misma página a 390 px o usa el zoom de texto del navegador al 200 %: alturas mínimas en rem, nada recortado.',
+    row(atoms.button({ label: 'Abrir a 390 × 844', variant: 'secondary', icon: 'externalLink', onClick: function () { window.open(location.href.split('#')[0] + '#tables', 'primus-catalog-narrow', 'width=390,height=844'); } }),
+      atoms.button({ label: 'Abrir a 1024 × 768', variant: 'secondary', icon: 'externalLink', onClick: function () { window.open(location.href.split('#')[0] + '#twin', 'primus-catalog-medium', 'width=1024,height=768'); } }),
+      atoms.button({ label: 'Imprimir (print.css)', variant: 'ghost', icon: 'document', onClick: function () { window.print(); } }))
+  );
+})();
+</script>
+</body>
+</html>

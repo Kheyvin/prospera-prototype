@@ -1,0 +1,2923 @@
+{
+  "organization": {
+    "currentAsIsVersionId": "V-ASIS-01",
+    "entities": [
+      {
+        "id": "ORG-01",
+        "type": "organization",
+        "name": "Próspera Grupo Inmobiliario",
+        "description": "Desarrollo y gestión de proyectos inmobiliarios residenciales, desde la evaluación y adquisición del terreno hasta la entrega y atención posventa",
+        "attributes": {
+          "mission": null,
+          "vision": null,
+          "missingLabel": "No proporcionadas para esta demo"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-PORT",
+            "S-POL"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "A-AF",
+        "type": "area",
+        "name": "Administración y Finanzas",
+        "description": null,
+        "parentId": "ORG-01",
+        "attributes": {
+          "supportLabel": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "A-COM",
+        "type": "area",
+        "name": "Comercial",
+        "description": null,
+        "parentId": "ORG-01",
+        "attributes": {
+          "supportLabel": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "A-MKT",
+        "type": "area",
+        "name": "Marketing",
+        "description": null,
+        "parentId": "ORG-01",
+        "attributes": {
+          "supportLabel": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "A-PRO",
+        "type": "area",
+        "name": "Proyectos",
+        "description": null,
+        "parentId": "ORG-01",
+        "attributes": {
+          "supportLabel": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "A-TER",
+        "type": "area",
+        "name": "Terrenos",
+        "description": null,
+        "parentId": "ORG-01",
+        "attributes": {
+          "supportLabel": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "A-LEG",
+        "type": "area",
+        "name": "Legal",
+        "description": null,
+        "parentId": "ORG-01",
+        "attributes": {
+          "supportLabel": "Soporte transversal"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-01",
+        "type": "position",
+        "name": "Gerente General",
+        "description": "Puesto de Próspera Grupo Inmobiliario según el organigrama entregado",
+        "areaId": "ORG-01",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-02",
+        "type": "position",
+        "name": "Jefa de Administración y Finanzas",
+        "description": "Puesto del área Administración y Finanzas según el organigrama entregado",
+        "areaId": "A-AF",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-03",
+        "type": "position",
+        "name": "Asistente administrativa",
+        "description": "Puesto del área Administración y Finanzas según el organigrama entregado",
+        "areaId": "A-AF",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-04",
+        "type": "position",
+        "name": "Asistente contable",
+        "description": "Puesto del área Administración y Finanzas según el organigrama entregado",
+        "areaId": "A-AF",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-05",
+        "type": "position",
+        "name": "Asistente de Calidad",
+        "description": "Puesto del área Administración y Finanzas según el organigrama entregado",
+        "areaId": "A-AF",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-06",
+        "type": "position",
+        "name": "Jefe de Ventas",
+        "description": "Puesto del área Comercial según el organigrama entregado",
+        "areaId": "A-COM",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-07",
+        "type": "position",
+        "name": "Supervisora de Ventas",
+        "description": "Puesto del área Comercial según el organigrama entregado",
+        "areaId": "A-COM",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-08",
+        "type": "position",
+        "name": "Ejecutivos de Ventas",
+        "description": "Puesto del área Comercial según el organigrama entregado",
+        "areaId": "A-COM",
+        "attributes": {
+          "collective": true,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-09",
+        "type": "position",
+        "name": "Ejecutivo de Contact Center",
+        "description": "Puesto del área Comercial según el organigrama entregado",
+        "areaId": "A-COM",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-10",
+        "type": "position",
+        "name": "Coordinadora de Marketing",
+        "description": "Puesto del área Marketing según el organigrama entregado",
+        "areaId": "A-MKT",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-11",
+        "type": "position",
+        "name": "Asistente de Marketing",
+        "description": "Puesto del área Marketing según el organigrama entregado",
+        "areaId": "A-MKT",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-12",
+        "type": "position",
+        "name": "Diseñador gráfico",
+        "description": "Puesto del área Marketing según el organigrama entregado",
+        "areaId": "A-MKT",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-13",
+        "type": "position",
+        "name": "Gerente de Proyectos",
+        "description": "Puesto del área Proyectos según el organigrama entregado",
+        "areaId": "A-PRO",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-14",
+        "type": "position",
+        "name": "Jefa de Proyectos",
+        "description": "Puesto del área Proyectos según el organigrama entregado",
+        "areaId": "A-PRO",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-15",
+        "type": "position",
+        "name": "Asistente técnico de Arquitectura",
+        "description": "Puesto del área Proyectos según el organigrama entregado",
+        "areaId": "A-PRO",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-16",
+        "type": "position",
+        "name": "Practicante de Proyectos",
+        "description": "Puesto del área Proyectos según el organigrama entregado",
+        "areaId": "A-PRO",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-17",
+        "type": "position",
+        "name": "Coordinadora de Logística",
+        "description": "Puesto del área Proyectos según el organigrama entregado",
+        "areaId": "A-PRO",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-18",
+        "type": "position",
+        "name": "Ejecutivo de Expansión y Crecimiento",
+        "description": "Puesto del área Terrenos según el organigrama entregado",
+        "areaId": "A-TER",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-19",
+        "type": "position",
+        "name": "Ejecutivo de Nuevos Negocios",
+        "description": "Puesto del área Terrenos según el organigrama entregado",
+        "areaId": "A-TER",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-20",
+        "type": "position",
+        "name": "Asesora legal",
+        "description": "Puesto del área Legal según el organigrama entregado",
+        "areaId": "A-LEG",
+        "attributes": {
+          "collective": false,
+          "external": false,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-X1",
+        "type": "position",
+        "name": "Contadores tercerizados",
+        "description": "Servicio externo según el organigrama entregado",
+        "areaId": "A-AF",
+        "attributes": {
+          "collective": false,
+          "external": true,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-X2",
+        "type": "position",
+        "name": "Consultoría financiera",
+        "description": "Servicio externo según el organigrama entregado",
+        "areaId": "A-AF",
+        "attributes": {
+          "collective": false,
+          "external": true,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-X3",
+        "type": "position",
+        "name": "Analista de Marketing tercerizado",
+        "description": "Servicio externo según el organigrama entregado",
+        "areaId": "A-MKT",
+        "attributes": {
+          "collective": false,
+          "external": true,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-X4",
+        "type": "position",
+        "name": "Evaluación técnica y económica de proyectos",
+        "description": "Servicio externo según el organigrama entregado",
+        "areaId": "A-PRO",
+        "attributes": {
+          "collective": false,
+          "external": true,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "J-X5",
+        "type": "position",
+        "name": "Estudio legal externo",
+        "description": "Servicio externo según el organigrama entregado",
+        "areaId": "A-LEG",
+        "attributes": {
+          "collective": false,
+          "external": true,
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-01",
+        "type": "person",
+        "name": "Joan Gustavo Yurivilca Ramos",
+        "description": null,
+        "areaId": "ORG-01",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-01",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-02",
+        "type": "person",
+        "name": "Marisol Cristina Urrutia Chávez",
+        "description": null,
+        "areaId": "A-AF",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-02",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-03",
+        "type": "person",
+        "name": "Xyomara Vanessa Medina Huaraya",
+        "description": null,
+        "areaId": "A-AF",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-03",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-04",
+        "type": "person",
+        "name": "Renzo Edher Vera Ramos",
+        "description": null,
+        "areaId": "A-AF",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-04",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-05",
+        "type": "person",
+        "name": "Isabel Esther Perez Gomez",
+        "description": null,
+        "areaId": "A-AF",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-05",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-06",
+        "type": "person",
+        "name": "Alexis Miguel Negron Perez",
+        "description": null,
+        "areaId": "A-COM",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-06",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-07",
+        "type": "person",
+        "name": "Paola Alessandra Franco Rivarola",
+        "description": null,
+        "areaId": "A-COM",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-07",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-08",
+        "type": "person",
+        "name": "Giuliana Francesca Franco Rivarola",
+        "description": null,
+        "areaId": "A-COM",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-08",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-09",
+        "type": "person",
+        "name": "Lady Isabel Elias Urrutia",
+        "description": null,
+        "areaId": "A-COM",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-08",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-10",
+        "type": "person",
+        "name": "María Liliana Ykira Herrera",
+        "description": null,
+        "areaId": "A-COM",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-08",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-11",
+        "type": "person",
+        "name": "Diego Alonso Arce Benites",
+        "description": null,
+        "areaId": "A-COM",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-08",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-12",
+        "type": "person",
+        "name": "Carlos Alejandro Aleman Sirlopu",
+        "description": null,
+        "areaId": "A-COM",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-09",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-13",
+        "type": "person",
+        "name": "María Alejandra Gonzales Fung",
+        "description": null,
+        "areaId": "A-MKT",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-10",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-14",
+        "type": "person",
+        "name": "Paolo Martin Reynoso Ramirez",
+        "description": null,
+        "areaId": "A-MKT",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-11",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-15",
+        "type": "person",
+        "name": "Cristhian Mitsuo Tamamoto Sanchez",
+        "description": null,
+        "areaId": "A-MKT",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-12",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-16",
+        "type": "person",
+        "name": "Miguel Luis Yurivilca Montes",
+        "description": null,
+        "areaId": "A-PRO",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-13",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-17",
+        "type": "person",
+        "name": "Sally Durand Gallardo",
+        "description": null,
+        "areaId": "A-PRO",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-14",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-18",
+        "type": "person",
+        "name": "Cristhian Armando Reginaldo Carbajal",
+        "description": null,
+        "areaId": "A-PRO",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-15",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-19",
+        "type": "person",
+        "name": "Angela Rosa Gamarra Martinez",
+        "description": null,
+        "areaId": "A-PRO",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-16",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-20",
+        "type": "person",
+        "name": "Lourdes Ramos Arretea de Yurivilca",
+        "description": null,
+        "areaId": "A-PRO",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-17",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-21",
+        "type": "person",
+        "name": "César Guillermo Gutierrez Montero",
+        "description": null,
+        "areaId": "A-TER",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-18",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-22",
+        "type": "person",
+        "name": "Ronald Kevin Samame Celadita",
+        "description": null,
+        "areaId": "A-TER",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-19",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "P-23",
+        "type": "person",
+        "name": "Flor de María Felipa Córdova",
+        "description": null,
+        "areaId": "A-LEG",
+        "attributes": {
+          "kind": "internal",
+          "positionId": "J-20",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "EXT-01",
+        "type": "externalProvider",
+        "name": "PERU CONTABLE S.A.C.",
+        "description": null,
+        "areaId": "A-AF",
+        "attributes": {
+          "kind": "externalOrganization",
+          "positionId": "J-X1",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "EXT-02",
+        "type": "externalProvider",
+        "name": "Carlos Elmer Lopez Vallejos",
+        "description": null,
+        "areaId": "A-AF",
+        "attributes": {
+          "kind": "externalPerson",
+          "positionId": "J-X2",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "EXT-03",
+        "type": "externalProvider",
+        "name": "AIROS CONSULTING S.A.C.",
+        "description": null,
+        "areaId": "A-MKT",
+        "attributes": {
+          "kind": "externalOrganization",
+          "positionId": "J-X3",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "EXT-04",
+        "type": "externalProvider",
+        "name": "Diego Jonathan Rojas Otiniano",
+        "description": null,
+        "areaId": "A-PRO",
+        "attributes": {
+          "kind": "externalPerson",
+          "positionId": "J-X4",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "EXT-05",
+        "type": "externalProvider",
+        "name": "ESTUDIO SANABRIA",
+        "description": null,
+        "areaId": "A-LEG",
+        "attributes": {
+          "kind": "externalOrganization",
+          "positionId": "J-X5",
+          "occupancyNote": "Ocupante según organigrama de septiembre de 2026"
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "PR-01",
+        "type": "process",
+        "name": "Evaluación y adquisición de terrenos",
+        "description": null,
+        "attributes": {
+          "portfolio": true,
+          "detailed": false,
+          "sheetText": "Proceso incluido en el alcance organizacional entregado por Próspera. Actividades y responsable del proceso no proporcionados para esta demo",
+          "extraText": null,
+          "openFlowUnavailable": "No se proporcionó el detalle de actividades de este proceso",
+          "start": null,
+          "end": null,
+          "note": null,
+          "variants": [],
+          "participantsText": null,
+          "timeText": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-PORT"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "PR-02",
+        "type": "process",
+        "name": "Estructuración y planificación de proyectos inmobiliarios",
+        "description": null,
+        "attributes": {
+          "portfolio": true,
+          "detailed": false,
+          "sheetText": "Proceso incluido en el alcance organizacional entregado por Próspera. Actividades y responsable del proceso no proporcionados para esta demo",
+          "extraText": null,
+          "openFlowUnavailable": "No se proporcionó el detalle de actividades de este proceso",
+          "start": null,
+          "end": null,
+          "note": null,
+          "variants": [],
+          "participantsText": null,
+          "timeText": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-PORT"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "PR-03",
+        "type": "process",
+        "name": "Estructuración financiera y gestión de fuentes de financiamiento",
+        "description": null,
+        "attributes": {
+          "portfolio": true,
+          "detailed": false,
+          "sheetText": "Proceso incluido en el alcance organizacional entregado por Próspera. Actividades y responsable del proceso no proporcionados para esta demo",
+          "extraText": null,
+          "openFlowUnavailable": "No se proporcionó el detalle de actividades de este proceso",
+          "start": null,
+          "end": null,
+          "note": null,
+          "variants": [],
+          "participantsText": null,
+          "timeText": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-PORT"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "PR-04",
+        "type": "process",
+        "name": "Diseño y coordinación de especialidades",
+        "description": null,
+        "attributes": {
+          "portfolio": true,
+          "detailed": false,
+          "sheetText": "Proceso incluido en el alcance organizacional entregado por Próspera. Actividades y responsable del proceso no proporcionados para esta demo",
+          "extraText": null,
+          "openFlowUnavailable": "No se proporcionó el detalle de actividades de este proceso",
+          "start": null,
+          "end": null,
+          "note": null,
+          "variants": [],
+          "participantsText": null,
+          "timeText": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-PORT"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "PR-05",
+        "type": "process",
+        "name": "Gestión de marketing y publicidad de los proyectos",
+        "description": null,
+        "attributes": {
+          "portfolio": true,
+          "detailed": false,
+          "sheetText": "Proceso incluido en el alcance organizacional entregado por Próspera. Actividades y responsable del proceso no proporcionados para esta demo",
+          "extraText": null,
+          "openFlowUnavailable": "No se proporcionó el detalle de actividades de este proceso",
+          "start": null,
+          "end": null,
+          "note": null,
+          "variants": [],
+          "participantsText": null,
+          "timeText": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-PORT"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "PR-06",
+        "type": "process",
+        "name": "Gestión de licencias, permisos y autorizaciones aplicables",
+        "description": null,
+        "attributes": {
+          "portfolio": true,
+          "detailed": false,
+          "sheetText": "Proceso incluido en el alcance organizacional entregado por Próspera. Actividades y responsable del proceso no proporcionados para esta demo",
+          "extraText": null,
+          "openFlowUnavailable": "No se proporcionó el detalle de actividades de este proceso",
+          "start": null,
+          "end": null,
+          "note": null,
+          "variants": [],
+          "participantsText": null,
+          "timeText": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-PORT"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "PR-07",
+        "type": "process",
+        "name": "Comercialización y venta de unidades inmobiliarias",
+        "description": null,
+        "attributes": {
+          "portfolio": true,
+          "detailed": false,
+          "sheetText": "Proceso incluido en el alcance organizacional entregado por Próspera. Actividades y responsable del proceso no proporcionados para esta demo",
+          "extraText": null,
+          "openFlowUnavailable": "No se proporcionó el detalle de actividades de este proceso",
+          "start": null,
+          "end": null,
+          "note": null,
+          "variants": [],
+          "participantsText": null,
+          "timeText": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-PORT"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "PR-08",
+        "type": "process",
+        "name": "Gestión de la construcción",
+        "description": null,
+        "attributes": {
+          "portfolio": true,
+          "detailed": false,
+          "sheetText": "Proceso incluido en el alcance organizacional entregado por Próspera. Actividades y responsable del proceso no proporcionados para esta demo",
+          "extraText": "Incluye contratación, supervisión, seguimiento y control de proveedores y contratistas",
+          "openFlowUnavailable": "No se proporcionó el detalle de actividades de este proceso",
+          "start": null,
+          "end": null,
+          "note": null,
+          "variants": [],
+          "participantsText": null,
+          "timeText": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-PORT"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "PR-09",
+        "type": "process",
+        "name": "Entrega de unidades inmobiliarias, atención al cliente y servicio posventa",
+        "description": null,
+        "attributes": {
+          "portfolio": true,
+          "detailed": false,
+          "sheetText": "Proceso incluido en el alcance organizacional entregado por Próspera. Actividades y responsable del proceso no proporcionados para esta demo",
+          "extraText": null,
+          "openFlowUnavailable": "No se proporcionó el detalle de actividades de este proceso",
+          "start": null,
+          "end": null,
+          "note": null,
+          "variants": [],
+          "participantsText": null,
+          "timeText": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-PORT"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      },
+      {
+        "id": "PR-10",
+        "type": "process",
+        "name": "Gestión de la conformidad de obra e independización de las unidades inmobiliarias",
+        "description": null,
+        "attributes": {
+          "portfolio": true,
+          "detailed": false,
+          "sheetText": "Proceso incluido en el alcance organizacional entregado por Próspera. Actividades y responsable del proceso no proporcionados para esta demo",
+          "extraText": null,
+          "openFlowUnavailable": "No se proporcionó el detalle de actividades de este proceso",
+          "start": null,
+          "end": null,
+          "note": null,
+          "variants": [],
+          "participantsText": null,
+          "timeText": null
+        },
+        "provenance": {
+          "sourceIds": [
+            "S-PORT"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "isDemo": false,
+        "labels": [
+          "Fuente del cliente"
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "id": "R-ORG-001",
+        "type": "parteDe",
+        "from": "A-AF",
+        "to": "ORG-01",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-002",
+        "type": "parteDe",
+        "from": "A-COM",
+        "to": "ORG-01",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-003",
+        "type": "parteDe",
+        "from": "A-MKT",
+        "to": "ORG-01",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-004",
+        "type": "parteDe",
+        "from": "A-PRO",
+        "to": "ORG-01",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-005",
+        "type": "parteDe",
+        "from": "A-TER",
+        "to": "ORG-01",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-006",
+        "type": "parteDe",
+        "from": "A-LEG",
+        "to": "ORG-01",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-007",
+        "type": "perteneceA",
+        "from": "J-01",
+        "to": "ORG-01",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-008",
+        "type": "perteneceA",
+        "from": "J-02",
+        "to": "A-AF",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-009",
+        "type": "perteneceA",
+        "from": "J-03",
+        "to": "A-AF",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-010",
+        "type": "perteneceA",
+        "from": "J-04",
+        "to": "A-AF",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-011",
+        "type": "perteneceA",
+        "from": "J-05",
+        "to": "A-AF",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-012",
+        "type": "perteneceA",
+        "from": "J-06",
+        "to": "A-COM",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-013",
+        "type": "perteneceA",
+        "from": "J-07",
+        "to": "A-COM",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-014",
+        "type": "perteneceA",
+        "from": "J-08",
+        "to": "A-COM",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-015",
+        "type": "perteneceA",
+        "from": "J-09",
+        "to": "A-COM",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-016",
+        "type": "perteneceA",
+        "from": "J-10",
+        "to": "A-MKT",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-017",
+        "type": "perteneceA",
+        "from": "J-11",
+        "to": "A-MKT",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-018",
+        "type": "perteneceA",
+        "from": "J-12",
+        "to": "A-MKT",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-019",
+        "type": "perteneceA",
+        "from": "J-13",
+        "to": "A-PRO",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-020",
+        "type": "perteneceA",
+        "from": "J-14",
+        "to": "A-PRO",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-021",
+        "type": "perteneceA",
+        "from": "J-15",
+        "to": "A-PRO",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-022",
+        "type": "perteneceA",
+        "from": "J-16",
+        "to": "A-PRO",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-023",
+        "type": "perteneceA",
+        "from": "J-17",
+        "to": "A-PRO",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-024",
+        "type": "perteneceA",
+        "from": "J-18",
+        "to": "A-TER",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-025",
+        "type": "perteneceA",
+        "from": "J-19",
+        "to": "A-TER",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-026",
+        "type": "perteneceA",
+        "from": "J-20",
+        "to": "A-LEG",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-027",
+        "type": "perteneceA",
+        "from": "J-X1",
+        "to": "A-AF",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-028",
+        "type": "perteneceA",
+        "from": "J-X2",
+        "to": "A-AF",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-029",
+        "type": "perteneceA",
+        "from": "J-X3",
+        "to": "A-MKT",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-030",
+        "type": "perteneceA",
+        "from": "J-X4",
+        "to": "A-PRO",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-031",
+        "type": "perteneceA",
+        "from": "J-X5",
+        "to": "A-LEG",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-032",
+        "type": "ocupa",
+        "from": "P-01",
+        "to": "J-01",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-033",
+        "type": "ocupa",
+        "from": "P-02",
+        "to": "J-02",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-034",
+        "type": "ocupa",
+        "from": "P-03",
+        "to": "J-03",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-035",
+        "type": "ocupa",
+        "from": "P-04",
+        "to": "J-04",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-036",
+        "type": "ocupa",
+        "from": "P-05",
+        "to": "J-05",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-037",
+        "type": "ocupa",
+        "from": "P-06",
+        "to": "J-06",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-038",
+        "type": "ocupa",
+        "from": "P-07",
+        "to": "J-07",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-039",
+        "type": "ocupa",
+        "from": "P-08",
+        "to": "J-08",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-040",
+        "type": "ocupa",
+        "from": "P-09",
+        "to": "J-08",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-041",
+        "type": "ocupa",
+        "from": "P-10",
+        "to": "J-08",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-042",
+        "type": "ocupa",
+        "from": "P-11",
+        "to": "J-08",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-043",
+        "type": "ocupa",
+        "from": "P-12",
+        "to": "J-09",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-044",
+        "type": "ocupa",
+        "from": "P-13",
+        "to": "J-10",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-045",
+        "type": "ocupa",
+        "from": "P-14",
+        "to": "J-11",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-046",
+        "type": "ocupa",
+        "from": "P-15",
+        "to": "J-12",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-047",
+        "type": "ocupa",
+        "from": "P-16",
+        "to": "J-13",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-048",
+        "type": "ocupa",
+        "from": "P-17",
+        "to": "J-14",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-049",
+        "type": "ocupa",
+        "from": "P-18",
+        "to": "J-15",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-050",
+        "type": "ocupa",
+        "from": "P-19",
+        "to": "J-16",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-051",
+        "type": "ocupa",
+        "from": "P-20",
+        "to": "J-17",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-052",
+        "type": "ocupa",
+        "from": "P-21",
+        "to": "J-18",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-053",
+        "type": "ocupa",
+        "from": "P-22",
+        "to": "J-19",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-054",
+        "type": "ocupa",
+        "from": "P-23",
+        "to": "J-20",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-055",
+        "type": "prestaServicioComo",
+        "from": "EXT-01",
+        "to": "J-X1",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-056",
+        "type": "prestaServicioComo",
+        "from": "EXT-02",
+        "to": "J-X2",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-057",
+        "type": "prestaServicioComo",
+        "from": "EXT-03",
+        "to": "J-X3",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-058",
+        "type": "prestaServicioComo",
+        "from": "EXT-04",
+        "to": "J-X4",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-059",
+        "type": "prestaServicioComo",
+        "from": "EXT-05",
+        "to": "J-X5",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": null,
+        "inferred": false
+      },
+      {
+        "id": "R-ORG-060",
+        "type": "gerenciaGeneral",
+        "from": "J-01",
+        "to": "ORG-01",
+        "provenance": {
+          "sourceIds": [
+            "S-ORG"
+          ],
+          "confidence": "confirmed",
+          "observedAt": null,
+          "dataState": "known"
+        },
+        "label": "Gerencia General",
+        "inferred": false
+      }
+    ],
+    "views": {
+      "levels": [
+        "strategic",
+        "tactical",
+        "operational"
+      ],
+      "representations": [
+        "orgchart",
+        "processmap",
+        "relations"
+      ],
+      "depths": [
+        "areas",
+        "positions",
+        "people"
+      ],
+      "defaultContext": {
+        "level": "strategic",
+        "representation": "orgchart",
+        "rootId": "ORG-01",
+        "depth": "positions"
+      },
+      "defaultProcessId": "PR-BOLETAS",
+      "processViews": [
+        "sheet",
+        "flow",
+        "compare",
+        "incidents",
+        "projects"
+      ],
+      "map": {
+        "bands": [
+          {
+            "id": "objective",
+            "label": "Objetivo propuesto",
+            "entityIds": [
+              "OBJ-01"
+            ]
+          },
+          {
+            "id": "direction",
+            "label": "Dirección",
+            "message": "No se proporcionó un mapa de procesos estratégicos"
+          },
+          {
+            "id": "business",
+            "label": "Procesos del negocio proporcionados",
+            "subtitle": "Cadena de valor",
+            "entityIds": [
+              "PR-01",
+              "PR-02",
+              "PR-03",
+              "PR-04",
+              "PR-05",
+              "PR-06",
+              "PR-07",
+              "PR-08",
+              "PR-09",
+              "PR-10"
+            ]
+          },
+          {
+            "id": "support",
+            "label": "Soporte",
+            "entityIds": [
+              "MP-AF",
+              "PR-BOLETAS"
+            ]
+          },
+          {
+            "id": "people",
+            "label": "Personas y roles del caso",
+            "entityIds": [
+              "RL-VENTAS",
+              "RL-ADMIN",
+              "RL-CONT"
+            ]
+          },
+          {
+            "id": "systems",
+            "label": "Sistemas del caso",
+            "entityIds": [
+              "SYS-WA",
+              "SYS-DRIVE",
+              "SYS-MAIL",
+              "SYS-SPERANT",
+              "SYS-FACT"
+            ]
+          }
+        ],
+        "capabilitiesNote": "No se proporcionó un catálogo de capacidades",
+        "counts": {
+          "detailed": "1 proceso con detalle",
+          "summary": "10 procesos con resumen"
+        }
+      },
+      "orgchart": {
+        "legend": "Agrupado por área; las líneas entre puestos no representan dependencias de mando",
+        "note": "Datos del organigrama de septiembre de 2026. El detalle de procesos se limita al caso de boletas",
+        "externalLabel": "Servicio externo"
+      },
+      "layers": [
+        {
+          "id": "people",
+          "label": "Personas y roles"
+        },
+        {
+          "id": "systems",
+          "label": "Sistemas"
+        },
+        {
+          "id": "documents",
+          "label": "Documentos"
+        }
+      ],
+      "sipoc": {
+        "label": "Síntesis de las fuentes para esta demo",
+        "columns": [
+          "Proveedores",
+          "Entradas",
+          "Proceso",
+          "Salidas",
+          "Destinatarios"
+        ],
+        "rows": [
+          {
+            "suppliers": "Cliente y Ejecutivo de Ventas",
+            "inputs": "Comprobante, datos del bien, convenio y documentos según tipo de pago",
+            "process": "Recibir → organizar → revisar → solicitar emisión → emitir → enviar",
+            "outputs": "Boleta y documentación relacionada",
+            "customers": "Cliente; Ventas y Administración como participantes informados"
+          }
+        ]
+      },
+      "raci": {
+        "note": "Asignación por actividad pendiente de validación",
+        "missing": "— No proporcionado"
+      },
+      "compare": {
+        "columns": [
+          "AS-IS documentado",
+          "TO-BE propuesto"
+        ],
+        "rows": [
+          {
+            "label": "Documentos",
+            "asIs": "dispersos en Drive y comunicaciones",
+            "toBe": "centralización propuesta en SPERANT"
+          },
+          {
+            "label": "Revisión",
+            "asIs": "expedientes observados durante la validación",
+            "toBe": "control preventivo de documentos, firmas y nombres"
+          },
+          {
+            "label": "Correcciones",
+            "asIs": "devoluciones y revisiones repetidas",
+            "toBe": "subsanación antes de carga y observaciones registradas"
+          },
+          {
+            "label": "Solicitud",
+            "asIs": "hilo de correo",
+            "toBe": "solicitud registrada y posterior correo a Contabilidad"
+          },
+          {
+            "label": "Medición",
+            "asIs": "no proporcionada",
+            "toBe": "beneficios esperados, aún no medidos"
+          }
+        ],
+        "footer": "El TO-BE conserva tareas humanas. Su aprobación e implementación no están acreditadas en las fuentes"
+      },
+      "history": {
+        "columns": [
+          "Versión",
+          "Tipo",
+          "Estado",
+          "Fecha de publicación",
+          "Responsable",
+          "Cambio",
+          "Fuente"
+        ],
+        "initialReference": "Referencia inicial",
+        "notProvided": "No proporcionados",
+        "processNote": "Los modelos entregados no incluyen constancia de publicación o aprobación interna",
+        "activityNote": "Las ocho actividades son resúmenes de la demo, no versiones oficiales del procedimiento"
+      },
+      "instruction": {
+        "sections": [
+          "Qué hacer",
+          "Quién interviene",
+          "Información necesaria",
+          "Herramientas",
+          "Control",
+          "Resultado esperado",
+          "Tiempo",
+          "Fuentes",
+          "Trabajo relacionado"
+        ],
+        "disclaimer": "Guía resumida a partir del diagrama; no sustituye un procedimiento aprobado"
+      },
+      "areaSpace": {
+        "sections": [
+          "Resumen del área",
+          "Puestos",
+          "Procesos documentados",
+          "Situaciones observadas",
+          "Incidencias y proyectos"
+        ],
+        "noDetail": "No hay un proceso detallado vinculado a esta área en la demo",
+        "processCard": {
+          "owner": "Dueño documentado: Administración y Finanzas",
+          "status": "AS-IS documentado · aprobación interna no acreditada en las fuentes"
+        }
+      }
+    }
+  }
+}

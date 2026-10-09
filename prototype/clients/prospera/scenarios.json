@@ -1,0 +1,500 @@
+{
+  "scenarios": [
+    {
+      "id": "SCN-01",
+      "title": "Revisar y precisar la propuesta",
+      "sessionId": "SES-BOLETAS",
+      "workspaceId": "WS-BOLETAS",
+      "processId": "PR-BOLETAS",
+      "trigger": {
+        "label": "Revisar propuesta de boletas",
+        "prompt": "Revisa el AS-IS y el TO-BE de boletas y prepara una mejora documental con sus fuentes"
+      },
+      "preconditions": [
+        {
+          "check": "profileRole",
+          "value": "admin",
+          "message": "Para preparar y publicar cambios en esta demostración, usa el perfil de analista"
+        },
+        {
+          "check": "versionExists",
+          "value": "V-TOBE-02"
+        },
+        {
+          "check": "versionAbsent",
+          "value": "V-TOBE-03",
+          "message": "Este escenario ya se aplicó. Consulta el resultado o reinicia la demo"
+        },
+        {
+          "check": "noPendingReview",
+          "message": "Revisión pendiente del analista"
+        }
+      ],
+      "repeatMessage": "Este escenario ya se aplicó. Consulta el resultado o reinicia la demo",
+      "steps": [
+        ["SCN-01-E01", "SCN-01-E02"],
+        ["SCN-01-E03", "SCN-01-E04"],
+        ["SCN-01-E05"],
+        ["SCN-01-E06", "SCN-01-E07"],
+        ["SCN-01-E08", "SCN-01-E09"],
+        ["SCN-01-E10"]
+      ],
+      "events": [
+        {
+          "id": "SCN-01-E01",
+          "sequence": 1,
+          "kind": "analyst-message",
+          "text": "Revisa el AS-IS y el TO-BE de boletas y prepara una mejora documental con sus fuentes"
+        },
+        {
+          "id": "SCN-01-E02",
+          "sequence": 2,
+          "kind": "assistant-message",
+          "text": "Revisaré las fuentes del caso y conservaré la diferencia entre lo documentado y lo propuesto. No asumiré tiempos, aprobaciones ni integraciones que no estén acreditados"
+        },
+        {
+          "id": "SCN-01-E03",
+          "sequence": 3,
+          "kind": "tool-start",
+          "callId": "C-READ",
+          "operation": "READ_EVIDENCE",
+          "label": "Revisar fuentes del proceso",
+          "statusLabel": "En curso",
+          "evidenceIds": ["EV-CASE", "EV-ASIS", "EV-TOBE1", "EV-TOBE2", "EV-ORG"],
+          "sourceIds": ["S-CASE", "S-ASIS", "S-TOBE1", "S-TOBE2", "S-ORG"]
+        },
+        {
+          "id": "SCN-01-E04",
+          "sequence": 4,
+          "kind": "tool-result",
+          "callId": "C-READ",
+          "operation": "READ_EVIDENCE",
+          "text": "Revisión completada: proceso actual, dos modelos TO-BE y participantes identificados. El primer TO-BE contiene tareas sin definir",
+          "statusLabel": "Completado",
+          "evidenceIds": ["EV-CASE", "EV-ASIS", "EV-TOBE1", "EV-TOBE2", "EV-ORG"],
+          "sourceIds": ["S-CASE", "S-ASIS", "S-TOBE1", "S-TOBE2", "S-ORG"],
+          "delayMs": 700
+        },
+        {
+          "id": "SCN-01-E05",
+          "sequence": 5,
+          "kind": "assistant-message",
+          "text": "El caso describe expedientes incompletos, información dispersa y revisiones repetidas. El TO-BE 2 propone revisar documentos y firmas antes de cargar el expediente en SPERANT. Esa propuesta ya proviene de Próspera; no es un hallazgo nuevo de esta conversación",
+          "links": ["GAP-01", "GAP-02", "GAP-03", "GAP-04", "T-02"]
+        },
+        {
+          "id": "SCN-01-E06",
+          "sequence": 6,
+          "kind": "tool-start",
+          "callId": "C-CHECK",
+          "operation": "CHECK_MODEL",
+          "label": "Comprobar consistencia y pendientes",
+          "statusLabel": "En curso",
+          "sourceIds": ["S-TOBE2", "S-CASE"]
+        },
+        {
+          "id": "SCN-01-E07",
+          "sequence": 7,
+          "kind": "tool-result",
+          "callId": "C-CHECK",
+          "operation": "CHECK_MODEL",
+          "text": "Pendientes: confirmar cuota normal o complementaria; validar el cambio de estado con SPERANT; confirmar el alcance de la emisión por tipo de pago. No hay mediciones de tiempo ni matriz RACI completa",
+          "statusLabel": "Completado",
+          "pending": [
+            "Confirmar cuota normal o complementaria",
+            "Validar automatización de SPERANT",
+            "Confirmar emisión por variante de pago"
+          ],
+          "sourceIds": ["S-TOBE2", "S-CASE"],
+          "delayMs": 700
+        },
+        {
+          "id": "SCN-01-E08",
+          "sequence": 8,
+          "kind": "assistant-message",
+          "text": "Propongo precisar la instrucción de revisión documental y dejar visibles esos pendientes. Mantendré el AS-IS intacto y prepararé una nueva versión TO-BE para que la revises"
+        },
+        {
+          "id": "SCN-01-E09",
+          "sequence": 9,
+          "kind": "artifact-proposal",
+          "operation": "STAGE_VERSION",
+          "title": "Propuesta de actualización documental · TO-BE 3",
+          "stagesVersionId": "V-TOBE-03",
+          "statusLabel": "Completado",
+          "sourceIds": ["S-TOBE2", "S-CASE"]
+        },
+        {
+          "id": "SCN-01-E10",
+          "sequence": 10,
+          "kind": "approval-request",
+          "requestId": "R-01",
+          "text": "Revisa el cambio antes de publicarlo en la demo. Esta confirmación es del analista; no sustituye el respaldo interno de Próspera"
+        },
+        {
+          "id": "SCN-01-E11",
+          "sequence": 11,
+          "kind": "approval-result",
+          "requestId": "R-01",
+          "operation": "PUBLISH_DEMO_VERSION",
+          "statusLabel": "Completado",
+          "sourceIds": ["S-DEMO"]
+        },
+        {
+          "id": "SCN-01-E12",
+          "sequence": 12,
+          "kind": "completed",
+          "text": "TO-BE 3 publicado en la demo. El AS-IS documentado se conserva. Puedes consultar la nueva versión en el prototipo web",
+          "cta": {
+            "label": "Ver TO-BE 3 en el prototipo web",
+            "target": {
+              "tab": "web",
+              "web": {
+                "level": "operational",
+                "processId": "PR-BOLETAS",
+                "processView": "flow",
+                "versionId": "V-TOBE-03"
+              }
+            }
+          }
+        }
+      ],
+      "errorModesLabel": "Probar recuperación",
+      "errorModes": [
+        {
+          "id": "read-failure",
+          "label": "Simular fallo de lectura",
+          "replacesEventId": "SCN-01-E04",
+          "text": "No se pudo completar la lectura simulada. Las fuentes permanecen disponibles"
+        },
+        {
+          "id": "invalid-reference",
+          "label": "Simular referencia no válida",
+          "replacesEventId": "SCN-01-E07",
+          "text": "La propuesta contiene una referencia no válida y no puede publicarse"
+        }
+      ],
+      "review": {
+        "requestId": "R-01",
+        "title": "Revisa el cambio antes de publicarlo en la demo",
+        "responsibleLabel": "Analista de Calidad",
+        "scopeLabel": "Nueva versión TO-BE; no cambia el AS-IS",
+        "pendingLabel": "Pendientes de la versión",
+        "referencesLabel": "Referencias",
+        "instructionField": {
+          "label": "Instrucción propuesta",
+          "min": 20,
+          "max": 600,
+          "restore": "Restaurar texto propuesto"
+        },
+        "noteField": {
+          "label": "Nota de revisión",
+          "min": 0,
+          "max": 300
+        },
+        "reasonField": {
+          "label": "Motivo del rechazo",
+          "min": 5,
+          "max": 300
+        },
+        "actions": {
+          "approve": "Publicar en la demo",
+          "reject": "Rechazar con motivo",
+          "cancel": "Cancelar revisión"
+        },
+        "messages": {
+          "approved": "Versión TO-BE 3 creada en esta sesión",
+          "rejected": "Propuesta rechazada. No se modificó el modelo",
+          "canceled": "Revisión cancelada. La propuesta sigue disponible sin publicar"
+        }
+      },
+      "diff": {
+        "versionId": "V-TOBE-03",
+        "baseVersionId": "V-TOBE-02",
+        "activityKey": "T-02",
+        "before": "Verificar documentos obligatorios, firmas y versión; nombrar los archivos según el estándar de la propuesta",
+        "after": "Comparar los documentos recibidos con los requisitos del tipo de pago. Verificar firmas y versión vigente. Nombrar los archivos según el estándar. Si falta información, solicitar subsanación antes de cargar el expediente",
+        "versionNote": "La denominación de cuota normal/complementaria, la automatización de SPERANT y la emisión por variante requieren validación",
+        "pending": [
+          "Confirmar cuota normal o complementaria",
+          "Validar automatización de SPERANT",
+          "Confirmar emisión por variante de pago"
+        ],
+        "sourceIds": ["S-TOBE2", "S-CASE"],
+        "confidence": "inferred",
+        "dataState": "proposed"
+      },
+      "outcome": {
+        "version": {
+          "id": "V-TOBE-03",
+          "processId": "PR-BOLETAS",
+          "type": "TO-BE",
+          "label": "TO-BE 3 · publicado en la demo",
+          "state": "published-demo",
+          "stateLabel": "Publicado en la demo",
+          "baseVersionId": "V-TOBE-02",
+          "summary": "Instrucción de revisión documental precisada",
+          "changeLabel": "Instrucción de revisión documental precisada",
+          "publishedBy": "Analista de Calidad · perfil de demo",
+          "sourceIds": ["S-TOBE2", "S-CASE", "S-DEMO"],
+          "isDemo": true
+        },
+        "projectUpdates": [
+          {
+            "projectId": "PM-01",
+            "set": {
+              "targetVersionId": "V-TOBE-03"
+            }
+          }
+        ],
+        "logAction": "Publicar versión de demo",
+        "toast": "Versión TO-BE 3 creada en esta sesión"
+      },
+      "artifact": {
+        "title": "proceso-boletas.yml · representación de ejemplo",
+        "stateBefore": "propuesta-en-demo",
+        "stateAfter": "publicada-en-demo"
+      }
+    },
+    {
+      "id": "SCN-02",
+      "title": "Cerrar mejora y crear nuevo AS-IS",
+      "sessionId": "SES-BOLETAS",
+      "workspaceId": "WS-BOLETAS",
+      "processId": "PR-BOLETAS",
+      "projectId": "PM-01",
+      "trigger": {
+        "label": "Preparar nuevo AS-IS",
+        "prompt": "Prepara una nueva versión AS-IS a partir del TO-BE 3 para el proyecto de control documental"
+      },
+      "preconditions": [
+        {
+          "check": "profileRole",
+          "value": "admin",
+          "message": "Para preparar y publicar cambios en esta demostración, usa el perfil de analista"
+        },
+        {
+          "check": "projectExists",
+          "value": "PM-01"
+        },
+        {
+          "check": "versionExists",
+          "value": "V-TOBE-03",
+          "message": "Primero publica la propuesta TO-BE 3 del escenario de revisión",
+          "cta": {
+            "label": "Ir a revisar propuesta",
+            "scenarioId": "SCN-01"
+          }
+        },
+        {
+          "check": "versionAbsent",
+          "value": "V-ASIS-02",
+          "message": "Este escenario ya se aplicó. Consulta el resultado o reinicia la demo"
+        },
+        {
+          "check": "noPendingReview",
+          "message": "Revisión pendiente del analista"
+        }
+      ],
+      "repeatMessage": "Este escenario ya se aplicó. Consulta el resultado o reinicia la demo",
+      "steps": [
+        ["SCN-02-E01", "SCN-02-E02", "SCN-02-E03"]
+      ],
+      "formSubmission": {
+        "eventId": "SCN-02-E03",
+        "emits": ["SCN-02-E04", "SCN-02-E05"]
+      },
+      "events": [
+        {
+          "id": "SCN-02-E01",
+          "sequence": 1,
+          "kind": "analyst-message",
+          "text": "Prepara una nueva versión AS-IS a partir del TO-BE 3 para el proyecto de control documental"
+        },
+        {
+          "id": "SCN-02-E02",
+          "sequence": 2,
+          "kind": "assistant-message",
+          "text": "Para crear un nuevo AS-IS, el proyecto debe figurar como concluido y el analista debe registrar que dispone del respaldo interno. En esta demo utilizaremos un cierre y un respaldo ficticios"
+        },
+        {
+          "id": "SCN-02-E03",
+          "sequence": 3,
+          "kind": "form-request",
+          "title": "Preparación del nuevo AS-IS",
+          "fields": [
+            {
+              "id": "projectStatus",
+              "type": "readonly",
+              "label": "Estado de PM-01",
+              "source": "projectStatus",
+              "projectId": "PM-01"
+            },
+            {
+              "id": "result",
+              "type": "textarea",
+              "label": "Resultado de la mejora",
+              "prefill": "Cierre ficticio: control documental revisado para demostrar el cambio de versión",
+              "min": 10,
+              "max": 500,
+              "required": true,
+              "testid": "scn2-result"
+            },
+            {
+              "id": "backingReference",
+              "type": "text",
+              "label": "Referencia de respaldo interno",
+              "prefill": "RESPALDO-DEMO-01 · ejemplo sin documento real",
+              "min": 5,
+              "max": 120,
+              "required": true,
+              "testid": "scn2-reference"
+            },
+            {
+              "id": "confirmation",
+              "type": "checkbox",
+              "label": "Confirmo que este cierre y este respaldo son ficticios y se usan solo para la demostración",
+              "prefill": false,
+              "required": true,
+              "testid": "scn2-confirm"
+            }
+          ],
+          "submit": {
+            "label": "Preparar cambio",
+            "testid": "scn2-prepare"
+          },
+          "note": "Si PM-01 está en curso, la propuesta incluye concluirlo; no se cierra todavía"
+        },
+        {
+          "id": "SCN-02-E04",
+          "sequence": 4,
+          "kind": "tool-result",
+          "callId": "C-PREP",
+          "operation": "STAGE_VERSION",
+          "text": "Propuesta preparada: concluir PM-01 y crear un nuevo AS-IS a partir de TO-BE 3. El AS-IS anterior permanecerá consultable",
+          "statusLabel": "Completado",
+          "sourceIds": ["S-DEMO"],
+          "diffSpec": [
+            {
+              "label": "PM-01",
+              "from": "{projectStatus}",
+              "to": "Concluido"
+            },
+            {
+              "label": "Respaldo interno",
+              "from": null,
+              "to": "{backingReference}"
+            },
+            {
+              "label": "Nueva versión",
+              "from": null,
+              "to": "V-ASIS-02 basada en V-TOBE-03"
+            },
+            {
+              "label": "AS-IS vigente",
+              "from": "V-ASIS-01",
+              "to": "V-ASIS-02"
+            }
+          ]
+        },
+        {
+          "id": "SCN-02-E05",
+          "sequence": 5,
+          "kind": "approval-request",
+          "requestId": "R-02",
+          "text": "Esto simula la adopción de una mejora. No acredita que Próspera haya implementado o aprobado el proceso",
+          "actions": {
+            "approve": "Publicar nuevo AS-IS en la demo",
+            "reject": "Rechazar con motivo",
+            "cancel": "Cancelar revisión"
+          }
+        },
+        {
+          "id": "SCN-02-E06",
+          "sequence": 6,
+          "kind": "approval-result",
+          "requestId": "R-02",
+          "operation": "PUBLISH_DEMO_VERSION",
+          "statusLabel": "Completado",
+          "sourceIds": ["S-DEMO"]
+        },
+        {
+          "id": "SCN-02-E07",
+          "sequence": 7,
+          "kind": "completed",
+          "text": "Nuevo AS-IS creado en la demo. La versión documentada y las propuestas anteriores se conservan en el histórico",
+          "cta": {
+            "label": "Ver nuevo AS-IS",
+            "target": {
+              "tab": "web",
+              "web": {
+                "level": "operational",
+                "processId": "PR-BOLETAS",
+                "processView": "flow",
+                "versionId": "V-ASIS-02"
+              }
+            }
+          }
+        }
+      ],
+      "errorModes": [],
+      "review": {
+        "requestId": "R-02",
+        "title": "Esto simula la adopción de una mejora. No acredita que Próspera haya implementado o aprobado el proceso",
+        "responsibleLabel": "Analista de Calidad",
+        "reasonField": {
+          "label": "Motivo del rechazo",
+          "min": 5,
+          "max": 300
+        },
+        "actions": {
+          "approve": "Publicar nuevo AS-IS en la demo",
+          "reject": "Rechazar con motivo",
+          "cancel": "Cancelar revisión"
+        },
+        "messages": {
+          "rejected": "Propuesta rechazada. No se modificó el modelo",
+          "canceled": "Revisión cancelada. La propuesta sigue disponible sin publicar"
+        }
+      },
+      "outcome": {
+        "version": {
+          "id": "V-ASIS-02",
+          "processId": "PR-BOLETAS",
+          "type": "AS-IS",
+          "label": "AS-IS 2 · adopción simulada",
+          "state": "adopted-demo",
+          "stateLabel": "AS-IS de demostración · adopción simulada",
+          "baseVersionId": "V-TOBE-03",
+          "originVersionId": "V-TOBE-03",
+          "summary": "Adopción simulada al concluir PM-01",
+          "changeLabel": "Adopción simulada al concluir PM-01",
+          "publishedBy": "Analista de Calidad · perfil de demo",
+          "sourceIds": ["S-TOBE2", "S-CASE", "S-DEMO"],
+          "setCurrentAsIs": true,
+          "adoptionLabel": "AS-IS de demostración · adopción simulada",
+          "derivedLabel": "Derivada de una propuesta",
+          "isDemo": true
+        },
+        "projectUpdates": [
+          {
+            "projectId": "PM-01",
+            "set": {
+              "status": "concluded",
+              "result": "{result}",
+              "backingReference": "{backingReference}"
+            }
+          }
+        ],
+        "logAction": "Publicar nuevo AS-IS de demo",
+        "messages": {
+          "rejected": "Propuesta rechazada. No se modificó el modelo",
+          "canceled": "Revisión cancelada. La propuesta sigue disponible sin publicar"
+        }
+      },
+      "notes": [
+        "SCN-02 no propone conectar SPERANT ni afirma que desaparezcan las incertidumbres"
+      ]
+    }
+  ]
+}
