@@ -165,7 +165,11 @@ Primus.module('components/twin/inspector', function () {
     /* ---------- actions ---------- */
 
     function close() {
+      /* update() clears `origin` while the closeInspector dispatch notifies subscribers, so the
+         origin is kept aside and restored before focus goes back to the originating node. */
+      var saved = origin;
       var result = ctx.dispatch('closeInspector', {});
+      origin = saved;
       focusOrigin();
       origin = null;
       return result;

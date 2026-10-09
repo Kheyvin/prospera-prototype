@@ -2,8 +2,8 @@
   "clientId": "prospera",
   "schemaVersion": 1,
   "specVersion": "1.0",
-  "sourceRevision": "23a7f0caeab7e25ded66ba7412bf233135287b0d",
-  "generatedAt": "2026-10-09T13:27:24.341Z",
+  "sourceRevision": "ee17caa4a992d95e208f25e2173c112e15f4461a",
+  "generatedAt": "2026-10-09T14:47:48.018Z",
   "inputs": [
     {
       "path": "build/manifest.json",
@@ -91,7 +91,7 @@
     },
     {
       "path": "src/core/commands/app.js",
-      "sha256": "eccf6bf90d4ae96852a7d4a90db3ad4f80c269a9a094490111469e7291763343"
+      "sha256": "aa8031e01814ef95d8b5db4873489a5d1621af5a9f1fa9399d2c2186b7ed78f7"
     },
     {
       "path": "src/core/commands/web.js",
@@ -99,7 +99,7 @@
     },
     {
       "path": "src/core/commands/tracking.js",
-      "sha256": "0ede7bdde1e1c2b3ac5790248e556d1cd33522c799b6a6f216be2b78a7de27f3"
+      "sha256": "30e3dce8cd8c05a0cbfa8ca48b1c0f612803bb03b4a45f1a0d88fdb926e5a13d"
     },
     {
       "path": "src/core/commands/security.js",
@@ -167,7 +167,7 @@
     },
     {
       "path": "src/components/twin/inspector.js",
-      "sha256": "bf593605b4a85531f4a50774a28ec6abff6f8c83bf47c5b1fdb0e947e36546ce"
+      "sha256": "a39c5ab29dae91c2635ab9dc9e4235d7f07e7d947cd579ca95ab5ea277f37ce6"
     },
     {
       "path": "src/components/twin/history.js",
@@ -417,9 +417,9 @@
     {
       "id": "html-size",
       "ok": true,
-      "detail": "1,542,938 bytes of 5,242,880"
+      "detail": "1,543,098 bytes of 5,242,880"
     }
   ],
-  "bytes": 1542938,
-  "sha256": "f43784e900b58c0c43013a36c48c6731fc287d1b56e838865cb7d1754addc5ba"
+  "bytes": 1543098,
+  "sha256": "b947df9bb3dff782797f9c1cd5a472365413269fbb49481d977985bff845b91a"
 }

@@ -57,7 +57,7 @@ Primus.module('core/commands/tracking', function (require) {
   function pad2(n) { return (n < 10 ? '0' : '') + n; }
 
   function processIdOf(ctx) {
-    return trackingOf(ctx.pack).processId || web().defaultProcessId(ctx.pack) || 'PR-BOLETAS';
+    return trackingOf(ctx.pack).processId || web().defaultProcessId(ctx.pack) || null;
   }
 
   function nextId(ctx, counterKey, prefix) {
