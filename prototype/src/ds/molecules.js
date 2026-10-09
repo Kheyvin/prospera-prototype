@@ -36,7 +36,8 @@ Primus.module('ds/molecules', function (require) {
   /* ── Tabs ────────────────────────────────────────────────────────────── */
 
   /* tabs({ id, tabs: [{ id, label, testid?, icon?, disabled? }], selectedId, onSelect, mode, orientation })
-   * → { el, panelAttrs(tabId) }. Manual activation: arrows move focus, Enter/Space (native
+   * → { el, panelAttrs(tabId) }. `singlePanel: true` when only the selected tab's panel exists
+   * at a time (aria-controls is then set on the selected tab only). Manual activation: arrows move focus, Enter/Space (native
    * click) select, Home/End jump. One tab stop (roving tabindex). */
   function tabs(options) {
     var opts = options || {};
@@ -80,7 +81,7 @@ Primus.module('ds/molecules', function (require) {
         class: ['tab', selected ? 'is-selected' : null, disabled ? 'is-disabled' : null],
         id: tabElementId(tab.id),
         'aria-selected': bool(selected),
-        'aria-controls': panelElementId(tab.id),
+        'aria-controls': opts.singlePanel && !selected ? null : panelElementId(tab.id),
         'aria-disabled': disabled ? 'true' : null,
         tabindex: selected ? '0' : '-1',
         'data-tab-id': tab.id,

@@ -40,11 +40,11 @@ Primus.module('components/analyst/evidence', function (require) {
 
     function card(item, model) {
       var open = !!item.open;
-      var summary = open ? h('div', { class: 'stack stack--sm', id: 'evidence-body-' + item.id, role: 'region', 'aria-labelledby': 'evidence-label-' + item.id },
+      var summary = h('div', { class: 'stack stack--sm', id: 'evidence-body-' + item.id, role: 'region', 'aria-labelledby': 'evidence-label-' + item.id, hidden: !open }, open ? [
         item.referenceLabel ? h('p', { class: 'text-sm muted' }, icons.icon('document'), ' ', item.referenceLabel) : null,
         item.summary.length ? h('ul', { class: 'list evidence-item__summary' }, item.summary.map(function (s) { return h('li', { class: 'list__item' }, s); })) : null,
         item.source ? h('p', { class: 'text-xs muted mono' }, item.source.id + (item.source.section ? ' · ' + item.source.section : '')) : null,
-        item.entityIds.length ? h('div', { class: 'cluster cluster--sm' }, item.entityIds.map(entityLinkFor)) : null) : null;
+        item.entityIds.length ? h('div', { class: 'cluster cluster--sm' }, item.entityIds.map(entityLinkFor)) : null] : null);
       return h('article', { class: ['evidence-item', open ? 'is-open' : null], 'data-evidence-id': item.id },
         h('button', { type: 'button', class: 'evidence-item__label', 'aria-expanded': open ? 'true' : 'false', 'aria-controls': 'evidence-body-' + item.id, id: 'evidence-label-' + item.id, 'data-testid': 'evidence-' + item.id, 'data-focus-key': 'evidence:' + item.id,
           on: { click: function () { openEvidence(open ? null : item.id); } } },

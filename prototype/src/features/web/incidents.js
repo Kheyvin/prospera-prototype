@@ -417,8 +417,8 @@ Primus.module('features/web/incidents', function (require) {
         control = atoms.select({ id: inputId, value: value, options: model.statusOptions || [], testid: inputId, focusKey: focusKey, invalid: !!error,
           onChange: function (v) { updateValue(id, v); } });
       } else if (id === 'dueDate') {
-        control = atoms.input({ id: inputId, type: 'date', value: value, testid: inputId, focusKey: focusKey, invalid: !!error,
-          placeholder: spec.format || null, pattern: '\\d{4}-\\d{2}-\\d{2}', inputmode: 'numeric',
+        control = atoms.input({ id: inputId, type: 'text', value: value, testid: inputId, focusKey: focusKey, invalid: !!error,
+          placeholder: spec.format || 'YYYY-MM-DD', pattern: '\\d{4}-\\d{2}-\\d{2}', inputmode: 'numeric', maxlength: 10,
           onInput: function (v) { updateValue(id, v); } });
       } else {
         control = atoms.input({ id: inputId, value: value, testid: inputId, focusKey: focusKey, invalid: !!error,

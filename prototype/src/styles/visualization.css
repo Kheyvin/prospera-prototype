@@ -1191,3 +1191,16 @@
   border-style: dashed;
   border-color: var(--color-warning-dark);
 }
+
+/* Nodes laid out by measurement: an absolutely positioned node must not shrink to the
+ * (still narrow) layer width while it is measured, or rows overlap once the layer grows.
+ * Fixed-size glyph nodes keep their own width. */
+.canvas__layer > .node:not(.node--decision):not(.node--event):not(.node--start):not(.node--end) {
+  width: max-content;
+}
+
+/* Lane role links stay reachable even inside a scaled canvas. */
+.lane__label-role .entity-link {
+  min-height: var(--control-height-sm);
+  padding-block: var(--space-1);
+}

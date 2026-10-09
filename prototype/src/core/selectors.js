@@ -45,7 +45,8 @@ Primus.module('core/selectors', function (require) {
     processViewProjects: 'Proyectos de mejora', areaSpace: 'Espacio del área', selectArea: 'Selecciona un área',
     rolInProcess: 'Rol en el proceso', accessProfile: 'Perfil de acceso', openInspector: 'Abrir ficha', closeInspector: 'Cerrar ficha',
     inspectorBack: 'Ficha anterior', breadcrumbs: 'Ruta de navegación', inspector: 'Inspector', readOnly: 'Solo lectura',
-    noProcessDetail: 'No se proporcionó el detalle de actividades de este proceso'
+    noProcessDetail: 'No se proporcionó el detalle de actividades de este proceso', collectivePosition: 'Puesto colectivo',
+    description: 'Descripción'
   };
 
   var LAYER_TYPES = packCore.LAYER_TYPES;

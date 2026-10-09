@@ -516,7 +516,9 @@ Primus.module('core/commands/web', function (require) {
       patch.areaId = web.areaId || processAreaId(ctx, patch.processId || web.processId);
     }
     if (patch.level === 'operational' && !patch.areaId) {
-      patch.areaId = processAreaId(ctx, patch.processId || web.processId) || web.areaId || null;
+      var targetProcess = patch.processId || web.processId;
+      /* Same process as before: keep the area already shown; another process: its owner area or none. */
+      patch.areaId = processAreaId(ctx, targetProcess) || (targetProcess === web.processId ? web.areaId : null) || null;
     }
 
     patch.representation = t.representation || (patch.relationsRootId ? 'relations' : web.representation);
@@ -786,6 +788,7 @@ Primus.module('core/commands/web', function (require) {
       } else {
         versionId = visibleVersionFor(ctx, processId, web.processId === processId ? web.versionId : null);
       }
+      var sameProcess = web.processId === processId;
       pushContext(web);
       closeInspector(web);
       web.module = 'twin';
@@ -795,7 +798,8 @@ Primus.module('core/commands/web', function (require) {
       web.activityKey = null;
       web.overlay = null;
       if (versionId) web.versionId = versionId;
-      if (!web.areaId) web.areaId = processAreaId(ctx, processId);
+      /* The breadcrumb area is the process owner; another process never inherits the previous area. */
+      web.areaId = processAreaId(ctx, processId) || (sameProcess ? web.areaId : null) || null;
       ensureVariant(ctx, web);
       applyHistoricalNotice(ctx, web);
       return { processId: processId, view: view, versionId: web.versionId };

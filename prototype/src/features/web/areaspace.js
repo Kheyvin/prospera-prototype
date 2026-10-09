@@ -52,7 +52,7 @@ Primus.module('features/web/areaspace', function (require) {
     return sectionCard(ctx, section, [
       h('div', { class: 'stack stack--sm' },
         section.badges.length || section.supportLabel ? h('div', { class: 'cluster cluster--sm' }, section.badges.map(function (b) { return atoms.badge({ label: b.label, tone: b.tone }); })) : null,
-        section.description ? h('p', null, section.description) : h('p', { class: 'muted' }, ctx.format.missing()),
+        section.description ? h('p', null, section.description) : h('p', { class: 'text-sm muted' }, t(ctx, 'description', 'Descripción') + ': ' + ctx.format.missing()),
         h('div', { class: 'counts' }, h('span', { class: 'counts__item' }, c.positionsText), h('span', { class: 'counts__item' }, c.peopleText), c.externals ? h('span', { class: 'counts__item' }, c.externalsText) : null),
         model.neighbors && model.neighbors.length ? h('div', { class: 'stack stack--xs' }, h('span', { class: 'text-sm muted' }, t(ctx, 'neighborAreas', 'Áreas relacionadas por los procesos documentados')), h('div', { class: 'cluster cluster--sm' }, model.neighbors.map(function (n) { return entityLink(ctx, n, { compact: true, testid: 'areaspace-neighbor-' + n.id }); }))) : null,
         atoms.provenance({ labels: section.provenance.labels, confidence: section.provenance.confidence, dataState: section.provenance.dataState, sourceIds: section.provenance.sourceIds, sources: ctx.pack.sources, sourcesLabel: section.provenance.label }))

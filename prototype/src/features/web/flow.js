@@ -825,7 +825,14 @@ Primus.module('features/web/flow', function (require) {
         dom.preserveFocus(inst.root, function () { renderCanvasLayer(ctx, inst, model); });
         if (!inst.fitted && !model.camera && typeof canvas.fit === 'function') {
           inst.fitted = true;
-          try { canvas.fit(); } catch (e) { /* ignore */ }
+          /* design.md: text is never shrunk to make everything fit. Centre the diagram only when it
+           * fits at 100 %; otherwise open at 100 % on the start event and let the user pan. */
+          try {
+            var size = canvas.getSize ? canvas.getSize() : null;
+            var vp = canvas.viewportSize ? canvas.viewportSize() : null;
+            var fits = size && vp && size.width + 48 <= vp.width && size.height + 48 <= vp.height;
+            if (fits) canvas.fit(); else if (typeof canvas.reset === 'function') canvas.reset();
+          } catch (e) { /* ignore */ }
         }
       }
       if (typeof canvas.syncCamera === 'function') canvas.syncCamera(ctx.state || ctx.store.getState());

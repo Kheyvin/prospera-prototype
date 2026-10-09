@@ -1641,14 +1641,38 @@
 
 .twin-contextbar__level {
   margin-left: auto;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.twin-contextbar__crumbs .breadcrumbs__item,
+.twin-contextbar__crumbs .breadcrumbs__link {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.twin-stage__controls--wrap {
+  flex-wrap: wrap;
+}
+
+.twin-stage__controls--wrap .btn__reason {
+  flex-basis: 100%;
+  margin: 0;
 }
 
 .canvas__label--group {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  text-align: right;
-  padding-right: var(--space-3);
+  justify-content: flex-start;
+  text-align: left;
+  z-index: 1;
+}
+
+.canvas__label-text {
+  display: inline-block;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-dark-bg);
 }
 
 .canvas__label--chip {

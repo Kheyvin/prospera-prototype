@@ -171,8 +171,10 @@ Primus.module('features/web/instruction', function (require) {
       }
     });
     var main = sections.slice(0, 6), aside = sections.slice(6);
+    /* The lead paragraph is omitted when a section (e.g. «Qué hacer») already carries the same text. */
+    var lead = !!model.description && !model.sections.some(function (s) { return s.kind === 'text' && (s.text || '').trim() === model.description.trim(); });
     return h('div', { class: 'twin-stage__body twin-stage__body--scroll' }, h('div', { class: 'twin-sheet', 'data-testid': 'instruction' },
-      h('div', { class: 'twin-sheet__main' }, model.description ? h('p', { class: 'text-lg', 'data-testid': 'instruction-description' }, model.description) : null, main),
+      h('div', { class: 'twin-sheet__main' }, lead ? h('p', { class: 'text-lg', 'data-testid': 'instruction-description' }, model.description) : null, main),
       h('div', { class: 'twin-sheet__aside' }, aside)));
   }
 

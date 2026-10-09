@@ -8,7 +8,7 @@ Primus.module('features/web/relations', function (require) {
   'use strict';
 
   var caches = new WeakMap();
-  var PAD = 32, ROW_GAP = 28, ITEM_GAP = 24, ROOT_GAP = 120, LABEL_W = 160, MAX_ROW_W = 760, DEFAULT_W = 200, DEFAULT_H = 56;
+  var PAD = 32, ROW_GAP = 32, ITEM_GAP = 24, ROOT_GAP = 160, LABEL_H = 28, MAX_ROW_W = 760, DEFAULT_W = 200, DEFAULT_H = 56;
 
   function t(ctx, key, fallback) {
     var ui = ctx.ui || (ctx.pack && ctx.pack.ui) || {};
@@ -58,13 +58,16 @@ Primus.module('features/web/relations', function (require) {
     nodes.forEach(function (entry, id) { var s = sizeOf(entry.el); if (!s.measured) allMeasured = false; sizes.set(id, s); });
     cache.layoutDirty = !allMeasured;
     var rootSize = sizes.get('root') || { w: DEFAULT_W, h: DEFAULT_H };
-    var x0 = PAD + rootSize.w + ROOT_GAP + LABEL_W;
+    var x0 = PAD + rootSize.w + ROOT_GAP;
     var y = PAD;
     var geometry = new Map();
     var labels = [];
     var maxRight = x0;
     model.groups.forEach(function (g, gi) {
-      var x = x0, rowTop = y, rowH = 0, groupTop = y;
+      /* Group label sits above its first row so the root→item edges never cross it. */
+      var groupTop = y;
+      y += LABEL_H;
+      var x = x0, rowTop = y, rowH = 0;
       g.items.forEach(function (it) {
         var id = itemRef(it).id;
         var s = sizes.get('item:' + id) || { w: DEFAULT_W, h: DEFAULT_H };
@@ -74,7 +77,7 @@ Primus.module('features/web/relations', function (require) {
         maxRight = Math.max(maxRight, x + s.w);
         x += s.w + ITEM_GAP;
       });
-      labels.push({ gi: gi, x: PAD + rootSize.w + ROOT_GAP, y: groupTop, h: rowTop + rowH - groupTop, label: g.label, count: g.items.length });
+      labels.push({ gi: gi, x: x0, y: groupTop, h: LABEL_H, label: g.label, count: g.items.length });
       y = rowTop + rowH + ROW_GAP;
     });
     var height = Math.max(y - ROW_GAP + PAD, PAD * 2 + rootSize.h);
@@ -82,10 +85,26 @@ Primus.module('features/web/relations', function (require) {
     return { geometry: geometry, labels: labels, width: maxRight + PAD, height: height };
   }
 
+  /* Nodes measure 0 while the host is hidden (and shrink-to-fit while the layer is still
+   * narrow); retry on the next frame until every node reports a real size. */
+  function scheduleRelayout(ctx, cache, model) {
+    if (!cache.layoutDirty || cache.relayoutPending || typeof requestAnimationFrame !== 'function') return;
+    cache.relayoutPending = true;
+    cache.relayoutTries = (cache.relayoutTries || 0) + 1;
+    requestAnimationFrame(function () {
+      cache.relayoutPending = false;
+      if (cache.mode !== 'canvas' || !cache.canvas || !cache.lastModel) return;
+      if (cache.relayoutTries > 20) return;
+      applyLayout(ctx, cache, cache.lastModel);
+    });
+  }
+
   function applyLayout(ctx, cache, model) {
     var lay = layout(cache, model);
+    if (!cache.layoutDirty) cache.relayoutTries = 0;
     cache.nodes.forEach(function (entry, id) { var g = lay.geometry.get(id); if (g) place(entry.el, g.x, g.y); });
-    cache.labelEls.forEach(function (el, i) { var l = lay.labels[i]; if (l) { place(el, l.x, l.y); el.style.width = (LABEL_W - 24) + 'px'; el.style.height = Math.max(l.h, DEFAULT_H) + 'px'; } });
+    cache.labelEls.forEach(function (el, i) { var l = lay.labels[i]; if (l) { place(el, l.x, l.y); el.style.height = l.h + 'px'; } });
+    scheduleRelayout(ctx, cache, model);
     var edgeGeom = new Map();
     lay.geometry.forEach(function (g, id) { edgeGeom.set(id, g); });
     var specs = [];
@@ -113,7 +132,7 @@ Primus.module('features/web/relations', function (require) {
     layer.appendChild(rootEl);
     cache.nodes.set('root', { el: rootEl });
     model.groups.forEach(function (g) {
-      var label = h('div', { class: 'canvas__label canvas__label--group text-sm muted' }, h('span', null, g.label), h('span', { class: 'section-title__count' }, ' · ' + g.items.length));
+      var label = h('div', { class: 'canvas__label canvas__label--group text-sm muted' }, h('span', { class: 'canvas__label-text' }, h('span', null, g.label), h('span', { class: 'section-title__count' }, ' · ' + g.items.length)));
       layer.appendChild(label);
       cache.labelEls.push(label);
       g.items.forEach(function (it) {
