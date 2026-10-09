@@ -101,6 +101,17 @@ Primus.module('components/twin/canvas', function (require) {
       listeners.push(function () { target.removeEventListener(type, fn, options); });
     }
 
+    /* The viewport is overflow:hidden, but focusing a node (keyboard, scrollIntoView) still
+     * scrolls it and leaves the diagram shifted. Turn that scroll into a camera pan instead. */
+    listen(el, 'scroll', function () {
+      var dx = el.scrollLeft, dy = el.scrollTop;
+      if (!dx && !dy) return;
+      el.scrollLeft = 0; el.scrollTop = 0;
+      /* Jump immediately so the element stays where the browser just scrolled it to. */
+      applyTransform({ x: camera.x - dx, y: camera.y - dy, scale: camera.scale }, true);
+      if (contextKey) pan(-dx, -dy); else camera = { x: camera.x - dx, y: camera.y - dy, scale: camera.scale };
+    });
+
     function applyTransform(cam, immediate) {
       var prev = layer.style.transition;
       if (immediate || reducedMotion()) layer.style.transition = 'none';

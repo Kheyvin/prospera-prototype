@@ -269,7 +269,6 @@ Primus.module('core/commands/app', function (require) {
     useAnalystProfile: function (ctx, payload) {
       var list = profiles(ctx.pack);
       var admin = (payload && payload.profileId && profileOf(ctx.pack, payload.profileId)) ||
-        list.filter(function (p) { return p.id === 'U-ADMIN'; })[0] ||
         list.filter(function (p) { return p.accessRole === 'admin'; })[0];
       if (!admin) ctx.fail('unknown-profile', 'No hay un perfil de analista en el pack', { field: 'profileId' });
       var result = switchProfile(ctx, admin.id);

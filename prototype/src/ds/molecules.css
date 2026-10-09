@@ -1059,3 +1059,13 @@
 .key-value--inline .key-value__row {
   grid-template-columns: auto minmax(0, 1fr);
 }
+
+/* Badges inside entity links keep one line; the link wraps them below the text when narrow. */
+.entity-link {
+  flex-wrap: wrap;
+}
+
+.entity-link .badge {
+  flex-shrink: 0;
+  white-space: nowrap;
+}

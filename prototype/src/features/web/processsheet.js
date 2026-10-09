@@ -53,17 +53,29 @@ Primus.module('features/web/processsheet', function (require) {
     var h = ctx.dom.h, atoms = ctx.atoms;
     var badges = (model.badges || []).map(function (b) { return badgeFor(ctx, b); });
     if (model.version && model.version.isDemo) badges.push(atoms.badge({ label: model.version.adoptionLabel || model.version.stateLabel || t(ctx, 'labelDemoExample'), tone: 'demo' }));
-    var controls = (model.actions || []).filter(function (a) { return a.id !== 'view-sheet'; }).map(function (a) {
+    var actions = (model.actions || []).filter(function (a) { return a.id !== 'view-sheet'; });
+    var reasons = [];
+    var reasonIds = {};
+    actions.forEach(function (a) { if (a.enabled === false && a.reason && reasons.indexOf(a.reason) === -1) reasons.push(a.reason); });
+    /* One shared explanation per distinct reason (not one line per disabled button); the «no
+     * detail» notice below the header already carries that reason, so it is not repeated. */
+    var reasonEls = reasons.map(function (r, i) {
+      if (model.openFlowUnavailable && r === model.openFlowUnavailable) { reasonIds[r] = 'sheet-no-flow-notice'; return null; }
+      var id = 'sheet-actions-reason-' + i; reasonIds[r] = id;
+      return h('p', { class: 'btn__reason', id: id, 'data-testid': 'sheet-actions-reason' }, r);
+    });
+    var controls = actions.map(function (a) {
       var icon = { 'open-flow': 'process', compare: 'compare', incidents: 'incident', projects: 'project', history: 'history', sources: 'document', connections: 'link' }[a.id] || null;
+      var disabled = a.enabled === false;
       return atoms.button({ label: a.label, variant: a.id === 'open-flow' ? 'primary' : 'ghost', size: 'sm', icon: icon, testid: 'sheet-action-' + a.id, focusKey: 'sheet:action:' + a.id,
-        disabled: a.enabled === false, disabledReason: a.enabled === false ? a.reason || null : null, onClick: function () { run(ctx, a.command); } });
+        disabled: disabled, title: disabled ? a.reason || null : null, attrs: disabled && a.reason ? { 'aria-describedby': reasonIds[a.reason] } : null, onClick: function () { run(ctx, a.command); } });
     });
     return h('div', { class: 'twin-stage__header' },
       h('div', { class: 'twin-stage__heading' },
         h('h2', { class: 'twin-stage__title', tabindex: '-1', 'data-focus-key': 'tabpanel-heading:web', 'data-testid': 'sheet-title' }, model.title),
         h('p', { class: 'twin-stage__subtitle' }, [model.explainer, model.version ? model.version.label : null].filter(Boolean).join(' · ')),
         badges.length ? h('div', { class: 'cluster cluster--sm' }, badges) : null),
-      controls.length ? h('div', { class: 'twin-stage__controls' }, controls) : null);
+      controls.length ? h('div', { class: 'twin-stage__controls twin-stage__controls--wrap' }, controls, reasonEls) : null);
   }
 
   function versionBar(ctx, model) {
@@ -82,7 +94,7 @@ Primus.module('features/web/processsheet', function (require) {
     var items = [];
     if (model.readOnly && model.readOnlyLabel) items.push(molecules.notice({ text: model.readOnlyLabel, tone: 'warning', icon: 'lock', testid: 'sheet-readonly' }));
     if (model.newVersionNotice) items.push(molecules.notice({ text: model.newVersionNotice.text, tone: 'info', testid: 'new-version-notice', action: { label: model.newVersionNotice.action, testid: 'new-version-view', onClick: function () { run(ctx, model.newVersionNotice.command); } }, onDismiss: function () { ctx.dispatch('dismissNewVersionNotice', {}); } }));
-    if (model.openFlowUnavailable) items.push(molecules.notice({ text: model.openFlowUnavailable, tone: 'info', testid: 'sheet-no-flow' }));
+    if (model.openFlowUnavailable) items.push(molecules.notice({ attrs: { id: 'sheet-no-flow-notice' }, text: model.openFlowUnavailable, tone: 'info', testid: 'sheet-no-flow' }));
     return items.length ? h('div', { class: 'twin-notices' }, items) : null;
   }
 

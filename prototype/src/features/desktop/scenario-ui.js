@@ -31,6 +31,7 @@ Primus.module('features/desktop/scenario-ui', function (require) {
     var dispatch = dispatcher(ctx);
     var lastKey = null;
     var confirmOpen = false;
+    var errorModesOpen = false;
     var el = h('div', { class: 'studio-playback cluster cluster--sm', role: 'group', 'aria-label': ui('playback', 'Reproducción del escenario'), 'data-testid': 'scenario-controls' });
 
     function statusLabel(pb) {
@@ -64,7 +65,8 @@ Primus.module('features/desktop/scenario-ui', function (require) {
       items.push(atoms.button({ label: pb.labels.restart, variant: 'ghost', size: 'sm', icon: 'reset', testid: 'scenario-restart', focusKey: 'playback:restart', disabled: !pb.canRestart, onClick: function () { restart(model); } }));
       if (pb.errorModes.length && !model.readOnly) {
         var selected = pb.errorModes.filter(function (m) { return m.selected; })[0] || null;
-        items.push(molecules.disclosure({ id: 'error-modes', testid: 'error-modes', summary: (pb.errorModesLabel || ui('errorModes', 'Probar recuperación')) + (selected ? ' · ' + selected.label : ''), open: !!selected,
+        items.push(molecules.disclosure({ id: 'error-modes', testid: 'error-modes', summary: (pb.errorModesLabel || ui('errorModes', 'Probar recuperación')) + (selected ? ' · ' + selected.label : ''), open: !!selected || !!errorModesOpen,
+          onToggle: function (next) { errorModesOpen = next; dom.preserveFocus(el, function () { render(model); }); },
           content: h('div', { class: 'cluster cluster--sm' }, pb.errorModes.map(function (m) {
             return atoms.button({ label: m.label, variant: 'ghost', size: 'sm', icon: 'warning', pressed: !!m.selected, testid: 'error-mode-' + m.id, focusKey: 'playback:error-mode:' + m.id,
               onClick: function () { var r = dispatch('setErrorMode', { sessionId: model.sessionId, errorMode: m.selected ? null : m.id }); if (r && r.ok === false && r.error) dom.announce(r.error.message || ''); } });

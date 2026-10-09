@@ -144,10 +144,9 @@ Primus.module('components/twin/history', function (require) {
       if (p.observedAtText) rows.push({ label: t('date', 'Fecha'), value: p.observedAtText });
       var list = model.sources.length ? h('ul', { class: 'list', 'data-testid': 'sources-list' }, model.sources.map(function (s) {
         return h('li', { class: 'list__item' }, h('div', { class: 'stack stack--xs' },
-          h('span', null, h('span', { class: 'mono text-xs' }, s.id), ' · ', s.title, s.section ? h('span', { class: 'muted' }, ' (' + s.section + ')') : null),
-          s.note ? h('span', { class: 'text-sm muted' }, s.note) : null,
-          s.dateText ? h('span', { class: 'text-sm muted' }, t('date', 'Fecha') + ': ' + s.dateText) : null,
-          s.modelModifiedAtText ? h('span', { class: 'text-sm muted' }, s.modelModifiedAtLabel + ': ' + s.modelModifiedAtText) : null));
+          h('div', null, h('span', { class: 'mono text-xs' }, s.id), ' · ', h('strong', null, s.title), s.section ? h('span', { class: 'muted' }, ' (' + s.section + ')') : null),
+          s.note ? h('p', { class: 'text-sm muted' }, s.note) : null,
+          s.dateText || s.modelModifiedAtText ? h('p', { class: 'text-sm muted' }, [s.dateText ? t('date', 'Fecha') + ': ' + s.dateText : null, s.modelModifiedAtText ? s.modelModifiedAtLabel + ': ' + s.modelModifiedAtText : null].filter(Boolean).join(' · ')) : null));
       })) : h('p', { class: 'muted' }, missing());
       return [rows.length ? molecules.keyValue({ rows: rows, missingText: missing(), inline: true }) : null, list];
     }

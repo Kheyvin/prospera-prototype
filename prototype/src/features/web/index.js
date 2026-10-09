@@ -126,7 +126,7 @@ Primus.module('features/web', function (require) {
           dom.clear(tabsEl);
           tabsEl.hidden = !show;
           if (!show) return;
-          var tabs = molecules.tabs({ id: 'process-views', mode: 'local', selectedId: context.processView, ariaLabel: t('process', 'Proceso') + ' · ' + (context.process ? context.process.name : ''),
+          var tabs = molecules.tabs({ id: 'process-views', mode: 'local', singlePanel: true, selectedId: context.processView, ariaLabel: t('process', 'Proceso') + ' · ' + (context.process ? context.process.name : ''),
             tabs: context.processViews.map(function (v) { return { id: v.id, label: v.label, testid: v.testid, focusKey: 'process-view:' + v.id, disabled: !v.enabled }; }),
             onSelect: function (id) { var v = context.processViews.filter(function (x) { return x.id === id; })[0]; if (v && v.enabled && !v.selected) dispatch('setProcessView', { view: id }); } });
           Array.prototype.forEach.call(tabs.el.querySelectorAll('[role="tab"]'), function (tab) {
@@ -141,6 +141,27 @@ Primus.module('features/web', function (require) {
       /* ---------- stage routing ---------- */
 
       var activeStage = null;
+      var panelAttrsKey = null;
+      /* The visible host doubles as the tabpanel of the selected process-view tab (one panel at a time). */
+      function syncPanelAttrs(state, id) {
+        var web = state.web;
+        var show = web.module !== 'security' && web.level === 'operational' && !!web.processId;
+        var key = show ? id + ':' + web.processView : null;
+        if (key === panelAttrsKey) return;
+        panelAttrsKey = key;
+        STAGES.forEach(function (s) {
+          var host = hosts[s];
+          if (show && s === id) {
+            host.id = 'process-views-panel-' + web.processView;
+            host.setAttribute('role', 'tabpanel');
+            host.setAttribute('aria-labelledby', 'process-views-tab-' + web.processView);
+          } else {
+            host.removeAttribute('id');
+            host.removeAttribute('role');
+            host.removeAttribute('aria-labelledby');
+          }
+        });
+      }
       function renderStage(state) {
         var id = stageFor(state.web);
         if (activeStage !== id) {
@@ -148,6 +169,7 @@ Primus.module('features/web', function (require) {
           activeStage = id;
           stageBody.setAttribute('data-active-stage', id);
         }
+        syncPanelAttrs(state, id);
         var mod = null;
         try { mod = Primus.has('features/web/' + id) ? Primus.require('features/web/' + id) : null; } catch (e) { console.error('features/web: stage ' + id + ' failed to load', e); mod = null; }
         if (!mod || typeof mod.render !== 'function') {

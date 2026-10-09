@@ -33,7 +33,7 @@ Primus.module('features/web/security', function (require) {
     /* ---------- nav ---------- */
 
     function buildNav(model) {
-      var tabs = molecules.tabs({ id: 'security-views', mode: 'local', selectedId: model.view, ariaLabel: model.title || uiText('usersAndAccess'),
+      var tabs = molecules.tabs({ id: 'security-views', mode: 'local', singlePanel: true, selectedId: model.view, ariaLabel: model.title || uiText('usersAndAccess'),
         tabs: model.views.map(function (v) { return { id: v.id, label: v.label, testid: 'security-view-' + v.id, focusKey: 'security:view:' + v.id }; }),
         onSelect: function (id) { dispatch('setSecurityView', { view: id }); } });
       inst.panelAttrs = tabs.panelAttrs;

@@ -1431,10 +1431,12 @@ b {
 
 .checkbox__input {
   position: absolute;
-  width: 1.25rem;
-  height: 1.25rem;
-  margin: var(--space-2) 0 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   opacity: 0;
+  cursor: pointer;
 }
 
 .checkbox__box {
@@ -2645,6 +2647,16 @@ b {
 
 .key-value--inline .key-value__row {
   grid-template-columns: auto minmax(0, 1fr);
+}
+
+/* Badges inside entity links keep one line; the link wraps them below the text when narrow. */
+.entity-link {
+  flex-wrap: wrap;
+}
+
+.entity-link .badge {
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 /* ==== src/styles/layout.css ==== */
@@ -4291,14 +4303,38 @@ b {
 
 .twin-contextbar__level {
   margin-left: auto;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.twin-contextbar__crumbs .breadcrumbs__item,
+.twin-contextbar__crumbs .breadcrumbs__link {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.twin-stage__controls--wrap {
+  flex-wrap: wrap;
+}
+
+.twin-stage__controls--wrap .btn__reason {
+  flex-basis: 100%;
+  margin: 0;
 }
 
 .canvas__label--group {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  text-align: right;
-  padding-right: var(--space-3);
+  justify-content: flex-start;
+  text-align: left;
+  z-index: 1;
+}
+
+.canvas__label-text {
+  display: inline-block;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-dark-bg);
 }
 
 .canvas__label--chip {
@@ -5561,6 +5597,30 @@ b {
   border-color: var(--color-warning-dark);
 }
 
+/* Nodes laid out by measurement: an absolutely positioned node must not shrink to the
+ * (still narrow) layer width while it is measured, or rows overlap once the layer grows.
+ * Fixed-size glyph nodes keep their own width. */
+.canvas__layer > .node:not(.node--decision):not(.node--event):not(.node--start):not(.node--end) {
+  width: max-content;
+}
+
+/* Lane role links stay reachable even inside a scaled canvas. */
+.lane__label-role .entity-link {
+  min-height: var(--control-height-sm);
+  padding-block: var(--space-1);
+}
+
+/* Compact (subtask) nodes: the id never breaks mid-token. */
+.node--compact .node__meta {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Group frames: the title wraps inside the frame head instead of under the subtasks. */
+.node--group .node__name {
+  overflow-wrap: normal;
+}
+
 /* ==== src/styles/responsive.css ==== */
 /* styles/responsive.css — breakpoints per spec §15 and design.md §5.
  *   ≥1280 px  rail + stage + docked inspector; studio roster | main | side panel
@@ -5839,7 +5899,7 @@ b {
     right: 0;
     bottom: 0;
     width: 100%;
-    max-height: var(--layout-sheet-max);
+    max-height: min(var(--layout-sheet-max), 100%);
     border-left: 0;
     border-top: 1px solid var(--color-neutral-700);
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
@@ -6232,6 +6292,98 @@ b {
     font-size: 0.75rem;
     letter-spacing: 0.06em;
     max-width: 7rem;
+  }
+}
+
+/* ── Medium (768–1279): compact header and context bar so the stage keeps its height ── */
+@media (max-width: 1279px) {
+  .shell-header {
+    gap: var(--space-1) var(--space-4);
+    padding-block: var(--space-2);
+  }
+
+  .shell-header__subtitle {
+    display: none;
+  }
+
+  .shell-header__badges {
+    flex-basis: auto;
+  }
+
+  .shell-header__badges .badge {
+    font-size: var(--text-xs);
+  }
+
+  .shell-tabs .tabs {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .shell-tabs .tab {
+    padding-inline: var(--space-3);
+    white-space: nowrap;
+  }
+
+  /* Breadcrumbs on their own row (one line, scrollable); profile and search share the next. */
+  .twin-contextbar__nav {
+    flex: 1 1 100%;
+  }
+
+  .twin-contextbar__crumbs {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .twin-contextbar__crumbs .breadcrumbs__list {
+    flex-wrap: nowrap;
+  }
+
+  .twin-contextbar__profile {
+    flex: 1 1 18rem;
+    white-space: nowrap;
+  }
+
+  .twin-contextbar__search {
+    flex: 1 1 16rem;
+  }
+}
+
+/* ── Narrow (<768): the canvas keeps a usable height and the stage scrolls ── */
+@media (max-width: 767px) {
+  .twin-stage {
+    overflow-y: auto;
+  }
+
+  .twin-stage__body--canvas,
+  .twin-flow__canvas {
+    flex: 0 0 auto;
+    min-height: 60vh;
+  }
+
+  .twin-stage__body--canvas .canvas,
+  .twin-flow__canvas .canvas {
+    min-height: 60vh;
+  }
+}
+
+/* ── Medium width on a short screen (e.g. 1024×768): trim redundant chrome so the
+ * diagram keeps a usable height without scrolling the stage first ── */
+@media (max-width: 1279px) and (max-height: 820px) {
+  .shell-header__badges {
+    display: none;
+  }
+
+  .twin-stage__note,
+  .twin-stage__subtitle + .twin-stage__subtitle {
+    display: none;
+  }
+
+  .twin-versionbar {
+    padding-block: var(--space-1);
+  }
+
+  .twin-stage__header {
+    padding-block: var(--space-2);
   }
 }
 
@@ -12718,7 +12870,8 @@ Primus.module('core/selectors', function (require) {
     processViewProjects: 'Proyectos de mejora', areaSpace: 'Espacio del área', selectArea: 'Selecciona un área',
     rolInProcess: 'Rol en el proceso', accessProfile: 'Perfil de acceso', openInspector: 'Abrir ficha', closeInspector: 'Cerrar ficha',
     inspectorBack: 'Ficha anterior', breadcrumbs: 'Ruta de navegación', inspector: 'Inspector', readOnly: 'Solo lectura',
-    noProcessDetail: 'No se proporcionó el detalle de actividades de este proceso'
+    noProcessDetail: 'No se proporcionó el detalle de actividades de este proceso', collectivePosition: 'Puesto colectivo',
+    description: 'Descripción'
   };
 
   var LAYER_TYPES = packCore.LAYER_TYPES;
@@ -14750,7 +14903,6 @@ Primus.module('core/commands/app', function (require) {
     useAnalystProfile: function (ctx, payload) {
       var list = profiles(ctx.pack);
       var admin = (payload && payload.profileId && profileOf(ctx.pack, payload.profileId)) ||
-        list.filter(function (p) { return p.id === 'U-ADMIN'; })[0] ||
         list.filter(function (p) { return p.accessRole === 'admin'; })[0];
       if (!admin) ctx.fail('unknown-profile', 'No hay un perfil de analista en el pack', { field: 'profileId' });
       var result = switchProfile(ctx, admin.id);
@@ -15445,7 +15597,9 @@ Primus.module('core/commands/web', function (require) {
       patch.areaId = web.areaId || processAreaId(ctx, patch.processId || web.processId);
     }
     if (patch.level === 'operational' && !patch.areaId) {
-      patch.areaId = processAreaId(ctx, patch.processId || web.processId) || web.areaId || null;
+      var targetProcess = patch.processId || web.processId;
+      /* Same process as before: keep the area already shown; another process: its owner area or none. */
+      patch.areaId = processAreaId(ctx, targetProcess) || (targetProcess === web.processId ? web.areaId : null) || null;
     }
 
     patch.representation = t.representation || (patch.relationsRootId ? 'relations' : web.representation);
@@ -15715,6 +15869,7 @@ Primus.module('core/commands/web', function (require) {
       } else {
         versionId = visibleVersionFor(ctx, processId, web.processId === processId ? web.versionId : null);
       }
+      var sameProcess = web.processId === processId;
       pushContext(web);
       closeInspector(web);
       web.module = 'twin';
@@ -15724,7 +15879,8 @@ Primus.module('core/commands/web', function (require) {
       web.activityKey = null;
       web.overlay = null;
       if (versionId) web.versionId = versionId;
-      if (!web.areaId) web.areaId = processAreaId(ctx, processId);
+      /* The breadcrumb area is the process owner; another process never inherits the previous area. */
+      web.areaId = processAreaId(ctx, processId) || (sameProcess ? web.areaId : null) || null;
       ensureVariant(ctx, web);
       applyHistoricalNotice(ctx, web);
       return { processId: processId, view: view, versionId: web.versionId };
@@ -16388,7 +16544,7 @@ Primus.module('core/commands/tracking', function (require) {
   function pad2(n) { return (n < 10 ? '0' : '') + n; }
 
   function processIdOf(ctx) {
-    return trackingOf(ctx.pack).processId || web().defaultProcessId(ctx.pack) || 'PR-BOLETAS';
+    return trackingOf(ctx.pack).processId || web().defaultProcessId(ctx.pack) || null;
   }
 
   function nextId(ctx, counterKey, prefix) {
@@ -18998,7 +19154,8 @@ Primus.module('ds/molecules', function (require) {
   /* ── Tabs ────────────────────────────────────────────────────────────── */
 
   /* tabs({ id, tabs: [{ id, label, testid?, icon?, disabled? }], selectedId, onSelect, mode, orientation })
-   * → { el, panelAttrs(tabId) }. Manual activation: arrows move focus, Enter/Space (native
+   * → { el, panelAttrs(tabId) }. `singlePanel: true` when only the selected tab's panel exists
+   * at a time (aria-controls is then set on the selected tab only). Manual activation: arrows move focus, Enter/Space (native
    * click) select, Home/End jump. One tab stop (roving tabindex). */
   function tabs(options) {
     var opts = options || {};
@@ -19042,7 +19199,7 @@ Primus.module('ds/molecules', function (require) {
         class: ['tab', selected ? 'is-selected' : null, disabled ? 'is-disabled' : null],
         id: tabElementId(tab.id),
         'aria-selected': bool(selected),
-        'aria-controls': panelElementId(tab.id),
+        'aria-controls': opts.singlePanel && !selected ? null : panelElementId(tab.id),
         'aria-disabled': disabled ? 'true' : null,
         tabindex: selected ? '0' : '-1',
         'data-tab-id': tab.id,
@@ -20194,6 +20351,17 @@ Primus.module('components/twin/canvas', function (require) {
       listeners.push(function () { target.removeEventListener(type, fn, options); });
     }
 
+    /* The viewport is overflow:hidden, but focusing a node (keyboard, scrollIntoView) still
+     * scrolls it and leaves the diagram shifted. Turn that scroll into a camera pan instead. */
+    listen(el, 'scroll', function () {
+      var dx = el.scrollLeft, dy = el.scrollTop;
+      if (!dx && !dy) return;
+      el.scrollLeft = 0; el.scrollTop = 0;
+      /* Jump immediately so the element stays where the browser just scrolled it to. */
+      applyTransform({ x: camera.x - dx, y: camera.y - dy, scale: camera.scale }, true);
+      if (contextKey) pan(-dx, -dy); else camera = { x: camera.x - dx, y: camera.y - dy, scale: camera.scale };
+    });
+
     function applyTransform(cam, immediate) {
       var prev = layer.style.transition;
       if (immediate || reducedMotion()) layer.style.transition = 'none';
@@ -21318,7 +21486,11 @@ Primus.module('components/twin/inspector', function () {
     /* ---------- actions ---------- */
 
     function close() {
+      /* update() clears `origin` while the closeInspector dispatch notifies subscribers, so the
+         origin is kept aside and restored before focus goes back to the originating node. */
+      var saved = origin;
       var result = ctx.dispatch('closeInspector', {});
+      origin = saved;
       focusOrigin();
       origin = null;
       return result;
@@ -21863,10 +22035,9 @@ Primus.module('components/twin/history', function (require) {
       if (p.observedAtText) rows.push({ label: t('date', 'Fecha'), value: p.observedAtText });
       var list = model.sources.length ? h('ul', { class: 'list', 'data-testid': 'sources-list' }, model.sources.map(function (s) {
         return h('li', { class: 'list__item' }, h('div', { class: 'stack stack--xs' },
-          h('span', null, h('span', { class: 'mono text-xs' }, s.id), ' · ', s.title, s.section ? h('span', { class: 'muted' }, ' (' + s.section + ')') : null),
-          s.note ? h('span', { class: 'text-sm muted' }, s.note) : null,
-          s.dateText ? h('span', { class: 'text-sm muted' }, t('date', 'Fecha') + ': ' + s.dateText) : null,
-          s.modelModifiedAtText ? h('span', { class: 'text-sm muted' }, s.modelModifiedAtLabel + ': ' + s.modelModifiedAtText) : null));
+          h('div', null, h('span', { class: 'mono text-xs' }, s.id), ' · ', h('strong', null, s.title), s.section ? h('span', { class: 'muted' }, ' (' + s.section + ')') : null),
+          s.note ? h('p', { class: 'text-sm muted' }, s.note) : null,
+          s.dateText || s.modelModifiedAtText ? h('p', { class: 'text-sm muted' }, [s.dateText ? t('date', 'Fecha') + ': ' + s.dateText : null, s.modelModifiedAtText ? s.modelModifiedAtLabel + ': ' + s.modelModifiedAtText : null].filter(Boolean).join(' · ')) : null));
       })) : h('p', { class: 'muted' }, missing());
       return [rows.length ? molecules.keyValue({ rows: rows, missingText: missing(), inline: true }) : null, list];
     }
@@ -23286,11 +23457,11 @@ Primus.module('components/analyst/evidence', function (require) {
 
     function card(item, model) {
       var open = !!item.open;
-      var summary = open ? h('div', { class: 'stack stack--sm', id: 'evidence-body-' + item.id, role: 'region', 'aria-labelledby': 'evidence-label-' + item.id },
+      var summary = h('div', { class: 'stack stack--sm', id: 'evidence-body-' + item.id, role: 'region', 'aria-labelledby': 'evidence-label-' + item.id, hidden: !open }, open ? [
         item.referenceLabel ? h('p', { class: 'text-sm muted' }, icons.icon('document'), ' ', item.referenceLabel) : null,
         item.summary.length ? h('ul', { class: 'list evidence-item__summary' }, item.summary.map(function (s) { return h('li', { class: 'list__item' }, s); })) : null,
         item.source ? h('p', { class: 'text-xs muted mono' }, item.source.id + (item.source.section ? ' · ' + item.source.section : '')) : null,
-        item.entityIds.length ? h('div', { class: 'cluster cluster--sm' }, item.entityIds.map(entityLinkFor)) : null) : null;
+        item.entityIds.length ? h('div', { class: 'cluster cluster--sm' }, item.entityIds.map(entityLinkFor)) : null] : null);
       return h('article', { class: ['evidence-item', open ? 'is-open' : null], 'data-evidence-id': item.id },
         h('button', { type: 'button', class: 'evidence-item__label', 'aria-expanded': open ? 'true' : 'false', 'aria-controls': 'evidence-body-' + item.id, id: 'evidence-label-' + item.id, 'data-testid': 'evidence-' + item.id, 'data-focus-key': 'evidence:' + item.id,
           on: { click: function () { openEvidence(open ? null : item.id); } } },
@@ -25520,7 +25691,7 @@ Primus.module('features/web/relations', function (require) {
   'use strict';
 
   var caches = new WeakMap();
-  var PAD = 32, ROW_GAP = 28, ITEM_GAP = 24, ROOT_GAP = 120, LABEL_W = 160, MAX_ROW_W = 760, DEFAULT_W = 200, DEFAULT_H = 56;
+  var PAD = 32, ROW_GAP = 32, ITEM_GAP = 24, ROOT_GAP = 160, LABEL_H = 28, MAX_ROW_W = 760, DEFAULT_W = 200, DEFAULT_H = 56;
 
   function t(ctx, key, fallback) {
     var ui = ctx.ui || (ctx.pack && ctx.pack.ui) || {};
@@ -25570,13 +25741,16 @@ Primus.module('features/web/relations', function (require) {
     nodes.forEach(function (entry, id) { var s = sizeOf(entry.el); if (!s.measured) allMeasured = false; sizes.set(id, s); });
     cache.layoutDirty = !allMeasured;
     var rootSize = sizes.get('root') || { w: DEFAULT_W, h: DEFAULT_H };
-    var x0 = PAD + rootSize.w + ROOT_GAP + LABEL_W;
+    var x0 = PAD + rootSize.w + ROOT_GAP;
     var y = PAD;
     var geometry = new Map();
     var labels = [];
     var maxRight = x0;
     model.groups.forEach(function (g, gi) {
-      var x = x0, rowTop = y, rowH = 0, groupTop = y;
+      /* Group label sits above its first row so the root→item edges never cross it. */
+      var groupTop = y;
+      y += LABEL_H;
+      var x = x0, rowTop = y, rowH = 0;
       g.items.forEach(function (it) {
         var id = itemRef(it).id;
         var s = sizes.get('item:' + id) || { w: DEFAULT_W, h: DEFAULT_H };
@@ -25586,7 +25760,7 @@ Primus.module('features/web/relations', function (require) {
         maxRight = Math.max(maxRight, x + s.w);
         x += s.w + ITEM_GAP;
       });
-      labels.push({ gi: gi, x: PAD + rootSize.w + ROOT_GAP, y: groupTop, h: rowTop + rowH - groupTop, label: g.label, count: g.items.length });
+      labels.push({ gi: gi, x: x0, y: groupTop, h: LABEL_H, label: g.label, count: g.items.length });
       y = rowTop + rowH + ROW_GAP;
     });
     var height = Math.max(y - ROW_GAP + PAD, PAD * 2 + rootSize.h);
@@ -25594,10 +25768,26 @@ Primus.module('features/web/relations', function (require) {
     return { geometry: geometry, labels: labels, width: maxRight + PAD, height: height };
   }
 
+  /* Nodes measure 0 while the host is hidden (and shrink-to-fit while the layer is still
+   * narrow); retry on the next frame until every node reports a real size. */
+  function scheduleRelayout(ctx, cache, model) {
+    if (!cache.layoutDirty || cache.relayoutPending || typeof requestAnimationFrame !== 'function') return;
+    cache.relayoutPending = true;
+    cache.relayoutTries = (cache.relayoutTries || 0) + 1;
+    requestAnimationFrame(function () {
+      cache.relayoutPending = false;
+      if (cache.mode !== 'canvas' || !cache.canvas || !cache.lastModel) return;
+      if (cache.relayoutTries > 20) return;
+      applyLayout(ctx, cache, cache.lastModel);
+    });
+  }
+
   function applyLayout(ctx, cache, model) {
     var lay = layout(cache, model);
+    if (!cache.layoutDirty) cache.relayoutTries = 0;
     cache.nodes.forEach(function (entry, id) { var g = lay.geometry.get(id); if (g) place(entry.el, g.x, g.y); });
-    cache.labelEls.forEach(function (el, i) { var l = lay.labels[i]; if (l) { place(el, l.x, l.y); el.style.width = (LABEL_W - 24) + 'px'; el.style.height = Math.max(l.h, DEFAULT_H) + 'px'; } });
+    cache.labelEls.forEach(function (el, i) { var l = lay.labels[i]; if (l) { place(el, l.x, l.y); el.style.height = l.h + 'px'; } });
+    scheduleRelayout(ctx, cache, model);
     var edgeGeom = new Map();
     lay.geometry.forEach(function (g, id) { edgeGeom.set(id, g); });
     var specs = [];
@@ -25625,7 +25815,7 @@ Primus.module('features/web/relations', function (require) {
     layer.appendChild(rootEl);
     cache.nodes.set('root', { el: rootEl });
     model.groups.forEach(function (g) {
-      var label = h('div', { class: 'canvas__label canvas__label--group text-sm muted' }, h('span', null, g.label), h('span', { class: 'section-title__count' }, ' · ' + g.items.length));
+      var label = h('div', { class: 'canvas__label canvas__label--group text-sm muted' }, h('span', { class: 'canvas__label-text' }, h('span', null, g.label), h('span', { class: 'section-title__count' }, ' · ' + g.items.length)));
       layer.appendChild(label);
       cache.labelEls.push(label);
       g.items.forEach(function (it) {
@@ -25833,7 +26023,7 @@ Primus.module('features/web/areaspace', function (require) {
     return sectionCard(ctx, section, [
       h('div', { class: 'stack stack--sm' },
         section.badges.length || section.supportLabel ? h('div', { class: 'cluster cluster--sm' }, section.badges.map(function (b) { return atoms.badge({ label: b.label, tone: b.tone }); })) : null,
-        section.description ? h('p', null, section.description) : h('p', { class: 'muted' }, ctx.format.missing()),
+        section.description ? h('p', null, section.description) : h('p', { class: 'text-sm muted' }, t(ctx, 'description', 'Descripción') + ': ' + ctx.format.missing()),
         h('div', { class: 'counts' }, h('span', { class: 'counts__item' }, c.positionsText), h('span', { class: 'counts__item' }, c.peopleText), c.externals ? h('span', { class: 'counts__item' }, c.externalsText) : null),
         model.neighbors && model.neighbors.length ? h('div', { class: 'stack stack--xs' }, h('span', { class: 'text-sm muted' }, t(ctx, 'neighborAreas', 'Áreas relacionadas por los procesos documentados')), h('div', { class: 'cluster cluster--sm' }, model.neighbors.map(function (n) { return entityLink(ctx, n, { compact: true, testid: 'areaspace-neighbor-' + n.id }); }))) : null,
         atoms.provenance({ labels: section.provenance.labels, confidence: section.provenance.confidence, dataState: section.provenance.dataState, sourceIds: section.provenance.sourceIds, sources: ctx.pack.sources, sourcesLabel: section.provenance.label }))
@@ -25993,17 +26183,29 @@ Primus.module('features/web/processsheet', function (require) {
     var h = ctx.dom.h, atoms = ctx.atoms;
     var badges = (model.badges || []).map(function (b) { return badgeFor(ctx, b); });
     if (model.version && model.version.isDemo) badges.push(atoms.badge({ label: model.version.adoptionLabel || model.version.stateLabel || t(ctx, 'labelDemoExample'), tone: 'demo' }));
-    var controls = (model.actions || []).filter(function (a) { return a.id !== 'view-sheet'; }).map(function (a) {
+    var actions = (model.actions || []).filter(function (a) { return a.id !== 'view-sheet'; });
+    var reasons = [];
+    var reasonIds = {};
+    actions.forEach(function (a) { if (a.enabled === false && a.reason && reasons.indexOf(a.reason) === -1) reasons.push(a.reason); });
+    /* One shared explanation per distinct reason (not one line per disabled button); the «no
+     * detail» notice below the header already carries that reason, so it is not repeated. */
+    var reasonEls = reasons.map(function (r, i) {
+      if (model.openFlowUnavailable && r === model.openFlowUnavailable) { reasonIds[r] = 'sheet-no-flow-notice'; return null; }
+      var id = 'sheet-actions-reason-' + i; reasonIds[r] = id;
+      return h('p', { class: 'btn__reason', id: id, 'data-testid': 'sheet-actions-reason' }, r);
+    });
+    var controls = actions.map(function (a) {
       var icon = { 'open-flow': 'process', compare: 'compare', incidents: 'incident', projects: 'project', history: 'history', sources: 'document', connections: 'link' }[a.id] || null;
+      var disabled = a.enabled === false;
       return atoms.button({ label: a.label, variant: a.id === 'open-flow' ? 'primary' : 'ghost', size: 'sm', icon: icon, testid: 'sheet-action-' + a.id, focusKey: 'sheet:action:' + a.id,
-        disabled: a.enabled === false, disabledReason: a.enabled === false ? a.reason || null : null, onClick: function () { run(ctx, a.command); } });
+        disabled: disabled, title: disabled ? a.reason || null : null, attrs: disabled && a.reason ? { 'aria-describedby': reasonIds[a.reason] } : null, onClick: function () { run(ctx, a.command); } });
     });
     return h('div', { class: 'twin-stage__header' },
       h('div', { class: 'twin-stage__heading' },
         h('h2', { class: 'twin-stage__title', tabindex: '-1', 'data-focus-key': 'tabpanel-heading:web', 'data-testid': 'sheet-title' }, model.title),
         h('p', { class: 'twin-stage__subtitle' }, [model.explainer, model.version ? model.version.label : null].filter(Boolean).join(' · ')),
         badges.length ? h('div', { class: 'cluster cluster--sm' }, badges) : null),
-      controls.length ? h('div', { class: 'twin-stage__controls' }, controls) : null);
+      controls.length ? h('div', { class: 'twin-stage__controls twin-stage__controls--wrap' }, controls, reasonEls) : null);
   }
 
   function versionBar(ctx, model) {
@@ -26022,7 +26224,7 @@ Primus.module('features/web/processsheet', function (require) {
     var items = [];
     if (model.readOnly && model.readOnlyLabel) items.push(molecules.notice({ text: model.readOnlyLabel, tone: 'warning', icon: 'lock', testid: 'sheet-readonly' }));
     if (model.newVersionNotice) items.push(molecules.notice({ text: model.newVersionNotice.text, tone: 'info', testid: 'new-version-notice', action: { label: model.newVersionNotice.action, testid: 'new-version-view', onClick: function () { run(ctx, model.newVersionNotice.command); } }, onDismiss: function () { ctx.dispatch('dismissNewVersionNotice', {}); } }));
-    if (model.openFlowUnavailable) items.push(molecules.notice({ text: model.openFlowUnavailable, tone: 'info', testid: 'sheet-no-flow' }));
+    if (model.openFlowUnavailable) items.push(molecules.notice({ attrs: { id: 'sheet-no-flow-notice' }, text: model.openFlowUnavailable, tone: 'info', testid: 'sheet-no-flow' }));
     return items.length ? h('div', { class: 'twin-notices' }, items) : null;
   }
 
@@ -26174,7 +26376,7 @@ Primus.module('features/web/flow', function (require) {
   var G = {
     nodeMinWidth: 176, nodeMaxWidth: 240, nodeMinHeight: 56, gap: 24,
     decision: 112, event: 56, laneHeight: 168, laneLabel: 144,
-    columnGap: 64, padX: 32, padY: 24, actorHeight: 128, frameHead: 32, framePad: 12,
+    columnGap: 64, padX: 32, padY: 24, actorHeight: 128, frameHead: 60, framePad: 12,
     loopGap: 36, loopStep: 26, bottomPad: 40
   };
 
@@ -26919,9 +27121,10 @@ Primus.module('features/web/flow', function (require) {
     return true;
   }
 
-  function canvasHeight(stageEl) {
-    var hgt = stageEl && stageEl.clientHeight ? stageEl.clientHeight : 0;
-    return Math.max(360, Math.round(hgt * 0.68));
+  /* The canvas fills the visible part of the scrollable body (panels follow below it). */
+  function canvasHeight(stageEl, bodyEl) {
+    var hgt = bodyEl && bodyEl.clientHeight ? bodyEl.clientHeight : (stageEl && stageEl.clientHeight ? Math.round(stageEl.clientHeight * 0.68) : 0);
+    return Math.max(360, hgt - 4);
   }
 
   function renderBody(ctx, inst, model, stageEl) {
@@ -26976,7 +27179,7 @@ Primus.module('features/web/flow', function (require) {
         dom.replace(inst.canvasHost, canvas.el);
         inst.keys.canvas = null;
       }
-      inst.canvasHost.style.height = canvasHeight(stageEl) + 'px';
+      inst.canvasHost.style.height = canvasHeight(stageEl, inst.body) + 'px';
       inst.canvasHost.style.minHeight = '360px';
       var cKey = canvasModelKey(model);
       if (inst.keys.canvas !== cKey) {
@@ -26984,7 +27187,14 @@ Primus.module('features/web/flow', function (require) {
         dom.preserveFocus(inst.root, function () { renderCanvasLayer(ctx, inst, model); });
         if (!inst.fitted && !model.camera && typeof canvas.fit === 'function') {
           inst.fitted = true;
-          try { canvas.fit(); } catch (e) { /* ignore */ }
+          /* design.md: text is never shrunk to make everything fit. Centre the diagram only when it
+           * fits at 100 %; otherwise open at 100 % on the start event and let the user pan. */
+          try {
+            var size = canvas.getSize ? canvas.getSize() : null;
+            var vp = canvas.viewportSize ? canvas.viewportSize() : null;
+            var fits = size && vp && size.width + 48 <= vp.width && size.height + 48 <= vp.height;
+            if (fits) canvas.fit(); else if (typeof canvas.reset === 'function') canvas.reset();
+          } catch (e) { /* ignore */ }
         }
       }
       if (typeof canvas.syncCamera === 'function') canvas.syncCamera(ctx.state || ctx.store.getState());
@@ -27198,8 +27408,10 @@ Primus.module('features/web/instruction', function (require) {
       }
     });
     var main = sections.slice(0, 6), aside = sections.slice(6);
+    /* The lead paragraph is omitted when a section (e.g. «Qué hacer») already carries the same text. */
+    var lead = !!model.description && !model.sections.some(function (s) { return s.kind === 'text' && (s.text || '').trim() === model.description.trim(); });
     return h('div', { class: 'twin-stage__body twin-stage__body--scroll' }, h('div', { class: 'twin-sheet', 'data-testid': 'instruction' },
-      h('div', { class: 'twin-sheet__main' }, model.description ? h('p', { class: 'text-lg', 'data-testid': 'instruction-description' }, model.description) : null, main),
+      h('div', { class: 'twin-sheet__main' }, lead ? h('p', { class: 'text-lg', 'data-testid': 'instruction-description' }, model.description) : null, main),
       h('div', { class: 'twin-sheet__aside' }, aside)));
   }
 
@@ -27742,8 +27954,8 @@ Primus.module('features/web/incidents', function (require) {
         control = atoms.select({ id: inputId, value: value, options: model.statusOptions || [], testid: inputId, focusKey: focusKey, invalid: !!error,
           onChange: function (v) { updateValue(id, v); } });
       } else if (id === 'dueDate') {
-        control = atoms.input({ id: inputId, type: 'date', value: value, testid: inputId, focusKey: focusKey, invalid: !!error,
-          placeholder: spec.format || null, pattern: '\\d{4}-\\d{2}-\\d{2}', inputmode: 'numeric',
+        control = atoms.input({ id: inputId, type: 'text', value: value, testid: inputId, focusKey: focusKey, invalid: !!error,
+          placeholder: spec.format || 'YYYY-MM-DD', pattern: '\\d{4}-\\d{2}-\\d{2}', inputmode: 'numeric', maxlength: 10,
           onInput: function (v) { updateValue(id, v); } });
       } else {
         control = atoms.input({ id: inputId, value: value, testid: inputId, focusKey: focusKey, invalid: !!error,
@@ -28467,7 +28679,7 @@ Primus.module('features/web/security', function (require) {
     /* ---------- nav ---------- */
 
     function buildNav(model) {
-      var tabs = molecules.tabs({ id: 'security-views', mode: 'local', selectedId: model.view, ariaLabel: model.title || uiText('usersAndAccess'),
+      var tabs = molecules.tabs({ id: 'security-views', mode: 'local', singlePanel: true, selectedId: model.view, ariaLabel: model.title || uiText('usersAndAccess'),
         tabs: model.views.map(function (v) { return { id: v.id, label: v.label, testid: 'security-view-' + v.id, focusKey: 'security:view:' + v.id }; }),
         onSelect: function (id) { dispatch('setSecurityView', { view: id }); } });
       inst.panelAttrs = tabs.panelAttrs;
@@ -28858,7 +29070,7 @@ Primus.module('features/web', function (require) {
           dom.clear(tabsEl);
           tabsEl.hidden = !show;
           if (!show) return;
-          var tabs = molecules.tabs({ id: 'process-views', mode: 'local', selectedId: context.processView, ariaLabel: t('process', 'Proceso') + ' · ' + (context.process ? context.process.name : ''),
+          var tabs = molecules.tabs({ id: 'process-views', mode: 'local', singlePanel: true, selectedId: context.processView, ariaLabel: t('process', 'Proceso') + ' · ' + (context.process ? context.process.name : ''),
             tabs: context.processViews.map(function (v) { return { id: v.id, label: v.label, testid: v.testid, focusKey: 'process-view:' + v.id, disabled: !v.enabled }; }),
             onSelect: function (id) { var v = context.processViews.filter(function (x) { return x.id === id; })[0]; if (v && v.enabled && !v.selected) dispatch('setProcessView', { view: id }); } });
           Array.prototype.forEach.call(tabs.el.querySelectorAll('[role="tab"]'), function (tab) {
@@ -28873,6 +29085,27 @@ Primus.module('features/web', function (require) {
       /* ---------- stage routing ---------- */
 
       var activeStage = null;
+      var panelAttrsKey = null;
+      /* The visible host doubles as the tabpanel of the selected process-view tab (one panel at a time). */
+      function syncPanelAttrs(state, id) {
+        var web = state.web;
+        var show = web.module !== 'security' && web.level === 'operational' && !!web.processId;
+        var key = show ? id + ':' + web.processView : null;
+        if (key === panelAttrsKey) return;
+        panelAttrsKey = key;
+        STAGES.forEach(function (s) {
+          var host = hosts[s];
+          if (show && s === id) {
+            host.id = 'process-views-panel-' + web.processView;
+            host.setAttribute('role', 'tabpanel');
+            host.setAttribute('aria-labelledby', 'process-views-tab-' + web.processView);
+          } else {
+            host.removeAttribute('id');
+            host.removeAttribute('role');
+            host.removeAttribute('aria-labelledby');
+          }
+        });
+      }
       function renderStage(state) {
         var id = stageFor(state.web);
         if (activeStage !== id) {
@@ -28880,6 +29113,7 @@ Primus.module('features/web', function (require) {
           activeStage = id;
           stageBody.setAttribute('data-active-stage', id);
         }
+        syncPanelAttrs(state, id);
         var mod = null;
         try { mod = Primus.has('features/web/' + id) ? Primus.require('features/web/' + id) : null; } catch (e) { console.error('features/web: stage ' + id + ' failed to load', e); mod = null; }
         if (!mod || typeof mod.render !== 'function') {
@@ -28996,6 +29230,7 @@ Primus.module('features/desktop/scenario-ui', function (require) {
     var dispatch = dispatcher(ctx);
     var lastKey = null;
     var confirmOpen = false;
+    var errorModesOpen = false;
     var el = h('div', { class: 'studio-playback cluster cluster--sm', role: 'group', 'aria-label': ui('playback', 'Reproducción del escenario'), 'data-testid': 'scenario-controls' });
 
     function statusLabel(pb) {
@@ -29029,7 +29264,8 @@ Primus.module('features/desktop/scenario-ui', function (require) {
       items.push(atoms.button({ label: pb.labels.restart, variant: 'ghost', size: 'sm', icon: 'reset', testid: 'scenario-restart', focusKey: 'playback:restart', disabled: !pb.canRestart, onClick: function () { restart(model); } }));
       if (pb.errorModes.length && !model.readOnly) {
         var selected = pb.errorModes.filter(function (m) { return m.selected; })[0] || null;
-        items.push(molecules.disclosure({ id: 'error-modes', testid: 'error-modes', summary: (pb.errorModesLabel || ui('errorModes', 'Probar recuperación')) + (selected ? ' · ' + selected.label : ''), open: !!selected,
+        items.push(molecules.disclosure({ id: 'error-modes', testid: 'error-modes', summary: (pb.errorModesLabel || ui('errorModes', 'Probar recuperación')) + (selected ? ' · ' + selected.label : ''), open: !!selected || !!errorModesOpen,
+          onToggle: function (next) { errorModesOpen = next; dom.preserveFocus(el, function () { render(model); }); },
           content: h('div', { class: 'cluster cluster--sm' }, pb.errorModes.map(function (m) {
             return atoms.button({ label: m.label, variant: 'ghost', size: 'sm', icon: 'warning', pressed: !!m.selected, testid: 'error-mode-' + m.id, focusKey: 'playback:error-mode:' + m.id,
               onClick: function () { var r = dispatch('setErrorMode', { sessionId: model.sessionId, errorMode: m.selected ? null : m.id }); if (r && r.ok === false && r.error) dom.announce(r.error.message || ''); } });

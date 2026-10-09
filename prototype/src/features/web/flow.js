@@ -15,7 +15,7 @@ Primus.module('features/web/flow', function (require) {
   var G = {
     nodeMinWidth: 176, nodeMaxWidth: 240, nodeMinHeight: 56, gap: 24,
     decision: 112, event: 56, laneHeight: 168, laneLabel: 144,
-    columnGap: 64, padX: 32, padY: 24, actorHeight: 128, frameHead: 32, framePad: 12,
+    columnGap: 64, padX: 32, padY: 24, actorHeight: 128, frameHead: 60, framePad: 12,
     loopGap: 36, loopStep: 26, bottomPad: 40
   };
 
@@ -760,9 +760,10 @@ Primus.module('features/web/flow', function (require) {
     return true;
   }
 
-  function canvasHeight(stageEl) {
-    var hgt = stageEl && stageEl.clientHeight ? stageEl.clientHeight : 0;
-    return Math.max(360, Math.round(hgt * 0.68));
+  /* The canvas fills the visible part of the scrollable body (panels follow below it). */
+  function canvasHeight(stageEl, bodyEl) {
+    var hgt = bodyEl && bodyEl.clientHeight ? bodyEl.clientHeight : (stageEl && stageEl.clientHeight ? Math.round(stageEl.clientHeight * 0.68) : 0);
+    return Math.max(360, hgt - 4);
   }
 
   function renderBody(ctx, inst, model, stageEl) {
@@ -817,7 +818,7 @@ Primus.module('features/web/flow', function (require) {
         dom.replace(inst.canvasHost, canvas.el);
         inst.keys.canvas = null;
       }
-      inst.canvasHost.style.height = canvasHeight(stageEl) + 'px';
+      inst.canvasHost.style.height = canvasHeight(stageEl, inst.body) + 'px';
       inst.canvasHost.style.minHeight = '360px';
       var cKey = canvasModelKey(model);
       if (inst.keys.canvas !== cKey) {
@@ -825,7 +826,14 @@ Primus.module('features/web/flow', function (require) {
         dom.preserveFocus(inst.root, function () { renderCanvasLayer(ctx, inst, model); });
         if (!inst.fitted && !model.camera && typeof canvas.fit === 'function') {
           inst.fitted = true;
-          try { canvas.fit(); } catch (e) { /* ignore */ }
+          /* design.md: text is never shrunk to make everything fit. Centre the diagram only when it
+           * fits at 100 %; otherwise open at 100 % on the start event and let the user pan. */
+          try {
+            var size = canvas.getSize ? canvas.getSize() : null;
+            var vp = canvas.viewportSize ? canvas.viewportSize() : null;
+            var fits = size && vp && size.width + 48 <= vp.width && size.height + 48 <= vp.height;
+            if (fits) canvas.fit(); else if (typeof canvas.reset === 'function') canvas.reset();
+          } catch (e) { /* ignore */ }
         }
       }
       if (typeof canvas.syncCamera === 'function') canvas.syncCamera(ctx.state || ctx.store.getState());
