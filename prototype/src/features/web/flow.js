@@ -635,8 +635,11 @@ Primus.module('features/web/flow', function (require) {
 
   function headerRegion(ctx, model) {
     var h = ctx.dom.h;
-    var title = model.flow ? model.flow.title : model.explainer;
-    var subtitle = model.flow ? model.flow.subtitle : (model.version ? model.version.label : null);
+    /* Demo versions inherit the base flow (V-ASIS-02 ← FLOW-TOBE2): their heading is the version
+       itself, never the base flow's «TO-BE 2» title (spec DESK-03: «Ver nuevo AS-IS» opens V-ASIS-02). */
+    var demoVersion = !!(model.version && model.version.isDemo);
+    var title = demoVersion ? model.explainer : (model.flow ? model.flow.title : model.explainer);
+    var subtitle = demoVersion ? model.version.label : (model.flow ? model.flow.subtitle : (model.version ? model.version.label : null));
     var badges = [];
     if (model.adoptionBadge) badges.push(ctx.atoms.badge({ label: model.adoptionBadge.label, tone: model.adoptionBadge.tone || 'demo' }));
     if (model.derivedNote) badges.push(ctx.atoms.badge({ label: model.derivedNote, tone: 'proposed' }));

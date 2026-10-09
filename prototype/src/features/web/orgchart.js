@@ -272,7 +272,10 @@ Primus.module('features/web/orgchart', function (require) {
     var totalWidth = 0;
     cols.forEach(function (c, i) { c.x = PAD + totalWidth; totalWidth += c.width + (i < cols.length - 1 ? GAP_X : 0); });
     var contentWidth = Math.max(totalWidth, 2 * DEFAULT_W);
-    var centerX = PAD + contentWidth / 2;
+    /* The organization block is centred over the visible width (not over the whole chart), so
+       the first view at 100 % shows the root and the first columns without panning. */
+    var vpWidth = cache.canvas && typeof cache.canvas.viewportSize === 'function' ? cache.canvas.viewportSize().width : 0;
+    var centerX = PAD + Math.min(contentWidth, Math.max(vpWidth - 2 * PAD, 2 * DEFAULT_W)) / 2;
 
     // Top block: organization, root position, its occupants.
     var y = PAD;

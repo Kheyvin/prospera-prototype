@@ -23,7 +23,7 @@ Primus.module('core/selectors', function (require) {
     processes: 'Procesos', activities: 'Actividades', roles: 'Roles', versions: 'Versiones', summary: 'Resumen',
     mission: 'Misión', vision: 'Visión', decisionCondition: 'Condición', decisionOutcomes: 'Salidas', relatedFlow: 'Flujo relacionado',
     executor: 'Ejecutor', whatToDo: 'Qué hacer', control: 'Control', output: 'Resultado esperado', instruction: 'Instrucción',
-    area: 'Área', position: 'Puesto', role: 'Rol', process: 'Proceso', version: 'Versión', macroprocess: 'Macroproceso',
+    area: 'Área', position: 'Puesto', role: 'Rol', process: 'Proceso', version: 'Versión', macroprocess: 'Macroproceso', externals: 'Servicios externos',
     confidenceConfirmed: 'Confirmado', confidenceInferred: 'Inferido', confidenceUnverified: 'No verificado',
     modelModifiedAt: 'Última modificación del archivo de modelado', sourceNodes: 'Nodos del modelo fuente',
     derivedFromProposal: 'Derivada de una propuesta', variantNote: 'Nota de la variante', externalExchange: 'Intercambio con el cliente',
@@ -619,7 +619,7 @@ Primus.module('core/selectors', function (require) {
         counts = ctx.graph.counts(new Set(ctx.graph.areaTraversal(entity.id).entityIds.filter(function (id) { return visible(ctx, id); })));
         facts.push(fact(ui(ctx, 'positions'), uiFmt(ctx, 'countPositions', { n: counts.positions })));
         facts.push(fact(ui(ctx, 'people'), uiFmt(ctx, 'countPeople', { n: counts.people })));
-        if (counts.externals) facts.push(fact(ui(ctx, 'countExternals'), uiFmt(ctx, 'countExternals', { n: counts.externals })));
+        if (counts.externals) facts.push(fact(ui(ctx, 'externals'), uiFmt(ctx, 'countExternals', { n: counts.externals })));
         if (a.supportLabel) facts.push(fact(ui(ctx, 'status'), a.supportLabel));
         var ap = ctx.graph.areaProcesses(entity.id);
         var known = ap.owned.concat(ap.participating).filter(function (p) { return visible(ctx, p.id); });

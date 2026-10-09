@@ -515,6 +515,9 @@ Primus.module('core/commands/web', function (require) {
     if (patch.level === 'tactical' && !patch.areaId) {
       patch.areaId = web.areaId || processAreaId(ctx, patch.processId || web.processId);
     }
+    if (patch.level === 'operational' && !patch.areaId) {
+      patch.areaId = processAreaId(ctx, patch.processId || web.processId) || web.areaId || null;
+    }
 
     patch.representation = t.representation || (patch.relationsRootId ? 'relations' : web.representation);
     if (representations(pack).indexOf(patch.representation) === -1) return { ok: false, reason: 'invalid-representation' };
