@@ -45,7 +45,44 @@ Guion ejecutado con Playwright sobre el HTML copiado a un directorio sin fuentes
 
 Capturas en `docs/screenshots/` (nombres según el paso del guion).
 
-## 3. Limitaciones de esta verificación
+## 3. Auditoría de frontend del HTML generado (tres viewports)
+
+Guion automático sobre `dist/prospera-prototype.html` en Chromium headless a 1440×900, 1024×768 y
+390×844: 26 pasos por viewport (todos los niveles del gemelo, inspector, flujo, instrucción,
+comparar, histórico, fuentes, incidencias, proyectos, seguridad, estudio del analista, acerca de,
+reinicio). En cada paso se comprueban ids duplicados, controles sin nombre accesible, referencias
+`aria-controls` / `aria-labelledby` / `aria-describedby` a ids inexistentes, desbordamiento
+horizontal, texto recortado, objetivos menores de 24 px, solapamiento de nodos en el lienzo,
+desplazamiento residual del lienzo, altura de cabecera y barra de contexto, duplicación del
+texto de la instrucción y mensajes de consola.
+
+Resultado de la corrida final: **0 errores ni avisos de consola, 0 ids duplicados, 0 controles
+sin nombre, 0 referencias ARIA rotas, 0 desbordamientos, 0 nodos solapados, 0 objetivos
+pequeños** en los tres viewports. Las únicas incidencias del guion son esperas del propio
+driver (en anchos < 1280 el fondo transparente del inspector cierra la ficha al primer clic fuera,
+tal como define ux.md, y el guion no reintenta).
+
+Correcciones aplicadas a partir de la auditoría anterior:
+
+| # | Falla | Corrección |
+| --- | --- | --- |
+| 1 | `aria-controls` de pestañas (vistas de proceso, seguridad) y de evidencias apuntaban a ids inexistentes | Pestañas con un solo panel vivo (`singlePanel`): solo la pestaña seleccionada enlaza su panel; el host visible del escenario es ese `tabpanel`; el cuerpo de cada evidencia conserva su id oculto |
+| 2 | Clave cruda `collectivePosition` en el inspector | Fallback «Puesto colectivo» (y «Descripción») en `core/selectors.js` |
+| 3 | Relaciones: nodos solapados y nombres cortados | Los nodos del lienzo se miden a `max-content`; relayout en el siguiente frame si aún no hay medida; etiquetas de grupo sobre cada fila |
+| 4 | Flujo abierto al 50 % con texto ilegible | Apertura al 100 % (solo se centra si cabe); el lienzo ocupa el cuerpo visible del escenario |
+| 5 | Chip de nivel partido letra a letra | `white-space: nowrap` global para el chip y las migas |
+| 6 | Instrucción con la descripción repetida | El párrafo inicial se omite cuando «Qué hacer» lleva el mismo texto |
+| 7 | Fecha de incidencia en formato del navegador | Campo de texto `YYYY-MM-DD` con patrón e `inputmode` numérico |
+| 8 | Diálogo Fuentes con texto pegado | Líneas en bloque: título, nota y fechas separadas |
+| 9 | Ficha PR-08: razón repetida 4 veces y área heredada | Una sola explicación (el aviso «No se proporcionó el detalle…», referenciado por `aria-describedby`); el área de la miga es la del dueño del proceso, nunca la del contexto anterior |
+| 10 | 1024×768: cabecera de 175 px y migas en 3 líneas | Cabecera compacta (sin subtítulo, insignias en línea), migas en una fila desplazable, perfil y búsqueda en la segunda fila; en pantallas cortas se ocultan insignias y notas redundantes |
+| 11 | Flujo TO-BE 2 a 1024: marco T-06 deformado, subtareas minúsculas | Misma medición a `max-content` (punto 3), cabecera de marco más alta, id de subtarea sin cortes; el desplazamiento por foco se convierte en paneo inmediato |
+| 12 | Móvil: lienzo de ~100 px y hoja del inspector | Lienzo de 60vh con el escenario desplazable; la hoja nunca supera la altura del gemelo (su botón de cierre quedaba bajo la tira de pestañas) |
+| 13 | Menú «Probar recuperación» | Disclosure controlado: conserva el estado abierto entre re-renders de la reproducción |
+| 14 | Objetivos táctiles pequeños | El input de la casilla cubre toda la etiqueta; enlaces de rol de carril con altura mínima de control |
+| 15 | Etiqueta «Áreas · 1» tapada por aristas; descripción de área sin etiqueta | Etiquetas sobre las filas con fondo; «Descripción: Sin dato proporcionado». Los toasts «duplicados» no se reproducen: hay un único toast visible más su anuncio `sr-only` para lectores de pantalla |
+
+## 4. Limitaciones de esta verificación
 
 - Firefox y Safari no se probaron (no disponibles en el contenedor); el código no usa APIs
   fuera de ES2020 + DOM estándar, pero la prueba queda pendiente.
