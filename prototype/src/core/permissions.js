@@ -302,8 +302,12 @@ Primus.module('core/permissions', function () {
     function matrixFor(state) {
       var r = role(state);
       var owner = r === 'employee' && isOwner(state);
-      return asArray(demo.accessMatrix).map(function (row) {
-        var column = r === 'employee' ? (owner ? 'owner' : 'employee') : r;
+      var column = r === 'employee' ? (owner ? 'owner' : 'employee') : r;
+      /* Rows that no role may perform («Aprobar como Sponsor»: no existe) are informative only and
+         are left out here; the security view renders the full pack matrix for display. */
+      return asArray(demo.accessMatrix).filter(function (row) {
+        return ['admin', 'manager', 'employee', 'owner'].some(function (c) { return row[c] === true; });
+      }).map(function (row) {
         return { action: row.action, label: row.label, allowed: row[column] === true, note: row.note || (owner && row.ownerNote) || null };
       });
     }

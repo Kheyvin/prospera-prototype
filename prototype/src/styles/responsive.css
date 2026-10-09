@@ -608,3 +608,65 @@
     opacity: 0.8;
   }
 }
+
+/* ── Narrow screens: the studio becomes one scrolling column (ux.md §6: workspace selector,
+   transcript and review stay reachable; nothing overlaps) ─────────────────────────────── */
+@media (max-width: 767px) {
+  .shell-main > [role='tabpanel'].panel--fill:has(> .studio) {
+    height: auto;
+    min-height: 100%;
+    overflow-y: auto;
+  }
+
+  .studio {
+    height: auto;
+    min-height: 100%;
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .studio-main {
+    min-height: 20rem;
+    overflow: hidden;
+  }
+
+  .studio-main__panel {
+    min-height: 12rem;
+  }
+
+  .studio-stream {
+    max-height: 50vh;
+  }
+
+  .studio-side {
+    max-height: none;
+  }
+
+  .studio-playback {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .twin-contextbar__level {
+    white-space: nowrap;
+    margin-left: 0;
+  }
+
+  .studio-roster__title {
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+  }
+
+  .studio-roster__list .workspace-row {
+    min-width: 11rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .studio-roster__title {
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    max-width: 7rem;
+  }
+}

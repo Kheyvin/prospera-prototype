@@ -1583,3 +1583,135 @@
   font-size: var(--text-sm);
   color: var(--text-on-dark-muted);
 }
+
+/* ── Stage hosts (features/web/index.js keeps one host per stage module) ───── */
+.twin-stage__hosts,
+.twin-stage__host:not([hidden]),
+.twin-stage__fill,
+.twin-flow,
+.twin-stage__host > .records,
+.twin-stage__host > .security {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+}
+
+.twin-stage__host > .records,
+.twin-stage__host > .security {
+  overflow-y: auto;
+}
+
+.twin-flow__canvas {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.twin-flow__canvas .canvas {
+  height: 100%;
+}
+
+.twin-flow__panels {
+  padding-top: var(--space-4);
+}
+
+.twin-sheet--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: var(--container-max);
+}
+
+.twin-search-results {
+  grid-column: 1 / -1;
+  padding: var(--space-2) var(--space-4) var(--space-3);
+  border-top: 1px solid var(--color-dark-border);
+}
+
+.twin-search-results__header {
+  margin-bottom: var(--space-2);
+}
+
+.twin-search-results__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  max-height: 14rem;
+  overflow-y: auto;
+}
+
+.twin-contextbar__level {
+  margin-left: auto;
+}
+
+.canvas__label--group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+  padding-right: var(--space-3);
+}
+
+.canvas__label--chip {
+  z-index: 2;
+}
+
+.operations__detail {
+  padding: var(--space-3) var(--space-4);
+}
+
+.studio-tabs__list {
+  display: flex;
+  align-items: center;
+}
+
+.studio-playback {
+  margin-left: auto;
+}
+
+.studio-main__panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.studio-composer__note {
+  padding: 0 var(--space-4);
+}
+
+.scenario-form .field + .field {
+  margin-top: var(--space-2);
+}
+
+.artifact-preview__code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  padding: var(--space-3);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-md);
+  background: var(--color-dark-bg);
+  max-height: 24rem;
+  overflow: auto;
+}
+
+.evidence-item__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  text-align: left;
+  min-height: var(--control-min-target);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+}
+
+.evidence-item__label:hover {
+  background: var(--color-dark-raised);
+}
+
+.evidence-item.is-open {
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-md);
+}

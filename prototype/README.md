@@ -107,7 +107,17 @@ tuvo que elegir. Ninguna añade datos del cliente no autorizados.
 
 ## Pruebas realizadas y verificación de entrega
 
-*(Sección que se completa con los resultados de la verificación; ver `docs/verification.md`.)*
+Resumen (detalle, tabla de recorridos y limitaciones en [`docs/verification.md`](docs/verification.md)):
+
+| Comprobación | Resultado |
+| --- | --- |
+| `npm run validate` | Pack OK (112 entidades, 140 relaciones, 3 versiones, 3 flujos, 16 fuentes) |
+| `npm run build` | 20 checks ok · `dist/prospera-prototype.html` ≈ 1,5 MB (presupuesto 5 MiB) |
+| `npm test` | 96 pruebas (contratos, interacciones, entrega) · 0 fallos |
+| `npm run test:browser` | AT-01 en Chromium headless: apertura `file://` sin red, 0 errores de consola, 0 peticiones |
+| Recorridos JRN-01…12 en Chromium (1440×900, 390×844, 1024×768) | Ejecutados con Playwright; 0 errores de consola; capturas en `docs/screenshots/` |
+
+No se pudo probar en Firefox ni Safari en esta sesión (no disponibles en el entorno).
 
 ## Limitaciones conocidas
 
