@@ -2,8 +2,8 @@
   "clientId": "prospera",
   "schemaVersion": 1,
   "specVersion": "1.0",
-  "sourceRevision": "3504cf163ce8b407f15fd6ee6f31aa1a438049f2",
-  "generatedAt": "2026-10-09T16:28:06.535Z",
+  "sourceRevision": "664ba3c62152b690bc2496a25511b62e6cecc8fd",
+  "generatedAt": "2026-10-09T16:30:12.722Z",
   "inputs": [
     {
       "path": "build/manifest.json",
@@ -43,7 +43,7 @@
     },
     {
       "path": "src/styles/responsive.css",
-      "sha256": "828ed49e8af53b4b6a751777ef94614a43e7315198a2561e02fedd440e080fe9"
+      "sha256": "444760724164360b358d6f28a57a4b1e3c9633c90228b1f730f724caea376cec"
     },
     {
       "path": "src/styles/print.css",
@@ -239,7 +239,7 @@
     },
     {
       "path": "src/features/web/flow.js",
-      "sha256": "9fc732acc16cc6b085f36a33243cab6280d25e8332eae474349852e229f3ce7f"
+      "sha256": "0a70c2bd67a6da59c9027b38064598b4cb08a43f9832feb28b34caa367fa1299"
     },
     {
       "path": "src/features/web/instruction.js",
@@ -417,9 +417,9 @@
     {
       "id": "html-size",
       "ok": true,
-      "detail": "1,550,578 bytes of 5,242,880"
+      "detail": "1,551,238 bytes of 5,242,880"
     }
   ],
-  "bytes": 1550578,
-  "sha256": "df7448785e05a358fe51c2e22adf49ff533864ddd78cafca6679e5f47df6bb72"
+  "bytes": 1551238,
+  "sha256": "f288dcd2788d6e9062d14f0be7101fd0742159ab8408d4b22985b792333e2eb7"
 }

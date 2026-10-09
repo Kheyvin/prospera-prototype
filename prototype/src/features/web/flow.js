@@ -760,9 +760,10 @@ Primus.module('features/web/flow', function (require) {
     return true;
   }
 
-  function canvasHeight(stageEl) {
-    var hgt = stageEl && stageEl.clientHeight ? stageEl.clientHeight : 0;
-    return Math.max(360, Math.round(hgt * 0.68));
+  /* The canvas fills the visible part of the scrollable body (panels follow below it). */
+  function canvasHeight(stageEl, bodyEl) {
+    var hgt = bodyEl && bodyEl.clientHeight ? bodyEl.clientHeight : (stageEl && stageEl.clientHeight ? Math.round(stageEl.clientHeight * 0.68) : 0);
+    return Math.max(360, hgt - 4);
   }
 
   function renderBody(ctx, inst, model, stageEl) {
@@ -817,7 +818,7 @@ Primus.module('features/web/flow', function (require) {
         dom.replace(inst.canvasHost, canvas.el);
         inst.keys.canvas = null;
       }
-      inst.canvasHost.style.height = canvasHeight(stageEl) + 'px';
+      inst.canvasHost.style.height = canvasHeight(stageEl, inst.body) + 'px';
       inst.canvasHost.style.minHeight = '360px';
       var cKey = canvasModelKey(model);
       if (inst.keys.canvas !== cKey) {

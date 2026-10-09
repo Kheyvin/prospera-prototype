@@ -6355,6 +6355,27 @@ b {
   }
 }
 
+/* ── Medium width on a short screen (e.g. 1024×768): trim redundant chrome so the
+ * diagram keeps a usable height without scrolling the stage first ── */
+@media (max-width: 1279px) and (max-height: 820px) {
+  .shell-header__badges {
+    display: none;
+  }
+
+  .twin-stage__note,
+  .twin-stage__subtitle + .twin-stage__subtitle {
+    display: none;
+  }
+
+  .twin-versionbar {
+    padding-block: var(--space-1);
+  }
+
+  .twin-stage__header {
+    padding-block: var(--space-2);
+  }
+}
+
 /* ==== src/styles/print.css ==== */
 /* styles/print.css — the active tab prints readable, black on white; chrome, rails,
  * toolbars, toasts and dialogs are hidden; canvases and tables expand. */
@@ -27087,9 +27108,10 @@ Primus.module('features/web/flow', function (require) {
     return true;
   }
 
-  function canvasHeight(stageEl) {
-    var hgt = stageEl && stageEl.clientHeight ? stageEl.clientHeight : 0;
-    return Math.max(360, Math.round(hgt * 0.68));
+  /* The canvas fills the visible part of the scrollable body (panels follow below it). */
+  function canvasHeight(stageEl, bodyEl) {
+    var hgt = bodyEl && bodyEl.clientHeight ? bodyEl.clientHeight : (stageEl && stageEl.clientHeight ? Math.round(stageEl.clientHeight * 0.68) : 0);
+    return Math.max(360, hgt - 4);
   }
 
   function renderBody(ctx, inst, model, stageEl) {
@@ -27144,7 +27166,7 @@ Primus.module('features/web/flow', function (require) {
         dom.replace(inst.canvasHost, canvas.el);
         inst.keys.canvas = null;
       }
-      inst.canvasHost.style.height = canvasHeight(stageEl) + 'px';
+      inst.canvasHost.style.height = canvasHeight(stageEl, inst.body) + 'px';
       inst.canvasHost.style.minHeight = '360px';
       var cKey = canvasModelKey(model);
       if (inst.keys.canvas !== cKey) {
